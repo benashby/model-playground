@@ -3,6 +3,11 @@
 One directory per model I have taken apart: the write-up, the probes that
 produced its numbers, and their raw output.
 
+The models have nothing in common except that I wanted to understand them. One
+of them is driven by the speech harness in `src/playground/`; the others are
+driven by their own probes and never touch it. They share the standard below
+and no machinery.
+
 These are research notes, and nothing here is a script to run or documentation
 for a product. They record what was asked, what was measured, what it turned
 out to mean, and which plausible-looking approaches were wrong. A finding is
@@ -58,7 +63,8 @@ Notes are written for someone reading them in the GitHub web UI. Before a note
 counts as finished, the humanizer strips AI writing habits from its prose, and
 `check_rewrite.py` then fails the rewrite if it changed any code, link, tag or
 number. A note much longer than ~400 lines is split into articles under
-`notes/`, with the model's `README.md` as the hub. The procedure is in
+`notes/`, with the model's `README.md` as the hub; `nemotron-voicechat-11b/` is
+the example. The procedure is in
 `.claude/skills/writing-notes/SKILL.md`.
 
 See `.claude/skills/adding-a-model/SKILL.md` for the onboarding process itself.
@@ -77,6 +83,21 @@ an error, and all of them produced clean-looking numbers that measured nothing.
 
 An evaluation instrument that fabricates a finding costs more than one that
 crashes, so the notes catalogue the specific ways this kind of tool lies.
+
+## The notes
+
+| Note | Model | What it is |
+|---|---|---|
+| [`nemotron-voicechat-11b/`](nemotron-voicechat-11b/README.md) | NemotronLabs VoiceChat 11B | Full-duplex speech-to-speech. The one model the harness drives. |
+
+## What each model is actually for
+
+The short version, so you can skip to the right note.
+
+| If you need… | Model | What to expect |
+|---|---|---|
+| A conversation, end to end, in speech | VoiceChat 11B | The only full-duplex model here. Real barge-in. CUDA only; 73 GB at stock settings, and it also served in 44.7 GB with two memory settings lowered. |
+| Speaker labels / diarisation | none of these | No model here does it. |
 
 ## How an investigation is structured
 

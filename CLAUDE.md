@@ -16,12 +16,16 @@ what it is and why it behaves the way it does.
 - **Not connected to any employer, job, client or commercial project.** This is
   a personal project, done for curiosity. Nothing here is work output, nothing
   here reflects a workplace, and no scenario in it describes a real business.
+  `scenarios/support_desk.py` is a support desk for the same reason a tutorial
+  is a to-do app: it gives tools an obvious reason to exist. Nothing about the
+  measurement is domain-specific, and nothing about it should be written as
+  though it were.
 - **Never name a company or product this work may inform**, in files, commit
   messages, PR text, workflow names or result logs. A technique such a product
   might use is fine, described generically (a media router's tap, a call
   centre's audio); the name is not.
-- **Not general.** Do not write code or docs that imply a generality this repo
-  does not have.
+- **Not general.** See *Current state* below. Do not write code or docs that
+  imply a generality this repo does not have.
 
 ## The governing rule
 
@@ -67,10 +71,98 @@ pushing.
 | `models/<slug>/probes/` | the code that produced every number in that note — committed, re-runnable |
 | `models/<slug>/results/` | raw probe output, committed as evidence |
 | `models/README.md` | the rubric every note is held to |
+| `src/playground/` | shared instrument library (below) |
+| `scenarios/*.py` | agent specs: instructions + tools, each exporting `SPEC` |
+| `logs/*.jsonl` | scratch run logs — gitignored; promote to `results/` to keep |
 
 **Probe output is committed, so probe output is public.** Never print a
 hostname or address from a probe; take it from `PLAYGROUND_HOST` and redact it
 in anything written to `results/`.
+
+### The instrument library
+
+Currently specific to the speech-to-speech work; other models are driven by
+their own probes and need none of it.
+
+| Module | Owns | Model-specific? |
+|---|---|---|
+| `protocol.py` | wire events, `ToolCall` parsing, rate/chunk constants | **yes** — the only adapter |
+| `client.py` | `DuplexSession`: concurrent send + receive, tool dispatch, barge-in | mostly no |
+| `audio.py` | load, resample, channel split, wall-clock pacing | no |
+| `tools.py` | `@registry.tool`, schema export, latency injection | no |
+| `policy.py` | barge-in disposition — the decision under study, not plumbing | no |
+| `live.py` | microphone client via `pw-record`/`pw-play` | no |
+
+**The containment rule:** everything backend-specific lives in `protocol.py`.
+If you reach for a backend detail in `client.py`, `tools.py`, a scenario, or
+`policy.py`, that is the signal to extract an adapter instead — see
+`.claude/skills/adding-a-model/SKILL.md`.
+
+## Commands
+
+```bash
+uv sync                    # resolve deps into .venv
+
+# drive a recorded conversation
+playground scenarios/nvidia_demo.py --audio audio/tool_call.wav
+
+# talk to it with a microphone (HEADPHONES REQUIRED — see below)
+python -m playground.live scenarios/nvidia_demo.py
+
+ffmpeg -i in.wav -ar 24000 -ac 1 out.wav   # correct pre-conversion
+jq -c 'select(.kind|startswith("tool"))' logs/session.jsonl
+```
+
+Host comes from the **`PLAYGROUND_HOST` / `PLAYGROUND_PORT`** environment
+variables, or `--host`. No endpoint is hardcoded: this repo is public and an
+address does not belong in it.
+
+## Current state — read this before assuming generality
+
+One model investigated so far, and the harness drives it:
+
+- **NemotronLabs VoiceChat 11B** (speech-to-speech), served by NVIDIA's NIM
+  container on a rented 2× H100 80GB (NVLink) cloud node, over the OpenAI
+  Realtime WebSocket dialect at `/v1/realtime`.
+
+There is **no multi-model abstraction** — no adapter registry, no host
+registry, no protocol dispatch. `protocol.py` is a single module, not a
+package. Adding a second *speech* model is the moment to build that seam.
+
+## Invariants
+
+These govern the speech harness specifically.
+
+- **Pace at wall clock, with absolute monotonic deadlines.** Never
+  `sleep(chunk_ms)` in a loop — it accumulates send cost and drifts the stream
+  behind real time, making a punctual model look late.
+- **Never `await` a tool inside the receive loop.** Dispatch with
+  `create_task`. Blocking the receiver stops draining agent audio, which
+  manufactures silence that never happened.
+- **Save artifacts before cleanup.** A group SIGTERM reaps child processes
+  first; a `terminate()` that raises then escapes the `finally` and destroys
+  the run's only record.
+- **Never swallow subprocess stderr.** A `DEVNULL` here turned a one-line
+  audio-flag error into a multi-step misdiagnosis of the model.
+- **One speaker per channel.** Downmixing a two-party recording feeds the model
+  both halves of its own conversation.
+- **`--speed != 1.0` invalidates every latency number.** It exists to check
+  plumbing.
+
+## Environment traps
+
+- **Headphones are mandatory** for `playground.live`. The mic otherwise captures
+  the agent's own voice, which a full-duplex model hears as a barge-in and talks
+  over, escalating until killed.
+- **`pw-play` needs `--raw`, not `--container raw`.** `pw-record` accepts both,
+  so capture works while playback silently fails.
+- **`ssh -n host 'bash -s' <<EOF` runs an empty script** — `-n` redirects stdin
+  from `/dev/null`. Exit 0, no output, looks like success.
+- **`pgrep -f "<string>"` matches its own wrapper process**, so a poll loop can
+  report work that finished. **`pkill -f "<string>"` is worse:** if the string
+  appears anywhere in the command that runs it, including later in the same
+  shell line, it kills that shell. Kill by PID from `ps`, or with a pattern
+  like `"[r]un_matrix"` that cannot match itself.
 
 ## Deeper reference — invoke as needed
 
@@ -81,6 +173,9 @@ Opt-in skills in `.claude/skills/`, not loaded by default:
 | `adding-a-model` | any model | **onboarding any new model, backend, or protocol** — start here, not in the code |
 | `evaluating` | any model | designing a measurement, writing a scenario, analysing results, or judging whether a finding is trustworthy |
 | `model-hosts` | any model | choosing or provisioning a host; CUDA vs ROCm; local vs remote; VRAM budgeting |
+| `realtime-protocol` | VoiceChat only | touching `protocol.py`, debugging events, tool-call plumbing, or the wire format |
+| `harness-internals` | VoiceChat only | changing `client.py`/`audio.py`/`live.py`, or adding a capability to the session loop |
+| `audio-fixtures` | speech models | sourcing test audio, channel/format questions, corpus licensing |
 | `writing-notes` | any note | **writing or editing any human-facing markdown**: the humanizer requirement, what a rewrite must never change, splitting long notes |
 
 Nothing in this repository should ever hardcode a hostname, address, cloud

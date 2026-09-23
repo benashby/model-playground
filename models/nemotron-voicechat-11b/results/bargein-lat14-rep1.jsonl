@@ -1,0 +1,28 @@
+{"t": 0.0591, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.0592, "kind": "unhandled", "type": "session.created"}
+{"t": 0.0594, "kind": "caller.audio.first_chunk"}
+{"t": 0.0869, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.7133, "kind": "unhandled", "type": "response.created"}
+{"t": 0.7134, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.7134, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 0.9762, "kind": "agent.said", "text": ""}
+{"t": 2.3973, "kind": "caller.speech_started", "pending": []}
+{"t": 2.3974, "kind": "caller.said", "text": "o"}
+{"t": 2.3974, "kind": "caller.speech_stopped"}
+{"t": 2.3974, "kind": "agent.audio.first_delta"}
+{"t": 5.2904, "kind": "agent.said", "text": "Hi there! How can I help you today?"}
+{"t": 8.1673, "kind": "caller.speech_started", "pending": []}
+{"t": 11.3656, "kind": "tool.call", "name": "generate_random_number", "call_id": "9b36f5d9-6b5b-4a15-a5f8-958d3355b7db", "args": {"min": 1, "max": 50}}
+{"t": 14.0803, "kind": "caller.said", "text": "can you generate a random number between one and fifty?"}
+{"t": 14.0803, "kind": "caller.speech_stopped"}
+{"t": 14.0803, "kind": "agent.audio.first_delta"}
+{"t": 20.1679, "kind": "caller.speech_started", "pending": ["9b36f5d9-6b5b-4a15-a5f8-958d3355b7db"]}
+{"t": 20.1679, "kind": "barge_in.decision", "call_id": "9b36f5d9-6b5b-4a15-a5f8-958d3355b7db", "tool": "generate_random_number", "elapsed": 8.8022, "decision": "cancel", "heard": ""}
+{"t": 25.3677, "kind": "tool.completed_after_resolution", "call_id": "9b36f5d9-6b5b-4a15-a5f8-958d3355b7db", "duration": 14.0019, "disposition": "cancelled"}
+{"t": 42.2417, "kind": "tool.call", "name": "convert_currency", "call_id": "1c46273d-5c28-4dc4-87a0-824a27a62645", "args": {"amount": 100, "from_currency": "USD", "to_currency": "EUR"}}
+{"t": 56.2424, "kind": "tool.result", "call_id": "1c46273d-5c28-4dc4-87a0-824a27a62645", "duration": 14.0005}
+{"t": 58.4067, "kind": "tool.call", "name": "get_news_headlines", "call_id": "7c098f01-8631-43b1-a13e-a75a1ce3c7d4", "args": {"category": "business", "country": "France"}}
+{"t": 72.4079, "kind": "tool.result", "call_id": "7c098f01-8631-43b1-a13e-a75a1ce3c7d4", "duration": 14.001}
+{"t": 74.5586, "kind": "tool.call", "name": "get_news_headlines", "call_id": "f2789f31-18c3-45d2-9b43-da9d3d5d6c1c", "args": {"category": "sports", "country": "France"}}
+{"t": 84.5394, "kind": "caller.audio.exhausted", "linger_s": 22.0}
+{"t": 88.5605, "kind": "tool.result", "call_id": "f2789f31-18c3-45d2-9b43-da9d3d5d6c1c", "duration": 14.0018}

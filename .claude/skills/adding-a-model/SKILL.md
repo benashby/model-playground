@@ -13,6 +13,17 @@ that produced its numbers, and their committed output. Most models need no
 harness at all — a text LLM or an ASR checkpoint is driven by its own probe.
 The standard the note is held to is in `models/README.md`.
 
+## Current reality
+
+One model is written up, and it is driven by the speech harness.
+That one has **one adapter**: `src/playground/protocol.py`, a single module
+hardcoded to the OpenAI-Realtime dialect that NVIDIA's NIM container speaks.
+There is no registry, no dispatch, no `Backend` base class.
+
+That is correct for one speech model and wrong for two. This skill describes
+the classification work that is always required, and — if the new model turns
+out to be a second *speech* model — the refactor it should trigger.
+
 ## Step 1 — classify before coding
 
 Answer all five. They determine what the investigation costs, and how much

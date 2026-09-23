@@ -1,0 +1,43 @@
+{"t": 0.0576, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.0577, "kind": "unhandled", "type": "session.created"}
+{"t": 0.0579, "kind": "caller.audio.first_chunk"}
+{"t": 0.0874, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.72, "kind": "unhandled", "type": "response.created"}
+{"t": 0.72, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.72, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 0.983, "kind": "agent.said", "text": ""}
+{"t": 2.3987, "kind": "caller.speech_started", "pending": []}
+{"t": 2.3987, "kind": "caller.said", "text": "o"}
+{"t": 2.3988, "kind": "caller.speech_stopped"}
+{"t": 2.3988, "kind": "agent.audio.first_delta"}
+{"t": 5.2831, "kind": "agent.said", "text": "Hi there! How can I help you today?"}
+{"t": 8.1574, "kind": "caller.speech_started", "pending": []}
+{"t": 11.3584, "kind": "tool.call", "name": "generate_random_number", "call_id": "fdbec640-46f9-459a-811e-3bb53a8ad8df", "args": {"min": 1, "max": 50}}
+{"t": 14.085, "kind": "caller.said", "text": "can you generate a random number between one and fifty?"}
+{"t": 14.0851, "kind": "caller.speech_stopped"}
+{"t": 14.0851, "kind": "agent.audio.first_delta"}
+{"t": 19.3591, "kind": "tool.result", "call_id": "fdbec640-46f9-459a-811e-3bb53a8ad8df", "duration": 8.0005}
+{"t": 20.3171, "kind": "agent.said", "text": ""}
+{"t": 20.6413, "kind": "caller.speech_started", "pending": []}
+{"t": 26.7182, "kind": "tool.call", "name": "convert_currency", "call_id": "935c44a1-e668-486b-9914-b14f8e4c2edc", "args": {"amount": 25, "from_currency": "USD", "to_currency": "EUR"}}
+{"t": 29.443, "kind": "caller.said", "text": "that's how much money I'm gonna take with me to Paris. Can you convert that to Euros please?"}
+{"t": 29.443, "kind": "caller.speech_stopped"}
+{"t": 29.4432, "kind": "agent.audio.first_delta"}
+{"t": 34.7191, "kind": "tool.result", "call_id": "935c44a1-e668-486b-9914-b14f8e4c2edc", "duration": 8.0006}
+{"t": 36.1611, "kind": "agent.said", "text": ""}
+{"t": 38.7111, "kind": "agent.said", "text": "twenty-five US dollars is approximately twenty-three point"}
+{"t": 38.7111, "kind": "caller.speech_started", "pending": []}
+{"t": 41.2856, "kind": "caller.said", "text": "okay thank you um can you tell me about the weather is like over there"}
+{"t": 41.2857, "kind": "caller.speech_stopped"}
+{"t": 41.2857, "kind": "agent.audio.first_delta"}
+{"t": 57.7592, "kind": "agent.said", "text": " I do not have access to live weather data, but I can suggest ways to find out. You could check a weather app, a website like weather dot COM comma or look for a public weather station nearby."}
+{"t": 58.7251, "kind": "caller.speech_started", "pending": []}
+{"t": 60.9604, "kind": "caller.said", "text": "great thanks. Could you let me know how I should dress, what should I wear"}
+{"t": 60.9604, "kind": "caller.speech_stopped"}
+{"t": 60.9604, "kind": "agent.audio.first_delta"}
+{"t": 77.6011, "kind": "agent.said", "text": " For a Parisian summer evening, aim for stylish yet comfortable layers. Start with a light base like a cotton tee, add a chic button-up or sweater, and finish with a stylish jacket or denim jacket. Finish with comfortable jeans or chinos and a pair of trendy sneakers. Since it can be humid, remember to bring a light jacket or a light shawl."}
+{"t": 77.7659, "kind": "caller.speech_started", "pending": []}
+{"t": 78.878, "kind": "caller.said", "text": "great, that's helpful. Thank you"}
+{"t": 78.8781, "kind": "caller.speech_stopped"}
+{"t": 78.8782, "kind": "agent.audio.first_delta"}
+{"t": 84.5391, "kind": "caller.audio.exhausted", "linger_s": 16.0}
