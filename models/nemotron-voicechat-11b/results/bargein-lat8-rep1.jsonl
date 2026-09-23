@@ -1,0 +1,43 @@
+{"t": 0.0538, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.054, "kind": "caller.audio.first_chunk"}
+{"t": 0.0541, "kind": "unhandled", "type": "session.created"}
+{"t": 0.0827, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.7153, "kind": "unhandled", "type": "response.created"}
+{"t": 0.7153, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.7153, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 0.9795, "kind": "agent.said", "text": ""}
+{"t": 2.3949, "kind": "caller.speech_started", "pending": []}
+{"t": 2.3949, "kind": "caller.said", "text": "o"}
+{"t": 2.3949, "kind": "caller.speech_stopped"}
+{"t": 2.3949, "kind": "agent.audio.first_delta"}
+{"t": 5.2768, "kind": "agent.said", "text": "Hi there! How can I help you today?"}
+{"t": 8.1591, "kind": "caller.speech_started", "pending": []}
+{"t": 11.3602, "kind": "tool.call", "name": "generate_random_number", "call_id": "dcd4ad93-15ec-47bb-9464-0eade06fbdf7", "args": {"min": 1, "max": 50}}
+{"t": 14.0687, "kind": "caller.said", "text": "can you generate a random number between one and fifty?"}
+{"t": 14.0687, "kind": "caller.speech_stopped"}
+{"t": 14.0702, "kind": "agent.audio.first_delta"}
+{"t": 19.3606, "kind": "tool.result", "call_id": "dcd4ad93-15ec-47bb-9464-0eade06fbdf7", "duration": 8.0003}
+{"t": 20.3221, "kind": "agent.said", "text": ""}
+{"t": 20.6409, "kind": "caller.speech_started", "pending": []}
+{"t": 26.8825, "kind": "tool.call", "name": "convert_currency", "call_id": "94d598f7-5f6d-4735-9843-f949e295774f", "args": {"amount": 25, "from_currency": "USD", "to_currency": "EUR"}}
+{"t": 29.5987, "kind": "caller.said", "text": "that's how much money I'm gonna take with me to Paris. Can you convert that to Euros please?"}
+{"t": 29.5988, "kind": "caller.speech_stopped"}
+{"t": 29.5988, "kind": "agent.audio.first_delta"}
+{"t": 34.8828, "kind": "tool.result", "call_id": "94d598f7-5f6d-4735-9843-f949e295774f", "duration": 8.0003}
+{"t": 36.319, "kind": "agent.said", "text": ""}
+{"t": 38.7201, "kind": "caller.speech_started", "pending": []}
+{"t": 39.5242, "kind": "agent.said", "text": "twenty-five US dollars is approximately twenty-three point zero zero EUR. Enjoy! Have a for the help."}
+{"t": 41.2775, "kind": "caller.said", "text": "okay thank you um can you tell me about the weather is like over there"}
+{"t": 41.2775, "kind": "caller.speech_stopped"}
+{"t": 41.2776, "kind": "agent.audio.first_delta"}
+{"t": 57.9224, "kind": "agent.said", "text": " I do not have access to real-time weather data, but I can suggest ways to find out. Would you like to know how to check the weather online?"}
+{"t": 58.7216, "kind": "caller.speech_started", "pending": []}
+{"t": 60.9633, "kind": "caller.said", "text": "great thanks. Could you let me know how I should dress, what should I wear"}
+{"t": 60.9634, "kind": "caller.speech_stopped"}
+{"t": 60.9634, "kind": "agent.audio.first_delta"}
+{"t": 77.6028, "kind": "agent.said", "text": " I do not have access to real-time weather data, but I can suggest ways to find out. Would you like to know how to check the weather online?"}
+{"t": 77.752, "kind": "caller.speech_started", "pending": []}
+{"t": 78.8733, "kind": "caller.said", "text": "great, that's helpful. Thank you"}
+{"t": 78.8733, "kind": "caller.speech_stopped"}
+{"t": 78.8733, "kind": "agent.audio.first_delta"}
+{"t": 84.5347, "kind": "caller.audio.exhausted", "linger_s": 16.0}

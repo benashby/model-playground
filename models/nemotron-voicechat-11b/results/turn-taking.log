@@ -1,0 +1,6 @@
+sessions: 3   turns: 18
+  first turn (cold/JIT)    n=3    min 0.326  p50 0.480  p95 0.487  max 0.487
+  tool outstanding         n=0
+  CLEAN turns              n=15   min 0.475  p50 0.636  p95 0.650  max 0.650
+
+vendor claim ~0.450 s; measured p50 0.636 s on clean turns (n=15)

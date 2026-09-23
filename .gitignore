@@ -1,0 +1,25 @@
+# Local environment files, and private notes that must never be committed.
+/.envrc
+/.direnv/
+CLAUDE.local.md
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Audio and session artefacts are large, re-fetchable, and specific to one run.
+# NOTE: these patterns are deliberately unanchored so they match at ANY depth.
+# An earlier "/audio/*.wav" matched only the top level and left 419 MiB of
+# corpus data under audio/corpora/ untracked-but-not-ignored -- one `git add -A`
+# from being committed to a public repo.
+*.wav
+*.flac
+*.mp3
+*.ogg
+logs/*.jsonl
+
+# ...but keep directory placeholders and the corpus manifest.
+!**/.gitkeep
+!audio/corpora/MANIFEST.md

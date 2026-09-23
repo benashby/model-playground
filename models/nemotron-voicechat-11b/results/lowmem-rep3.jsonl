@@ -1,0 +1,42 @@
+{"t": 0.062, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.0621, "kind": "unhandled", "type": "session.created"}
+{"t": 0.0622, "kind": "caller.audio.first_chunk"}
+{"t": 0.0909, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.7, "kind": "unhandled", "type": "response.created"}
+{"t": 0.7, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.7001, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 0.9743, "kind": "agent.said", "text": ""}
+{"t": 2.4189, "kind": "caller.speech_started", "pending": []}
+{"t": 2.4189, "kind": "caller.said", "text": "o"}
+{"t": 2.419, "kind": "caller.speech_stopped"}
+{"t": 3.0523, "kind": "agent.audio.first_voiced"}
+{"t": 5.2909, "kind": "agent.said", "text": "Hi there! How can I help you today?"}
+{"t": 8.1758, "kind": "caller.speech_started", "pending": []}
+{"t": 11.199, "kind": "tool.call", "name": "generate_random_number", "call_id": "4f92f407-ec69-421e-b871-c29295fe0b4a", "args": {"min": 1, "max": 50}}
+{"t": 11.2493, "kind": "tool.result", "call_id": "4f92f407-ec69-421e-b871-c29295fe0b4a", "duration": 0.0501}
+{"t": 12.1665, "kind": "caller.said", "text": "can you generate a random number between one and fifty"}
+{"t": 12.1665, "kind": "caller.speech_stopped"}
+{"t": 12.8037, "kind": "agent.audio.first_voiced"}
+{"t": 14.8845, "kind": "agent.said", "text": " Your random number is twenty-five."}
+{"t": 20.1636, "kind": "caller.speech_started", "pending": []}
+{"t": 26.8896, "kind": "tool.call", "name": "convert_currency", "call_id": "f3571237-d6bb-4c1f-97bf-d90866f47efe", "args": {"amount": 25, "from_currency": "USD", "to_currency": "EUR"}}
+{"t": 26.94, "kind": "tool.result", "call_id": "f3571237-d6bb-4c1f-97bf-d90866f47efe", "duration": 0.0501}
+{"t": 28.3245, "kind": "caller.said", "text": "great. I think that's how much money I'm gonna take with me to Paris. Can you convert that to Euros please?"}
+{"t": 28.3245, "kind": "caller.speech_stopped"}
+{"t": 28.8086, "kind": "agent.audio.first_voiced"}
+{"t": 38.4078, "kind": "agent.said", "text": " twenty-five US dollars is approximately twenty-three point zero zero EUR. Enjoy your trip to Paris!"}
+{"t": 38.7243, "kind": "caller.speech_started", "pending": []}
+{"t": 41.4446, "kind": "caller.said", "text": "okay thank you um can you tell me about the weather is like over there"}
+{"t": 41.4446, "kind": "caller.speech_stopped"}
+{"t": 41.9251, "kind": "agent.audio.first_voiced"}
+{"t": 57.9266, "kind": "agent.said", "text": " I do not have access to live weather data, but I can suggest checking a weather app or website for the most accurate information. Have a great day!"}
+{"t": 58.7323, "kind": "caller.speech_started", "pending": []}
+{"t": 60.9707, "kind": "caller.said", "text": "great thanks. Could you let me know how I should dress, what should I wear"}
+{"t": 60.9707, "kind": "caller.speech_stopped"}
+{"t": 61.6076, "kind": "agent.audio.first_voiced"}
+{"t": 77.6111, "kind": "agent.said", "text": " For a city like Paris, a stylish yet practical approach is best. For men, a light shirt and trousers are a good start, while women might consider a chic dress or casual pants. Since the weather can change, it is a good idea to bring a light jacket or an umbrella. Have a great day!"}
+{"t": 77.769, "kind": "caller.speech_started", "pending": []}
+{"t": 78.8896, "kind": "caller.said", "text": "great, that's helpful. Thank you"}
+{"t": 78.8896, "kind": "caller.speech_stopped"}
+{"t": 79.3715, "kind": "agent.audio.first_voiced"}
+{"t": 84.5429, "kind": "caller.audio.exhausted", "linger_s": 8.0}

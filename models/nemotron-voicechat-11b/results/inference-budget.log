@@ -1,0 +1,7 @@
+samples      : 89
+budget       : [160] ms
+per-chunk ms : min 60.7  p50 66.1  p95 68.9  max 71.3
+mean         : 65.9 ms  (stdev 2.1)
+headroom     : 2.42x real-time at p50
+over budget  : 0 / 89 chunks
+queue depth  : max 0

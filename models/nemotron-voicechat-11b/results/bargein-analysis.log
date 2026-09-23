@@ -1,0 +1,35 @@
+ latency  runs       fired        tools  unrequested  bargeins
+------------------------------------------------------------------
+    1.5s     3     0/3             2.0          0.0       6.0
+    8.0s     3     0/3             2.0          0.0       6.0
+   10.0s     3     3/3             3.7          2.0       3.7
+   12.0s     3     3/3             4.0          2.0       3.7
+   14.0s     3     3/3             4.0          2.0       3.0
+
+every policy decision recorded:
+  lat= 10.0s  generate_random_number   elapsed= 8.8048s  -> complete_and_hold    heard=''
+  lat= 10.0s  generate_random_number   elapsed= 8.9589s  -> complete_and_hold    heard=''
+  lat= 10.0s  generate_random_number   elapsed= 8.7959s  -> complete_and_hold    heard=''
+  lat= 12.0s  generate_random_number   elapsed= 8.8032s  -> complete_and_hold    heard=''
+  lat= 12.0s  generate_random_number   elapsed= 8.8028s  -> complete_and_hold    heard=''
+  lat= 12.0s  generate_random_number   elapsed= 8.7967s  -> complete_and_hold    heard=''
+  lat= 14.0s  generate_random_number   elapsed= 8.8022s  -> cancel               heard=''
+  lat= 14.0s  generate_random_number   elapsed= 8.8056s  -> cancel               heard=''
+  lat= 14.0s  generate_random_number   elapsed= 8.8072s  -> cancel               heard=''
+
+dispositions: {'complete_and_hold': 6, 'cancel': 3}
+transcript available at decision time: {'empty': 9}
+
+unrequested tool calls by latency (the fixture's caller never asks for news):
+    1.5s  -
+    8.0s  -
+   10.0s  {'get_news_headlines': 6}
+   12.0s  {'get_news_headlines': 6}
+   14.0s  {'get_news_headlines': 6}
+
+argument fidelity on convert_currency (caller says twenty-five):
+    1.5s  [25, 25, 25]
+    8.0s  [25, 25, 25]
+   10.0s  [100, 100]
+   12.0s  [100, 100, 100]
+   14.0s  [100, 100, 100]
