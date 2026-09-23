@@ -1,0 +1,10 @@
+# Local environment files, and private notes that must never be committed.
+/.envrc
+/.direnv/
+CLAUDE.local.md
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
