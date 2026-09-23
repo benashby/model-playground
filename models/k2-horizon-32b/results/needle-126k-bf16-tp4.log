@@ -1,0 +1,10 @@
+# config: BF16 weights, BF16 KV cache, 4 GPUs (TP=4), max-model-len 524288; same 126k natural-text needle as the FP8 configs
+
+### NEEDLE: a six-digit code in natural text, lengths [126000], depths [0.1, 0.5, 0.9], effort low
+  depth 10%  prompt_tokens 125,321  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 12.1s
+      reply '368787'  reasoning tail ''
+  depth 50%  prompt_tokens 125,322  found: True  in content: True  finish=stop  completion_tokens=40  time to first token 12.0s
+      reply '885850'  reasoning tail 'r six digits. The text: "The access code for the vault is 885850. Remember it." So digits 885850. Reply six digits only.'
+  depth 90%  prompt_tokens 125,322  found: True  in content: True  finish=stop  completion_tokens=36  time to first token 11.9s
+      reply '383020'  reasoning tail 'mbedded a steganographic message: "The access code for the vault is 383020. Remember it." Need to reply six digits only.'
+

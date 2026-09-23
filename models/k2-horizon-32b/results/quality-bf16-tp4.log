@@ -1,0 +1,28 @@
+# config: BF16 weights, BF16 KV cache, 4 GPUs (TP=4), max-model-len 524288
+host=$PLAYGROUND_HOST model=k2-horizon-32b  (address redacted by design)
+
+### ANSWERS: 24 questions x 3 runs, effort medium, temperature 1.0, top_p 0.95
+  correct 59/72 (81.9%)   completion tokens median 39.0
+      wrong: ('What is 17 multiplied by 23?', '391', '17\u202f×\u202f23\u202f=\u202f391.')
+      wrong: ('What is 1234 plus 5678?', '6912', '1234\u202f+\u202f5678\u202f=\u202f6912.')
+      wrong: ('What is the square root of 169?', ('13', 'thirteen'), 'The square root of\u202f169\u202fis\u202f13.')
+      wrong: ('How many seconds are in one day?', '86400', '86,400\u202fseconds.')
+      wrong: ('How many centimetres are in 2.5 metres?', '250', '250\u202fcentimetres.')
+      wrong: ('How many centimetres are in 2.5 metres?', '250', '250\u202fcm.')
+      wrong: ('How many centimetres are in 2.5 metres?', '250', '250\u202fcm.')
+      wrong: ('What is 9 degrees Celsius above freezing, in Kelvi', '282', '282\u202fK.')
+      wrong: ('What is 9 degrees Celsius above freezing, in Kelvi', '282', '282\u202fK.')
+      wrong: ('What is 9 degrees Celsius above freezing, in Kelvi', '282', '282\u202fK.')
+      wrong: ('How many bits are in a byte?', ('8', 'eight'), 'A byte is 8\u202fbits.')
+      wrong: ('What is 7 factorial?', '5040', '7!\u202f=\u202f5040.')
+      wrong: ('What is 7 factorial?', '5040', '7!\u202f=\u202f5040.')
+
+### TOOLS: weather request, default xml format, n=10 per effort
+  effort low   structured and correct 10/10
+  effort high  structured and correct 10/10
+
+### NEEDLE: a six-digit code at three depths in ~480,000 tokens of filler, effort low
+  depth 10%  prompt_tokens 475,249  found: False  reply ''  time to first token 120.5s
+  depth 50%  prompt_tokens 475,249  found: False  reply ''  time to first token 120.1s
+  depth 90%  prompt_tokens 475,248  found: False  reply ''  time to first token 120.0s
+

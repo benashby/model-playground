@@ -1,0 +1,25 @@
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### MULTI-TURN TOOLS: call, then feed a result back, n=6 per variant
+  thinking field reasoning          answered from the tool result 2/6
+      no first call
+      did not answer from it: finish=stop content='' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo in Celsius. I need to che'
+      used result: finish=stop content='The current weather in Oslo is **-7°C** with **snow**.' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo in Celsius. I called the '
+      no first call
+      did not answer from it: finish=stop content='' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo in Celsius. I called the '
+      used result: finish=stop content='The current weather in Oslo is -7 degrees Celsius with snow falling.' tool_calls=[] reasoning=''
+  thinking field reasoning_content  answered from the tool result 1/6
+      did not answer from it: finish=stop content='' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo using Celsius. I called t'
+      did not answer from it: finish=stop content='' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo in Celsius. I called the '
+      no first call
+      no first call
+      did not answer from it: finish=stop content='' tool_calls=[] reasoning='Okay, the user asked for the weather in Oslo in Celsius. I called the '
+      used result: finish=stop content='The current weather in Oslo is **-7°C** with **snow** falling. Let me ' tool_calls=[] reasoning='Okay, let me see. The user asked for the weather in Oslo, in celsius. '
+  thinking field (none)             answered from the tool result 0/6
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+

@@ -20,6 +20,7 @@ The write-ups are what matter. The code is just how I got there.
 | Model | What it is | Why it was interesting |
 |---|---|---|
 | [**NemotronLabs VoiceChat 11B**](models/nemotron-voicechat-11b/) | Full-duplex speech-to-speech, 11B, NIM-served | The original subject. Tool calls under conversational pressure: what a model *does* while a tool is slow and you talk over it. |
+| [**K2-Horizon-32B**](models/k2-horizon-32b/) | 32B dense reasoning LLM, vLLM | Deployment forensics: three separate ways a serving stack returns HTTP 200 while doing nothing you asked. |
 
 Each directory holds a short overview (`README.md`) that links to the
 write-up's articles in `notes/`, the probe code that produced every number
@@ -38,6 +39,8 @@ Some of what's in them, so you know whether to open one:
   there are. The single "1.1 s" this README used to quote was the first of them.
 - It ships as F32 and runs as bf16, and neither is why it wants 80 GB: two
   environment variables preallocate 85% of the card regardless of model size.
+- K2's reasoning trace looked like it was generated, billed and discarded. It
+  is returned in full, under `reasoning`; the probe had read `reasoning_content`.
 
 Each of those is stated properly, with hardware and with the probe that
 produced it, in the note it belongs to.
@@ -54,13 +57,13 @@ produced it, in the note it belongs to.
 | `scenarios/` | Agent specs for the harness: instructions + tools |
 | `logs/` | Scratch run logs; anything worth keeping moves to `results/` |
 
-The harness in `src/playground/` is specific to
+The harness in `src/playground/` predates the rest and is specific to
 full-duplex speech: `protocol.py` (realtime event constructors and wire
 constants), `audio.py` (load / resample / wall-clock-paced chunking),
 `tools.py` (tool registry with injectable latency), `client.py`
 (`DuplexSession`, concurrent send + receive), `policy.py` (what to do with an
 in-flight tool on barge-in), `live.py` (microphone client via
-`pw-record`/`pw-play`).
+`pw-record`/`pw-play`). The other models need none of it.
 
 Most of its non-obvious decisions exist because the naive alternative produced
 confident wrong numbers instead of visible breakage. Two examples are pacing

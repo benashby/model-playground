@@ -1,0 +1,11 @@
+config: MODEL_DIR=K2-Horizon-32B TP=2 MAX_LEN=524288 extra=--kv-cache-dtype fp8
+RESULT: serving after 97 s
+INFO 09-23 21:26:01 [api_utils.py:286] non-default args: {'model_tag': '/models/K2-Horizon-32B', 'chat_template_content_format': 'string', 'default_chat_template_kwargs': {'reasoning_effort': 'high'}, 'enable_auto_tool_choice': True, 'tool_call_parser': 'k2_horizon', 'host': '0.0.0.0', 'port': 8080,
+INFO 09-23 21:26:14 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/models/K2-Horizon-32B', speculative_config=None, tokenizer='/models/K2-Horizon-32B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=tor
+INFO 09-23 21:26:31 [default_loader.py:430] Loading weights took 6.15 seconds
+INFO 09-23 21:27:05 [gpu_worker.py:640] Available KV cache memory: 37.06 GiB
+INFO 09-23 21:27:05 [kv_cache_utils.py:2395] GPU KV cache size: 607,200 tokens, Maximum concurrency for 524,288 tokens per request: 1.16x
+0, 73843 MiB
+1, 73843 MiB
+2, 4 MiB
+3, 4 MiB

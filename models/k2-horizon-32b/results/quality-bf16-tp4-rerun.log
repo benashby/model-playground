@@ -1,0 +1,17 @@
+# config: BF16 weights, BF16 KV cache, 4 GPUs (TP=4), max-model-len 524288; needle with max_tokens 2000
+host=$PLAYGROUND_HOST model=k2-horizon-32b  (address redacted by design)
+
+### NEEDLE: a six-digit code at three depths in ~480,000 tokens of filler, effort low
+  depth 10%  prompt_tokens 475,251  found: False  in content: False  finish=length  completion_tokens=2000  time to first token 120.0s
+      reply ''  reasoning tail ' Village of lot of window village Hills economic Military Housing Area MetalEnter Side exhaust LEFT home Gateway TYPE TR'
+  depth 50%  prompt_tokens 475,249  found: False  in content: False  finish=length  completion_tokens=2000  time to first token 120.6s
+      reply ''  reasoning tail 't Catholic church gun fire station theName: name of NAME PeopleCation crowded extracted StoneBlackWeathered waste signal'
+  depth 90%  prompt_tokens 475,250  found: False  in content: False  finish=length  completion_tokens=2000  time to first token 120.1s
+      reply ''  reasoning tail 'ence Pet hammer RED Castle RED GER city Army camp Stone House Stone colored RED signals Home SAFE red building Port blue'
+
+
+# answers rerun with the fixed scorer
+
+### ANSWERS: 24 questions x 3 runs, effort medium, temperature 1.0, top_p 0.95
+  correct 72/72 (100.0%)   completion tokens median 38.0
+

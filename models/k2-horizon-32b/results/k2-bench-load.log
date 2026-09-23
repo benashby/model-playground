@@ -1,0 +1,34 @@
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+    time = non-streaming request with max_tokens=1 (prefill + one ~15 ms decode step)
+  prompt_tokens     224  TTFT median   0.10s (min 0.09, max 0.12, n=3)  2,238 prompt tok/s
+  prompt_tokens   2,007  TTFT median   0.22s (min 0.22, max 0.23, n=3)  9,048 prompt tok/s
+  prompt_tokens  15,867  TTFT median   1.31s (min 1.31, max 1.32, n=3)  12,068 prompt tok/s
+  prompt_tokens  31,706  TTFT median   2.95s (min 2.95, max 2.95, n=3)  10,765 prompt tok/s
+  prompt_tokens  63,388  TTFT median   7.57s (min 7.56, max 7.67, n=3)  8,375 prompt tok/s
+  prompt_tokens  95,066  TTFT median  13.95s (min 13.92, max 13.96, n=3)  6,815 prompt tok/s
+  prompt_tokens 126,747  TTFT median  22.24s (min 22.04, max 22.35, n=3)  5,700 prompt tok/s
+  same ~60k prompt again: first 6.97s, repeats 0.39, 0.39, 0.38s (prefix cache hit)
+
+### MULTI-TURN TOOLS: call, then feed a result back, n=3 per variant
+  thinking field reasoning          answered from the tool result 1/3
+      ignored result: ''
+      no first call
+      used result: "The current temperature in Oslo is -7 degrees Celsius and it's snowing."
+  thinking field reasoning_content  answered from the tool result 0/3
+      no first call
+      ignored result: ''
+      ignored result: ''
+  thinking field (none)             answered from the tool result 0/3
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+      HTTP 400: {"error":{"message":"Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.","type":"BadR
+
+### CONCURRENCY: N simultaneous 300-token generations, aggregate and per-stream tok/s
+  N=1      300 tokens in   4.60s  aggregate    65.2 tok/s  per-stream median  66.4 tok/s  TTFT median 0.10s
+  N=4     1200 tokens in   4.75s  aggregate   252.5 tok/s  per-stream median  64.9 tok/s  TTFT median 0.15s
+  N=8     2400 tokens in   4.77s  aggregate   502.9 tok/s  per-stream median  65.1 tok/s  TTFT median 0.16s
+  N=16    4800 tokens in   4.90s  aggregate   978.7 tok/s  per-stream median  63.3 tok/s  TTFT median 0.17s
+  N=32    9600 tokens in   5.06s  aggregate  1897.0 tok/s  per-stream median  61.7 tok/s  TTFT median 0.20s
+

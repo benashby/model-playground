@@ -1,0 +1,42 @@
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  21  canary present: True
+  parts list    tokens  21  canary present: True
+  (server runs with --chat-template-content-format string; see results/startup.log)
+
+### EFFORT: tokens and timing per tier, both ways of passing it, and the server default
+    t_any = first token of any kind (reasoning or answer); t_ans = first answer token
+  top-level             low            n=9  completion_tokens median     5 (min 4, max 165)  reasoning_chars median     0  no-trace 8/9  t_any 0.10s  t_ans 0.10s
+  top-level             medium         n=9  completion_tokens median    57 (min 20, max 88)  reasoning_chars median   177  no-trace 0/9  t_any 0.08s  t_ans 0.90s
+  top-level             high           n=9  completion_tokens median   113 (min 22, max 502)  reasoning_chars median   351  no-trace 0/9  t_any 0.08s  t_ans 1.74s
+  chat_template_kwargs  low            n=9  completion_tokens median     5 (min 4, max 72)  reasoning_chars median     0  no-trace 8/9  t_any 0.09s  t_ans 0.09s
+  chat_template_kwargs  medium         n=9  completion_tokens median    59 (min 21, max 75)  reasoning_chars median   147  no-trace 0/9  t_any 0.08s  t_ans 0.94s
+  chat_template_kwargs  high           n=9  completion_tokens median   189 (min 33, max 569)  reasoning_chars median   522  no-trace 0/9  t_any 0.08s  t_ans 2.89s
+  omitted               server default n=9  completion_tokens median   206 (min 47, max 721)  reasoning_chars median   605  no-trace 0/9  t_any 0.08s  t_ans 3.15s
+  high effort, train prompt, (reasoning_chars, content_chars): [(376, 4), (513, 4), (390, 4)]
+  answers: ['215', '215', '215']
+
+### DECODE: single stream, tok/s = completion_tokens / (last token - first token)
+  warmup, discarded  tokens  376  span 5.64s  66.5 tok/s
+  run 1              tokens  366  span 5.48s  66.6 tok/s
+  run 2              tokens  352  span 5.27s  66.6 tok/s
+  run 3              tokens  350  span 5.24s  66.6 tok/s
+  median 66.6 tok/s over n=3
+
+### TOOLS: each tool_call_format, checked for a structured call with the right arguments
+  xml        structured and correct 3/3   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+  json       structured and correct 2/3   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+  xml_typed  structured and correct 3/3   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+Traceback (most recent call last):
+  File "models/k2-horizon-32b/probes/k2_bench.py", line 252, in <module>
+    section()
+  File "models/k2-horizon-32b/probes/k2_bench.py", line 190, in prefill_section
+    med = st.median(times)
+          ^^^^^^^^^^^^^^^^
+  File "/nix/store/d69yn2v7lzyh29rykj0ldnih67xps5s0-python3-3.12.13/lib/python3.12/statistics.py", line 614, in median
+    data = sorted(data)
+           ^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'NoneType'

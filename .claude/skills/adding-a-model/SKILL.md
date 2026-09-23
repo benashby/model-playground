@@ -15,7 +15,7 @@ The standard the note is held to is in `models/README.md`.
 
 ## Current reality
 
-One model is written up, and it is driven by the speech harness.
+Two models are written up; **one** of them is driven by the speech harness.
 That one has **one adapter**: `src/playground/protocol.py`, a single module
 hardcoded to the OpenAI-Realtime dialect that NVIDIA's NIM container speaks.
 There is no registry, no dispatch, no `Backend` base class.

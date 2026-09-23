@@ -1,0 +1,55 @@
+# Excerpts from IFM/K2-Horizon-32B chat_template.jinja (Apache-2.0, (c) IFM), as shipped with
+# the weights served here. Line numbers are the file's own. Full file: 994 lines.
+
+## Message content: anything that is not a plain string becomes empty (lines 932-937)
+ 932  {%- for message in messages -%}
+ 933      {%- if message.content is string -%}
+ 934          {%- set content = message.content -%}
+ 935      {%- else -%}
+ 936          {%- set content = '' -%}
+ 937      {%- endif -%}
+
+## Assistant thinking field, needed for multi-turn history (lines 941-961)
+ 941          {%- set thinking_content = '' -%}
+ 942          {%- set think_tag = 'ifm|think' -%}
+ 943          {%- if message.think is defined and message.think is string -%}
+ 944              {%- set thinking_content = message.think -%}
+ 945              {%- set think_tag = 'ifm|think' -%}
+ 946          {%- elif message.think_fast is defined and message.think_fast is string -%}
+ 947              {%- set thinking_content = message.think_fast -%}
+ 948              {%- set think_tag = 'ifm|think_fast' -%}
+ 949          {%- elif message.think_faster is defined and message.think_faster is string -%}
+ 950              {%- set thinking_content = message.think_faster -%}
+ 951              {%- set think_tag = 'ifm|think_faster' -%}
+ 952          {%- elif message.reasoning_content is defined and message.reasoning_content is string -%}
+ 953              {%- set thinking_content = message.reasoning_content -%}
+ 954              {%- set think_tag = 'ifm|think' -%}
+ 955          {%- elif message.reasoning is defined and message.reasoning is string -%}
+ 956              {%- set thinking_content = message.reasoning -%}
+ 957              {%- set think_tag = 'ifm|think' -%}
+ 958          {%- elif message.think is not defined and message.reasoning is not defined and message.reasoning_content is not defined and message.think_fast is not defined and message.think_faster is not defined -%}
+ 959              {{- raise_exception("Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster.") -}}
+ 960          {%- else -%}
+ 961              {{- raise_exception("Assistant thinking fields must be strings. Provide one of: think, reasoning, reasoning_content, think_fast, think_faster as a string.") -}}
+
+## Generation prompt: each effort level pre-seeds a different opening think tag (lines 983-994)
+ 983  {%- if add_generation_prompt -%}
+ 984      {%- set effort = reasoning_effort | default('high') -%}
+ 985      {%- if effort == 'high' -%}
+ 986          {{- '<|ifm|im_start|>assistant\n<ifm|think>\n' }}
+ 987      {%- elif effort == 'medium' -%}
+ 988          {{- '<|ifm|im_start|>assistant\n<ifm|think_fast>\n' }}
+ 989      {%- elif effort == 'low' -%}
+ 990          {{- '<|ifm|im_start|>assistant\n<ifm|think_faster>\n' }}
+ 991      {%- else -%}
+ 992          {{- raise_exception("Unsupported reasoning_effort: '" + effort + "'. Supported values: high, medium, low.") -}}
+ 993      {%- endif -%}
+ 994  {%- endif -%}
+
+## Tool-call format argument (lines 1-18)
+2:{%- if tool_presentation is defined -%}
+3:    {{- raise_exception("Unsupported argument: tool_presentation. Use tool_presentation_format with one of: json, xml, markdown.") -}}
+6:    {{- raise_exception("Unsupported argument: tool_calling_format. Use tool_call_format with one of: json, xml, xml_typed.") -}}
+9:    {{- raise_exception("Unsupported argument: tool_format. Use tool_call_format with one of: json, xml, xml_typed.") -}}
+11:{%- set tool_presentation_fmt = tool_presentation_format | default('markdown') -%}
+12:{%- set tool_call_fmt = tool_call_format | default('xml') -%}

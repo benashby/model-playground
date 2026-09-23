@@ -1,0 +1,11 @@
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b  (address redacted by design)
+A field reading 0 means THAT SPELLING was empty -- not that the trace is absent.
+
+  non-streaming effort=low    reasoning=    0 reasoning_content=    0  content= 304  completion_tokens= 112  usage.reasoning_tokens=0
+  streaming     effort=low    reasoning=    0 reasoning_content=    0  content= 308  chunks=104
+  non-streaming effort=medium reasoning=  194 reasoning_content=    0  content= 295  completion_tokens= 178  usage.reasoning_tokens=0
+  streaming     effort=medium reasoning=  520 reasoning_content=    0  content= 339  chunks=310
+  non-streaming effort=high   reasoning= 1205 reasoning_content=    0  content= 179  completion_tokens= 385  usage.reasoning_tokens=0
+    message keys: ['annotations', 'audio', 'content', 'function_call', 'reasoning', 'refusal', 'role']
+  streaming     effort=high   reasoning=  666 reasoning_content=    0  content= 390  chunks=392
+    delta keys:   ['content', 'reasoning', 'role']

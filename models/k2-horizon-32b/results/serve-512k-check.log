@@ -1,0 +1,11 @@
+# The 4-GPU, native-context serve command from notes/02-using-it.md, started and checked 2026-09-23
+{"id":"k2-horizon-32b","max_model_len":524288}
+INFO 09-23 20:21:51 [api_utils.py:286] non-default args: {'model_tag': '/models/K2-Horizon-32B', 'chat_template_content_format': 'string', 'default_chat_template_kwargs': {'reasoning_effort': 'high'}, 'enable_auto_tool_choice': True, 'tool_call_parser': 'k2_horizon', 'host': '0.0.0.0', 'port': 8080, 'model': '/models/K2-Horizon-32B', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 524288, 'served_model_name': ['k2-horizon-32b'], 'model_impl': 'vllm', 'reasoning_parser': 'k2_horizon', 'tensor_parallel_size': 4, 'gpu_memory_utilization': 0.9, 'enable_prefix_caching': True, 'max_
+INFO 09-23 20:22:50 [kv_cache_utils.py:2395] GPU KV cache size: 875,872 tokens, Maximum concurrency for 524,288 tokens per request: 1.67x
+INFO:     Application startup complete.
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  19  canary present: True
+  parts list    tokens  19  canary present: True
+  (server runs with --chat-template-content-format string; see results/startup.log)
+

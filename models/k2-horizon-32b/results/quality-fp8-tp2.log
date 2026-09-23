@@ -1,0 +1,39 @@
+# config: FP8 weights (IFM/K2-Horizon-32B-FP8), BF16 KV cache, 2 GPUs (TP=2), max-model-len 131072
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  21  canary present: True
+  parts list    tokens  21  canary present: True
+  (server runs with --chat-template-content-format string; see results/startup.log)
+
+### DECODE: single stream, tok/s = completion_tokens / (last token - first token)
+  warmup, discarded  tokens  522  span 5.15s  101.1 tok/s
+  run 1              tokens  327  span 3.20s  101.8 tok/s
+  run 2              tokens  388  span 3.82s  101.4 tok/s
+  run 3              tokens  386  span 3.80s  101.4 tok/s
+  median 101.4 tok/s over n=3
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+    time = non-streaming request with max_tokens=1 (prefill + one ~15 ms decode step)
+  prompt_tokens   2,006  TTFT median   0.19s (min 0.19, max 0.20, n=3)  10,348 prompt tok/s
+  prompt_tokens  31,706  TTFT median   2.45s (min 2.45, max 2.46, n=3)  12,941 prompt tok/s
+  prompt_tokens 124,766  TTFT median  19.49s (min 19.46, max 19.68, n=3)  6,400 prompt tok/s
+  same ~60k prompt again: first 5.93s, repeats 0.37, 0.51, 0.43s (prefix cache hit)
+
+
+### ANSWERS: 24 questions x 3 runs, effort medium, temperature 1.0, top_p 0.95
+  correct 72/72 (100.0%)   completion tokens median 42.0
+
+### TOOLS: weather request, default xml format, n=10 per effort
+  effort low   structured and correct 8/10
+  effort high  structured and correct 10/10
+
+# haystack: Project Gutenberg ebook 2600 (War and Peace)
+
+### NEEDLE: a six-digit code in natural text, lengths [126000], depths [0.1, 0.5, 0.9], effort low
+  depth 10%  prompt_tokens 125,321  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 19.7s
+      reply '640500'  reasoning tail ''
+  depth 50%  prompt_tokens 125,321  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 19.8s
+      reply '156694'  reasoning tail ''
+  depth 90%  prompt_tokens 125,322  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 19.7s
+      reply '902271'  reasoning tail ''
+

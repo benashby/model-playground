@@ -1,0 +1,6 @@
+index, name, memory.used [MiB], memory.total [MiB], driver_version
+0, NVIDIA H100 80GB HBM3, 73843 MiB, 81559 MiB, 595.71.05
+1, NVIDIA H100 80GB HBM3, 73843 MiB, 81559 MiB, 595.71.05
+image d076d77d8dade699041dbcb6bb989a058e51b532e6367f13f80b5a4e63ee5c53 created 2026-09-21 23:03:19.744436587 +0000 UTC
+7.0.0-1011-gcp
+Ubuntu 24.04.4 LTS

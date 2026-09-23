@@ -119,11 +119,12 @@ address does not belong in it.
 
 ## Current state — read this before assuming generality
 
-One model investigated so far, and the harness drives it:
+Two models investigated. Only one is driven by the harness:
 
 - **NemotronLabs VoiceChat 11B** (speech-to-speech), served by NVIDIA's NIM
   container on a rented 2× H100 80GB (NVLink) cloud node, over the OpenAI
   Realtime WebSocket dialect at `/v1/realtime`.
+- **K2-Horizon-32B** (text-only reasoning) — no harness involvement at all.
 
 There is **no multi-model abstraction** — no adapter registry, no host
 registry, no protocol dispatch. `protocol.py` is a single module, not a

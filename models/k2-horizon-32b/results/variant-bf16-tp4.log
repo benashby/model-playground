@@ -1,0 +1,10 @@
+config: MODEL_DIR=K2-Horizon-32B TP=4 MAX_LEN=524288 extra=none
+RESULT: serving after 184 s
+INFO 09-23 20:53:52 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/models/K2-Horizon-32B', speculative_config=None, tokenizer='/models/K2-Horizon-32B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=tor
+INFO 09-23 20:55:45 [default_loader.py:430] Loading weights took 94.71 seconds
+INFO 09-23 20:55:54 [gpu_worker.py:640] Available KV cache memory: 53.46 GiB
+INFO 09-23 20:55:54 [kv_cache_utils.py:2395] GPU KV cache size: 875,872 tokens, Maximum concurrency for 524,288 tokens per request: 1.67x
+0, 74145 MiB
+1, 74145 MiB
+2, 74145 MiB
+3, 74145 MiB

@@ -1,0 +1,20 @@
+config.json
+  architectures = ['K2HorizonForCausalLM']
+  model_type = k2_horizon
+  hidden_size = 5120
+  intermediate_size = 26624
+  num_hidden_layers = 64
+  num_attention_heads = 64
+  num_key_value_heads = 8
+  head_dim = 128
+  vocab_size = 250624
+  max_position_embeddings = 524288
+  tie_word_embeddings = False
+safetensors
+  shards  = 64
+  tensors = 579
+  dtypes  = {'BF16': 579}
+  params  = 34,779,304,960 (34.78 B)
+  on disk = 64.78 GiB (69,558,691,056 bytes)
+  bytes/param = 2.000
+chat_template.jinja present: True

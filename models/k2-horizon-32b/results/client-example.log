@@ -1,0 +1,4 @@
+answer   : 391
+reasoning: User asks: "What is 17 multiplied by 23? Give the number only." Compute 17*23 =  ...
+reasoning_content attr: None
+stream answer: Canberra | reasoning chars: 115

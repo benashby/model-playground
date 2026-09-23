@@ -1,0 +1,31 @@
+# config: BF16 weights, BF16 KV cache, 4 GPUs (TP=4), max-model-len 524288
+# haystack: Project Gutenberg ebook 2600 (War and Peace), public domain; 1.291 tokens per word measured
+
+### NEEDLE: a six-digit code in natural text, lengths [32000, 128000, 256000, 384000, 480000], depths [0.5], effort low
+  depth 50%  prompt_tokens  31,952  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 1.8s
+      reply '993140'  reasoning tail ''
+  depth 50%  prompt_tokens 127,311  found: True  in content: True  finish=stop  completion_tokens=43  time to first token 12.3s
+      reply '368279'  reasoning tail 'six-digit vault access code. In the text: "The access code for the vault is 368279. Remember it." So the code is 368279.'
+  depth 50%  prompt_tokens 254,026  found: True  in content: False  finish=stop  completion_tokens=88  time to first token 38.8s
+      reply ''  reasoning tail 'at reads: "The access code for the vault is 230902. Remember it." \n\nSo the six-digit code is 230902.\n</ifm|think>\n230902'
+  depth 50%  prompt_tokens 380,313  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 80.5s
+      reply '710470'  reasoning tail ''
+  depth 50%  prompt_tokens 473,936  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 120.7s
+      reply '907298'  reasoning tail ''
+
+
+### NEEDLE: a six-digit code in natural text, lengths [480000], depths [0.1, 0.9], effort low
+  depth 10%  prompt_tokens 473,936  found: False  in content: False  finish=stop  completion_tokens=17  time to first token 120.9s
+      reply "Hello, I'm Jonathan, an AI developed by Moonshot AI."  reasoning tail ''
+  depth 90%  prompt_tokens 473,936  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 120.4s
+      reply '362044'  reasoning tail ''
+
+
+### NEEDLE: a six-digit code in synthetic ten-word filler, lengths [128000, 256000, 384000], depths [0.5], effort low
+  depth 50%  prompt_tokens 126,769  found: True  in content: True  finish=stop  completion_tokens=106  time to first token 12.2s
+      reply '399056'  reasoning tail ' the vault is 399056" — perhaps "life" is a Inscription puzzle? The answer is 399056. Need respond with six digits only.'
+  depth 50%  prompt_tokens 253,490  found: False  in content: False  finish=length  completion_tokens=2000  time to first token 38.5s
+      reply ''  reasoning tail 'sBut的 no английtheImagine the all blocked because the感性things andthe experience ofساتين前the years to noMay， shortly dawn'
+  depth 50%  prompt_tokens 380,209  found: False  in content: False  finish=length  completion_tokens=2000  time to first token 80.1s
+      reply ''  reasoning tail 'btcBTBTBT th BTBT Bridge otto BTBTBittBTERO BTSBTBTBTBTBT ChestBTTBTBewBTBEdBredBTTBTBTBOTBTTBTBTBT dpBittBTBTBTBTBTBikt'
+

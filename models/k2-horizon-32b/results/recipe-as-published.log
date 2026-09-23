@@ -1,0 +1,8 @@
+extra flags: (none, recipe as published)
+RESULT: exited after 169 s
+    raise ValueError(
+ERROR 09-23 20:04:00 [core.py:1366]     raise ValueError(
+ERROR 09-23 20:04:00 [core.py:1366] ValueError: To serve at least one request with the model's max seq len (524288), (64.0 GiB KV cache is needed, which is larger than the available KV cache memory (36.25 GiB). Based on the available memory, the estimated maximum model length is 296928. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_m
+INFO 09-23 20:01:44 [api_utils.py:286] non-default args: {'model_tag': '/models/K2-Horizon-32B', 'enable_auto_tool_choice': True, 'tool_call_parser': 'k2_horizon', 'host': '0.0.0.0', 'port': 8080, 'model': '/models/K2-Horizon-32B', 'trust_remote_code': True, 'dtype': 'bfloat16', 'served_model_name': ['k2-horizon-32b'], 'model_impl': 'vllm', 'reasoning_parser': 'k2_horizon', 'tensor_parallel_size':
+INFO 09-23 20:04:00 [gpu_worker.py:640] Available KV cache memory: 36.25 GiB
+ValueError: To serve at least one request with the model's max seq len (524288), (64.0 GiB KV cache is needed, which is larger than the available KV cache memory (36.25 GiB). Based on the available memory, the estimated maximum model length is 296928. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engi

@@ -1,0 +1,47 @@
+# config: BF16 weights, FP8 KV cache (--kv-cache-dtype fp8), 2 GPUs (TP=2), max-model-len 524288
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  20  canary present: True
+  parts list    tokens  20  canary present: True
+  (server runs with --chat-template-content-format string; see results/startup.log)
+
+### DECODE: single stream, tok/s = completion_tokens / (last token - first token)
+  warmup, discarded  tokens  370  span 5.56s  66.4 tok/s
+  run 1              tokens  365  span 5.49s  66.4 tok/s
+  run 2              tokens  374  span 5.63s  66.3 tok/s
+  run 3              tokens  374  span 5.62s  66.3 tok/s
+  median 66.3 tok/s over n=3
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+    time = non-streaming request with max_tokens=1 (prefill + one ~15 ms decode step)
+  prompt_tokens  31,707  TTFT median   2.94s (min 2.94, max 2.96, n=3)  10,783 prompt tok/s
+  prompt_tokens 126,748  TTFT median  21.41s (min 21.38, max 21.42, n=3)  5,921 prompt tok/s
+  prompt_tokens 475,227  TTFT median 214.92s (min 214.87, max 215.10, n=3)  2,211 prompt tok/s
+  same ~60k prompt again: first 6.82s, repeats 0.37, 0.38, 0.37s (prefix cache hit)
+
+
+### ANSWERS: 24 questions x 3 runs, effort medium, temperature 1.0, top_p 0.95
+  correct 71/72 (98.6%)   completion tokens median 41.0
+      wrong: ('What is 17 multiplied by 23?', '391', '289')
+
+### TOOLS: weather request, default xml format, n=10 per effort
+  effort low   structured and correct 9/10
+  effort high  structured and correct 10/10
+
+# haystack: Project Gutenberg ebook 2600 (War and Peace)
+
+### NEEDLE: a six-digit code in natural text, lengths [128000, 256000, 480000], depths [0.5], effort low
+  depth 50%  prompt_tokens 127,314  found: True  in content: False  finish=stop  completion_tokens=211  time to first token 21.6s
+      reply ''  reasoning tail "ctly—no letters or additional characters. I don't see any ambiguity or conflicting information here.\n</ifm|think>\n707339"
+  depth 50%  prompt_tokens 254,024  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 69.3s
+      reply '528959'  reasoning tail ''
+  depth 50%  prompt_tokens 473,936  found: False  in content: False  finish=stop  completion_tokens=5  time to first token 213.7s
+      reply '889261'  reasoning tail ''
+
+
+### NEEDLE: a six-digit code in natural text, lengths [480000], depths [0.1, 0.9], effort low
+  depth 10%  prompt_tokens 473,934  found: False  in content: False  finish=stop  completion_tokens=5  time to first token 213.9s
+      reply '162991'  reasoning tail ''
+  depth 90%  prompt_tokens 473,937  found: True  in content: True  finish=stop  completion_tokens=5  time to first token 213.9s
+      reply '461292'  reasoning tail ''
+
