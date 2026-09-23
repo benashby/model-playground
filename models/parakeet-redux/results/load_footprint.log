@@ -1,0 +1,42 @@
+### A. warm load (weights cached), fresh process per repeat
+  run 0: import moondream 0.04 s | md.photon() 2.76 s | first transcribe(1 s) 0.05 s  (warmup, discarded)
+  run 1: import moondream 0.04 s | md.photon() 2.81 s | first transcribe(1 s) 0.04 s
+  run 2: import moondream 0.05 s | md.photon() 2.76 s | first transcribe(1 s) 0.05 s
+  run 3: import moondream 0.04 s | md.photon() 2.81 s | first transcribe(1 s) 0.05 s
+  run 4: import moondream 0.04 s | md.photon() 2.83 s | first transcribe(1 s) 0.04 s
+  run 5: import moondream 0.05 s | md.photon() 2.66 s | first transcribe(1 s) 0.04 s
+  md.photon() open      : min 2.66 / median 2.81 / max 2.83 s  n=5
+  import moondream      : min 0.04 / median 0.04 / max 0.05 s  n=5
+  first transcribe(1 s) : min 0.04 / median 0.04 / max 0.05 s  n=5
+  import + open         : min 2.70 / median 2.85 / max 2.87 s  n=5
+
+### B. cold load (empty HF cache per repeat; includes the download)
+  run 0: md.photon() 24.37 s (downloaded 179.0 MB into the empty cache) | first transcribe(1 s) 0.05 s
+  run 1: md.photon() 24.38 s (downloaded 179.0 MB into the empty cache) | first transcribe(1 s) 0.06 s
+  run 2: md.photon() 24.12 s (downloaded 179.0 MB into the empty cache) | first transcribe(1 s) 0.05 s
+  md.photon() open, cold: min 24.12 / median 24.37 / max 24.38 s  n=3
+  cold minus warm median: 21.56 s (attributable to the download and first-time file handling)
+
+### C. disk footprint
+  venv total (regular files, symlinks not followed): 1.30 GB
+    torch                         737.0 MB
+    torchgen                        2.3 MB
+    functorch                       0.1 MB
+    moondream                       0.2 MB
+    kestrel                         3.8 MB
+    kestrel_native                  6.1 MB
+    kestrel_kernels                38.2 MB
+    kestrel_kernels_bundle_a       81.2 MB
+    kestrel_kernels_bundle_b       81.2 MB
+    kestrel_kernels_bundle_c       81.2 MB
+    kestrel_kernels_bundle_d       81.2 MB
+    tokenizers                     11.6 MB
+    safetensors                     1.3 MB
+    sympy                          39.2 MB
+    networkx                        7.2 MB
+  of which the packages above: 1.17 GB
+  HF cache moondream/parakeet-redux revision af60db939eba: 179.0 MB on disk, 4 files
+    model.safetensors        177774490 bytes
+    tokenizer.json             1159960 bytes
+    ternary.json                 57970 bytes
+    config.json                  13303 bytes

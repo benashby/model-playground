@@ -1,0 +1,124 @@
+WIRE_RATE = 24000
+=== tool_call.wav ch0: 84.5 s at 24000 Hz; (b) input identical to (a): True; (a) repeat identical: True
+    byte-identical text: b==a True, c==a False, c==b False
+    (b)vs(a)    0 word diffs /   69 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(a)    0 word diffs /   69 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(b)    0 word diffs /   69 ref words =  0.00%  (S=0 D=0 I=0)
+=== interruptions.wav ch0: 30.0 s at 24000 Hz; (b) input identical to (a): True; (a) repeat identical: True
+    byte-identical text: b==a True, c==a True, c==b True
+    (b)vs(a)    0 word diffs /   28 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(a)    0 word diffs /   28 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(b)    0 word diffs /   28 ref words =  0.00%  (S=0 D=0 I=0)
+=== turn_taking.wav ch0: 41.1 s at 24000 Hz; (b) input identical to (a): True; (a) repeat identical: True
+    byte-identical text: b==a True, c==a True, c==b True
+    (b)vs(a)    0 word diffs /   20 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(a)    0 word diffs /   20 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(b)    0 word diffs /   20 ref words =  0.00%  (S=0 D=0 I=0)
+=== q4ec1.mix.wav ch0: 212.5 s at 20000 Hz; (b) input identical to (a): False; (a) repeat identical: True
+    byte-identical text: b==a False, c==a False, c==b False
+    (b)vs(a)    1 word diffs /  309 ref words =  0.32%  (S=1 D=0 I=0)
+        @65 S 'machette'->'machete'
+    (c)vs(a)    0 word diffs /  309 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(b)    1 word diffs /  309 ref words =  0.32%  (S=1 D=0 I=0)
+        @65 S 'machete'->'machette'
+=== q4ec1.mix.wav ch1: 212.5 s at 20000 Hz; (b) input identical to (a): False; (a) repeat identical: True
+    byte-identical text: b==a False, c==a False, c==b False
+    (b)vs(a)   13 word diffs /  212 ref words =  6.13%  (S=10 D=2 I=1)
+        @46 S 'machette'->'machetti'
+        @71 S 'clock'->'cloud'
+        @118 S 'crevass'->'crevasse'
+        @125 S 'really'->'ready'
+        @145 I 'the'
+        @148 D 'it'
+        @149 S 'or'->"it's"
+        @153 D 'beech'
+        @154 S 'is'->'beeches'
+        @163 S "it's"->'a'
+        @164 S 'um'->'symbol'
+        @172 S 'uh'->'yeah'
+        (+1 more)
+    (c)vs(a)   20 word diffs /  212 ref words =  9.43%  (S=7 D=11 I=2)
+        @46 S 'machette'->'machetti'
+        @71 S 'clock'->'cloud'
+        @92 S 'stop'->'start'
+        @118 S 'crevass'->'crevasse'
+        @162 D "it's"
+        @163 D 'um'
+        @176 I 'all'
+        @183 I 'n'
+        @191 S 'and'->'then'
+        @193 D 'side'
+        @194 D 'of'
+        @195 D 'the'
+        (+8 more)
+    (c)vs(b)   25 word diffs /  211 ref words = 11.85%  (S=9 D=12 I=4)
+        @92 S 'stop'->'start'
+        @125 S 'ready'->'really'
+        @145 D 'the'
+        @148 I 'it'
+        @149 S "it's"->'or'
+        @153 I 'beech'
+        @154 S 'beeches'->'is'
+        @163 D 'a'
+        @164 D 'symbol'
+        @172 S 'yeah'->'uh'
+        @177 I 'all'
+        @178 S 'alright'->'right'
+        (+13 more)
+=== q1ec1.mix.wav ch0: 265.1 s at 20000 Hz; (b) input identical to (a): False; (a) repeat identical: True
+    byte-identical text: b==a True, c==a True, c==b True
+    (b)vs(a)    0 word diffs /  488 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(a)    0 word diffs /  488 ref words =  0.00%  (S=0 D=0 I=0)
+    (c)vs(b)    0 word diffs /  488 ref words =  0.00%  (S=0 D=0 I=0)
+=== q1ec1.mix.wav ch1: 265.1 s at 20000 Hz; (b) input identical to (a): False; (a) repeat identical: True
+    byte-identical text: b==a False, c==a False, c==b False
+    (b)vs(a)   12 word diffs /  348 ref words =  3.45%  (S=1 D=1 I=10)
+        @69 I 'of'
+        @70 I 'the'
+        @71 I 'middle'
+        @85 I "i'm"
+        @86 I 'going'
+        @87 I 'to'
+        @88 I 'continue'
+        @89 I 'straight'
+        @90 I 'along'
+        @91 I 'um'
+        @177 D 'okay'
+        @180 S 'abandon'->'abandoned'
+    (c)vs(a)   11 word diffs /  348 ref words =  3.16%  (S=4 D=2 I=5)
+        @33 S 'on'->'to'
+        @55 S 'bill'->'build'
+        @69 I 'of'
+        @70 I 'the'
+        @71 I 'road'
+        @81 I 'mm'
+        @82 I 'hmm'
+        @145 D 'hmm'
+        @165 S 'mendo'->'mando'
+        @172 D 'okay'
+        @175 S 'abandon'->'abandoned'
+    (c)vs(b)   14 word diffs /  357 ref words =  3.92%  (S=4 D=8 I=2)
+        @33 S 'on'->'to'
+        @55 S 'bill'->'build'
+        @71 S 'middle'->'road'
+        @81 I 'mm'
+        @82 I 'hmm'
+        @87 D "i'm"
+        @88 D 'going'
+        @89 D 'to'
+        @90 D 'continue'
+        @91 D 'straight'
+        @92 D 'along'
+        @93 D 'um'
+        (+2 more)
+
+=== pooled
+  24 kHz fixtures    b_vs_a: 0 word diffs / 117 ref words = 0.00%  (n=3 inputs)
+  all                b_vs_a: 26 word diffs / 1474 ref words = 1.76%  (n=7 inputs)
+  24 kHz fixtures    c_vs_a: 0 word diffs / 117 ref words = 0.00%  (n=3 inputs)
+  all                c_vs_a: 31 word diffs / 1474 ref words = 2.10%  (n=7 inputs)
+  24 kHz fixtures    c_vs_b: 0 word diffs / 117 ref words = 0.00%  (n=3 inputs)
+  all                c_vs_b: 40 word diffs / 1482 ref words = 2.70%  (n=7 inputs)
+  20 kHz Map Task    b_vs_a: 26 word diffs / 1357 ref words = 1.92%  (n=4 inputs)
+  20 kHz Map Task    c_vs_a: 31 word diffs / 1357 ref words = 2.28%  (n=4 inputs)
+  20 kHz Map Task    c_vs_b: 40 word diffs / 1365 ref words = 2.93%  (n=4 inputs)

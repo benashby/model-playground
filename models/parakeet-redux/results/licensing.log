@@ -1,0 +1,78 @@
+=== moondream 2.4.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  installed package    : moondream/ 158230 bytes (excluding __pycache__)
+  PyPI wheel           : moondream-2.4.1-py3-none-any.whl  110592 bytes
+=== kestrel 0.8.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  README 'License' section:
+    | Local inference is free and requires no API key. Finetuned-model inference
+    | requires a Moondream API key — see [moondream.ai/pricing](https://moondream.ai/pricing).
+  installed package    : kestrel/ 1986710 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel-0.8.1-py3-none-any.whl  550004 bytes
+=== kestrel-native 0.1.8
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence file         : kestrel_native-0.1.8.dist-info/sboms/kestrel-native.cyclonedx.json  174935 bytes  sha256 ed902879ee57062d...
+    sbom top component licences: <none declared>
+  installed package    : kestrel_native/ 6057619 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_native-0.1.8-cp312-cp312-macosx_10_12_x86_64.whl  2206004 bytes
+  PyPI wheel           : kestrel_native-0.1.8-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl  2331778 bytes
+=== kestrel-kernels 0.7.1
+  License field        : Kestrel Kernels — Proprietary Software License
+  License-Expression   : <absent>
+  License classifiers  : ['License :: Other/Proprietary License']
+  licence file         : kestrel_kernels-0.7.1.dist-info/licenses/LICENSE  4392 bytes  sha256 0b6a29f1cfc42add...
+  README licence line  : **License:** These kernels are provided for use with Kestrel only. Other use is not permitted.
+  installed package    : kestrel_kernels/ 37764925 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_kernels-0.7.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_31_x86_64.whl  4195874 bytes
+  PyPI wheel           : kestrel_kernels-0.7.1-cp312-cp312-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl  7291184 bytes
+=== kestrel-kernels-bundle-a 0.7.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  installed package    : kestrel_kernels_bundle_a/ 81237509 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_kernels_bundle_a-0.7.1-py3-none-manylinux_2_24_x86_64.manylinux_2_31_x86_64.whl  85596205 bytes
+  PyPI wheel           : kestrel_kernels_bundle_a-0.7.1-py3-none-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl  81263421 bytes
+=== kestrel-kernels-bundle-b 0.7.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  installed package    : kestrel_kernels_bundle_b/ 81245862 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_kernels_bundle_b-0.7.1-py3-none-manylinux_2_24_x86_64.manylinux_2_31_x86_64.whl  85580798 bytes
+  PyPI wheel           : kestrel_kernels_bundle_b-0.7.1-py3-none-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl  81271754 bytes
+=== kestrel-kernels-bundle-c 0.7.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  installed package    : kestrel_kernels_bundle_c/ 81216081 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_kernels_bundle_c-0.7.1-py3-none-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl  81241971 bytes
+=== kestrel-kernels-bundle-d 0.7.1
+  License field        : <absent>
+  License-Expression   : <absent>
+  License classifiers  : <none>
+  licence files        : <none in dist-info>
+  installed package    : kestrel_kernels_bundle_d/ 81227444 bytes (excluding __pycache__)
+  PyPI wheel           : kestrel_kernels_bundle_d-0.7.1-py3-none-manylinux_2_34_x86_64.manylinux_2_35_x86_64.whl  81253350 bytes
+
+=== clauses quoted in the note, located in the installed kestrel-kernels LICENSE
+  found verbatim=True: "It is licensed, not sold, and is made available only under the terms of a separate written agreement between M87 Labs, Inc. and the licensee ("the Agreement"). If you have not entered into such an Agreement, you have no license to use this software."
+  found verbatim=True: "reverse engineer, decompile, disassemble, deobfuscate, decrypt, or otherwise attempt to derive, reconstruct, or recover the source code"
+  found verbatim=True: "extract, unpack, or separate the kernel binaries or their metadata from the packaged collection for any purpose other than the software's normal execution;"
+  found verbatim=True: "copy, modify, translate, create derivative works from, publish, sublicense, sell, rent, lease, or otherwise distribute the software or any part of it, except as expressly permitted by the Agreement."
+  found verbatim=True: "Subject to the Agreement, you are granted a limited, non-exclusive, non-transferable license to install and run this software"
+  numbered sections: [('1', 'GRANT'), ('2', 'PROHIBITED CONDUCT'), ('3', 'RESERVATION OF RIGHTS'), ('4', 'NOTE ON CIRCUMVENTION LAW'), ('5', 'NO WARRANTY; LIMITATION OF LIABILITY'), ('6', 'TERMINATION')]
+
+=== HuggingFace model licences (api/models)
+  moondream/parakeet-redux       ['license:cc-by-4.0']  revision 2bf128600aac
+  moondream/parakeet-ultra       ['license:cc-by-4.0']  revision 73175eb7aeb0
+  nvidia/parakeet-tdt-0.6b-v3    ['license:cc-by-4.0']  revision 541d1f99c6b0

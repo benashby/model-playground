@@ -1,0 +1,100 @@
+{"t": 0.1052, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.1053, "kind": "unhandled", "type": "session.created"}
+{"t": 0.1055, "kind": "caller.audio.first_chunk"}
+{"t": 0.1362, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.6979, "kind": "unhandled", "type": "response.created"}
+{"t": 0.6979, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.6979, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 1.0016, "kind": "agent.said", "text": ""}
+{"t": 2.4539, "kind": "caller.speech_started", "pending": []}
+{"t": 2.4539, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 2.454, "kind": "caller.said", "text": "o"}
+{"t": 2.454, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 5.3304, "kind": "agent.said", "text": "Hi there! How can I help you today?"}
+{"t": 8.203, "kind": "caller.speech_started", "pending": []}
+{"t": 8.2031, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 8.5287, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 8.6845, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 8.8475, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 9.0071, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 9.1621, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 9.6523, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 9.8075, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 10.1335, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 10.2851, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 11.2449, "kind": "tool.call", "name": "generate_random_number", "call_id": "244ffcd9-2485-406d-ae82-1f82411907c5", "args": {"min": 1, "max": 50}}
+{"t": 11.3454, "kind": "tool.result", "call_id": "244ffcd9-2485-406d-ae82-1f82411907c5", "duration": 0.1005}
+{"t": 12.3633, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 12.3633, "kind": "caller.said", "text": "can you generate a random number between one and fifty?"}
+{"t": 12.3633, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 15.0879, "kind": "agent.said", "text": " Your random number is twenty-five."}
+{"t": 20.2046, "kind": "caller.speech_started", "pending": []}
+{"t": 20.2046, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 20.3655, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 20.5294, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 20.6895, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 20.8492, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 21.1766, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 21.3328, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 21.4865, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 21.6456, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 21.8007, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 22.1324, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 22.2862, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 22.4518, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 22.9254, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 23.0792, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 23.2469, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 23.4029, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 23.57, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 23.7261, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 24.2152, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 24.6854, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 25.3277, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 25.4848, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 25.6424, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 26.9193, "kind": "tool.call", "name": "convert_currency", "call_id": "e8b4c38a-b240-4a99-9d0f-f7833ffa4c91", "args": {"amount": 25, "from_currency": "USD", "to_currency": "EUR"}}
+{"t": 27.2395, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 28.4202, "kind": "tool.result", "call_id": "e8b4c38a-b240-4a99-9d0f-f7833ffa4c91", "duration": 1.5009}
+{"t": 29.6483, "kind": "caller.said", "text": "great. I think that's how much money I'm gonna take with me to Paris. Can you convert that to Euros please?"}
+{"t": 29.6483, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 38.4536, "kind": "agent.said", "text": " twenty-five US dollars is approximately twenty-three point zero zero EUR. Enjoy your trip to Paris!"}
+{"t": 38.7683, "kind": "caller.speech_started", "pending": []}
+{"t": 38.7684, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 39.2409, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 39.4116, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 39.567, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 39.7369, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 39.8889, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 40.0507, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 40.2114, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 40.3651, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 40.531, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 40.844, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 41.01, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 41.4863, "kind": "caller.said", "text": "okay thank you um can you tell me about the weather is like over there"}
+{"t": 41.4864, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 57.9683, "kind": "agent.said", "text": " I do not have access to live weather data, but I can suggest checking a weather app or website for the most accurate information. Have a great day!"}
+{"t": 58.774, "kind": "caller.speech_started", "pending": []}
+{"t": 58.774, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 58.9316, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 59.0904, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 59.2452, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 59.4035, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 59.5742, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 59.8875, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 60.3724, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 60.5334, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 60.6855, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 61.0081, "kind": "caller.said", "text": "great thanks. Could you let me know how I should dress, what should I wear"}
+{"t": 61.0081, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 77.6522, "kind": "agent.said", "text": " For a city like Paris, a stylish yet practical approach is best. For men, a light shirt and trousers are a good start, while women might consider a chic dress or casual pants. Since the weather can change quickly, it is a good idea to bring a light jacket or an umbrella. Have a great day!"}
+{"t": 77.8091, "kind": "caller.speech_started", "pending": []}
+{"t": 77.8092, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 77.9795, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 78.4466, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 78.6072, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 78.7669, "kind": "unhandled", "type": "conversation.item.input_audio_transcription.delta"}
+{"t": 79.0898, "kind": "caller.said", "text": "great, that's helpful. Thank you"}
+{"t": 79.0898, "kind": "unhandled", "type": "input_audio_buffer.speech_stopped"}
+{"t": 84.5857, "kind": "caller.audio.exhausted", "linger_s": 8.0}

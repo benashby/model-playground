@@ -1,0 +1,29 @@
+{"t": 0.0712, "kind": "session.update.sent", "tools": ["convert_currency", "get_news_headlines", "calculate_bmi", "generate_random_number"]}
+{"t": 0.0715, "kind": "caller.audio.first_chunk"}
+{"t": 0.0734, "kind": "unhandled", "type": "session.created"}
+{"t": 0.1024, "kind": "unhandled", "type": "session.updated"}
+{"t": 0.6602, "kind": "unhandled", "type": "response.created"}
+{"t": 0.6602, "kind": "unhandled", "type": "response.output_item.added"}
+{"t": 0.6602, "kind": "unhandled", "type": "response.content_part.added"}
+{"t": 0.961, "kind": "agent.said", "text": ""}
+{"t": 1.9372, "kind": "caller.speech_started", "pending": []}
+{"t": 2.5634, "kind": "caller.said", "text": "what is a hurricane"}
+{"t": 2.5634, "kind": "caller.speech_stopped"}
+{"t": 7.0557, "kind": "agent.said", "text": "A hurricane is a powerful tropical storm with strong winds and heavy rain."}
+{"t": 7.534, "kind": "agent.said", "text": ""}
+{"t": 8.0211, "kind": "caller.speech_started", "pending": []}
+{"t": 8.8076, "kind": "caller.said", "text": "never mind what is a tornado"}
+{"t": 8.8076, "kind": "caller.speech_stopped"}
+{"t": 13.6164, "kind": "agent.said", "text": "A tornado is a rapidly rotating column of air that is in contact with the ground, usually formed by the condensation of moisture in the atmosphere."}
+{"t": 13.9337, "kind": "caller.speech_started", "pending": []}
+{"t": 14.8925, "kind": "caller.said", "text": "is a hurricane a cyclone"}
+{"t": 14.8925, "kind": "caller.speech_stopped"}
+{"t": 19.3715, "kind": "agent.said", "text": " Yes, a hurricane is a type of cyclone. They are both powerful storms with strong winds and heavy rain."}
+{"t": 19.5278, "kind": "caller.speech_started", "pending": []}
+{"t": 20.4853, "kind": "caller.said", "text": "where can I find hurricanes"}
+{"t": 20.4854, "kind": "caller.speech_stopped"}
+{"t": 23.8533, "kind": "agent.said", "text": " Hurricanes can be found in warm ocean waters, usually near the equator."}
+{"t": 24.0087, "kind": "caller.speech_started", "pending": []}
+{"t": 25.4471, "kind": "caller.said", "text": "can I find it in the Pacific Ocean"}
+{"t": 25.4472, "kind": "caller.speech_stopped"}
+{"t": 30.1517, "kind": "caller.audio.exhausted", "linger_s": 6.0}

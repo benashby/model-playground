@@ -1,0 +1,5 @@
+source: pk_exp.log section A, median RTF of 3 runs per channel
+  tool_call      ch0 (human)  45.2x  ch1 (agent TTS)  40.6x  agent slower by 10.2%  (human faster by 11.3%)
+  interruptions  ch0 (human)  47.8x  ch1 (agent TTS)  41.9x  agent slower by 12.3%  (human faster by 14.1%)
+  turn_taking    ch0 (human)  48.6x  ch1 (agent TTS)  41.1x  agent slower by 15.4%  (human faster by 18.2%)
+  range over n=3 fixtures: agent slower by 10.2% to 15.4%

@@ -1,0 +1,38 @@
+### F. STREAMING, caller channel, speed 1.0, one fresh client per stream
+
+  run1 tool_call      audio= 84.5s open=2.78s snaps= 42 first_since_open= 6.80s first_since_audio= 4.01s NE=1.087 UPWR=0.0461 final_words=69
+
+  run1 interruptions  audio= 30.0s open=1.28s snaps= 15 first_since_open= 5.30s first_since_audio= 4.02s NE=0.143 UPWR=0.0191 final_words=28
+
+  run1 turn_taking    audio= 41.1s open=1.29s snaps= 20 first_since_open= 5.30s first_since_audio= 4.01s NE=0.150 UPWR=0.0359 final_words=20
+
+  run2 tool_call      audio= 84.5s open=1.36s snaps= 42 first_since_open= 5.37s first_since_audio= 4.00s NE=1.087 UPWR=0.0461 final_words=69
+
+  run2 interruptions  audio= 30.0s open=1.21s snaps= 15 first_since_open= 5.21s first_since_audio= 4.00s NE=0.143 UPWR=0.0191 final_words=28
+
+  run2 turn_taking    audio= 41.1s open=1.25s snaps= 20 first_since_open= 5.26s first_since_audio= 4.01s NE=0.150 UPWR=0.0359 final_words=20
+
+  run3 tool_call      audio= 84.5s open=1.37s snaps= 42 first_since_open= 5.37s first_since_audio= 4.00s NE=1.087 UPWR=0.0461 final_words=69
+
+  run3 interruptions  audio= 30.0s open=1.23s snaps= 15 first_since_open= 5.23s first_since_audio= 4.00s NE=0.143 UPWR=0.0191 final_words=28
+
+  run3 turn_taking    audio= 41.1s open=1.28s snaps= 20 first_since_open= 5.29s first_since_audio= 4.01s NE=0.150 UPWR=0.0359 final_words=20
+
+### F2. first snapshot latency over passes (n per fixture = 3)
+  tool_call      since_open min/med/max 5.37/5.37/6.80s | since_audio 4.00/4.00/4.01s | client open 1.36/1.37/2.78s
+  interruptions  since_open min/med/max 5.21/5.23/5.30s | since_audio 4.00/4.00/4.02s | client open 1.21/1.23/1.28s
+  turn_taking    since_open min/med/max 5.26/5.29/5.30s | since_audio 4.01/4.01/4.01s | client open 1.25/1.28/1.29s
+  ALL: since_audio 4.00-4.02s median 4.01s; since_open 5.21-6.80s median 5.30s; n=9
+  stability metrics identical across passes: True
+
+### G. STREAM-vs-BATCH (streamed aresult()['text'] vs batch transcribe)
+
+  tool_call      run1 identical_to_batch_segment=True identical_to_batch_none=True words=69
+  tool_call      run2 identical_to_batch_segment=True identical_to_batch_none=True words=69
+  tool_call      run3 identical_to_batch_segment=True identical_to_batch_none=True words=69
+  interruptions  run1 identical_to_batch_segment=True identical_to_batch_none=True words=28
+  interruptions  run2 identical_to_batch_segment=True identical_to_batch_none=True words=28
+  interruptions  run3 identical_to_batch_segment=True identical_to_batch_none=True words=28
+  turn_taking    run1 identical_to_batch_segment=True identical_to_batch_none=True words=20
+  turn_taking    run2 identical_to_batch_segment=True identical_to_batch_none=True words=20
+  turn_taking    run3 identical_to_batch_segment=True identical_to_batch_none=True words=20

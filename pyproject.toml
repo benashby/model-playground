@@ -11,9 +11,30 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.24"]
+# Parakeet/Photon ASR. Deliberately OPTIONAL: it drags in torch plus ~350 MB of
+# proprietary Kestrel kernel bundles, and the core harness -- a WebSocket client
+# -- needs none of it. `uv sync --extra asr` opts in.
+# torch is listed explicitly even though `moondream` pulls it transitively via
+# `kestrel`: [tool.uv.sources] below only binds DIRECT dependencies, so without
+# this line the CPU index is silently ignored and uv resolves torch+cu130 --
+# multiple GB of CUDA wheels on a machine whose only GPU is AMD. Verified by
+# `uv run --extra asr python -c "import torch; print(torch.__version__)"`.
+asr = ["moondream>=2.4.0", "torch>=2.8"]
 
 [project.scripts]
 playground = "playground.__main__:main"
+
+# torch>=2.8 from the default index is the CUDA build: multiple GB this Radeon
+# desktop cannot use, and Photon's Parakeet path here is CPU-only anyway. Pin the
+# CPU wheel index explicitly. MEASURED: resolves torch==2.14.0+cpu and takes the
+# ASR venv to ~1.2 GB, against ~5 GB for the CUDA build.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
 
 [build-system]
 requires = ["hatchling"]

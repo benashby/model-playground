@@ -1,0 +1,17 @@
+{"t": 1.2089, "kind": "asr.opened", "open_s": 1.209}
+{"t": 5.2127, "kind": "asr.snapshot", "since_open": 5.213, "since_audio": 4.004, "words": 4, "text": "What is a hurricane"}
+{"t": 7.2201, "kind": "asr.snapshot", "since_open": 7.22, "since_audio": 6.011, "words": 4, "text": "What is a hurricane?"}
+{"t": 9.2427, "kind": "asr.snapshot", "since_open": 9.243, "since_audio": 8.034, "words": 4, "text": "What is a hurricane?"}
+{"t": 11.2774, "kind": "asr.snapshot", "since_open": 11.277, "since_audio": 10.068, "words": 10, "text": "What is a hurricane? Never mind, what is a torn"}
+{"t": 13.3169, "kind": "asr.snapshot", "since_open": 13.317, "since_audio": 12.108, "words": 10, "text": "What is a hurricane? Never mind, what is a tornado?"}
+{"t": 15.3547, "kind": "asr.snapshot", "since_open": 15.355, "since_audio": 14.146, "words": 10, "text": "What is a hurricane? Never mind, what is a tornado?"}
+{"t": 17.355, "kind": "asr.snapshot", "since_open": 17.355, "since_audio": 16.146, "words": 15, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyc"}
+{"t": 19.358, "kind": "asr.snapshot", "since_open": 19.358, "since_audio": 18.149, "words": 15, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone?"}
+{"t": 21.3752, "kind": "asr.snapshot", "since_open": 21.375, "since_audio": 20.166, "words": 15, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone?"}
+{"t": 23.3707, "kind": "asr.snapshot", "since_open": 23.371, "since_audio": 22.162, "words": 20, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes"}
+{"t": 25.3513, "kind": "asr.snapshot", "since_open": 25.351, "since_audio": 24.142, "words": 20, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes?"}
+{"t": 27.3571, "kind": "asr.snapshot", "since_open": 27.357, "since_audio": 26.148, "words": 26, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the"}
+{"t": 29.3631, "kind": "asr.snapshot", "since_open": 29.363, "since_audio": 28.154, "words": 28, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?"}
+{"t": 31.3464, "kind": "asr.snapshot", "since_open": 31.346, "since_audio": 30.137, "words": 28, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?"}
+{"t": 32.0047, "kind": "asr.snapshot", "since_open": 32.005, "since_audio": 30.796, "words": 28, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?"}
+{"t": 32.4154, "kind": "asr.final", "since_audio": 30.796, "text": "What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?", "snapshots": 15}

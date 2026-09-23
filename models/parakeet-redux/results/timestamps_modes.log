@@ -1,0 +1,25 @@
+
+=== tool_call ch0, 84.5 s audio, n=5 per mode (round 0 discarded)
+  none       min/med/max 1.799/1.815/1.872 s  median vs none  +0.0%  segments=0
+  segment    min/med/max 1.786/1.801/1.904 s  median vs none  -0.8%  segments=11
+  word       min/med/max 1.789/1.831/1.896 s  median vs none  +0.9%  segments=11
+  character  min/med/max 1.780/1.791/1.850 s  median vs none  -1.3%  segments=5
+  distinct texts across all modes and repeats: 1
+=== interruptions ch0, 30.0 s audio, n=5 per mode (round 0 discarded)
+  none       min/med/max 0.641/0.651/0.653 s  median vs none  +0.0%  segments=0
+  segment    min/med/max 0.631/0.649/0.666 s  median vs none  -0.2%  segments=5
+  word       min/med/max 0.641/0.650/0.670 s  median vs none  -0.1%  segments=5
+  character  min/med/max 0.639/0.661/0.663 s  median vs none  +1.6%  segments=2
+  distinct texts across all modes and repeats: 1
+=== turn_taking ch0, 41.1 s audio, n=5 per mode (round 0 discarded)
+  none       min/med/max 0.846/0.854/0.983 s  median vs none  +0.0%  segments=0
+  segment    min/med/max 0.851/0.880/0.939 s  median vs none  +3.1%  segments=5
+  word       min/med/max 0.822/0.859/0.963 s  median vs none  +0.6%  segments=5
+  character  min/med/max 0.828/0.862/0.899 s  median vs none  +0.9%  segments=2
+  distinct texts across all modes and repeats: 1
+
+=== summary: median time relative to 'none', per fixture
+  none        +0.0%   +0.0%   +0.0%
+  segment     -0.8%   -0.2%   +3.1%
+  word        +0.9%   -0.1%   +0.6%
+  character   -1.3%   +1.6%   +0.9%
