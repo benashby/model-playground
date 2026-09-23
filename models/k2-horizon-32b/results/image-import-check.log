@@ -1,0 +1,8 @@
+== docker.io/vllm/vllm-openai:v0.30.0-cu129
+W0923 19:16:26.482000 1 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+torch 2.14.0 | torchvision 0.28.0+cu129
+import FAILED: RuntimeError operator torchvision::nms does not exist
+== docker.io/vllm/vllm-openai:v0.30.0
+torch 2.13.0+cu130 | torchvision 0.28.0+cu130
+W0923 19:16:51.693000 1 torch/utils/cpp_extension.py:178] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+import vllm.entrypoints.openai.api_server: OK

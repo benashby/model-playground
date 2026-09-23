@@ -1,0 +1,10 @@
+checked 2026-09-23T19:13Z
+== datasets named in the K2-Horizon-32B card
+  IFM/K2-Horizon-Pretrain-Data     HTTP 401
+  IFM/K2-Horizon-Midtrain-Data     HTTP 401
+== branches of IFM/K2-Horizon-32B (the card's table lists intermediate checkpoints as branches)
+   ['main']
+== IFM's public datasets
+   17 public: TxT360-v2, Code-Reasoning, Pretrain-Behaviors, SFT-Reasoning, MegaMath, Math-Reasoning, AmberDatasets, CrystalCoderDatasets, K2Datasets, WebMC, TxT360, guru_preview, guru-RL-92k, guru-RL-92k-extra-info-compressed, TxT360-Midas, TxT360-3efforts, guru-RL-v1.5
+== K2-Horizon models IFM has published
+   K2-Horizon-0.9B, K2-Horizon-0.9B-GGUF, K2-Horizon-0.9B-Uno, K2-Horizon-3.7B, K2-Horizon-3.7B-GGUF, K2-Horizon-32B, K2-Horizon-32B-FP8, K2-Horizon-32B-GGUF, K2-Horizon-32B-NVFP4, K2-Horizon-375B-A23B, K2-Horizon-375B-A23B-FP8, K2-Horizon-375B-A23B-NVFP4, K2-Horizon-7B, K2-Horizon-7B-FP8, K2-Horizon-7B-GGUF, K2-Horizon-7B-Uno, K2-Horizon-MoVA-36B-A4B, K2-Horizon-MoVA-36B-A4B-FP8, K2-Horizon-MoVA-36B-A4B-GGUF

@@ -1,0 +1,17 @@
+host=$PLAYGROUND_HOST model=k2-horizon-32b  (address redacted by design)
+
+### 1. second turn after a tool result, by effort and history thinking field, n=8 each
+    (vLLM's OpenAI layer drops message keys it does not know, so `think_faster` may never reach the template)
+  effort low    history field reasoning     {'answer in content': 0, 'answer stuck in reasoning': 8, 'no answer': 0, 'no first call': 0, 'http error': 0}
+  effort low    history field think_faster  {'answer in content': 0, 'answer stuck in reasoning': 0, 'no answer': 0, 'no first call': 2, 'http error': 6}
+      error: Assistant message is missing a thinking field. Provide one of: think, reasoning, reasoning_content, think_fast
+  effort medium history field reasoning     {'answer in content': 0, 'answer stuck in reasoning': 8, 'no answer': 0, 'no first call': 0, 'http error': 0}
+  effort high   history field reasoning     {'answer in content': 7, 'answer stuck in reasoning': 0, 'no answer': 0, 'no first call': 1, 'http error': 0}
+
+### 2. first-turn tool calls at HIGH effort, n=8 per format
+  xml_typed  structured call 1/8
+      miss: finish=stop tokens=117 content='<ifm|tool_calls>\n<ifm|tool_call>get_weather\n<ifm|arg_key>city</ifm|arg_key>\n<ifm|arg_value>Oslo</ifm|arg_value>\n<ifm|arg' reasoning_tail='eed to make sure to set the unit parameter to "celsius" as specified. The function doesn\'t require any other parameters, so I\'ll just call it with those values.'
+      miss: finish=stop tokens=132 content='<ifm|tool_calls>\n<ifm|tool_call>get_weather\n<ifm|arg_key>city</ifm|arg_key>\n<ifm|arg_value>Oslo</ifm|arg_value>\n<ifm|arg' reasoning_tail='in the unit parameter. I need to make sure the parameters are correctly formatted as JSON. No other tools are available, so this should be the right one to use.'
+      miss: finish=stop tokens=137 content='<ifm|tool_calls>\n<ifm|tool_call>get_weather\n<ifm|arg_key>city</ifm|arg_key>\n<ifm|arg_value>Oslo</ifm|arg_value>\n<ifm|arg' reasoning_tail="g and 'unit' as an enum with celsius or fahrenheit. Since the user specified celsius, I'll use that. Alright, I'll generate the tool call with Oslo and celsius."
+  xml        structured call 8/8
+  json       structured call 8/8

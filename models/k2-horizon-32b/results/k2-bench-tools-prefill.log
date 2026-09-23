@@ -1,0 +1,23 @@
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### TOOLS: each tool_call_format, n=10, checked for a structured call with the right arguments
+  xml        structured and correct 9/10   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+      miss: ('NO TOOL CALL', "\nApologies, but I'm unable to provide the current weather in Oslo as requested because the available tools do not include functionality to access weather data. The only function provided is for general processing tasks and lacks the necessary capability to fetch real-time weather information. I reco", 'stop')
+  json       structured and correct 5/10   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+      miss: ('NO TOOL CALL', '\n<ifm|tool_calls>\n<ifm|tool_call>{"name": "get_weather", "arguments": {"city": "Oslo", "unit": "celsius"}}</ifm|arg_value>\n</ifm|tool_call>\n</ifm|tool_calls>', 'stop')
+      miss: ('NO TOOL CALL', '\n<ifm|tool_calls>\n<ifm|tool_call>{"name": "get_weather", "arguments": {"city": "Oslo", "unit": "celsius"}}</ifm|arg_value>\n</ifm|tool_call>\n</ifm|tool_calls>', 'stop')
+      miss: ('NO TOOL CALL', '\n<ifm|tool_calls>\n<ifm|tool_call>{"name": "get_weather", "arguments": {"city": "Oslo", "unit": "celsius"}}</ifm|arg_value>\n</ifm|tool_call>\n</ifm|tool_calls>', 'stop')
+      miss: ('NO TOOL CALL', '\n<ifm|tool_calls>\n<ifm|tool_call>{"name": "get_weather", "arguments": {"city": "Oslo", "unit": "celsius"}}</ifm|arg_value>\n</ifm|tool_call>\n</ifm|tool_calls>', 'stop')
+      miss: ('NO TOOL CALL', "\nI'm sorry, but I don't have access to real-time weather data or the capability to fetch current weather conditions. The tools provided to me are limited to the functions you've listed, and none of them include weather-related services. \n\nIf you'd like assistance with weather information, I recommen", 'stop')
+  xml_typed  structured and correct 10/10   first: ('get_weather', {'city': 'Oslo', 'unit': 'celsius'}, 'tool_calls')
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+    time = non-streaming request with max_tokens=1 (prefill + one ~15 ms decode step)
+  prompt_tokens     180  TTFT median   0.10s (min 0.09, max 0.10, n=3)  1,809 prompt tok/s
+  prompt_tokens   1,565  TTFT median   0.17s (min 0.16, max 0.18, n=3)  9,439 prompt tok/s
+  prompt_tokens  15,411  TTFT median   1.29s (min 1.28, max 1.30, n=3)  11,979 prompt tok/s
+  prompt_tokens  46,182  TTFT median   4.85s (min 4.85, max 4.86, n=3)  9,520 prompt tok/s
+  prompt_tokens  76,948  TTFT median  10.13s (min 10.11, max 10.13, n=3)  7,597 prompt tok/s
+  prompt_tokens  96,179  TTFT median  14.18s (min 14.18, max 14.21, n=3)  6,781 prompt tok/s
+  same ~60k prompt again: first 4.84s, repeats 0.33, 0.34, 0.33s (prefix cache hit)
+

@@ -1,0 +1,10 @@
+extra flags: --tensor-parallel-size 4
+RESULT: serving after 107 s
+INFO 09-23 20:04:29 [api_utils.py:286] non-default args: {'model_tag': '/models/K2-Horizon-32B', 'enable_auto_tool_choice': True, 'tool_call_parser': 'k2_horizon', 'host': '0.0.0.0', 'port': 8080, 'model': '/models/K2-Horizon-32B', 'trust_remote_code': True, 'dtype': 'bfloat16', 'served_model_name': ['k2-horizon-32b'], 'model_impl': 'vllm', 'reasoning_parser': 'k2_horizon', 'tensor_parallel_size':
+INFO 09-23 20:05:36 [gpu_worker.py:640] Available KV cache memory: 52.56 GiB
+INFO 09-23 20:05:36 [kv_cache_utils.py:2395] GPU KV cache size: 861,184 tokens, Maximum concurrency for 524,288 tokens per request: 1.64x
+INFO 09-23 20:05:59 [hf.py:642] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+0, 75287 MiB
+1, 75287 MiB
+2, 75287 MiB
+3, 75287 MiB

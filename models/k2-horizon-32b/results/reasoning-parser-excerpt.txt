@@ -1,0 +1,48 @@
+# vLLM 0.30.0, vllm/reasoning/k2_horizon_reasoning_parser.py (Apache-2.0), excerpts with the file's own line numbers.
+# Read from docker.io/vllm/vllm-openai:v0.30.0 on 2026-09-23.
+ 15      """Reasoning parser for K2 Horizon."""
+ 16  
+ 17      _TOOL_CALLS_START = "<ifm|tool_calls>"
+ 18      _EFFORT_TOKENS: dict[str, tuple[str, str]] = {
+ 19          "high": ("<ifm|think>", "</ifm|think>"),
+ 20          "medium": ("<ifm|think_fast>", "</ifm|think_fast>"),
+ 21          "low": ("<ifm|think_faster>", "</ifm|think_faster>"),
+ 22      }
+ 23  
+ 24      def __init__(self, tokenizer: TokenizerLike, *args, **kwargs) -> None:
+ 25          chat_template_kwargs = kwargs.get("chat_template_kwargs", {}) or {}
+ 26          effort = chat_template_kwargs.get("reasoning_effort", "high")
+ 27          if not isinstance(effort, str) or effort not in self._EFFORT_TOKENS:
+ 28              supported = ", ".join(self._EFFORT_TOKENS)
+ 29              raise ValueError(
+ 30                  f"Unsupported reasoning_effort {effort!r}. "
+ 31                  f"Supported values: {supported}."
+ 32              )
+ 33  
+ 34          self._start_token, self._end_token = self._EFFORT_TOKENS[effort]
+ 35          super().__init__(tokenizer, *args, **kwargs)
+ 36          self._tool_calls_start_id = self.vocab.get(self._TOOL_CALLS_START)
+ 37          self._stream_buffer = ""
+ 38          self._stream_at_start = True
+ 39          self._stream_finished = False
+ 40  
+ 41      @property
+ 42      def start_token(self) -> str:
+ 43          return self._start_token
+ 44  
+ 45      @property
+ 46      def end_token(self) -> str:
+ 47          return self._end_token
+ 48  
+ 49      def _without_generated_start(self, model_output: str) -> str:
+ 50          return model_output.removeprefix(self.start_token)
+ 51  
+ 52      def _split_model_output(self, model_output: str) -> tuple[str, str | None]:
+ 53          output = self._without_generated_start(model_output)
+ 54          if self.end_token in output:
+ 55              reasoning, _, content = output.partition(self.end_token)
+ 56              return reasoning, content or None
+ 57  
+ 58          tool_start = output.find(self._TOOL_CALLS_START)
+ 59          if tool_start != -1:
+ 60              return output[:tool_start], output[tool_start:]

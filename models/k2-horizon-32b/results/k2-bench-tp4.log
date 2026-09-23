@@ -1,0 +1,25 @@
+# IFM recipe + --tensor-parallel-size 4 + --chat-template-content-format string, 4x H100
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  19  canary present: True
+  parts list    tokens  19  canary present: True
+  (server runs with --chat-template-content-format string; see results/startup.log)
+
+### DECODE: single stream, tok/s = completion_tokens / (last token - first token)
+  warmup, discarded  tokens  451  span 4.15s  108.5 tok/s
+  run 1              tokens  566  span 5.22s  108.3 tok/s
+  run 2              tokens  377  span 3.46s  108.8 tok/s
+  run 3              tokens  408  span 3.74s  108.7 tok/s
+  median 108.7 tok/s over n=3
+
+### PREFILL: time to first token vs prompt length, prefix cache defeated by a leading nonce
+    time = non-streaming request with max_tokens=1 (prefill + one ~15 ms decode step)
+  prompt_tokens   2,007  TTFT median   0.17s (min 0.17, max 0.17, n=3)  12,105 prompt tok/s
+  prompt_tokens  31,708  TTFT median   1.78s (min 1.78, max 1.79, n=3)  17,824 prompt tok/s
+  prompt_tokens 126,747  TTFT median  12.12s (min 12.10, max 12.19, n=3)  10,458 prompt tok/s
+  prompt_tokens 253,468  TTFT median  38.37s (min 38.35, max 38.52, n=3)  6,606 prompt tok/s
+  prompt_tokens 380,187  TTFT median  79.80s (min 79.80, max 79.82, n=3)  4,764 prompt tok/s
+  prompt_tokens 495,026  TTFT median 129.13s (min 129.04, max 129.31, n=3)  3,834 prompt tok/s
+  same ~60k prompt again: first 3.97s, repeats 0.39, 0.37, 0.36s (prefix cache hit)
+

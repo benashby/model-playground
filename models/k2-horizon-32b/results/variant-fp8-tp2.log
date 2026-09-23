@@ -1,0 +1,12 @@
+config: MODEL_DIR=K2-Horizon-32B-FP8 TP=2 MAX_LEN=131072 extra=none
+RESULT: serving after 245 s
+INFO 09-23 21:55:01 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/models/K2-Horizon-32B-FP8', speculative_config=None, tokenizer='/models/K2-Horizon-32B-FP8', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, d
+INFO 09-23 21:55:14 [default_loader.py:430] Loading weights took 2.91 seconds
+INFO 09-23 21:56:23 [shm_broadcast.py:801] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+INFO 09-23 21:56:28 [gpu_worker.py:640] Available KV cache memory: 51.69 GiB
+INFO 09-23 21:56:28 [kv_cache_utils.py:2395] GPU KV cache size: 423,456 tokens, Maximum concurrency for 131,072 tokens per request: 3.23x
+INFO 09-23 21:57:29 [shm_broadcast.py:801] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+0, 73741 MiB
+1, 73741 MiB
+2, 4 MiB
+3, 4 MiB

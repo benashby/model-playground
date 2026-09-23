@@ -1,0 +1,11 @@
+# config: BF16 weights, BF16 KV cache, 4 GPUs; short needle as a probe self-check
+host=$PLAYGROUND_HOST model=k2-horizon-32b  (address redacted by design)
+
+### NEEDLE: a six-digit code at three depths in ~32,000 tokens of filler, effort low
+  depth 10%  prompt_tokens  31,731  found: True  in content: False  finish=stop  completion_tokens=53  time to first token 1.8s
+      reply ''  reasoning tail ' access code for the vault is 428562. Remember it."\n\nThey want me to reply with the six digits only.\n</ifm|think>\n428562'
+  depth 50%  prompt_tokens  31,728  found: True  in content: True  finish=stop  completion_tokens=45  time to first token 1.8s
+      reply '263205'  reasoning tail 'he access code is 263205. Remembers it. Then asks what is the access code? Reply with six digits only. So answer 263205.'
+  depth 90%  prompt_tokens  31,730  found: True  in content: True  finish=stop  completion_tokens=63  time to first token 1.8s
+      reply '652079'  reasoning tail 'it." Then at the end: "What is the access code for the vault? Reply with the six digits only."\n\nSo the answer is 652079.'
+

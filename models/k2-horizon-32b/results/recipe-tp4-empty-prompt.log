@@ -1,0 +1,12 @@
+# IFM recipe + --tensor-parallel-size 4 only (no --chat-template-content-format). vLLM auto-detected 'openai'.
+host=$PLAYGROUND_HOST:8080 model=k2-horizon-32b repeats=3  (address redacted by design)
+
+### CANARY: does the user's text reach the rendered prompt?
+  plain string  tokens  10  canary present: False
+  parts list    tokens  10  canary present: False
+  (this server: IFM recipe, content format auto-detected as openai)
+
+### A real chat completion, plain-string content, effort high
+  prompt_tokens=10 finish=stop
+  content:  Hello! How can I assist you today?
+  reasoning: The user just sent a blank message or maybe trimmed content. There's no explicit question. Could be an accidental or placeholder. As K2s, I need to respond in a helpful way. Maybe ask them what they need? Or suggest "How
