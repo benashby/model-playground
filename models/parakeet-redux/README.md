@@ -83,7 +83,8 @@ speed and footprint matter. Pick Ultra, or the original, when you have
 conversational or noisy audio and can accept a little over half the speed on
 a CPU, or have a GPU. Pick the original if the licence matters: its
 CC-BY-4.0 weights run on open runtimes, while Redux runs only on Photon's
-proprietary kernels.
+proprietary kernels. On ONNX, the original handled 5 live streams on the
+equivalent of a 2-vCPU VM, as the next section describes.
 
 ## What was found
 
@@ -114,6 +115,15 @@ proprietary kernels.
   rate"; that figure was 2 dropped filler words from a different path.
   ([accuracy results](notes/07-results-accuracy.md))
 
+- On ONNX (sherpa-onnx, int8), NVIDIA's original checkpoint ran live
+  streams far more cheaply than Photon. Pinned to one core and its
+  hyperthread, the same shape as a 2-vCPU cloud VM, it kept up with 5 streams
+  of 81 %-speech audio and fell behind at 10. One stream needed 0.09 cores
+  for finished sentences, or 0.23 with 2 s partials. Memory was about
+  1.8 GB, flat from 1 stream to 25. Photon, running Redux, used 0.47 cores for
+  one stream and fell behind at 25 while using 5.17 of 24 threads.
+  ([CPU sizing on ONNX](notes/10-results-cpu-sizing.md))
+
 ## Contents
 
 | Article | What it covers |
@@ -127,6 +137,7 @@ proprietary kernels.
 | [Results: accuracy and streaming](notes/07-results-accuracy.md) | Scoring VoiceChat's transcription, and how streaming transcripts revise themselves |
 | [Results: what the input audio does](notes/08-results-input.md) | Resampling, a 91-minute recording in one call, and loud audio |
 | [Method and open questions](notes/09-method.md) | The probes, the order to repeat the work in, and what is still unknown |
+| [Results: CPU and memory for live streams on ONNX](notes/10-results-cpu-sizing.md) | Streams per 2-vCPU VM, memory, estimates for example cloud VMs, and Photon for comparison |
 
 The code behind the numbers is in [`probes/`](probes/) and its raw output is in
 [`results/`](results/). The standard these notes are held to is in

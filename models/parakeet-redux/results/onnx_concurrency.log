@@ -1,0 +1,145 @@
+fixture: turn_taking.wav ch0, 41.1 s, 24000 Hz resampled to 16000 Hz
+sherpa-onnx 1.13.8; model sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8
+cpu: os.cpu_count()=24, affinity=24
+num_threads per decode 1, decode workers 16, VAD min silence 0.5 s, max speech 20.0 s
+levels {'finals': [1, 5, 10, 25, 50, 100], 'partials': [1, 5, 10, 25, 50]}, stagger 2.0 s, partial every 2.0 s
+recognizer load: 1.12 s
+batch, whole channel, 1 thread: RTF median 9.3x (n=3), text: Hi. Do you know any good cooking recipes maybe a peanut butter one, please? Thanks for helping.
+idle cores, recognizer loaded, 5 s: 0.000
+
+warmup (finals): 1 stream, discarded
+reference text (finals): Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help.
+
+=== finals, N=1 concurrent streams
+  wall for level            : 41.12 s  (audio 41.1 s + stagger 0.00 s)
+  cores used, whole level   : 0.02  (0.023 per stream)
+  cores used, 1 s samples   : median 0.01, max 0.23, n=42
+  event-loop lag (100 ms hb): median 0.6 ms, p99 1.9 ms, max 2.0 ms, n=409
+  final latency, speech end : median 0.59 s, p95 0.71, max 0.71, n=5
+  final latency, VAD handoff: median 0.11 s, p95 0.23, max 0.23
+  final decode time         : median 0.11 s, max 0.23
+  final queue wait          : median 0.000 s, max 0.00
+  final text == N=1 text    : 1/1
+
+=== finals, N=5 concurrent streams
+  wall for level            : 42.73 s  (audio 41.1 s + stagger 1.60 s)
+  cores used, whole level   : 0.11  (0.022 per stream)
+  cores used, 1 s samples   : median 0.03, max 0.67, n=43
+  event-loop lag (100 ms hb): median 0.7 ms, p99 2.1 ms, max 2.8 ms, n=424
+  final latency, speech end : median 0.60 s, p95 0.71, max 0.71, n=25
+  final latency, VAD handoff: median 0.12 s, p95 0.23, max 0.23
+  final decode time         : median 0.12 s, max 0.23
+  final queue wait          : median 0.000 s, max 0.00
+  final text == N=1 text    : 5/5
+
+=== finals, N=10 concurrent streams
+  wall for level            : 42.93 s  (audio 41.1 s + stagger 1.80 s)
+  cores used, whole level   : 0.22  (0.022 per stream)
+  cores used, 1 s samples   : median 0.05, max 1.25, n=43
+  event-loop lag (100 ms hb): median 0.6 ms, p99 2.1 ms, max 4.2 ms, n=427
+  final latency, speech end : median 0.60 s, p95 0.73, max 0.73, n=50
+  final latency, VAD handoff: median 0.12 s, p95 0.24, max 0.25
+  final decode time         : median 0.11 s, max 0.24
+  final queue wait          : median 0.000 s, max 0.00
+  final text == N=1 text    : 10/10
+
+=== finals, N=25 concurrent streams
+  wall for level            : 43.05 s  (audio 41.1 s + stagger 1.92 s)
+  cores used, whole level   : 0.52  (0.021 per stream)
+  cores used, 1 s samples   : median 0.10, max 3.17, n=44
+  event-loop lag (100 ms hb): median 0.6 ms, p99 5.3 ms, max 8.1 ms, n=427
+  final latency, speech end : median 0.60 s, p95 0.74, max 0.77, n=125
+  final latency, VAD handoff: median 0.12 s, p95 0.25, max 0.28
+  final decode time         : median 0.12 s, max 0.28
+  final queue wait          : median 0.000 s, max 0.00
+  final text == N=1 text    : 25/25
+
+=== finals, N=50 concurrent streams
+  wall for level            : 43.10 s  (audio 41.1 s + stagger 1.96 s)
+  cores used, whole level   : 1.48  (0.030 per stream)
+  cores used, 1 s samples   : median 0.49, max 7.75, n=43
+  event-loop lag (100 ms hb): median 1.0 ms, p99 62.4 ms, max 170.3 ms, n=407
+  final latency, speech end : median 0.73 s, p95 1.01, max 1.14, n=250
+  final latency, VAD handoff: median 0.22 s, p95 0.48, max 0.64
+  final decode time         : median 0.21 s, max 0.61
+  final queue wait          : median 0.000 s, max 0.01
+  final text == N=1 text    : 50/50
+
+=== finals, N=100 concurrent streams
+  wall for level            : 43.11 s  (audio 41.1 s + stagger 1.98 s)
+  cores used, whole level   : 3.17  (0.032 per stream)
+  cores used, 1 s samples   : median 0.37, max 16.19, n=43
+  event-loop lag (100 ms hb): median 0.7 ms, p99 118.2 ms, max 140.1 ms, n=411
+  final latency, speech end : median 0.66 s, p95 1.44, max 1.81, n=500
+  final latency, VAD handoff: median 0.17 s, p95 0.87, max 1.16
+  final decode time         : median 0.17 s, max 0.77
+  final queue wait          : median 0.000 s, max 0.62
+  final text == N=1 text    : 100/100
+
+warmup (partials): 1 stream, discarded
+reference text (partials): Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help.
+
+=== partials, N=1 concurrent streams
+  wall for level            : 41.12 s  (audio 41.1 s + stagger 0.00 s)
+  cores used, whole level   : 0.04  (0.036 per stream)
+  cores used, 1 s samples   : median 0.01, max 0.38, n=42
+  event-loop lag (100 ms hb): median 0.6 ms, p99 2.0 ms, max 2.1 ms, n=409
+  final latency, speech end : median 0.59 s, p95 0.71, max 0.71, n=5
+  final latency, VAD handoff: median 0.11 s, p95 0.23, max 0.23
+  final decode time         : median 0.11 s, max 0.23
+  final queue wait          : median 0.000 s, max 0.00
+  partials                  : 3 decoded, 0 ticks skipped (previous still running)
+  partial interval          : median 7.05 s, p95 7.96, max 7.96, n=2
+  final text == N=1 text    : 1/1
+
+=== partials, N=5 concurrent streams
+  wall for level            : 42.72 s  (audio 41.1 s + stagger 1.60 s)
+  cores used, whole level   : 0.16  (0.032 per stream)
+  cores used, 1 s samples   : median 0.02, max 1.12, n=43
+  event-loop lag (100 ms hb): median 0.7 ms, p99 1.9 ms, max 2.6 ms, n=425
+  final latency, speech end : median 0.59 s, p95 0.72, max 0.72, n=25
+  final latency, VAD handoff: median 0.11 s, p95 0.23, max 0.23
+  final decode time         : median 0.11 s, max 0.23
+  final queue wait          : median 0.000 s, max 0.00
+  partials                  : 15 decoded, 0 ticks skipped (previous still running)
+  partial interval          : median 7.05 s, p95 7.96, max 7.96, n=10
+  final text == N=1 text    : 5/5
+
+=== partials, N=10 concurrent streams
+  wall for level            : 42.92 s  (audio 41.1 s + stagger 1.80 s)
+  cores used, whole level   : 0.32  (0.032 per stream)
+  cores used, 1 s samples   : median 0.04, max 2.27, n=43
+  event-loop lag (100 ms hb): median 0.6 ms, p99 2.0 ms, max 3.6 ms, n=427
+  final latency, speech end : median 0.59 s, p95 0.72, max 0.73, n=50
+  final latency, VAD handoff: median 0.12 s, p95 0.24, max 0.24
+  final decode time         : median 0.11 s, max 0.24
+  final queue wait          : median 0.000 s, max 0.00
+  partials                  : 30 decoded, 0 ticks skipped (previous still running)
+  partial interval          : median 7.05 s, p95 7.96, max 7.97, n=20
+  final text == N=1 text    : 10/10
+
+=== partials, N=25 concurrent streams
+  wall for level            : 43.05 s  (audio 41.1 s + stagger 1.92 s)
+  cores used, whole level   : 0.80  (0.032 per stream)
+  cores used, 1 s samples   : median 0.09, max 5.96, n=44
+  event-loop lag (100 ms hb): median 0.8 ms, p99 6.0 ms, max 8.6 ms, n=427
+  final latency, speech end : median 0.60 s, p95 0.74, max 0.74, n=125
+  final latency, VAD handoff: median 0.12 s, p95 0.25, max 0.26
+  final decode time         : median 0.11 s, max 0.25
+  final queue wait          : median 0.000 s, max 0.00
+  partials                  : 75 decoded, 0 ticks skipped (previous still running)
+  partial interval          : median 7.05 s, p95 7.96, max 7.96, n=50
+  final text == N=1 text    : 25/25
+
+=== partials, N=50 concurrent streams
+  wall for level            : 43.09 s  (audio 41.1 s + stagger 1.96 s)
+  cores used, whole level   : 2.10  (0.042 per stream)
+  cores used, 1 s samples   : median 0.18, max 16.10, n=44
+  event-loop lag (100 ms hb): median 0.7 ms, p99 19.2 ms, max 26.8 ms, n=425
+  final latency, speech end : median 0.61 s, p95 1.12, max 1.37, n=250
+  final latency, VAD handoff: median 0.12 s, p95 0.62, max 0.88
+  final decode time         : median 0.12 s, max 0.73
+  final queue wait          : median 0.000 s, max 0.29
+  partials                  : 150 decoded, 0 ticks skipped (previous still running)
+  partial interval          : median 7.07 s, p95 8.03, max 8.19, n=100
+  final text == N=1 text    : 50/50

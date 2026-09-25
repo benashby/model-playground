@@ -1,0 +1,55 @@
+fixture: turn_taking.wav ch0, 41.1 s at 24000 Hz, gain 1.000
+cpu: os.cpu_count()=24, affinity=24
+torch threads: 16, OMP_NUM_THREADS=None
+levels: [1, 5, 10, 25], stagger 2.0 s, heartbeat 100 ms
+MOONDREAM_API_KEY is not set. Finetune inference is disabled. Set MOONDREAM_API_KEY to enable finetune inference.
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 1395.31it/s]
+client open: 2.47 s
+warmup: 1 stream, discarded
+reference final (20 words): Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help....
+
+idle cores, client open, 5 s: 0.000
+
+=== N=1 concurrent streams
+  wall for level            : 44.11 s
+  cores used, whole level   : 0.47  (0.474 per stream)
+  cores used, 1 s samples   : median 0.43, max 2.47, n=45
+  event-loop lag (100 ms hb): median 0.7 ms, p99 2.0 ms, max 2.1 ms, n=438
+  feed lag at last chunk    : median 1252.8 ms, max 1252.8 ms
+  first snapshot            : median 4.01 s, min 4.01, max 4.01, streams with one 1/1
+  snapshot interval         : median 2.01 s, p95 2.06, max 4.14, n=19
+  final lag after last chunk: median 1.82 s, max 1.82 s
+  final text == N=1 final   : 1/1
+
+=== N=5 concurrent streams
+  wall for level            : 45.67 s
+  cores used, whole level   : 2.31  (0.461 per stream)
+  cores used, 1 s samples   : median 2.49, max 4.61, n=46
+  event-loop lag (100 ms hb): median 0.7 ms, p99 2.0 ms, max 2.1 ms, n=454
+  feed lag at last chunk    : median 1.0 ms, max 1373.1 ms
+  first snapshot            : median 4.04 s, min 4.00, max 4.10, streams with one 5/5
+  snapshot interval         : median 2.01 s, p95 2.15, max 4.30, n=95
+  final lag after last chunk: median 2.17 s, max 2.63 s
+  final text == N=1 final   : 5/5
+
+=== N=10 concurrent streams
+  wall for level            : 50.27 s
+  cores used, whole level   : 4.18  (0.418 per stream)
+  cores used, 1 s samples   : median 4.93, max 6.61, n=51
+  event-loop lag (100 ms hb): median 0.7 ms, p99 2.0 ms, max 2.2 ms, n=499
+  feed lag at last chunk    : median 323.7 ms, max 2385.6 ms
+  first snapshot            : median 4.00 s, min 3.98, max 4.03, streams with one 10/10
+  snapshot interval         : median 2.02 s, p95 3.65, max 6.31, n=190
+  final lag after last chunk: median 5.73 s, max 6.31 s
+  final text == N=1 final   : 10/10
+
+=== N=25 concurrent streams
+  wall for level            : 107.88 s
+  cores used, whole level   : 5.17  (0.207 per stream)
+  cores used, 1 s samples   : median 5.23, max 6.76, n=108
+  event-loop lag (100 ms hb): median 1.0 ms, p99 2.1 ms, max 3.4 ms, n=1068
+  feed lag at last chunk    : median 46582.7 ms, max 61525.3 ms
+  first snapshot            : median 4.04 s, min 3.99, max 4.17, streams with one 25/25
+  snapshot interval         : median 4.75 s, p95 9.04, max 16.47, n=475
+  final lag after last chunk: median 11.57 s, max 16.46 s
+  final text == N=1 final   : 25/25
