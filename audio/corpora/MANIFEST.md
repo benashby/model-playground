@@ -125,3 +125,37 @@ barge-in material:
 All three are "no eye contact" (`nc`) condition dialogues, which tend to run
 longer and produce more clarification/backchannel overlap than the
 eye-contact condition — consistent with them topping the overlap ranking.
+
+## 5. Telephone WER corpora, managed by DVC
+
+Added 2026-09-25 for `models/parakeet-redux/probes/wer_telephone.py`. Unlike
+the corpora above, these are not downloaded by hand: `dvc.yaml` at the repo
+root has one stage per corpus, running `audio/corpora/fetch.py` against a
+pinned upstream revision, and `dvc.lock` records the md5 of every file.
+
+| Directory | Corpus | Licence | Pinned upstream | Files / bytes |
+|---|---|---|---|---|
+| `harper_valley/` | Gridspace-Stanford HarperValleyBank: simulated bank calls over a real telephone network, 8 kHz, one file per speaker | CC-BY-4.0 | github.com/cricketclub/gridspace-stanford-harper-valley @ `0bd721e877c4a85d8c13ff837e68661ea6200a98` (`LICENSE`, `README.md`, `data/` only) | 5786 / 2749705447 |
+| `apptek/` | AppTek Call-Center Dialogues: role-played call-centre calls over VoIP, 16 kHz, one file per speaker; accents en-US_General, en-IN and en-GB_SCT only, plus the corpus's own `score.py` and `word_mappings.py` | CC-BY-SA-4.0 | huggingface.co/datasets/apptek-com/apptek_callcenter_dialogues @ `b98967d9946f7f59f58d08624a2a00fe98fe0219` | 418 / 7868774146 |
+
+Each directory keeps the upstream licence and README next to the data, since
+both licences require attribution. Nothing generated goes inside them: the WER
+probe writes its predictions to `logs/wer/`.
+
+To get them:
+
+```bash
+uv run --extra corpora dvc repro     # download from upstream, then check dvc.lock is unchanged
+uv run --extra corpora dvc pull      # or fetch from a DVC remote, if one is configured
+```
+
+A DVC remote, if you have one, is configured per machine with
+`dvc remote add --local` and so lives in `.dvc/config.local`, which is not
+committed. Without one, `dvc pull` has nowhere to fetch from, and `dvc repro`
+is the way in. After `dvc repro`, a clean `git diff dvc.lock` means you have
+exactly the bytes the published numbers were measured on.
+
+The DVC cache uses hardlinks (`.dvc/config`), so the corpora take no extra
+space on disk and their files are read-only in the workspace. The probes only
+read them. To change a file, `dvc unprotect` it first, although nothing here
+should need that.

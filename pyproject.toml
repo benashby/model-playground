@@ -20,6 +20,14 @@ dev = ["pytest>=8.0", "pytest-asyncio>=0.24"]
 # multiple GB of CUDA wheels on a machine whose only GPU is AMD. Verified by
 # `uv run --extra asr python -c "import torch; print(torch.__version__)"`.
 asr = ["moondream>=2.4.0", "torch>=2.8"]
+# Evaluation corpora, managed by DVC (dvc.yaml at the repo root). The fetch
+# stages download pinned upstream revisions; a private mirror, if any, is
+# configured per machine in .dvc/config.local and never committed. See
+# audio/corpora/MANIFEST.md. `uv sync --extra corpora` opts in.
+corpora = [
+    "dvc[ssh]>=3.67",
+    "huggingface-hub>=1.30",
+]
 
 [project.scripts]
 playground = "playground.__main__:main"

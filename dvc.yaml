@@ -1,0 +1,13 @@
+stages:
+  corpus_harper_valley:
+    cmd: python audio/corpora/fetch.py harper_valley audio/corpora/harper_valley
+    deps:
+    - audio/corpora/fetch.py
+    outs:
+    - audio/corpora/harper_valley
+  corpus_apptek:
+    cmd: python audio/corpora/fetch.py apptek audio/corpora/apptek
+    deps:
+    - audio/corpora/fetch.py
+    outs:
+    - audio/corpora/apptek

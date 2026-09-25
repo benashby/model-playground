@@ -23,3 +23,11 @@ logs/*.jsonl
 # ...but keep directory placeholders and the corpus manifest.
 !**/.gitkeep
 !audio/corpora/MANIFEST.md
+
+# Evaluation corpora carry JSON/JSONL transcripts as well as audio, and are
+# re-fetchable; see audio/corpora/MANIFEST.md for sources and licences.
+audio/corpora/harper_valley/
+audio/corpora/apptek/
+
+# WER probe predictions: model output on third-party corpora, kept local.
+logs/wer/
