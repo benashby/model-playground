@@ -88,6 +88,34 @@ It is in the repository for three reasons:
    stability needs the harness's wall-clock pacer, which is why this is a
    playground job instead of a standalone script.
 
+## Live dictation from a microphone
+
+[`dictate.py`](../dictate.py) is a small tool for trying the model by talking
+to it. It is not a probe and measures nothing. It runs NVIDIA's original
+checkpoint on sherpa-onnx with the same Silero VAD setup as
+[`probes/onnx_concurrency.py`](../probes/onnx_concurrency.py), so it behaves
+like the configuration in [CPU sizing on ONNX](10-results-cpu-sizing.md),
+and it does not use Photon or Redux.
+
+```bash
+uv run --with sherpa-onnx python models/parakeet-redux/dictate.py
+uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --wav audio/tool_call.wav
+```
+
+The microphone is captured with `pw-record` at 16 kHz, the rate both models
+run at, so nothing is resampled. Each sentence prints as a line once the
+speaker has paused for 0.5 s. While someone is still talking, a dim draft of
+the current sentence is redrawn in place on the last line about once a second,
+cut to the terminal width so that it never wraps. One decode thread handles
+both, so sentences always print in the order they were spoken. Ctrl+C stops
+the capture and prints the last sentence before exiting.
+
+`--wav` plays channel 0 of a file through `ffmpeg -re` in real time in place
+of the microphone. That is how the tool was checked: on the fixtures, under a
+pseudo-terminal, including a Ctrl+C sent to the whole process group. It has
+not been tried here with a live microphone. Headphones are not needed, because
+nothing is played back.
+
 ---
 
 Previous: [Using it through Photon](04-usage.md) | [Contents](../README.md#contents) | Next: [Results: hardware and throughput](06-results-throughput.md)
