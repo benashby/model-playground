@@ -133,9 +133,10 @@ Three models investigated. Only one is driven by the harness:
 - **Parakeet Redux** (ternary ASR) — a sibling utility, deliberately *not* in
   the session loop. The same note also measures NVIDIA's original
   `parakeet-tdt-0.6b-v3` for deployment on ONNX (sherpa-onnx) and NeMo:
-  telephone WER, CPU sizing, GPU runtimes, GStreamer. That work is driven by
-  its own probes (`nemo_vs_onnx.py`, `wer_telephone.py`, `onnx_concurrency.py`)
-  and never touches the harness.
+  telephone WER, CPU sizing, GPU runtimes, GStreamer, and live latency
+  against NVIDIA's Nemotron streaming model. That work is driven by its own
+  probes (`nemo_vs_onnx.py`, `wer_telephone.py`, `onnx_concurrency.py`,
+  `streaming_online.py`) and never touches the harness.
 - **K2-Horizon-32B** (text-only reasoning) — no harness involvement at all.
 
 There is **no multi-model abstraction** — no adapter registry, no host

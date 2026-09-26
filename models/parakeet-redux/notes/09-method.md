@@ -36,6 +36,7 @@ probe's docstring says what it measures and how to run it.
 | `wer_analysis.py` | `results/wer_analysis.log` | Deletion run lengths and the most deleted words, per runtime |
 | `timing_summary.py` | `results/nemo_vs_onnx-timing.log` | Throughput per runtime from the run logs |
 | `examples/test_gstreamer.sh` | `results/gstreamer-examples.log` | The GStreamer examples on a file and on live G.711 RTP |
+| `streaming_online.py` | `results/streaming_online.log`, `results/streaming_online-endpoints.log` | NVIDIA's Nemotron streaming model through sherpa-onnx's OnlineRecognizer: WER, time to first and last words against VAD speech segments, revisions, compute, with and without endpointing |
 | `step0.py` | none saved | The first smoke test, one run. Its output was never saved, so none of its figures are quoted |
 
 The code of `pk_exp.py` is kept unchanged, apart from its docstring, so its
@@ -171,6 +172,10 @@ AVX-512 against no AVX-512, with core count held equal.
     did, and decoding it with NeMo would test the segmentation.
 13. How does the model do in background noise, on the other eleven AppTek
     accents, through mobile codecs (AMR, GSM), and with bursty packet loss?
+14. How many live streams of the Nemotron streaming model can one machine
+    carry, and is there a faster GPU or fp32 path for it? Its accuracy and
+    delays were measured on 12 channels at a time, not as a live
+    many-stream test ([live transcription](13-live-transcription.md)).
 
 ---
 

@@ -142,6 +142,14 @@ the whole setup.
   same results as on NVIDIA. GStreamer examples, tested on live G.711 RTP,
   are in [`examples/`](examples/).
   ([deploying on ONNX](notes/12-onnx-deployment.md))
+- For live transcription, offline Parakeet's text arrives a median 0.52 s
+  after the speaker stops on a GPU (up to 50 streams) and about 0.95 s on a
+  CPU (up to 10), and the silence the VAD waits for is the main dial between
+  delay and accuracy. NVIDIA's Nemotron streaming model, run as one
+  continuous stream in the same library, showed words 0.53 to 0.72 s after
+  speech started, never revised them, and was more accurate on every accent
+  tested (5.44 % against 8.04 % on en-US_General), at several times the CPU,
+  in English only. ([live transcription](notes/13-live-transcription.md))
 
 ## Contents
 
@@ -159,6 +167,7 @@ the whole setup.
 | [Results: CPU and memory for live streams on ONNX](notes/10-results-cpu-sizing.md) | Streams per 2-vCPU VM, memory, fp32 against int8 on a second CPU, estimates for example cloud VMs, and Photon for comparison |
 | [Results: accuracy on telephone speech](notes/11-results-telephone-accuracy.md) | NeMo against ONNX, fp32 against int8, codecs and packet loss, real telephone calls, padding, which words go missing |
 | [Deploying on ONNX](notes/12-onnx-deployment.md) | The deployment reference: precision, segmentation, telephone input, CPU and GPU images, concurrency, NeMo on ROCm, GStreamer |
+| [Live transcription: latency and accuracy](notes/13-live-transcription.md) | Where the delay comes from, the silence and padding settings, CPU against GPU, drafts, a true streaming model, and recommended setups |
 
 The code behind the numbers is in [`probes/`](probes/) and its raw output is in
 [`results/`](results/). The standard these notes are held to is in

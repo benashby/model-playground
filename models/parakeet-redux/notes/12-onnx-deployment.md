@@ -7,7 +7,10 @@ through its ONNX export, with sherpa-onnx as the runtime. Every recommendation
 comes from a measurement in this investigation, and each links to it. The
 measurements themselves are in
 [accuracy on telephone speech](11-results-telephone-accuracy.md) and
-[CPU and memory for live streams](10-results-cpu-sizing.md).
+[CPU and memory for live streams](10-results-cpu-sizing.md). For live use,
+where delay matters as much as accuracy, see
+[live transcription](13-live-transcription.md), which also covers a true
+streaming model.
 
 ## The decisions at a glance
 
@@ -111,7 +114,10 @@ The int8 export fails by dropping stretches of speech: on real calls, 54.3 %
 of its deleted words are in runs of 11 or more, against 19.5 % for fp32. The
 transcript reads cleanly with a sentence missing, so nothing downstream
 notices. It fails the same way on the CPU and the GPU, and on the GPU it is
-also slower (16× to 18× real time against 94× to 101×). Its only advantage
+also slower (16× to 18× real time against 94× to 101×). This is a property
+of this export, not of int8 as such: the int8 export of NVIDIA's streaming
+model held up on the same G.711 audio
+([live transcription](13-live-transcription.md#a-streaming-model-nemotron-measured)). Its only advantage
 measured here is memory, covered under concurrency below.
 
 ## 4. Segmentation
@@ -421,4 +427,4 @@ flushed rather than lost.
 
 ---
 
-Previous: [Results: accuracy on telephone speech](11-results-telephone-accuracy.md) | [Contents](../README.md#contents)
+Previous: [Results: accuracy on telephone speech](11-results-telephone-accuracy.md) | [Contents](../README.md#contents) | Next: [Live transcription](13-live-transcription.md)
