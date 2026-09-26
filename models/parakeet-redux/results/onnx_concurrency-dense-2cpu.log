@@ -1,0 +1,123 @@
+fixture: q2ec3.mix.wav ch0, from 0.0 s, 60.0 s, 20000 Hz resampled to 16000 Hz
+sherpa-onnx 1.13.8; model sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8
+cpu: os.cpu_count()=24, affinity=2
+num_threads per decode 1, decode workers 2, VAD min silence 0.5 s, max speech 20.0 s
+levels {'finals': [1, 5, 10, 25], 'partials': [1, 5, 10, 25]}, stagger 2.0 s, partial every 2.0 s
+recognizer load: 1.32 s, RSS 977 MB
+cpus usable (affinity): 2
+batch, whole channel, 1 thread: RTF median 8.6x (n=3), text: Okay. Um right, you have the start. Right, below the start, do you have uh like a missionary camp? Okay, well if you take it from the start, just run horizontally uh to the left for about an inch. And then go down along the side of the missionary camp till you're about an inch above the bottom of the map. Then you need to go straight along for about till about you're about an inch and a half away from the edge of the map. Okay. Yeah. So you're at the where are you now? You're at the bottom. Okay. Now you you need to go parallel to the side of the map. Um about four inches. So you just you're now about two inches above the gorillas or the banana tree. Um do you have a rope bridge? Right. You need to cross the rope b bridge. I haven't got a I haven't got a river marked, but I assume Well if no. If you go if you're up going up uh vertically
+idle cores, recognizer loaded, 5 s: 0.000
+
+warmup (finals): 1 stream, discarded
+reference text (finals): Okay. Um right, you have to start. Right, below the start, do you have uh like a missionary camp? Okay, well, if you take it from the start, just run horizontally Uh to the left for about an inch. And then go down along the side of the missionary camp. Till you're about an inch above the bottom of the map. then you need to go straight along for about till about you're about an inch and a half away from the edge of the map. Yeah. So you're at where are you now? You're at the bottom. Okay. Now you you need to go parallel to the side of the map. Um about four inches. So you're just y you're now about two inches above the gorillas or the banana tree. Um do you have a rope bridge? Right. You need to cross the rope b bridge. I haven't got a I haven't got a river marked, but I assume Well if no. If you go if you're up going up uh vertically
+
+=== finals, N=1 concurrent streams
+  wall for level            : 60.74 s  (audio 60.0 s + stagger 0.00 s)
+  cores used, whole level   : 0.09  (0.091 per stream)
+  RSS after level           : 1787 MB (process peak so far 1787 MB)
+  cores used, 1 s samples   : median 0.01, max 0.72, n=61
+  event-loop lag (100 ms hb): median 0.6 ms, p99 1.8 ms, max 2.1 ms, n=604
+  final latency, speech end : median 0.73 s, p95 1.04, max 1.16, n=14
+  final latency, VAD handoff: median 0.27 s, p95 0.71, max 0.74
+  final decode time         : median 0.27 s, max 0.73
+  final queue wait          : median 0.000 s, max 0.00
+  final text == N=1 text    : 1/1
+
+=== finals, N=5 concurrent streams
+  wall for level            : 63.34 s  (audio 60.0 s + stagger 1.60 s)
+  cores used, whole level   : 0.58  (0.116 per stream)
+  RSS after level           : 1789 MB (process peak so far 1789 MB)
+  cores used, 1 s samples   : median 0.29, max 1.99, n=64
+  event-loop lag (100 ms hb): median 0.8 ms, p99 2.7 ms, max 8.7 ms, n=629
+  final latency, speech end : median 0.74 s, p95 1.75, max 2.33, n=70
+  final latency, VAD handoff: median 0.29 s, p95 1.73, max 1.88
+  final decode time         : median 0.28 s, max 1.31
+  final queue wait          : median 0.000 s, max 0.72
+  final text == N=1 text    : 5/5
+
+=== finals, N=10 concurrent streams
+  wall for level            : 66.51 s  (audio 60.0 s + stagger 1.80 s)
+  cores used, whole level   : 1.32  (0.132 per stream)
+  RSS after level           : 1789 MB (process peak so far 1789 MB)
+  cores used, 1 s samples   : median 1.98, max 1.99, n=67
+  event-loop lag (100 ms hb): median 0.8 ms, p99 4.7 ms, max 13.2 ms, n=659
+  final latency, speech end : median 2.46 s, p95 4.51, max 5.47, n=140
+  final latency, VAD handoff: median 2.04 s, p95 4.09, max 5.02
+  final decode time         : median 0.47 s, max 1.36
+  final queue wait          : median 1.415 s, max 3.71
+  final text == N=1 text    : 10/10
+
+=== finals, N=25 concurrent streams
+  wall for level            : 119.59 s  (audio 60.0 s + stagger 1.92 s)
+  cores used, whole level   : 1.89  (0.076 per stream)
+  RSS after level           : 1793 MB (process peak so far 1793 MB)
+  cores used, 1 s samples   : median 1.98, max 2.00, n=120
+  event-loop lag (100 ms hb): median 0.6 ms, p99 22.5 ms, max 31.9 ms, n=1160
+  final latency, speech end : median 28.62 s, p95 49.80, max 57.66, n=350
+  final latency, VAD handoff: median 28.16 s, p95 49.32, max 57.66
+  final decode time         : median 0.50 s, max 1.46
+  final queue wait          : median 27.406 s, max 56.83
+  final text == N=1 text    : 25/25
+
+warmup (partials): 1 stream, discarded
+reference text (partials): Okay. Um right, you have to start. Right, below the start, do you have uh like a missionary camp? Okay, well, if you take it from the start, just run horizontally Uh to the left for about an inch. And then go down along the side of the missionary camp. Till you're about an inch above the bottom of the map. then you need to go straight along for about till about you're about an inch and a half away from the edge of the map. Yeah. So you're at where are you now? You're at the bottom. Okay. Now you you need to go parallel to the side of the map. Um about four inches. So you're just y you're now about two inches above the gorillas or the banana tree. Um do you have a rope bridge? Right. You need to cross the rope b bridge. I haven't got a I haven't got a river marked, but I assume Well if no. If you go if you're up going up uh vertically
+
+=== partials, N=1 concurrent streams
+  wall for level            : 61.25 s  (audio 60.0 s + stagger 0.00 s)
+  cores used, whole level   : 0.23  (0.229 per stream)
+  RSS after level           : 1794 MB (process peak so far 1794 MB)
+  cores used, 1 s samples   : median 0.12, max 1.98, n=62
+  event-loop lag (100 ms hb): median 0.7 ms, p99 2.0 ms, max 2.0 ms, n=609
+  final latency, speech end : median 0.76 s, p95 1.22, max 1.25, n=14
+  final latency, VAD handoff: median 0.33 s, p95 0.77, max 1.25
+  final decode time         : median 0.32 s, max 1.24
+  final queue wait          : median 0.000 s, max 0.00
+  partial age (tick to text): median 0.25 s, p95 0.62, max 1.26
+  partials                  : 23 decoded, 0 ticks skipped (previous still running)
+  partial interval (incl. gaps between utterances): median 2.20 s, p95 4.13, max 6.07, n=22
+  final text == N=1 text    : 1/1
+
+=== partials, N=5 concurrent streams
+  wall for level            : 66.85 s  (audio 60.0 s + stagger 1.60 s)
+  cores used, whole level   : 1.32  (0.264 per stream)
+  RSS after level           : 1794 MB (process peak so far 1794 MB)
+  cores used, 1 s samples   : median 1.27, max 1.99, n=67
+  event-loop lag (100 ms hb): median 0.8 ms, p99 4.1 ms, max 14.0 ms, n=663
+  final latency, speech end : median 1.21 s, p95 3.80, max 5.24, n=70
+  final latency, VAD handoff: median 0.75 s, p95 3.61, max 5.24
+  final decode time         : median 0.47 s, max 1.34
+  final queue wait          : median 0.084 s, max 4.24
+  partial age (tick to text): median 0.42 s, p95 2.50, max 4.94
+  partials                  : 108 decoded, 7 ticks skipped (previous still running)
+  partial interval (incl. gaps between utterances): median 2.66 s, p95 4.20, max 5.97, n=103
+  final text == N=1 text    : 5/5
+
+=== partials, N=10 concurrent streams
+  wall for level            : 72.98 s  (audio 60.0 s + stagger 1.80 s)
+  cores used, whole level   : 1.89  (0.189 per stream)
+  RSS after level           : 1794 MB (process peak so far 1794 MB)
+  cores used, 1 s samples   : median 1.98, max 2.00, n=73
+  event-loop lag (100 ms hb): median 0.7 ms, p99 5.3 ms, max 17.4 ms, n=724
+  final latency, speech end : median 8.11 s, p95 10.14, max 11.30, n=140
+  final latency, VAD handoff: median 7.68 s, p95 9.71, max 11.30
+  final decode time         : median 0.48 s, max 1.32
+  final queue wait          : median 7.139 s, max 9.99
+  partial age (tick to text): median 6.59 s, p95 8.79, max 9.68
+  partials                  : 97 decoded, 133 ticks skipped (previous still running)
+  partial interval (incl. gaps between utterances): median 7.93 s, p95 10.47, max 12.18, n=87
+  final text == N=1 text    : 10/10
+
+=== partials, N=25 concurrent streams
+  wall for level            : 135.91 s  (audio 60.0 s + stagger 1.92 s)
+  cores used, whole level   : 1.96  (0.078 per stream)
+  RSS after level           : 1805 MB (process peak so far 1805 MB)
+  cores used, 1 s samples   : median 1.98, max 2.00, n=136
+  event-loop lag (100 ms hb): median 0.5 ms, p99 27.5 ms, max 42.9 ms, n=1321
+  final latency, speech end : median 39.52 s, p95 65.10, max 73.98, n=350
+  final latency, VAD handoff: median 39.06 s, p95 64.64, max 73.98
+  final decode time         : median 0.48 s, max 1.57
+  final queue wait          : median 38.518 s, max 73.16
+  partial age (tick to text): median 11.02 s, p95 62.61, max 64.08
+  partials                  : 107 decoded, 468 ticks skipped (previous still running)
+  partial interval (incl. gaps between utterances): median 24.29 s, p95 63.73, max 66.19, n=82
+  final text == N=1 text    : 25/25

@@ -1,0 +1,14 @@
+VAD: silero, min silence 0.5 s, max speech 20.0 s, 16000 Hz
+audio/tool_call.wav ch0: 84.5 s at 24000 Hz, speech 24 %, 6 segments, longest 7.1 s
+audio/tool_call.wav ch1: 84.5 s at 24000 Hz, speech 48 %, 10 segments, longest 13.2 s
+audio/turn_taking.wav ch0: 41.1 s at 24000 Hz, speech 14 %, 5 segments, longest 2.1 s
+audio/interruptions.wav ch0: 30.0 s at 24000 Hz, speech 23 %, 5 segments, longest 1.6 s
+audio/corpora/maptask/q1ec1.mix.wav ch0: 265.1 s at 20000 Hz, speech 73 %, 57 segments, longest 10.8 s
+audio/corpora/maptask/q1ec1.mix.wav ch1: 265.1 s at 20000 Hz, speech 12 %, 33 segments, longest 2.7 s
+audio/corpora/maptask/q1ec2.mix.wav ch0: 334.0 s at 20000 Hz, speech 56 %, 57 segments, longest 13.7 s
+audio/corpora/maptask/q1ec2.mix.wav ch1: 334.0 s at 20000 Hz, speech 29 %, 51 segments, longest 6.5 s
+audio/corpora/maptask/q1nc1.mix.wav ch0: 1112.6 s at 20000 Hz, speech 55 %, 240 segments, longest 16.6 s
+audio/corpora/maptask/q1nc1.mix.wav ch1: 1112.6 s at 20000 Hz, speech 40 %, 201 segments, longest 13.8 s
+audio/corpora/maptask/q2ec3.mix.wav ch0: 279.8 s at 20000 Hz, speech 76 %, 55 segments, longest 15.4 s
+audio/corpora/maptask/q2ec3.mix.wav ch1: 279.8 s at 20000 Hz, speech 66 %, 56 segments, longest 16.9 s
+audio/corpora/maptask/q2ec3.mix.wav (first 60 s) ch0: 60.0 s at 20000 Hz, speech 81 %, 14 segments, longest 7.2 s
