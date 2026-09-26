@@ -1,0 +1,72 @@
+
+=== apptek-en-US_General_clean_bench / nemo_cuda_graphs: 3362 deleted words of 89316 reference words
+  runs of     1 words:   1177 runs,   1177 words ( 35.0 % of deletions)
+  runs of   2-3 words:    473 runs,   1082 words ( 32.2 % of deletions)
+  runs of  4-10 words:    169 runs,    872 words ( 25.9 % of deletions)
+  runs of 11-30 words:     14 runs,    198 words (  5.9 % of deletions)
+  runs of   31+ words:      1 runs,     33 words (  1.0 % of deletions)
+  most deleted: okay 299 (25 %), i 172 (6 %), ohh 128 (60 %), is 112 (5 %), it 100 (6 %), yeah 99 (21 %), that 91 (4 %), a 81 (4 %), and 79 (4 %), you 76 (2 %), the 65 (2 %), yes 64 (17 %)
+
+=== apptek-en-US_General_clean_bench / onnx_fp32_cuda: 3404 deleted words of 89316 reference words
+  runs of     1 words:   1253 runs,   1253 words ( 36.8 % of deletions)
+  runs of   2-3 words:    485 runs,   1108 words ( 32.5 % of deletions)
+  runs of  4-10 words:    172 runs,    895 words ( 26.3 % of deletions)
+  runs of 11-30 words:     11 runs,    148 words (  4.3 % of deletions)
+  runs of   31+ words:      0 runs,      0 words (  0.0 % of deletions)
+  most deleted: okay 298 (25 %), i 169 (6 %), ohh 123 (58 %), is 110 (5 %), yeah 97 (20 %), it 95 (5 %), that 89 (4 %), a 84 (4 %), and 77 (3 %), you 73 (2 %), the 69 (2 %), yes 64 (17 %)
+
+=== apptek-en-US_General_clean_bench / onnx_int8_cuda: 4470 deleted words of 89316 reference words
+  runs of     1 words:   1387 runs,   1387 words ( 31.0 % of deletions)
+  runs of   2-3 words:    566 runs,   1289 words ( 28.8 % of deletions)
+  runs of  4-10 words:    215 runs,   1156 words ( 25.9 % of deletions)
+  runs of 11-30 words:     32 runs,    479 words ( 10.7 % of deletions)
+  runs of   31+ words:      4 runs,    159 words (  3.6 % of deletions)
+  most deleted: okay 329 (28 %), i 211 (7 %), ohh 130 (61 %), is 128 (6 %), that 125 (5 %), it 112 (6 %), you 111 (3 %), yeah 104 (22 %), and 96 (4 %), a 96 (5 %), the 83 (3 %), yes 76 (20 %)
+
+=== apptek-en-US_General_g711mu_bench_first12 / nemo_cuda_graphs: 373 deleted words of 5780 reference words
+  runs of     1 words:     61 runs,     61 words ( 16.4 % of deletions)
+  runs of   2-3 words:     58 runs,    137 words ( 36.7 % of deletions)
+  runs of  4-10 words:     25 runs,    151 words ( 40.5 % of deletions)
+  runs of 11-30 words:      2 runs,     24 words (  6.4 % of deletions)
+  runs of   31+ words:      0 runs,      0 words (  0.0 % of deletions)
+  most deleted: i 25 (12 %), okay 22 (29 %), that 19 (13 %), is 19 (14 %), yeah 13 (32 %), you 10 (5 %), yes 10 (31 %), so 9 (11 %), am 8 (22 %), it 7 (8 %), a 7 (6 %), good 6 (40 %)
+
+=== apptek-en-US_General_g711mu_bench_first12 / onnx_fp32: 380 deleted words of 5780 reference words
+  runs of     1 words:     66 runs,     66 words ( 17.4 % of deletions)
+  runs of   2-3 words:     56 runs,    131 words ( 34.5 % of deletions)
+  runs of  4-10 words:     24 runs,    137 words ( 36.1 % of deletions)
+  runs of 11-30 words:      3 runs,     46 words ( 12.1 % of deletions)
+  runs of   31+ words:      0 runs,      0 words (  0.0 % of deletions)
+  most deleted: i 25 (12 %), okay 22 (29 %), is 19 (14 %), that 17 (12 %), yeah 13 (32 %), yes 11 (34 %), you 10 (5 %), the 7 (4 %), hi 7 (70 %), ohh 7 (50 %), am 6 (17 %), it 6 (7 %)
+
+=== apptek-en-US_General_g711mu_bench_first12 / onnx_int8: 1050 deleted words of 5780 reference words
+  runs of     1 words:     65 runs,     65 words (  6.2 % of deletions)
+  runs of   2-3 words:     72 runs,    165 words ( 15.7 % of deletions)
+  runs of  4-10 words:     42 runs,    236 words ( 22.5 % of deletions)
+  runs of 11-30 words:     17 runs,    301 words ( 28.7 % of deletions)
+  runs of   31+ words:      6 runs,    283 words ( 27.0 % of deletions)
+  most deleted: i 48 (23 %), is 37 (26 %), that 32 (22 %), you 32 (15 %), okay 27 (36 %), and 23 (21 %), a 22 (19 %), to 21 (14 %), your 18 (19 %), so 18 (21 %), the 18 (10 %), yes 17 (53 %)
+
+=== hvb_clean_bench / nemo_cuda_graphs: 14053 deleted words of 130062 reference words
+  runs of     1 words:   2486 runs,   2486 words ( 17.7 % of deletions)
+  runs of   2-3 words:   1178 runs,   2897 words ( 20.6 % of deletions)
+  runs of  4-10 words:   1059 runs,   6074 words ( 43.2 % of deletions)
+  runs of 11-30 words:    164 runs,   2405 words ( 17.1 % of deletions)
+  runs of   31+ words:      5 runs,    191 words (  1.4 % of deletions)
+  most deleted: is 1007 (11 %), you 922 (12 %), no 557 (48 %), hi 540 (38 %), m 488 (74 %), that 462 (27 %), thank 458 (17 %), okay 428 (26 %), hello 404 (26 %), the 324 (14 %), my 299 (6 %), what 296 (16 %)
+
+=== hvb_clean_bench / onnx_fp32_cuda: 14562 deleted words of 130062 reference words
+  runs of     1 words:   2541 runs,   2541 words ( 17.4 % of deletions)
+  runs of   2-3 words:   1195 runs,   2931 words ( 20.1 % of deletions)
+  runs of  4-10 words:   1090 runs,   6244 words ( 42.9 % of deletions)
+  runs of 11-30 words:    182 runs,   2682 words ( 18.4 % of deletions)
+  runs of   31+ words:      4 runs,    164 words (  1.1 % of deletions)
+  most deleted: is 1023 (11 %), you 955 (12 %), hi 566 (40 %), no 566 (49 %), m 489 (74 %), that 475 (28 %), thank 461 (18 %), okay 435 (27 %), hello 423 (28 %), the 339 (15 %), my 313 (7 %), what 311 (17 %)
+
+=== hvb_clean_bench / onnx_int8_cuda: 38503 deleted words of 130062 reference words
+  runs of     1 words:   2621 runs,   2621 words (  6.8 % of deletions)
+  runs of   2-3 words:   1486 runs,   3581 words (  9.3 % of deletions)
+  runs of  4-10 words:   1864 runs,  11399 words ( 29.6 % of deletions)
+  runs of 11-30 words:    791 runs,  13754 words ( 35.7 % of deletions)
+  runs of   31+ words:    175 runs,   7148 words ( 18.6 % of deletions)
+  most deleted: is 2564 (29 %), you 2360 (29 %), i 1084 (21 %), my 1081 (23 %), thank 923 (35 %), that 856 (50 %), the 794 (35 %), to 776 (29 %), a 763 (27 %), hi 756 (54 %), no 749 (65 %), okay 707 (43 %)

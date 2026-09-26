@@ -1,0 +1,21 @@
+# Segmentation and padding, ONNX fp32 on RTX 3090 Ti, AppTek first 12 channels per accent, clean.
+# live = 0.5 s silence, 20 s max, no padding (sherpa-onnx VAD segments as returned); livepad = the same
+# segments with 0.25 s kept either side; bench = AppTek's recipe (10 s silence, 30 s max, 30 ms padding).
+== apptek-en-US_General_clean_live_first12  (411 segments)
+onnx_fp32_cuda WER  10.50 %  (S 142, D 401, I 59, hits 5193)
+== apptek-en-US_General_clean_livepad_first12  (411 segments)
+onnx_fp32_cuda WER   8.04 %  (S 133, D 261, I 67, hits 5342)
+== apptek-en-US_General_clean_bench_first12 (from nemo_vs_onnx.log)
+onnx_fp32_cuda WER   7.74 %  (S 120, D 247, I 77, hits 5369)
+== apptek-en-IN_clean_live_first12  (558 segments)
+onnx_fp32_cuda WER  11.22 %  (S 351, D 230, I 210, hits 6468)
+== apptek-en-IN_clean_livepad_first12  (558 segments)
+onnx_fp32_cuda WER  10.06 %  (S 336, D 141, I 232, hits 6572)
+== apptek-en-IN_clean_bench_first12 (from nemo_vs_onnx.log)
+onnx_fp32_cuda WER   9.82 %  (S 294, D 168, I 230, hits 6587)
+== apptek-en-GB_SCT_clean_live_first12  (683 segments)
+onnx_fp32_cuda WER  14.93 %  (S 626, D 580, I 333, hits 9101)
+== apptek-en-GB_SCT_clean_livepad_first12  (683 segments)
+onnx_fp32_cuda WER  13.58 %  (S 648, D 395, I 357, hits 9264)
+== apptek-en-GB_SCT_clean_bench_first12 (from nemo_vs_onnx.log)
+onnx_fp32_cuda WER  12.17 %  (S 546, D 373, I 335, hits 9388)

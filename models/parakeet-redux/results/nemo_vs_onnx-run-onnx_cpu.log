@@ -1,0 +1,73 @@
+== apptek-en-GB_SCT_clean_bench_first12 onnx_fp32 2026-09-26T01:32:23+00:00
+onnx fp32: 222 segments, 1.36 h in 222 s with 6 workers
+== apptek-en-GB_SCT_g711mu_bench_first12 onnx_fp32 2026-09-26T01:36:06+00:00
+onnx_fp32: 222 segments, 1.32 h in 216 s with 6 workers
+== apptek-en-GB_SCT_opus12-loss10_bench_first12 onnx_fp32 2026-09-26T01:39:42+00:00
+onnx_fp32: 219 segments, 1.31 h in 218 s with 6 workers
+== apptek-en-GB_SCT_opus12-loss20_bench_first12 onnx_fp32 2026-09-26T01:43:20+00:00
+onnx_fp32: 219 segments, 1.31 h in 219 s with 6 workers
+== apptek-en-GB_SCT_opus12-loss5_bench_first12 onnx_fp32 2026-09-26T01:46:59+00:00
+onnx_fp32: 222 segments, 1.32 h in 220 s with 6 workers
+== apptek-en-GB_SCT_opus12_bench_first12 onnx_fp32 2026-09-26T01:50:39+00:00
+onnx_fp32: 219 segments, 1.32 h in 216 s with 6 workers
+== apptek-en-IN_clean_bench_first12 onnx_fp32 2026-09-26T01:54:16+00:00
+onnx_fp32: 236 segments, 1.08 h in 171 s with 6 workers
+== apptek-en-IN_g711mu_bench_first12 onnx_fp32 2026-09-26T01:57:08+00:00
+onnx_fp32: 232 segments, 1.07 h in 172 s with 6 workers
+== apptek-en-IN_opus12-loss10_bench_first12 onnx_fp32 2026-09-26T02:00:00+00:00
+onnx_fp32: 231 segments, 1.05 h in 168 s with 6 workers
+== apptek-en-IN_opus12-loss20_bench_first12 onnx_fp32 2026-09-26T02:02:48+00:00
+onnx_fp32: 232 segments, 1.04 h in 161 s with 6 workers
+== apptek-en-IN_opus12-loss5_bench_first12 onnx_fp32 2026-09-26T02:05:29+00:00
+onnx_fp32: 230 segments, 1.05 h in 160 s with 6 workers
+== apptek-en-IN_opus12_bench_first12 onnx_fp32 2026-09-26T02:08:09+00:00
+onnx_fp32: 230 segments, 1.06 h in 163 s with 6 workers
+== apptek-en-US_General_clean_bench_first12 onnx_fp32 2026-09-26T02:10:52+00:00
+onnx_fp32: 175 segments, 0.77 h in 127 s with 6 workers
+== apptek-en-US_General_g711mu_bench_first12 onnx_fp32 2026-09-26T02:12:59+00:00
+onnx_fp32: 172 segments, 0.75 h in 121 s with 6 workers
+== apptek-en-US_General_opus12-loss10_bench_first12 onnx_fp32 2026-09-26T02:15:00+00:00
+onnx_fp32: 175 segments, 0.73 h in 121 s with 6 workers
+== apptek-en-US_General_opus12-loss20_bench_first12 onnx_fp32 2026-09-26T02:17:01+00:00
+onnx_fp32: 171 segments, 0.73 h in 119 s with 6 workers
+== apptek-en-US_General_opus12-loss5_bench_first12 onnx_fp32 2026-09-26T02:19:00+00:00
+onnx_fp32: 173 segments, 0.73 h in 119 s with 6 workers
+== apptek-en-US_General_opus12_bench_first12 onnx_fp32 2026-09-26T02:21:00+00:00
+onnx_fp32: 174 segments, 0.73 h in 121 s with 6 workers
+== apptek-en-GB_SCT_clean_bench_first12 onnx_int8 2026-09-26T02:23:01+00:00
+onnx_int8: 222 segments, 1.36 h in 163 s with 8 workers
+== apptek-en-GB_SCT_g711mu_bench_first12 onnx_int8 2026-09-26T02:25:43+00:00
+onnx_int8: 222 segments, 1.32 h in 156 s with 8 workers
+== apptek-en-GB_SCT_opus12-loss10_bench_first12 onnx_int8 2026-09-26T02:28:20+00:00
+onnx_int8: 219 segments, 1.31 h in 157 s with 8 workers
+== apptek-en-GB_SCT_opus12-loss20_bench_first12 onnx_int8 2026-09-26T02:30:57+00:00
+onnx_int8: 219 segments, 1.31 h in 154 s with 8 workers
+== apptek-en-GB_SCT_opus12-loss5_bench_first12 onnx_int8 2026-09-26T02:33:31+00:00
+onnx_int8: 222 segments, 1.32 h in 153 s with 8 workers
+== apptek-en-GB_SCT_opus12_bench_first12 onnx_int8 2026-09-26T02:36:04+00:00
+onnx_int8: 219 segments, 1.32 h in 154 s with 8 workers
+== apptek-en-IN_clean_bench_first12 onnx_int8 2026-09-26T02:38:38+00:00
+onnx_int8: 236 segments, 1.08 h in 121 s with 8 workers
+== apptek-en-IN_g711mu_bench_first12 onnx_int8 2026-09-26T02:40:39+00:00
+onnx_int8: 232 segments, 1.07 h in 119 s with 8 workers
+== apptek-en-IN_opus12-loss10_bench_first12 onnx_int8 2026-09-26T02:42:39+00:00
+onnx_int8: 231 segments, 1.05 h in 117 s with 8 workers
+== apptek-en-IN_opus12-loss20_bench_first12 onnx_int8 2026-09-26T02:44:36+00:00
+onnx_int8: 232 segments, 1.04 h in 115 s with 8 workers
+== apptek-en-IN_opus12-loss5_bench_first12 onnx_int8 2026-09-26T02:46:32+00:00
+onnx_int8: 230 segments, 1.05 h in 120 s with 8 workers
+== apptek-en-IN_opus12_bench_first12 onnx_int8 2026-09-26T02:48:32+00:00
+onnx_int8: 230 segments, 1.06 h in 119 s with 8 workers
+== apptek-en-US_General_clean_bench_first12 onnx_int8 2026-09-26T02:50:31+00:00
+onnx_int8: 175 segments, 0.77 h in 100 s with 8 workers
+== apptek-en-US_General_g711mu_bench_first12 onnx_int8 2026-09-26T02:52:12+00:00
+onnx_int8: 172 segments, 0.75 h in 90 s with 8 workers
+== apptek-en-US_General_opus12-loss10_bench_first12 onnx_int8 2026-09-26T02:53:41+00:00
+onnx_int8: 175 segments, 0.73 h in 90 s with 8 workers
+== apptek-en-US_General_opus12-loss20_bench_first12 onnx_int8 2026-09-26T02:55:12+00:00
+onnx_int8: 171 segments, 0.73 h in 85 s with 8 workers
+== apptek-en-US_General_opus12-loss5_bench_first12 onnx_int8 2026-09-26T02:56:37+00:00
+onnx_int8: 173 segments, 0.73 h in 89 s with 8 workers
+== apptek-en-US_General_opus12_bench_first12 onnx_int8 2026-09-26T02:58:07+00:00
+onnx_int8: 174 segments, 0.73 h in 86 s with 8 workers
+ALL DONE onnx 2026-09-26T02:59:32+00:00
