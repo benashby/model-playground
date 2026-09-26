@@ -103,15 +103,26 @@ of this model is governed by the CC-BY-4.0 license." [CLAIM]
 
 ## The practical consequence
 
-- Redux is runtime-locked. What makes it worth using is the ternary encoder,
-  and only Photon's proprietary kernels multiply against that packed
-  representation.
-  There is no ONNX or `sherpa-onnx` path to the 178 MB weights, so without
-  Photon, Redux cannot run at all.
-- Ultra may not be. It ships full-precision safetensors with the same
-  architecture. Open: whether NeMo or an ONNX runtime will load it. If one
-  does, the arm the vendor reports as most accurate survives without a
-  proprietary runtime.
+- Redux is runtime-locked in practice. What makes it worth using is the
+  ternary encoder, and only Photon's proprietary kernels compute directly on
+  that packed representation. No other runtime offers a ready path to the
+  178 MB weights. The format itself is open, though: the checkpoint ships a
+  `ternary.json` that documents the packing (five base-3 digits per byte,
+  one fp16 scale per 128 inputs), all 264 packed tensors match it against
+  the dense shapes of NVIDIA's checkpoint, and one layer unpacked by the
+  documented rule gives an ordinary 2048 × 1024 matrix [MEASURED]
+  ([`probes/weights_format.py`](../probes/weights_format.py),
+  [`results/weights_format.log`](../results/weights_format.log)). So the
+  weights could be unpacked to a dense checkpoint for another runtime,
+  without touching the kernels, at the cost of the size and speed that make
+  Redux worth using. Whether such a checkpoint loads and reproduces Photon's
+  output was not tried. Open. Correction: an earlier version of this note
+  said that without Photon, Redux "cannot run at all".
+- Ultra may not be locked either. It ships full-precision safetensors with
+  the same 723 tensor names and shapes as NVIDIA's checkpoint, plus 6 for a
+  VAD head [MEASURED] (same probe). Open: whether NeMo or an ONNX runtime
+  will load it. If one does, the arm the vendor reports as most accurate
+  survives without a proprietary runtime.
 - The original is unencumbered today: CC-BY-4.0 weights that run under NeMo
   or ONNX runtimes. The vendor's own card measured those runtimes on its AMD
   EPYC 9575F at 45× (parakeet.cpp, q8_0), 42× (sherpa-onnx, int8) and 28×

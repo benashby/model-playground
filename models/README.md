@@ -99,8 +99,9 @@ The short version, so you can skip to the right note.
 | If you need… | Model | What to expect |
 |---|---|---|
 | Transcription, cheaply, at volume, with no GPU | Parakeet Redux | ~44× real time on a desktop CPU (an hour of audio in ~80 s), 178 MB, 25 languages, word timestamps free. Weak in noise. Runtime is proprietary. |
-| Best-accuracy transcription, GPU available | Parakeet Ultra | Same architecture at full precision; ~5.3 % mean WER, near the top of the Open ASR Leaderboard. Not yet tested here. |
+| Best-accuracy transcription, GPU available | Parakeet Ultra | Same architecture at full precision. The vendor reports it the most accurate of the three Parakeets (5.80 % mean WER on seven English sets). Measured here only for speed and agreement: 24.9× real time on a desktop CPU in Photon, and nearly the same words as NVIDIA's original. |
 | Live transcription for an agent | Parakeet Redux, streaming | First preview about 4 s after audio starts, then updates every ~2 s. Settled words never change, but punctuation can be revised long after it first appears. Final text matches batch. |
+| Telephone or live transcription on an open runtime | NVIDIA's parakeet-tdt-0.6b-v3, fp32 ONNX | As accurate as NVIDIA's NeMo on the same audio, on a CPU or an NVIDIA GPU: 7.01 to 13.13 % WER on call-centre accents, 16.71 % on real telephone calls. Use fp32: the int8 export more than doubles the error rate on 8 kHz audio. CC-BY-4.0 weights. See [deploying on ONNX](parakeet-redux/notes/12-onnx-deployment.md). |
 | A conversation, end to end, in speech | VoiceChat 11B | The only full-duplex model here. Real barge-in. CUDA only; 73 GB at stock settings, and it also served in 44.7 GB with two memory settings lowered. |
 | Long-context reasoning or agentic text work | K2-Horizon-32B | 65.6 tok/s decode, 131 k context served, tool calling works in three formats, Apache-2.0 with published training data. Stage-1 checkpoint, so weaker at agentic and coding work than mature peers. |
 | Speaker labels / diarisation | none of these | No model here does it. |

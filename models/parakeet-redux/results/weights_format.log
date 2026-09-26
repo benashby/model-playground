@@ -1,0 +1,23 @@
+=== moondream/parakeet-redux (snapshot af60db939eba)
+  architectures ['ParakeetReduxForTDT'], model_type parakeet_tdt
+  993 tensors: F16 356, F32 349, I64 24, U8 264
+=== moondream/parakeet-ultra (snapshot 510e6f5a1c46)
+  architectures ['ParakeetForTDT'], model_type parakeet_tdt
+  729 tensors: F16 356, F32 349, I64 24
+=== nvidia/parakeet-tdt-0.6b-v3 (snapshot 541d1f99c6b0)
+  architectures ['ParakeetForTDT'], model_type parakeet_tdt
+  723 tensors: F32 699, I64 24
+
+=== tensor inventories
+  ultra vs nvidia: 723 shared names, 6 only in ultra (['vad_head.ctx.bias', 'vad_head.ctx.weight', 'vad_head.out.bias']...), 0 only in nvidia; shared shapes all equal: True
+  redux: 264 packed (.qweight) tensors, 264 nvidia tensor names absent
+
+=== redux ternary.json
+  format: "thrush-ternary-v2"
+  packing: {"base": 3, "code_offset": 1, "elements_per_byte": 5, "row_bytes": "ceil(in/5)", "digit_order": "element i of a row is base-3 digit i%5 of byte i//5, least significant digit first; pad digits 0", "row_major": true}
+  weight_rule: "w = scales[row, col // group_size] * (code - 1) with code in {0,1,2}"
+  quant: {"mode": "ternary", "group_size": 128}
+  packed tensors consistent with the spec and the dense shapes: 264 of 264
+
+=== unpacked encoder.layers.0.conv.pointwise_conv1.qweight
+  dense shape [2048, 1024] (NVIDIA's [2048, 1024, 1]), codes used [0, 1, 2], share of zero weights 0.492

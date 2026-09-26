@@ -160,6 +160,33 @@ result.
 
 ## 6. Hardware and runtimes
 
+### Which runtime on which hardware
+
+Every combination below was run on the same audio segments
+([accuracy](11-results-telephone-accuracy.md#the-runtime-makes-no-difference-measured)).
+Versions are from
+[`results/gpu_environment.log`](../results/gpu_environment.log); speeds are
+batch-1 throughputs from
+[`results/nemo_vs_onnx-timing.log`](../results/nemo_vs_onnx-timing.log).
+
+| Runtime | Hardware | What to install | Versions tested | Speed on AppTek segments | Accuracy |
+|---|---|---|---|---|---|
+| sherpa-onnx, fp32 | x86 CPU | `pip install sherpa-onnx` | 1.13.8 | 22× real time on a Ryzen 7 3700X with 6 workers | the reference: within 0.23 points of NeMo |
+| sherpa-onnx, fp32 | NVIDIA GPU | sherpa-onnx's CUDA wheel, NVIDIA's CUDA 12 and cuDNN 9 pip packages, ALSA | 1.13.8+cuda12.cudnn9, cuDNN 9.26, driver 615.71.09 | 101× on an RTX 3090 Ti with 3 workers | the same as on the CPU |
+| NeMo 3.0.0 | NVIDIA GPU | PyTorch for CUDA 12.8, `nemo_toolkit[asr]` | PyTorch 2.11.0+cu128, cuDNN 9.19, driver 615.71.09 | 305× with CUDA graphs, 143× without | the same as ONNX fp32 |
+| NeMo 3.0.0 | AMD GPU (ROCm) | PyTorch for ROCm 7.2, `nemo_toolkit[asr]`, three workarounds (section 8) | PyTorch 2.14.0+rocm7.2, HIP 7.2, gfx1201 on Linux 7.1.2 | 68× with one CPU core | the same as NeMo on NVIDIA |
+| sherpa-onnx, int8 | CPU or NVIDIA GPU | as above, int8 files | 1.13.8 | 18× on the RTX 3090 Ti | do not use for telephone audio |
+
+Not tested: ONNX on an AMD GPU (ONNX Runtime's ROCm or MIGraphX providers),
+TensorRT, NVIDIA's Riva and NIM serving stacks, NeMo on a CPU, and Apple
+hardware.
+
+What sets accuracy is the same on every device: the fp32 export, padded
+segments, and 16 kHz input with one speaker per channel. The device only
+changes speed and cost. Two GPU options that could change the balance were
+not measured: sherpa-onnx's fp16 export of the model, and decoding several
+segments per call (every figure here decodes one at a time). Open.
+
 ### CPU
 
 `pip install sherpa-onnx numpy` gives the CPU build. Use one recogniser per
@@ -231,8 +258,49 @@ section 8.
 
 NeMo gives the same accuracy as the fp32 ONNX export and is faster on an
 NVIDIA GPU (305× real time with CUDA graphs against 101× for ONNX at batch
-size 1), at the cost of PyTorch and a much heavier install. It also runs on an
-AMD RX 9070 XT (gfx1201) under ROCm 7.2, which needed three workarounds:
+size 1), at the cost of PyTorch and a much heavier install.
+
+### On an NVIDIA GPU
+
+These are the packages the measurements used, on a host with only the
+NVIDIA driver (615.71.09) and podman's CDI device for it. The measured setup
+installed them into a venv on this base image; an image build is the same:
+
+```dockerfile
+FROM docker.io/library/python:3.12-slim-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends libatomic1 libnuma1 libsndfile1 \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu128 \
+    && pip install --no-cache-dir "nemo_toolkit[asr]==3.0.0"
+```
+
+Run it with `--device nvidia.com/gpu=all` (or `=0` for one card). PyTorch's
+CUDA wheels bring their own CUDA and cuDNN libraries, so nothing else is
+needed on the host. Transcribing pre-cut 16 kHz segments, with NeMo's
+default greedy TDT decoding:
+
+```python
+import nemo.collections.asr as nemo_asr
+import torch
+
+model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v3", map_location="cuda")
+model.eval()
+with torch.inference_mode():
+    hyps = model.transcribe(["segment_0001.wav", "segment_0002.wav"], batch_size=1)
+texts = [h.text for h in hyps]
+```
+
+The CUDA-graph decoder is on by default on NVIDIA and is the fast path: it
+changed no results, and without it throughput halved. The first call
+downloads the checkpoint from Hugging Face.
+
+### On an AMD GPU
+
+NeMo also runs on an AMD RX 9070 XT (gfx1201) under ROCm 7.2, with the same
+base image and PyTorch's ROCm wheels
+(`--index-url https://download.pytorch.org/whl/rocm7.2`), passing
+`--device /dev/kfd --device /dev/dri` to the container. It needed three
+workarounds:
 
 | Symptom | Cause | Fix |
 |---|---|---|

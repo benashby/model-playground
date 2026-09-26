@@ -1,0 +1,40 @@
+# probes/gpu_environment.py in each GPU environment used by nemo_vs_onnx.py
+== NeMo on NVIDIA CUDA (python:3.12-slim-bookworm + libatomic1 libnuma1 libsndfile1, venv as below)
+  host driver: NVIDIA GeForce RTX 3090 Ti, 615.71.09
+  host driver: NVIDIA GeForce RTX 3090, 615.71.09
+python 3.12.14 (linux)
+  torch                      2.11.0+cu128
+  nemo_toolkit               3.0.0
+  sherpa-onnx                not installed
+  onnxruntime                not installed
+  cuda-bindings              12.9.7
+  nvidia-cudnn-cu12          9.19.0.56
+  nvidia-cublas-cu12         12.8.4.1
+  nvidia-cuda-runtime-cu12   12.8.90
+torch.version.cuda 12.8, torch.version.hip None, cudnn 91900
+  gpu 0: NVIDIA GeForce RTX 3090 Ti, sm_86, 23.6 GiB
+  gpu 1: NVIDIA GeForce RTX 3090, sm_86, 23.6 GiB
+== sherpa-onnx on NVIDIA CUDA (the PyTorch-free image in notes/12-onnx-deployment.md)
+python 3.12.14 (linux)
+  torch                      not installed
+  nemo_toolkit               not installed
+  sherpa-onnx                1.13.8+cuda12.cudnn9.onnxruntime1.28.2
+  onnxruntime                not installed
+  cuda-bindings              not installed
+  nvidia-cudnn-cu12          9.26.0.51
+  nvidia-cublas-cu12         12.9.2.10
+  nvidia-cuda-runtime-cu12   12.9.79
+torch not installed
+== NeMo on AMD ROCm (python:3.12-slim-bookworm + libatomic1 libnuma1 libsndfile1, venv as below, cuda-bindings removed)
+  host kernel: 7.1.2
+python 3.12.14 (linux)
+  torch                      2.14.0+rocm7.2
+  nemo_toolkit               3.0.0
+  sherpa-onnx                not installed
+  onnxruntime                not installed
+  cuda-bindings              not installed
+  nvidia-cudnn-cu12          not installed
+  nvidia-cublas-cu12         not installed
+  nvidia-cuda-runtime-cu12   not installed
+torch.version.cuda None, torch.version.hip 7.2.53211, cudnn 3005001
+  gpu 0: AMD Radeon Graphics, gfx1201, 15.9 GiB
