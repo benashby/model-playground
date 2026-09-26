@@ -60,7 +60,9 @@ fixture (about 11 minutes):
         audio/corpora/maptask/q2ec3.mix.wav 0 0 60 \
         > models/parakeet-redux/results/onnx_concurrency-dense-2cpu.log 2>&1
 
-PARAKEET_PRECISION=fp32 runs the fp32 export instead (the same run on a second
+PARAKEET_PROVIDER=cuda decodes on an NVIDIA GPU (the live-latency article's
+GPU runs, results/onnx_concurrency-dense-live-*.log). PARAKEET_PRECISION=fp32
+runs the fp32 export instead (the same run on a second
 machine, int8 and fp32, is in results/onnx_concurrency-dense-2cpu-zen2-*.log).
 """
 
@@ -85,6 +87,8 @@ MODELS = Path(os.environ.get("SHERPA_MODELS", Path.home() / ".cache" / "sherpa-o
 PRECISION = os.environ.get("PARAKEET_PRECISION", "int8")
 PARAKEET = MODELS / ("sherpa-onnx-nemo-parakeet-tdt-0.6b-v3" + ("-int8" if PRECISION == "int8" else ""))
 _SUF = ".int8.onnx" if PRECISION == "int8" else ".onnx"
+# PARAKEET_PROVIDER=cuda decodes on an NVIDIA GPU (sherpa-onnx's CUDA build); the VAD stays on the CPU.
+PROVIDER = os.environ.get("PARAKEET_PROVIDER", "cpu")
 # VAD_MODEL=silero_vad_v5.onnx selects Silero v5, as the WER probes use; the default is sherpa-onnx's silero_vad.onnx.
 VAD_FILE = os.environ.get("VAD_MODEL", "silero_vad.onnx")
 # Fixture: argv[1:] = path channel [start_s duration_s]; default turn_taking ch0, all of it.
@@ -136,6 +140,7 @@ def make_recognizer():
         tokens=str(PARAKEET / "tokens.txt"),
         num_threads=NUM_THREADS,
         model_type="nemo_transducer",
+        provider=PROVIDER,
     )
 
 
@@ -293,7 +298,7 @@ async def main():
     audio_s = len(samples) / RATE
     out(f"fixture: {FIXTURE.name} ch{CHANNEL}, from {START_S:.1f} s, {audio_s:.1f} s, "
         f"{src_rate} Hz resampled to {RATE} Hz")
-    out(f"sherpa-onnx {so.__version__}; model {PARAKEET.name}; VAD {VAD_FILE}")
+    out(f"sherpa-onnx {so.__version__}; model {PARAKEET.name}; VAD {VAD_FILE}; provider {PROVIDER}")
     cpu = next((l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name")), "?")
     out(f"cpu model: {cpu}; usable cpus {sorted(os.sched_getaffinity(0))}")
     out(f"cpu: os.cpu_count()={os.cpu_count()}, affinity={len(os.sched_getaffinity(0))}")

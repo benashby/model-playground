@@ -35,6 +35,8 @@ Segmentation, with sherpa-onnx's Silero VAD v5 over the whole channel:
   live     the live-use setup of dictate.py and onnx_concurrency.py: min silence 0.5 s,
            min speech 0.25 s, max speech 20 s, no padding (sherpa-onnx adds none)
   livepad  live, with 0.25 s of padding each side
+  live-sX  livepad with X s of silence to end an utterance (0.2, 0.3, 0.8, 1.0)
+  live-pX  livepad with X s of padding each side (0.1, 0.5)
   none     no VAD: the whole channel in one decode (short calls only)
 
 Each segment is decoded separately and the channel's hypothesis is the segments
@@ -101,6 +103,13 @@ SEG = {  # min_silence, min_speech, max_speech, padding each side (s); None = no
     # dictate.py and onnx_concurrency.py: sherpa-onnx's VAD segments, unpadded.
     "live": (0.5, 0.25, 20.0, 0.0),
     "livepad": (0.5, 0.25, 20.0, 0.25),
+    # The live-latency sweep: silence needed to end an utterance, and padding.
+    "live-s0.2": (0.2, 0.25, 20.0, 0.25),
+    "live-s0.3": (0.3, 0.25, 20.0, 0.25),
+    "live-s0.8": (0.8, 0.25, 20.0, 0.25),
+    "live-s1.0": (1.0, 0.25, 20.0, 0.25),
+    "live-p0.1": (0.5, 0.25, 20.0, 0.10),
+    "live-p0.5": (0.5, 0.25, 20.0, 0.50),
     # The whole channel as one decode, for short calls only.
     "none": None,
 }
