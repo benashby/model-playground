@@ -1,7 +1,7 @@
 [project]
 name = "model-playground"
 version = "0.1.0"
-description = "Harness for poking at speech-to-speech models over the Realtime WebSocket protocol"
+description = "Research notes on AI models: probes behind every measurement, and a full-duplex speech-to-speech harness"
 requires-python = ">=3.12"
 dependencies = [
     "websockets>=13.0",
@@ -35,7 +35,8 @@ playground = "playground.__main__:main"
 # torch>=2.8 from the default index is the CUDA build: multiple GB this Radeon
 # desktop cannot use, and Photon's Parakeet path here is CPU-only anyway. Pin the
 # CPU wheel index explicitly. MEASURED: resolves torch==2.14.0+cpu and takes the
-# ASR venv to ~1.2 GB, against ~5 GB for the CUDA build.
+# ASR venv to 1.30 GB (models/parakeet-redux/notes/06-results-throughput.md),
+# against ~5 GB for the CUDA build.
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"

@@ -167,6 +167,32 @@ your fixture can actually produce the state you are measuring.
 NVIDIA itself cites were mono stimulus and useless. Only per-file inspection
 distinguished them.
 
+### Comparing runtimes on different segments
+
+Two runtimes that each segment the audio themselves differ in segmentation as
+well as runtime. For the Parakeet NeMo-against-ONNX work, every channel was
+cut once into saved WAV segments and every runtime transcribed the same files;
+only then did "NeMo and ONNX agree to 0.2 points" mean anything. Cut once,
+decode everywhere.
+
+### A subset that happens to be easy
+
+The first 12 channels of one accent scored 9.82 %, matching the published
+9.7 %, and looked like a passed round trip. All 146 channels scored 11.23 %.
+Check a round trip on the full set, or on a random sample, not the first N.
+
+### A GPU run that ran on the CPU
+
+ONNX Runtime can fall back to the CPU when its CUDA provider fails to load,
+and the transcripts are identical, so only speed shows it. Time the first and
+second decode: seconds then tens of milliseconds is the GPU.
+
+### Partial outputs scored as complete
+
+Interrupted runs leave prediction files with fewer lines than segments, and a
+scorer that matches by file name scores them without complaint. Compare line
+counts with the manifest and set partials aside before scoring.
+
 ## The bar for reporting a result
 
 - [ ] Round trip proven — a value from *your* handler spoken back
@@ -187,7 +213,8 @@ Every gate has a blind spot; name it rather than implying coverage.
   remote host.
 - A single session cannot establish a distribution. Point measurements are
   points.
-- Nothing here tests concurrency; all runs are single-session.
+- Nothing in the speech harness tests concurrency; all its runs are
+  single-session. (The Parakeet sizing probes do measure concurrent streams.)
 
 ## Known-untested, as of the VoiceChat work
 

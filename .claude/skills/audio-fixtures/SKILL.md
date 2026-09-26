@@ -68,6 +68,27 @@ backchannel and interruption.
 
 Local manifest: `audio/corpora/MANIFEST.md`.
 
+### Telephone WER corpora — AppTek and HarperValleyBank
+
+For word error rate on telephone speech, where a reference transcript is the
+point and barge-in is irrelevant. Both have one speaker per file and are DVC
+stage outputs (`uv run --extra corpora dvc repro` or `dvc pull`), pinned in
+`audio/corpora/fetch.py`:
+
+- **AppTek Call-Center Dialogues** (CC-BY-SA-4.0): role-played call-centre
+  calls over VoIP, 16 kHz, professional verbatim transcripts, 14 accents;
+  three are fetched (en-US_General, en-IN, en-GB_SCT). Its own `score.py` is
+  the scorer, and its paper publishes parakeet v3 WER per accent, which makes
+  it the round-trip check. Telephone conditions are simulated on it
+  (`wer_telephone.py`: G.711, Opus, packet loss).
+- **HarperValleyBank** (CC-BY-4.0): simulated bank calls over a real
+  telephone network, 8 kHz, crowd transcripts that skip fragments and noises.
+  Each segment also carries the corpus's own ASR output, a free difficulty
+  reference.
+
+Share-alike on AppTek means transcripts or model output on its audio stay out
+of `results/`; log aggregates only.
+
 ## Evaluated and rejected
 
 | Corpus | Why not |
@@ -75,6 +96,10 @@ Local manifest: `audio/corpora/MANIFEST.md`.
 | **Full-Duplex-Bench** (`Ssshangfu/Full-Duplex-Bench-Data`) | Downloaded, all 2 784 files deleted. Every WAV is **mono single-stream stimulus**, not two-sided conversation. The benchmark NVIDIA cites, and the wrong shape for this harness. |
 | **Montclair Map Task** | Download behind a Cloudflare JS challenge. Not bypassed. 2-channel with Praat TextGrids — worth revisiting if the gate lifts. |
 | **CANDOR** | 1 656 conversations, per-participant tracks, but requires a data-request form. Worth pursuing if this work continues. |
+| **Switchboard, Fisher, CallHome (LDC)** | The standard telephone corpora, paid LDC licences. HF mirrors of them carry no licence and look like redistribution; avoid. |
+| **CallHome/CallFriend via TalkBank** | Free with a login, CC-BY-NC-SA, transcripts in CHAT notation. Usable for research; not fetched. |
+| **SpokenWOZ** | Real 8 kHz calls, but only the agent side is human-transcribed. |
+| **Earnings-21/22** | Real conference calls, but mono and mostly prepared speech. |
 
 The Full-Duplex-Bench result is the one to remember: **the obvious dataset was
 the wrong shape**, and only per-file channel inspection revealed it.
@@ -113,6 +138,9 @@ to the offline script; the server resamples internally.
 
 ## Storage
 
-`audio/` is gitignored (large, re-fetchable). `audio/corpora/MANIFEST.md`
+Audio files are gitignored (large, re-fetchable). `audio/corpora/MANIFEST.md`
 records source, license/terms, format and overlap per file — keep it current
-when adding a corpus, including anything tried and rejected and why.
+when adding a corpus, including anything tried and rejected and why. A new
+evaluation corpus should get a DVC stage like the telephone ones: a fetch
+pinned to an immutable upstream revision, so `dvc.lock` proves the bytes, and
+the upstream licence and README kept next to the data.

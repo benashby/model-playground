@@ -49,7 +49,20 @@ Not a compatibility layer you can shim. Practical consequences:
 - **ROCm builds exist** for llama.cpp and vLLM, but coverage lags and kernels
   differ. Assume a model works on ROCm only once observed.
 - `gfx1201` (RDNA4) is newer than much of the ROCm ecosystem expects;
-  `HSA_OVERRIDE_GFX_VERSION` is sometimes required.
+  `HSA_OVERRIDE_GFX_VERSION` is sometimes required. It is not for PyTorch:
+  gfx1201 is a native target from ROCm 6.4.1.
+- **PyTorch and NeMo do run on the workstation's Radeon**, observed with
+  PyTorch's ROCm 7.2 wheels in a rootless podman container
+  (`--device /dev/kfd --device /dev/dri`). NeMo ASR needed three workarounds,
+  written up in the Parakeet note's ONNX deployment article: `libatomic1` in
+  slim images, `cuda-bindings` uninstalled (NeMo otherwise probes NVIDIA's
+  `libcuda` and crashes at model load), and `torch.backends.cudnn.enabled =
+  False` (MIOpen's LSTM fails on gfx1201). The ROCm wheels are ~16 GB of venv.
+- **On the lan-gpu role**, podman reaches the GPUs through CDI
+  (`--device nvidia.com/gpu=all`); its OS enforces SELinux, so containers need
+  `--security-opt label=disable`. A resident model server there holds most of
+  both cards: stop it and confirm with `nvidia-smi --query-compute-apps`
+  before running anything else.
 - **Vulkan** via llama.cpp is often the more reliable local path than ROCm
   proper, at some throughput cost.
 - The project module deliberately declares **no** AI toolkit — setting CUDA env
