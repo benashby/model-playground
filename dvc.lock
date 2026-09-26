@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  corpus_harper_valley:
+    cmd: python audio/corpora/fetch.py harper_valley audio/corpora/harper_valley
+    deps:
+    - path: audio/corpora/fetch.py
+      hash: md5
+      md5: 52d3cd9c5c6b9670f1bfc0b9232297e7
+      size: 3671
+    outs:
+    - path: audio/corpora/harper_valley
+      hash: md5
+      md5: 2d48cb78a768be0bcc7f018c30313e6b.dir
+      size: 2749705447
+      nfiles: 5786
+  corpus_apptek:
+    cmd: python audio/corpora/fetch.py apptek audio/corpora/apptek
+    deps:
+    - path: audio/corpora/fetch.py
+      hash: md5
+      md5: 52d3cd9c5c6b9670f1bfc0b9232297e7
+      size: 3671
+    outs:
+    - path: audio/corpora/apptek
+      hash: md5
+      md5: d6189e72978b73e1f0207f7fb2bc1047.dir
+      size: 7868774146
+      nfiles: 418
