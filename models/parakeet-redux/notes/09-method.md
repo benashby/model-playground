@@ -28,6 +28,14 @@ probe's docstring says what it measures and how to run it.
 | `longform.py` | `results/longform.log` | One 91.4-minute file in one call, against the same audio transcribed file by file |
 | `compare_models.py` | `results/compare_models.log` | Redux against the base model, Ultra, Whisper and Qwen3-ASR in the same runtime: RTF and pairwise agreement |
 | `compare_analysis.py` | `results/compare_analysis.log` | Word counts and pooled substitutions, deletions and insertions between each pair of models, from `compare_models.log` |
+| `concurrency.py` | `results/concurrency.log` | Redux on Photon: CPU, event-loop lag, snapshot timing and transcript identity for 1, 5, 10 and 25 concurrent live streams in one process |
+| `onnx_concurrency.py` | `results/onnx_concurrency.log`, `results/onnx_concurrency-dense-2cpu.log` | NVIDIA's original checkpoint on sherpa-onnx: CPU, memory, latency and transcript identity for up to 100 VAD-segmented live streams in one process, with and without partials, on the whole machine and pinned to 2 hyperthreads. Needs `--with sherpa-onnx` in place of the `asr` extra |
+| `speech_density.py` | `results/speech_density.log` | Share of each fixture channel that the VAD marks as speech, which sets what VAD-gated decoding costs |
+| `wer_telephone.py` | `results/wer_telephone-hvb-gridspace.log` | WER on telephone corpora (AppTek, HarperValleyBank) with telephone conditions and segmentations; the shared VAD, codec and scoring code used by `nemo_vs_onnx.py`. Needs `--with sherpa-onnx --with jiwer --with openai-whisper==20250625` |
+| `nemo_vs_onnx.py`, `run_matrix.sh` | `results/nemo_vs_onnx.log`, `results/nemo_vs_onnx-padding.log`, `results/nemo_vs_onnx-run-*.log` | Cuts segment sets once and has NeMo (CUDA, ROCm) and ONNX (CPU, CUDA, fp32, int8) transcribe the same files; scores them; CPU against GPU identity |
+| `wer_analysis.py` | `results/wer_analysis.log` | Deletion run lengths and the most deleted words, per runtime |
+| `timing_summary.py` | `results/nemo_vs_onnx-timing.log` | Throughput per runtime from the run logs |
+| `examples/test_gstreamer.sh` | `results/gstreamer-examples.log` | The GStreamer examples on a file and on live G.711 RTP |
 | `step0.py` | none saved | The first smoke test, one run. Its output was never saved, so none of its figures are quoted |
 
 The code of `pk_exp.py` is kept unchanged, apart from its docstring, so its
@@ -147,7 +155,23 @@ AVX-512 against no AVX-512, with core count held equal.
    clip or distort loud audio that it accepts?
 8. How does Redux compare with Whisper or Qwen3-ASR on a CPU? Neither runs on
    CPU in moondream 2.4.1, so answering it needs a different runtime for them.
+9. How fast is one cloud vCPU against a thread of the test machines? The
+   cloud estimates in [CPU sizing on ONNX](10-results-cpu-sizing.md) assume
+   an N2 vCPU does about as much work as a Zen 2 thread. Running
+   `onnx_concurrency.py` pinned the same way on an actual 2-vCPU VM would
+   replace the assumption with a number.
+10. Does the ONNX path scale past two decode workers on dense speech? The
+    16-worker run used a channel that is 14 % speech.
+11. What licences apply to the `sherpa-onnx` package and to the converted
+    model archives (fp32 and int8)? None has been through `licensing.py`.
+12. Why does every runtime, NeMo included, score 1.0 to 1.4 points above the
+    AppTek paper's figures on the same accents? The runtime is ruled out
+    ([accuracy](11-results-telephone-accuracy.md#against-the-published-figures)).
+    Cutting the same audio with the silero-vad Python package, as the paper
+    did, and decoding it with NeMo would test the segmentation.
+13. How does the model do in background noise, on the other eleven AppTek
+    accents, through mobile codecs (AMR, GSM), and with bursty packet loss?
 
 ---
 
-Previous: [Results: what the input audio does](08-results-input.md) | [Contents](../README.md#contents)
+Previous: [Results: what the input audio does](08-results-input.md) | [Contents](../README.md#contents) | Next: [Results: CPU and memory for live streams on ONNX](10-results-cpu-sizing.md)

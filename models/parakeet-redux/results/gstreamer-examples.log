@@ -1,0 +1,12 @@
+# examples/test_gstreamer.sh, GStreamer 1.22.0 (Debian bookworm), sherpa-onnx 1.13.8 CPU, fp32 export, Silero v5.
+# Counts of transcribed utterances and identity of outputs only; transcript text is not recorded.
+== 1 gst_stdin.py, file
+4
+== 2 gst_stdin.py, live G.711 RTP (sent in real time, 90 s)
+   sender ran 90 s
+3
+== 3 gst_appsink.py, file
+4
+== 4 gst_appsink.py, live G.711 RTP, stopped with SIGINT
+3
+== identical: file stdin vs appsink: yes; RTP stdin vs appsink: yes

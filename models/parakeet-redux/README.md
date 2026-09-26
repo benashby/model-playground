@@ -83,7 +83,9 @@ speed and footprint matter. Pick Ultra, or the original, when you have
 conversational or noisy audio and can accept a little over half the speed on
 a CPU, or have a GPU. Pick the original if the licence matters: its
 CC-BY-4.0 weights run on open runtimes, while Redux runs only on Photon's
-proprietary kernels.
+proprietary kernels. For deploying the original on ONNX, use the fp32
+export, never int8; [deploying on ONNX](notes/12-onnx-deployment.md) covers
+the whole setup.
 
 ## What was found
 
@@ -114,6 +116,33 @@ proprietary kernels.
   rate"; that figure was 2 dropped filler words from a different path.
   ([accuracy results](notes/07-results-accuracy.md))
 
+- On ONNX (sherpa-onnx, int8), NVIDIA's original checkpoint ran live
+  streams far more cheaply than Photon. Pinned to one core and its
+  hyperthread, the same shape as a 2-vCPU cloud VM, it kept up with 5 streams
+  of 81 %-speech audio and fell behind at 10. One stream needed 0.09 cores
+  for finished sentences, or 0.23 with 2 s partials. Memory was about
+  1.8 GB, flat from 1 stream to 25. Photon, running Redux, used 0.47 cores for
+  one stream and fell behind at 25 while using 5.17 of 24 threads.
+  ([CPU sizing on ONNX](notes/10-results-cpu-sizing.md))
+- On telephone speech with human reference transcripts, the fp32 ONNX export
+  is as accurate as NVIDIA's NeMo on the same segments (within 0.23 points),
+  on a CPU or an NVIDIA GPU. The int8 export more than doubles the error rate
+  on 8 kHz audio, mostly by dropping whole phrases: 34.88 % against 16.71 %
+  on real telephone calls. Narrowband audio costs 1.7 to 2.7 points, 20 %
+  packet loss 2.2 to 3.5 more, and padding VAD segments by 0.25 s saves 1.2
+  to 2.5. Every runtime, NeMo included, scores 1.0 to 1.4 points above the
+  published figures for this model on the same corpus.
+  ([accuracy on telephone speech](notes/11-results-telephone-accuracy.md))
+- The fp32 export needs about 3.2 GB of memory per process against 1.8 GB for
+  int8, and about 1.1 to 1.2 times its CPU. On one Zen 2 core and its
+  hyperthread it handled one stream with a 0.96 s median delay, and five
+  with a p95 delay of 4.58 s.
+  ([CPU sizing on ONNX](notes/10-results-cpu-sizing.md))
+- NeMo runs on an AMD RX 9070 XT under ROCm with three workarounds, with the
+  same results as on NVIDIA. GStreamer examples, tested on live G.711 RTP,
+  are in [`examples/`](examples/).
+  ([deploying on ONNX](notes/12-onnx-deployment.md))
+
 ## Contents
 
 | Article | What it covers |
@@ -127,6 +156,9 @@ proprietary kernels.
 | [Results: accuracy and streaming](notes/07-results-accuracy.md) | Scoring VoiceChat's transcription, and how streaming transcripts revise themselves |
 | [Results: what the input audio does](notes/08-results-input.md) | Resampling, a 91-minute recording in one call, and loud audio |
 | [Method and open questions](notes/09-method.md) | The probes, the order to repeat the work in, and what is still unknown |
+| [Results: CPU and memory for live streams on ONNX](notes/10-results-cpu-sizing.md) | Streams per 2-vCPU VM, memory, fp32 against int8 on a second CPU, estimates for example cloud VMs, and Photon for comparison |
+| [Results: accuracy on telephone speech](notes/11-results-telephone-accuracy.md) | NeMo against ONNX, fp32 against int8, codecs and packet loss, real telephone calls, padding, which words go missing |
+| [Deploying on ONNX](notes/12-onnx-deployment.md) | The deployment reference: precision, segmentation, telephone input, CPU and GPU images, concurrency, NeMo on ROCm, GStreamer |
 
 The code behind the numbers is in [`probes/`](probes/) and its raw output is in
 [`results/`](results/). The standard these notes are held to is in
