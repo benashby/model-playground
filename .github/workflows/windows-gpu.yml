@@ -41,11 +41,15 @@ jobs:
       - name: Machine
         run: |
           nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
-          # (Get-Counter needs performance-counter rights the runner account does not have.)
-          "CPU load: {0} %" -f (Get-CimInstance Win32_Processor).LoadPercentage
 
       - name: Environment (Python 3.13, CUDA torch for Photon)
         run: uv sync -p 3.13 --extra asr-cuda --extra dev
+
+      - name: Machine load
+        # The runner account cannot read performance counters or WMI's load figure;
+        # clocks.py uses GetSystemTimes, which needs no rights.
+        working-directory: models/parakeet-redux/probes
+        run: uv run python -c "import clocks; print(clocks.machine_load())"
 
       - name: Every file compiles
         run: uv run python -m compileall -q src models .claude
