@@ -90,6 +90,7 @@ crashes, so the notes catalogue the specific ways this kind of tool lies.
 |---|---|---|
 | [`nemotron-voicechat-11b/`](nemotron-voicechat-11b/README.md) | NemotronLabs VoiceChat 11B | Full-duplex speech-to-speech. The one model the harness drives. |
 | [`k2-horizon-32b/`](k2-horizon-32b/README.md) | IFM K2-Horizon-32B | Text-only reasoning LLM. Documented for the deployment findings. |
+| [`kokoro-82m/`](kokoro-82m/README.md) | Kokoro-82M | Fast 82M-parameter StyleTTS 2 / iSTFTNet TTS. Apache-2.0. |
 
 ## What each model is actually for
 
@@ -99,6 +100,7 @@ The short version, so you can skip to the right note.
 |---|---|---|
 | A conversation, end to end, in speech | VoiceChat 11B | The only full-duplex model here. Real barge-in. CUDA only; 73 GB at stock settings, and it also served in 44.7 GB with two memory settings lowered. |
 | Long-context reasoning or agentic text work | K2-Horizon-32B | 65.6 tok/s decode, 131 k context served, tool calling works in three formats, Apache-2.0 with published training data. Stage-1 checkpoint, so weaker at agentic and coding work than mature peers. |
+| Fast, natural text-to-speech on CPU or GPU | Kokoro-82M | 82M parameters, Apache-2.0, 24 kHz output, ~40x to 80x real time on CPU, sub-200ms TTFA with clause streaming. |
 | Speaker labels / diarisation | none of these | No model here does it. |
 
 ## How an investigation is structured
