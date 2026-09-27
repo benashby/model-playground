@@ -6,6 +6,8 @@ A 1.58-bit ternary speech-to-text model. Investigated 2026-09-23.
 - Full-precision sibling: <https://huggingface.co/moondream/parakeet-ultra>
 - Base model: <https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3> (NVIDIA)
 - Runtime: Photon / Kestrel, <https://docs.moondream.ai/transcription>
+- Platforms: measured on Linux; repeated on native Windows, where Redux needs
+  an NVIDIA GPU ([running it on Windows](notes/14-windows.md))
 
 ## What the model is
 
@@ -150,6 +152,13 @@ the whole setup.
   speech started, never revised them, and was more accurate on every accent
   tested (5.44 % against 8.04 % on en-US_General), at several times the CPU,
   in English only. ([live transcription](notes/13-live-transcription.md))
+- On native Windows, Photon cannot run Redux on the CPU: its Windows kernels
+  have no int8 path for the ternary weights, so it needs an NVIDIA GPU there.
+  Everything else ran on Windows and gave the Linux results again: fp32 ONNX
+  and NeMo on a GTX 1650 scored 8.00 % against 8.04 % on Linux, Nemotron
+  streaming 5.47 % against 5.44 % with the same latencies, and the GStreamer
+  tests the same counts. Timing needs Python 3.13 or later there.
+  ([running it on Windows](notes/14-windows.md))
 
 ## Contents
 
@@ -168,6 +177,7 @@ the whole setup.
 | [Results: accuracy on telephone speech](notes/11-results-telephone-accuracy.md) | NeMo against ONNX, fp32 against int8, codecs and packet loss, real telephone calls, padding, which words go missing |
 | [Deploying on ONNX](notes/12-onnx-deployment.md) | The deployment reference: precision, segmentation, telephone input, CPU and GPU images, concurrency, NeMo on ROCm, GStreamer |
 | [Live transcription: latency and accuracy](notes/13-live-transcription.md) | Where the delay comes from, the silence and padding settings, CPU against GPU, drafts, a true streaming model, and recommended setups |
+| [Running it on Windows](notes/14-windows.md) | What runs where, setup for each runtime, timing traps, and the Linux results repeated on Windows |
 
 The code behind the numbers is in [`probes/`](probes/) and its raw output is in
 [`results/`](results/). The standard these notes are held to is in

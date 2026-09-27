@@ -6,11 +6,13 @@
 
 Run from the repository root with the `asr` extra installed
 (`uv run --extra asr python models/parakeet-redux/probes/<probe>.py`). Each
-probe's docstring says what it measures and how to run it.
+probe's docstring says what it measures and how to run it. On Windows, use
+the `asr-cuda` extra and `PHOTON_DEVICE=cuda` for the Photon probes; see
+[running it on Windows](14-windows.md).
 
 | Probe | Output | Covers |
 |---|---|---|
-| `environment.py` | `results/environment.log` | CPU model, cores, ISA flags, RAM, OS, glibc, Python and package versions, torch threads, and whether Photon runs without any loader variables set |
+| `environment.py` | `results/environment.log`, `results/environment-windows.log` | CPU model, cores, ISA flags, RAM, OS, glibc, Python and package versions, torch threads, and whether Photon runs without any loader variables set. On Windows: the same facts from Win32, and one Photon transcription per device |
 | `licensing.py` | `results/licensing.log` | Declared licence, licence files and sizes for every distribution in the runtime path; PyPI wheel sizes; the quoted clauses located in the shipped LICENSE; HF licence tags |
 | `vendor_claims.py` | `results/vendor_claims.log` | Every vendor figure and quotation in the note, re-read from the live model cards, eval files, docs and blog posts |
 | `pk_exp.py` | `results/pk_exp.log` | Throughput over 18 runs (section A) and per-channel transcripts (section B). Sections C to E are superseded, see below |
@@ -32,15 +34,20 @@ probe's docstring says what it measures and how to run it.
 | `onnx_concurrency.py` | `results/onnx_concurrency.log`, `results/onnx_concurrency-dense-2cpu.log` | NVIDIA's original checkpoint on sherpa-onnx: CPU, memory, latency and transcript identity for up to 100 VAD-segmented live streams in one process, with and without partials, on the whole machine and pinned to 2 hyperthreads. Needs `--with sherpa-onnx` in place of the `asr` extra |
 | `speech_density.py` | `results/speech_density.log` | Share of each fixture channel that the VAD marks as speech, which sets what VAD-gated decoding costs |
 | `wer_telephone.py` | `results/wer_telephone-hvb-gridspace.log` | WER on telephone corpora (AppTek, HarperValleyBank) with telephone conditions and segmentations; the shared VAD, codec and scoring code used by `nemo_vs_onnx.py`. Needs `--with sherpa-onnx --with jiwer --with openai-whisper==20250625` |
-| `nemo_vs_onnx.py`, `run_matrix.sh` | `results/nemo_vs_onnx.log`, `results/nemo_vs_onnx-padding.log`, `results/nemo_vs_onnx-run-*.log` | Cuts segment sets once and has NeMo (CUDA, ROCm) and ONNX (CPU, CUDA, fp32, int8) transcribe the same files; scores them; CPU against GPU identity |
+| `nemo_vs_onnx.py`, `run_matrix.sh` | `results/nemo_vs_onnx.log`, `results/nemo_vs_onnx-padding.log`, `results/nemo_vs_onnx-run-*.log`, `results/nemo_vs_onnx-windows.log` | Cuts segment sets once and has NeMo (CUDA, ROCm) and ONNX (CPU, CUDA, fp32, int8) transcribe the same files; scores them; CPU against GPU identity |
 | `wer_analysis.py` | `results/wer_analysis.log` | Deletion run lengths and the most deleted words, per runtime |
 | `timing_summary.py` | `results/nemo_vs_onnx-timing.log` | Throughput per runtime from the run logs |
 | `examples/test_gstreamer.sh` | `results/gstreamer-examples.log` | The GStreamer examples on a file and on live G.711 RTP |
-| `streaming_online.py` | `results/streaming_online.log`, `results/streaming_online-endpoints.log` | NVIDIA's Nemotron streaming model through sherpa-onnx's OnlineRecognizer: WER, time to first and last words against VAD speech segments, revisions, compute, with and without endpointing |
+| `examples/test_gstreamer.py` | `results/gstreamer-examples-windows.log` | The same six tests, driven from Python so they also run on Windows |
+| `clocks.py` | `results/clocks-windows.log` | Whether this Python and OS can time the live probes: the resolution of asyncio's clock and the true lag of a 100 ms sleep, with machine load |
+| `hostinfo.py` | none (library) | CPU model, usable CPUs, pinning and memory, from `/proc` on Linux and Win32 on Windows, for the other probes |
+| `streaming_online.py` | `results/streaming_online.log`, `results/streaming_online-endpoints.log`, `results/streaming_online-windows.log` | NVIDIA's Nemotron streaming model through sherpa-onnx's OnlineRecognizer: WER, time to first and last words against VAD speech segments, revisions, compute, with and without endpointing |
 | `step0.py` | none saved | The first smoke test, one run. Its output was never saved, so none of its figures are quoted |
 
-The code of `pk_exp.py` is kept unchanged, apart from its docstring, so its
-log stays reproducible. Its section C
+The code of `pk_exp.py` is kept unchanged, apart from its docstring and two
+portability edits that change nothing on Linux (the device comes from
+`PHOTON_DEVICE`, default `cpu`, and a log is read as UTF-8), so its log stays
+reproducible. Its section C
 (WER) used a partial number normaliser and is replaced by `wer_voicechat.py`;
 section D (timestamp modes, one run each) by `timestamps_modes.py`; section E
 (one clip, a resample done by the probe itself) by `resample.py`.

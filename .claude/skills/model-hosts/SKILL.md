@@ -1,6 +1,6 @@
 ---
 name: model-hosts
-description: Use when choosing where to run a model, provisioning a host, or debugging a host-specific failure in model-playground — the cloud GPU node (2x H100 80GB, CUDA), the local workstation (RDNA4 Radeon, ROCm/Vulkan, no CUDA ever), the LAN GPU box (2x RTX 3090, CUDA), or CPU. Covers the host matrix and how to pick, the CUDA-vs-ROCm hard boundary that eliminates hosts before anything else, VRAM budgeting from safetensors dtype, the cloud deployment recipe including Docker/NVIDIA-container-toolkit/NGC auth, VM lifecycle and the ephemeral-IP trap, and the SSH gotchas specific to this workstation.
+description: Use when choosing where to run a model, provisioning a host, or debugging a host-specific failure in model-playground — the cloud GPU node (2x H100 80GB, CUDA), the local workstation (RDNA4 Radeon, ROCm/Vulkan, no CUDA ever), the LAN GPU box (2x RTX 3090, CUDA), the Windows GPU box (GTX 1650, native Windows, CUDA), or CPU. Covers the host matrix and how to pick, running on native Windows (wheels, clocks, cuDNN, GStreamer), the CUDA-vs-ROCm hard boundary that eliminates hosts before anything else, VRAM budgeting from safetensors dtype, the cloud deployment recipe including Docker/NVIDIA-container-toolkit/NGC auth, VM lifecycle and the ephemeral-IP trap, and the SSH gotchas specific to this workstation.
 ---
 
 # Hosts
@@ -13,7 +13,7 @@ configuration; anything here that needs one reads it from the environment
 
 ## The matrix
 
-Four roles. Which physical machines fill them is deployment detail.
+Five roles. Which physical machines fill them is deployment detail.
 
 | Role | Compute | VRAM | Reach | Notes |
 |---|---|---|---|---|
@@ -21,6 +21,7 @@ Four roles. Which physical machines fill them is deployment detail.
 | **workstation** | RDNA4 Radeon (gfx1201) | 16 GB | local | **ROCm/Vulkan only. No CUDA, ever.** Where development happens. |
 | **lan-gpu** | 2× RTX 3090 | 48 GB | LAN | CUDA. Always-on, no marginal cost. Managed out of band. |
 | **workstation CPU** | — | — | local | Tiny models, tokenizers, smoke tests. More capable than it sounds — see the Parakeet note in `models/`. |
+| **windows-gpu** | GTX 1650 (Turing, sm_75) + 8-core AVX2 CPU, no AVX-512 | 4 GB | LAN | **Native Windows 10**, CUDA 12.9 + 13.4 and cuDNN 9 installed machine-wide. The Windows platform for every note: the Parakeet stack is verified here (see `models/parakeet-redux/notes/14-windows.md`). Also runs another project's CI, so check load before timing anything. |
 
 Operator tooling for starting, stopping and selecting models on these hosts is
 private and lives outside this repo. This file documents what the *harness*
@@ -69,6 +70,38 @@ Not a compatibility layer you can shim. Practical consequences:
   vars on a Radeon desktop is actively misleading. Note this also means a
   CPU-only inference path (such as Photon's) needs nothing added; verified by
   `ldd` against the installed wheels, which resolve only glibc and libgcc.
+
+## Windows — the second platform
+
+Every note should say how its model runs on Linux **and** on Windows. What the
+Parakeet work established about native Windows (no WSL):
+
+- **Wheels decide it.** Check each native package's PyPI files for `win_amd64`
+  before assuming anything. Photon's Windows kernels exist but have **no int8 CPU
+  path for ternary weights** (`kestrel_kernels._cpu.gemm_isa_available('avx2')`
+  is False on an AVX2 CPU), so Parakeet Redux runs on Windows only with
+  `PHOTON_DEVICE=cuda` and the `asr-cuda` extra. sherpa-onnx has CPU and
+  `cuda12.cudnn9` Windows wheels; NeMo installs from pip with CUDA torch.
+- **Python 3.13 or later on Windows** for anything timed. Before 3.13,
+  `time.monotonic()` (asyncio's clock) is `GetTickCount64` with 15.625 ms
+  resolution. `playground.audio` also calls `timeBeginPeriod(1)`, because
+  Windows' default timer makes every sleep overshoot by up to ~15 ms.
+  `probes/clocks.py` measures both.
+- **Host facts** (CPU, affinity, RSS) come from `probes/hostinfo.py`, which reads
+  `/proc` on Linux and Win32 on Windows. `taskset` has no Windows equivalent on
+  the command line; probes that pin take `ONNX_CPUS`.
+- **cuDNN's CUDA 12 and CUDA 13 builds share the DLL name** `cudnn64_9.dll`, so
+  only one can be on PATH; the machine-wide one is the CUDA 12 build.
+- **A shell started before a PATH change keeps the old PATH**: GPU runs then fail
+  with `cublasLt64_12.dll ... missing`. Services (a CI runner) need a restart.
+- **GStreamer's official MSVC installer ships PyGObject** in its own
+  `lib/site-packages`; `examples/gst_appsink.py` finds it through
+  `GSTREAMER_1_0_ROOT_MSVC_X86_64`. Live receivers are stopped with Ctrl+Break,
+  not SIGINT (`examples/test_gstreamer.py`).
+- **Windows `tar -xjf` fails on the sherpa-onnx `.tar.bz2` models** (it shells out
+  to a bzip2 that breaks); extract with Python's `tarfile`.
+- A 4 GB card does not fail when CUDA overcommits: Windows spills into shared
+  system memory and the run silently slows. Watch `max_memory_allocated`.
 
 ## VRAM budgeting
 

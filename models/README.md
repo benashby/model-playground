@@ -43,7 +43,7 @@ not apply.
 | What it is / how it works | The mechanisms, explained well enough to predict the model's failure modes. |
 | Licensing | Every artifact in the runtime path separately: weights, inference code, serving container, compiled engines. Link the actual licence text, not a summary of the marketing. |
 | Architecture | As measured from the weights (safetensors headers), not as described. |
-| Host & launch | What it ran on, and the configuration that mattered, including settings deliberately not inherited from a neighbouring model. |
+| Host & launch | What it ran on, and the configuration that mattered, including settings deliberately not inherited from a neighbouring model. Say how to run it on Linux and on Windows, and which of the two each result was measured on. |
 | Protocol / interface | Where the server or template deviates from its own documentation. |
 | Fixtures | What input was used, and whether it could exercise the intended behaviour at all. |
 | Results | With the exact silicon, with caveats, and with an explicit list of what was not exercised. |
@@ -110,6 +110,12 @@ The short version, so you can skip to the right note.
 | Fast, natural text-to-speech on CPU or GPU | Kokoro-82M | 82M parameters, Apache-2.0, 24 kHz output, ~40x to 80x real time on CPU, sub-200ms TTFA with clause streaming. |
 | Minimal-footprint or high-density telephony TTS | Piper (VITS) | 15M to 60M parameters, MIT, native 16 kHz profile matching wideband VoIP, <50ms TTFA, tens to hundreds of streams per CPU core. |
 | Speaker labels / diarisation | none of these | No model here does it. |
+
+All of these were measured on Linux. The Parakeet stack has also been run on
+native Windows, where every row above works except Redux on a CPU: Photon's
+Windows kernels cannot run its ternary weights there, so it needs an NVIDIA
+GPU ([running it on Windows](parakeet-redux/notes/14-windows.md)). VoiceChat
+and K2 need data-centre GPUs and were only run on Linux.
 
 Two things are easy to miss until you hit them. Parakeet's runtime is
 licence-encumbered even though its weights are CC-BY-4.0

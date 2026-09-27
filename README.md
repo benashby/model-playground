@@ -108,6 +108,24 @@ Runs write a timestamped JSONL event log plus the captured agent audio into
 `logs/`. Wear headphones: the mic otherwise feeds the agent its own voice,
 which a full-duplex model hears as barge-in.
 
+## Linux and Windows
+
+Everything here was first measured on Linux. The Parakeet work also runs on
+native Windows, and its results were repeated there
+([running it on Windows](models/parakeet-redux/notes/14-windows.md)). On
+Windows, use Python 3.13 or later (earlier versions time asyncio in 15.625 ms
+steps there), and run Photon on an NVIDIA GPU:
+
+```powershell
+uv sync --extra asr-cuda --extra corpora
+$env:PHOTON_DEVICE = "cuda"
+uv run --extra asr-cuda python models/parakeet-redux/probes/step0.py
+uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --wav audio/tool_call.wav
+```
+
+The harness's microphone client, `playground.live`, uses PipeWire and still
+runs on Linux only. VoiceChat and K2 were only run on Linux.
+
 ## Test audio
 
 NVIDIA ships three 24 kHz stereo recordings inside the weights repo, with the

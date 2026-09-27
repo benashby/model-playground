@@ -236,6 +236,13 @@ SELinux host (Fedora, RHEL, Bazzite) add `--security-opt label=disable`, or
 `:Z` on bind mounts, or the container gets `Permission denied` on mounted
 files.
 
+On Windows, use the `win_amd64` wheel from the same directory
+(`sherpa_onnx-1.13.8+cuda12.cudnn9-cp312-cp312-win_amd64.whl`, with other
+Python versions beside it) and put the CUDA 12 and cuDNN 9 DLLs on `PATH`. Its
+WER was within 0.04 points of the Linux figure on the same segments; the setup
+and its traps are in
+[running it on Windows](14-windows.md#sherpa-onnx).
+
 ### AMD GPU
 
 ONNX was not tested on an AMD GPU. NVIDIA's NeMo does run on one; see
@@ -299,6 +306,10 @@ texts = [h.text for h in hyps]
 The CUDA-graph decoder is on by default on NVIDIA and is the fast path: it
 changed no results, and without it throughput halved. The first call
 downloads the checkpoint from Hugging Face.
+
+On Windows, NeMo installs into a plain venv with PyTorch's CUDA wheels and
+needs no workarounds; the same code ran unchanged and matched ONNX's WER on
+the same segments ([running it on Windows](14-windows.md#nemo)).
 
 ### On an AMD GPU
 
@@ -426,6 +437,15 @@ although the name is never used. Without them the pipeline builds and then fails
 'GstAppSink' object has no attribute 'try_pull_sample'`. For the pipe version, `-e` on `gst-launch-1.0` makes an
 interrupt send end-of-stream through the pipeline, so the last utterance is
 flushed rather than lost.
+
+On Windows, with GStreamer's official 1.26.7 MSVC build, which includes
+PyGObject, [`examples/test_gstreamer.py`](../examples/test_gstreamer.py) ran
+the same tests and the two streaming-model tests with the same counts and the
+same identities as the Linux log
+([`results/gstreamer-examples-windows.log`](../results/gstreamer-examples-windows.log)).
+Live receivers there are stopped with Ctrl+Break, because Windows cannot send
+SIGINT to a background program; [running it on Windows](14-windows.md#gstreamer)
+has the setup.
 
 ## 10. Before production
 

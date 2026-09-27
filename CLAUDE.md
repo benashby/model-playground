@@ -116,6 +116,15 @@ uv run --extra corpora dvc repro   # then `git diff dvc.lock` must be clean
 uv run --extra corpora dvc pull
 ```
 
+On Windows (PowerShell), the same commands with Windows paths; Photon needs the
+GPU there, and the GStreamer examples have a cross-platform driver:
+
+```powershell
+uv sync --extra asr-cuda --extra corpora     # CUDA torch; `asr` and `asr-cuda` conflict
+$env:PHOTON_DEVICE = "cuda"; uv run --extra asr-cuda python models/parakeet-redux/probes/step0.py
+uv run --with sherpa-onnx python models/parakeet-redux/examples/test_gstreamer.py clip.wav out
+```
+
 A DVC remote belongs in `.dvc/config.local` (`dvc remote add --local`), which
 is not committed, and should name an SSH alias rather than a host.
 
@@ -138,6 +147,16 @@ Three models investigated. Only one is driven by the harness:
   probes (`nemo_vs_onnx.py`, `wer_telephone.py`, `onnx_concurrency.py`,
   `streaming_online.py`) and never touches the harness.
 - **K2-Horizon-32B** (text-only reasoning) — no harness involvement at all.
+
+**Two platforms, Linux and Windows.** The notes were written on Linux; the
+Parakeet stack is also verified on native Windows (a GTX 1650 box), in
+`models/parakeet-redux/notes/14-windows.md`. Keep both working and documented:
+Linux code paths and output stay unchanged, Windows branches are gated on
+`sys.platform == "win32"`, opt-in variables (`PHOTON_DEVICE`, `ONNX_CPUS`) default
+to the old behaviour, OS-specific host facts go through
+`models/parakeet-redux/probes/hostinfo.py`, and a note says which platforms its
+numbers came from. On Windows use Python 3.13+ for anything timed (see
+`evaluating`).
 
 There is **no multi-model abstraction** — no adapter registry, no host
 registry, no protocol dispatch. `protocol.py` is a single module, not a

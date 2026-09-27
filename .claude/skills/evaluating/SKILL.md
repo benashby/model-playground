@@ -187,6 +187,23 @@ ONNX Runtime can fall back to the CPU when its CUDA provider fails to load,
 and the transcripts are identical, so only speed shows it. Time the first and
 second decode: seconds then tens of milliseconds is the GPU.
 
+### A clock that cannot see what it is timing (Windows)
+
+Before Python 3.13, `time.monotonic()` on Windows advances in 15.625 ms steps,
+and it is asyncio's clock. A 100 ms heartbeat whose true lag was 0.14 ms read as
+a median of -6.0 ms. Separately, Windows' default timer makes every sleep
+overshoot (a true 9 ms median lag on any Python) until the process calls
+`timeBeginPeriod(1)`, which `playground.audio` now does. Use Python 3.13+ on
+Windows and run `probes/clocks.py` on any new platform before trusting a latency.
+
+### A busy machine read as a slow library
+
+A host that does other work (the Windows box also runs CI) inflates latency and
+lag without any library being at fault: with that machine at 100 % CPU the
+heartbeat's median lag grew several-fold and its p99 reached ~100 ms, with every
+clock fix in place. Record machine load next to every timing run (`clocks.py`
+does), and rerun on a quiet machine before blaming the stack.
+
 ### Partial outputs scored as complete
 
 Interrupted runs leave prediction files with fewer lines than segments, and a

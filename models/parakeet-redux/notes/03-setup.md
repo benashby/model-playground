@@ -71,6 +71,23 @@ modules. That `ldd` output was never saved, and the first claim is wrong for
 this setup: the Nix-store Python used here cannot even import numpy without
 `libstdc++`. Photon's own modules needed nothing beyond what numpy did.
 
+## On Windows
+
+Photon's Windows build cannot run Redux on the CPU: its kernels have no int8
+path for the ternary weights there, and loading the model fails with a
+`NotImplementedError` [MEASURED]. On a Windows machine with an NVIDIA GPU, use
+the `asr-cuda` extra, which resolves torch's CUDA build, and run on the GPU:
+
+```
+uv sync --extra asr-cuda
+uv run --extra asr-cuda python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+```
+
+In a probe, set `PHOTON_DEVICE=cuda`; in your own code, pass `device="cuda"`
+to `md.photon`. Use Python 3.13 or later on Windows. Without a GPU, use
+NVIDIA's original checkpoint on sherpa-onnx, which runs on a Windows CPU.
+[Running it on Windows](14-windows.md) has the details and the results.
+
 ---
 
 Previous: [Licensing](02-licensing.md) | [Contents](../README.md#contents) | Next: [Using it through Photon](04-usage.md)

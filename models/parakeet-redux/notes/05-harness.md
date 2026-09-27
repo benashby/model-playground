@@ -115,6 +115,22 @@ pseudo-terminal, including a Ctrl+C sent to the whole process group. It has
 not been tried here with a live microphone. Headphones are not needed, because
 nothing is played back.
 
+On Windows the microphone is captured through ffmpeg's DirectShow input
+instead of `pw-record`, from the first capture device ffmpeg lists, or the one
+named with `--mic`:
+
+```powershell
+uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --mic "Microphone (USB Audio)"
+```
+
+On Windows, `--wav` was checked with one short synthesized sentence, which came
+back word for word; Ctrl+C was not tried there. The Windows machine has no
+microphone, so live capture is untested on both systems. Without one, the tool
+exits with a message that names `--mic` and `--wav`.
+
+On Windows, the repository's harness code also needs Python 3.13 or later for
+its timing to be trusted; see [running it on Windows](14-windows.md).
+
 ---
 
 Previous: [Using it through Photon](04-usage.md) | [Contents](../README.md#contents) | Next: [Results: hardware and throughput](06-results-throughput.md)
