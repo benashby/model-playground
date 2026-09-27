@@ -91,6 +91,8 @@ crashes, so the notes catalogue the specific ways this kind of tool lies.
 | [`nemotron-voicechat-11b/`](nemotron-voicechat-11b/README.md) | NemotronLabs VoiceChat 11B | Full-duplex speech-to-speech. The one model the harness drives. |
 | [`parakeet-redux/`](parakeet-redux/README.md) | Moondream Parakeet Redux (ternary ASR) | Transcription on a CPU, and a study of streaming-transcript stability. |
 | [`k2-horizon-32b/`](k2-horizon-32b/README.md) | IFM K2-Horizon-32B | Text-only reasoning LLM. Documented for the deployment findings. |
+| [`kokoro-82m/`](kokoro-82m/README.md) | Kokoro-82M | Fast 82M-parameter StyleTTS 2 / iSTFTNet TTS. Apache-2.0. |
+| [`piper/`](piper/README.md) | Piper (VITS) | Low-footprint neural TTS for CPU and embedded media servers. MIT. |
 
 ## What each model is actually for
 
@@ -105,6 +107,8 @@ The short version, so you can skip to the right note.
 | Telephone or live transcription on an open runtime | NVIDIA's parakeet-tdt-0.6b-v3, fp32 ONNX | As accurate as NVIDIA's NeMo on the same audio, on a CPU or an NVIDIA GPU: 7.01 to 13.13 % WER on call-centre accents, 16.71 % on real telephone calls. Use fp32: the int8 export more than doubles the error rate on 8 kHz audio. CC-BY-4.0 weights. See [deploying on ONNX](parakeet-redux/notes/12-onnx-deployment.md). |
 | A conversation, end to end, in speech | VoiceChat 11B | The only full-duplex model here. Real barge-in. CUDA only; 73 GB at stock settings, and it also served in 44.7 GB with two memory settings lowered. |
 | Long-context reasoning or agentic text work | K2-Horizon-32B | 65.6 tok/s decode, 131 k context served, tool calling works in three formats, Apache-2.0 with published training data. Stage-1 checkpoint, so weaker at agentic and coding work than mature peers. |
+| Fast, natural text-to-speech on CPU or GPU | Kokoro-82M | 82M parameters, Apache-2.0, 24 kHz output, ~40x to 80x real time on CPU, sub-200ms TTFA with clause streaming. |
+| Minimal-footprint or high-density telephony TTS | Piper (VITS) | 15M to 60M parameters, MIT, native 16 kHz profile matching wideband VoIP, <50ms TTFA, tens to hundreds of streams per CPU core. |
 | Speaker labels / diarisation | none of these | No model here does it. |
 
 Two things are easy to miss until you hit them. Parakeet's runtime is
