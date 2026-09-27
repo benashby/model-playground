@@ -15,7 +15,7 @@ The standard the note is held to is in `models/README.md`.
 
 ## Current reality
 
-Three models have notes, two investigated and one seeded; **one** of them is
+Four models have notes, two investigated and two seeded; **one** of them is
 driven by the speech harness.
 That one has **one adapter**: `src/playground/protocol.py`, a single module
 hardcoded to the OpenAI-Realtime dialect that NVIDIA's NIM container speaks.

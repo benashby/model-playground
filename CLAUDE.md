@@ -119,7 +119,7 @@ address does not belong in it.
 
 ## Current state — read this before assuming generality
 
-Three models so far: two investigated, and one seeded with a note but no probes
+Four models so far: two investigated, and two seeded with a note but no probes
 yet. Only one is driven by the harness:
 
 - **NemotronLabs VoiceChat 11B** (speech-to-speech), served by NVIDIA's NIM
@@ -128,6 +128,7 @@ yet. Only one is driven by the harness:
 - **K2-Horizon-32B** (text-only reasoning) — no harness involvement at all.
 - **Kokoro-82M** (text-to-speech) — a seeded note: vendor claims and a probe
   plan, nothing measured yet.
+- **Piper** (text-to-speech) — a seeded note, like Kokoro's.
 
 There is **no multi-model abstraction** — no adapter registry, no host
 registry, no protocol dispatch. `protocol.py` is a single module, not a
