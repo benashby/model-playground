@@ -376,9 +376,25 @@ run on a GStreamer streaming thread.
 
 The pipe keeps GStreamer and Python in separate processes, which is simpler
 to deploy and isolates crashes. The in-process version gives access to the
-pipeline's state and messages from Python. A third option, not built here, is
-a GStreamer element written in Python with gst-python, which would let the
-transcriber sit inside any pipeline and post each utterance as a bus message.
+pipeline's state and messages from Python. A third option is a GStreamer
+element written in Python with gst-python, which lets the transcriber sit
+inside a pipeline and post each utterance as a bus message or route to an
+internal sink.
+
+In Synauson (PR #13, 2026-09-27), this is formalized as the tap interface
+(`synauson-core/src/pipeline/tap.rs`):
+```
+participant tee.src_%u -> queue (leaky) -> errorignore -> [feature chain ... ending in a sink]
+```
+The tap hangs off the participant's normalized fanout tee (`S16LE, 16 kHz, mono`,
+via `conference_caps()`). The downstream leaky queue (`max-size-time=500ms`,
+`leaky=downstream`) gives the tap its own streaming thread and drops oldest
+audio if inference falls behind, preventing backpressure on conference audio.
+The `errorignore` flow guard (`convert-to=ok`) catches errors, not-negotiated,
+and EOS so downstream model failures cannot propagate back to stop the tee.
+While VAD and turn detection currently run in-process in Rust via `ort`
+(ONNX Runtime 1.24.4) in `synauson-onnx`, the planned PyGObject phase 3 allows
+hosting Python elements via `gst-python` on this same tap runtime.
 
 ### Tested [MEASURED]
 

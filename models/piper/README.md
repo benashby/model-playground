@@ -84,6 +84,13 @@ with wave.open("output.wav", "wb") as wav_file:
     voice.synthesize("Welcome to the call center media server.", wav_file)
 ```
 
+### 4. Synauson media server integration
+Synauson supports both in-process Rust ONNX and Python runtime execution:
+- **In-process Rust via `ort`:** Runs the ONNX graph directly in Rust using ONNX Runtime 1.24.4 inside custom GStreamer elements (`synauson-onnx`).
+- **Python via `gst-python` (PyGObject phase 3):** Python GStreamer elements run directly on the tap runtime as part of a `TapFeature` chain.
+- **Native 16 kHz alignment:** Piper's `low` profile outputs 16,000 Hz mono audio, directly matching Synauson's conference format (`S16LE, 16 kHz, mono`, `conference_caps()`, `synauson-core/src/pipeline/element_helpers.rs:142`). This eliminates the resampling stage needed by 22.05 kHz or 24 kHz models before mixing into the conference.
+- **Pipeline isolation:** Synauson taps (`synauson-core/src/pipeline/tap.rs`) isolate inference on their own streaming threads via downstream leaky queues (`max-size-time=500ms`) and flow guards (`convert-to=ok`), ensuring model stalls or runtime errors never block participant audio.
+
 ## Protocol and interface
 
 - Input: UTF-8 plain text string or pre-computed phoneme sequence.
