@@ -41,7 +41,8 @@ jobs:
       - name: Machine
         run: |
           nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
-          "CPU load: {0:N0} %" -f (Get-Counter '\Processor(_Total)\% Processor Time').CounterSamples.CookedValue
+          # (Get-Counter needs performance-counter rights the runner account does not have.)
+          "CPU load: {0} %" -f (Get-CimInstance Win32_Processor).LoadPercentage
 
       - name: Environment (Python 3.13, CUDA torch for Photon)
         run: uv sync -p 3.13 --extra asr-cuda --extra dev

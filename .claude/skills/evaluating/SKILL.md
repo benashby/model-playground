@@ -190,9 +190,9 @@ second decode: seconds then tens of milliseconds is the GPU.
 ### A clock that cannot see what it is timing (Windows)
 
 Before Python 3.13, `time.monotonic()` on Windows advances in 15.625 ms steps,
-and it is asyncio's clock. A 100 ms heartbeat whose true lag was 0.14 ms read as
+and it is asyncio's clock. A 100 ms heartbeat whose true lag was 0.16 ms read as
 a median of -6.0 ms. Separately, Windows' default timer makes every sleep
-overshoot (a true 9 ms median lag on any Python) until the process calls
+overshoot (a true median lag of 8 to 9 ms on either Python) until the process calls
 `timeBeginPeriod(1)`, which `playground.audio` now does. Use Python 3.13+ on
 Windows and run `probes/clocks.py` on any new platform before trusting a latency.
 

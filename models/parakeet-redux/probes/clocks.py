@@ -38,11 +38,19 @@ PERIOD_S = 0.1
 def machine_load() -> str:
     if not WINDOWS:
         return f"loadavg(1 min) {os.getloadavg()[0]:.2f} on {os.cpu_count()} CPUs"
-    import subprocess
-    out = subprocess.run(["powershell", "-NoProfile", "-Command",
-                          "(Get-Counter '\\Processor(_Total)\\% Processor Time').CounterSamples.CookedValue"],
-                         capture_output=True, text=True).stdout.strip()
-    return f"CPU {float(out.replace(',', '.')):.0f} % (Processor(_Total)) on {os.cpu_count()} CPUs"
+    # GetSystemTimes over one second: busy share of all CPUs. Unlike performance
+    # counters it needs no special rights, so it also works under a CI service account.
+    import ctypes
+
+    def sample() -> tuple[int, int]:
+        idle, kernel, user = (ctypes.c_ulonglong() for _ in range(3))
+        ctypes.WinDLL("kernel32").GetSystemTimes(ctypes.byref(idle), ctypes.byref(kernel), ctypes.byref(user))
+        return idle.value, kernel.value + user.value      # kernel time includes idle time
+
+    (i0, t0), _ = sample(), time.sleep(1.0)
+    i1, t1 = sample()
+    busy = 100.0 * (1 - (i1 - i0) / max(1, t1 - t0))
+    return f"CPU {busy:.0f} % (GetSystemTimes, 1 s) on {os.cpu_count()} CPUs"
 
 
 async def heartbeat() -> tuple[list[float], list[float]]:

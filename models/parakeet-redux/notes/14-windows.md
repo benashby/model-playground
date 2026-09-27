@@ -165,21 +165,21 @@ Two things can make a timing probe wrong on Windows without anything failing.
 times and reports its lag twice: as `time.monotonic()` reports it, and as
 `time.perf_counter()` does, which is the true figure
 ([`results/clocks-windows.log`](../results/clocks-windows.log); machine load
-1 to 14 % throughout):
+0 to 16 % throughout):
 
 | Python | Timer | Lag by `monotonic()`, median | True lag, median | True lag, p99 |
 |---|---|---|---|---|
-| 3.12.10 | default | 9.00 ms | 8.29 ms | 20.57 ms |
-| 3.12.10 | 1 ms | -6.00 ms | 0.52 ms | 0.90 ms |
-| 3.13.15 | default | 7.00 ms | 7.00 ms | 21.90 ms |
-| 3.13.15 | 1 ms | 0.41 ms | 0.41 ms | 1.98 ms |
+| 3.12.10 | default | 9.00 ms | 9.17 ms | 22.53 ms |
+| 3.12.10 | 1 ms | -6.00 ms | 0.16 ms | 0.97 ms |
+| 3.13.15 | default | 8.33 ms | 8.33 ms | 26.35 ms |
+| 3.13.15 | 1 ms | 0.15 ms | 0.15 ms | 1.16 ms |
 
 Windows' default timer wakes a sleeping program late by several milliseconds
 on any Python. `playground.audio`, which paces the live probes, now asks
 Windows for 1 ms resolution (`timeBeginPeriod(1)`) when it is imported. The
 second problem is the clock itself: before Python 3.13, `time.monotonic()` is
 `GetTickCount64`, with a resolution of 15.625 ms, so it reported a negative
-lag when the true one was 0.52 ms. `playground.audio` prints a warning on
+lag when the true one was 0.16 ms. `playground.audio` prints a warning on
 such a Python. On Linux neither problem exists, and `clocks.py` runs there too.
 
 A loaded machine also makes timing wrong. This machine runs other work, and
