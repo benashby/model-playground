@@ -84,12 +84,12 @@ sf.write("output.wav", samples, sample_rate)
 pip install kokoro soundfile
 ```
 
-### 4. Synauson media server integration
-Synauson supports both in-process Rust ONNX and native Python execution paths:
-- **In-process Rust via `ort`:** Uses ONNX Runtime 1.24.4 in custom GStreamer elements (`synauson-onnx`), executing on CPU or GPU with zero Python runtime overhead.
-- **Python via `gst-python` (PyGObject phase 3):** Tap features can run directly as Python GStreamer elements on the tap runtime. This allows running the reference PyTorch implementation or custom C-extension engines without converting weights to ONNX.
-- **Pipeline isolation:** In the tap architecture (`synauson-core/src/pipeline/tap.rs`), audio leaves the participant's normalized fanout tee (`S16LE, 16 kHz, mono`) into a downstream leaky queue (`max-size-time=500ms`) followed by an `errorignore` flow guard (`convert-to=ok`). A slow inference thread drops aged frames rather than stalling the conference, and pipeline errors do not propagate back to the participant tee.
-- **Sample rate handling:** Kokoro outputs 24 kHz audio. When feeding synthesized audio into a Synauson conference mixer or participant channel, it must be resampled to the conference standard (16 kHz mono) or telephony codec rate (8 kHz / 16 kHz).
+### 4. GStreamer media server integration
+Real-time media pipelines support both in-process native ONNX and Python execution paths:
+- **In-process native via `ort`:** Uses ONNX Runtime in custom GStreamer elements, executing on CPU or GPU with zero Python runtime overhead.
+- **Python via `gst-python` (PyGObject):** Feature pipelines can run directly as Python GStreamer elements on a tap runtime. This allows running the reference PyTorch implementation or custom C-extension engines without converting weights to ONNX.
+- **Pipeline isolation:** In a real-time tap architecture, audio leaves a normalized fanout tee (`S16LE, 16 kHz, mono`) into a downstream leaky queue (`max-size-time=500ms`, `leaky=downstream`) followed by an `errorignore` flow guard (`convert-to=ok`). A slow inference thread drops aged frames rather than stalling the conference, and pipeline errors do not propagate back to the participant tee.
+- **Sample rate handling:** Kokoro outputs 24 kHz audio. When feeding synthesized audio into a conference mixer or participant channel, it must be resampled to the conference standard (such as 16 kHz mono) or telephony codec rate (8 kHz / 16 kHz).
 
 ## Protocol and interface
 

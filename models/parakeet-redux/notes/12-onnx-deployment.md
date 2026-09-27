@@ -381,20 +381,19 @@ element written in Python with gst-python, which lets the transcriber sit
 inside a pipeline and post each utterance as a bus message or route to an
 internal sink.
 
-In Synauson (PR #13, 2026-09-27), this is formalized as the tap interface
-(`synauson-core/src/pipeline/tap.rs`):
+A tap architecture provides a clean separation for embedding transcribers in
+a media router:
 ```
 participant tee.src_%u -> queue (leaky) -> errorignore -> [feature chain ... ending in a sink]
 ```
-The tap hangs off the participant's normalized fanout tee (`S16LE, 16 kHz, mono`,
-via `conference_caps()`). The downstream leaky queue (`max-size-time=500ms`,
-`leaky=downstream`) gives the tap its own streaming thread and drops oldest
-audio if inference falls behind, preventing backpressure on conference audio.
-The `errorignore` flow guard (`convert-to=ok`) catches errors, not-negotiated,
-and EOS so downstream model failures cannot propagate back to stop the tee.
-While VAD and turn detection currently run in-process in Rust via `ort`
-(ONNX Runtime 1.24.4) in `synauson-onnx`, the planned PyGObject phase 3 allows
-hosting Python elements via `gst-python` on this same tap runtime.
+The tap hangs off the participant's normalized fanout tee (`S16LE, 16 kHz, mono`).
+The downstream leaky queue (`max-size-time=500ms`, `leaky=downstream`) gives
+the tap its own streaming thread and drops oldest audio if inference falls
+behind, preventing backpressure on conference audio. An `errorignore` flow
+guard (`convert-to=ok`) catches downstream errors, not-negotiated, and EOS
+so model or script failures cannot propagate back to stop the tee. Feature
+chains can run in-process via ONNX Runtime in custom native elements, or
+via `gst-python` (PyGObject) on this same tap runtime.
 
 ### Tested [MEASURED]
 
