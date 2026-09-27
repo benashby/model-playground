@@ -89,6 +89,7 @@ crashes, so the notes catalogue the specific ways this kind of tool lies.
 | Note | Model | What it is |
 |---|---|---|
 | [`nemotron-voicechat-11b/`](nemotron-voicechat-11b/README.md) | NemotronLabs VoiceChat 11B | Full-duplex speech-to-speech. The one model the harness drives. |
+| [`parakeet-redux/`](parakeet-redux/README.md) | Moondream Parakeet Redux (ternary ASR) | Transcription on a CPU, and a study of streaming-transcript stability. |
 | [`k2-horizon-32b/`](k2-horizon-32b/README.md) | IFM K2-Horizon-32B | Text-only reasoning LLM. Documented for the deployment findings. |
 | [`kokoro-82m/`](kokoro-82m/README.md) | Kokoro-82M | Fast 82M-parameter StyleTTS 2 / iSTFTNet TTS. Apache-2.0. |
 | [`piper/`](piper/README.md) | Piper (VITS) | Low-footprint neural TTS for CPU and embedded media servers. MIT. |
@@ -99,11 +100,31 @@ The short version, so you can skip to the right note.
 
 | If you need… | Model | What to expect |
 |---|---|---|
+| Transcription, cheaply, at volume, with no GPU | Parakeet Redux | ~44× real time on a desktop CPU (an hour of audio in ~80 s), 178 MB, 25 languages, word timestamps free. Weak in noise. Runtime is proprietary. |
+| Best-accuracy transcription, GPU available | Parakeet Ultra | Same architecture at full precision. The vendor reports it the most accurate of the three Parakeets (5.80 % mean WER on seven English sets). Measured here only for speed and agreement: 24.9× real time on a desktop CPU in Photon, and nearly the same words as NVIDIA's original. |
+| Live transcription for an agent | Parakeet Redux, streaming | First preview about 4 s after audio starts, then updates every ~2 s. Settled words never change, but punctuation can be revised long after it first appears. Final text matches batch. |
+| Words on screen while the caller speaks, in English | NVIDIA's Nemotron streaming 0.6B, sherpa-onnx | First words 0.53 to 0.72 s after speech starts, never revised, and more accurate than offline Parakeet on the call-centre accents tested, at several times the CPU. NVIDIA Open Model License. See [live transcription](parakeet-redux/notes/13-live-transcription.md). |
+| Telephone or live transcription on an open runtime | NVIDIA's parakeet-tdt-0.6b-v3, fp32 ONNX | As accurate as NVIDIA's NeMo on the same audio, on a CPU or an NVIDIA GPU: 7.01 to 13.13 % WER on call-centre accents, 16.71 % on real telephone calls. Use fp32: the int8 export more than doubles the error rate on 8 kHz audio. CC-BY-4.0 weights. See [deploying on ONNX](parakeet-redux/notes/12-onnx-deployment.md). |
 | A conversation, end to end, in speech | VoiceChat 11B | The only full-duplex model here. Real barge-in. CUDA only; 73 GB at stock settings, and it also served in 44.7 GB with two memory settings lowered. |
 | Long-context reasoning or agentic text work | K2-Horizon-32B | 65.6 tok/s decode, 131 k context served, tool calling works in three formats, Apache-2.0 with published training data. Stage-1 checkpoint, so weaker at agentic and coding work than mature peers. |
 | Fast, natural text-to-speech on CPU or GPU | Kokoro-82M | 82M parameters, Apache-2.0, 24 kHz output, ~40x to 80x real time on CPU, sub-200ms TTFA with clause streaming. |
 | Minimal-footprint or high-density telephony TTS | Piper (VITS) | 15M to 60M parameters, MIT, native 16 kHz profile matching wideband VoIP, <50ms TTFA, tens to hundreds of streams per CPU core. |
 | Speaker labels / diarisation | none of these | No model here does it. |
+
+Each note says which platform its numbers came from. The Parakeet rows were
+measured on Linux and repeated on native Windows, where they all hold except
+Redux on a CPU: Photon's Windows kernels cannot run its ternary weights there,
+so it needs an NVIDIA GPU
+([running it on Windows](parakeet-redux/notes/14-windows.md)). VoiceChat and K2
+need data-centre GPUs and were only run on Linux. Kokoro and Piper are seeded
+notes whose figures are vendor claims, not yet measured on either platform.
+
+Two things are easy to miss until you hit them. Parakeet's runtime is
+licence-encumbered even though its weights are CC-BY-4.0
+([licensing](parakeet-redux/notes/02-licensing.md)). And K2 returns its
+reasoning trace in `reasoning`, which an OpenAI-style client that only reads
+`reasoning_content` will show as empty
+([the reasoning trace](k2-horizon-32b/notes/05-reasoning-trace.md)).
 
 ## How an investigation is structured
 

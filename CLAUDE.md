@@ -70,10 +70,13 @@ pushing.
 | `models/<slug>/notes/` | a long note split into articles that link to each other, for reading in the GitHub web UI |
 | `models/<slug>/probes/` | the code that produced every number in that note — committed, re-runnable |
 | `models/<slug>/results/` | raw probe output, committed as evidence |
+| `models/<slug>/examples/` | runnable integration code a reader can copy (Parakeet: an ONNX `Transcriber` and GStreamer integrations, with a test script) |
+| `audio/corpora/` | test audio. The telephone WER corpora are DVC stage outputs (`dvc.yaml`, `dvc.lock`, `audio/corpora/fetch.py`) pinned to upstream revisions; `MANIFEST.md` records every corpus, its licence and what was rejected |
 | `models/README.md` | the rubric every note is held to |
 | `src/playground/` | shared instrument library (below) |
 | `scenarios/*.py` | agent specs: instructions + tools, each exporting `SPEC` |
 | `logs/*.jsonl` | scratch run logs — gitignored; promote to `results/` to keep |
+| `logs/wer/` | WER segment sets and per-runtime predictions — gitignored, because they are model output on third-party audio; `results/` gets aggregates only |
 
 **Probe output is committed, so probe output is public.** Never print a
 hostname or address from a probe; take it from `PLAYGROUND_HOST` and redact it
@@ -92,6 +95,7 @@ their own probes and need none of it.
 | `tools.py` | `@registry.tool`, schema export, latency injection | no |
 | `policy.py` | barge-in disposition — the decision under study, not plumbing | no |
 | `live.py` | microphone client via `pw-record`/`pw-play` | no |
+| `asr.py` | sibling utility, **not** part of the session loop: reference transcripts + streaming-stability metrics. Optional `asr` extra. | no |
 
 **The containment rule:** everything backend-specific lives in `protocol.py`.
 If you reach for a backend detail in `client.py`, `tools.py`, a scenario, or
@@ -111,7 +115,23 @@ python -m playground.live scenarios/nvidia_demo.py
 
 ffmpeg -i in.wav -ar 24000 -ac 1 out.wav   # correct pre-conversion
 jq -c 'select(.kind|startswith("tool"))' logs/session.jsonl
+
+# evaluation corpora: from upstream, or from a DVC remote configured with --local
+uv run --extra corpora dvc repro   # then `git diff dvc.lock` must be clean
+uv run --extra corpora dvc pull
 ```
+
+On Windows (PowerShell), the same commands with Windows paths; Photon needs the
+GPU there, and the GStreamer examples have a cross-platform driver:
+
+```powershell
+uv sync --extra asr-cuda --extra corpora     # CUDA torch; `asr` and `asr-cuda` conflict
+$env:PHOTON_DEVICE = "cuda"; uv run --extra asr-cuda python models/parakeet-redux/probes/step0.py
+uv run --with sherpa-onnx python models/parakeet-redux/examples/test_gstreamer.py clip.wav out
+```
+
+A DVC remote belongs in `.dvc/config.local` (`dvc remote add --local`), which
+is not committed, and should name an SSH alias rather than a host.
 
 Host comes from the **`PLAYGROUND_HOST` / `PLAYGROUND_PORT`** environment
 variables, or `--host`. No endpoint is hardcoded: this repo is public and an
@@ -119,16 +139,33 @@ address does not belong in it.
 
 ## Current state — read this before assuming generality
 
-Four models so far: two investigated, and two seeded with a note but no probes
+Five models so far: three investigated, and two seeded with a note but no probes
 yet. Only one is driven by the harness:
 
 - **NemotronLabs VoiceChat 11B** (speech-to-speech), served by NVIDIA's NIM
   container on a rented 2× H100 80GB (NVLink) cloud node, over the OpenAI
   Realtime WebSocket dialect at `/v1/realtime`.
+- **Parakeet Redux** (ternary ASR) — a sibling utility, deliberately *not* in
+  the session loop. The same note also measures NVIDIA's original
+  `parakeet-tdt-0.6b-v3` for deployment on ONNX (sherpa-onnx) and NeMo:
+  telephone WER, CPU sizing, GPU runtimes, GStreamer, and live latency
+  against NVIDIA's Nemotron streaming model. That work is driven by its own
+  probes (`nemo_vs_onnx.py`, `wer_telephone.py`, `onnx_concurrency.py`,
+  `streaming_online.py`) and never touches the harness.
 - **K2-Horizon-32B** (text-only reasoning) — no harness involvement at all.
 - **Kokoro-82M** (text-to-speech) — a seeded note: vendor claims and a probe
   plan, nothing measured yet.
 - **Piper** (text-to-speech) — a seeded note, like Kokoro's.
+
+**Two platforms, Linux and Windows.** The notes were written on Linux; the
+Parakeet stack is also verified on native Windows (a GTX 1650 box), in
+`models/parakeet-redux/notes/14-windows.md`. Keep both working and documented:
+Linux code paths and output stay unchanged, Windows branches are gated on
+`sys.platform == "win32"`, opt-in variables (`PHOTON_DEVICE`, `ONNX_CPUS`) default
+to the old behaviour, OS-specific host facts go through
+`models/parakeet-redux/probes/hostinfo.py`, and a note says which platforms its
+numbers came from. On Windows use Python 3.13+ for anything timed (see
+`evaluating`).
 
 There is **no multi-model abstraction** — no adapter registry, no host
 registry, no protocol dispatch. `protocol.py` is a single module, not a
@@ -168,6 +205,11 @@ These govern the speech harness specifically.
   appears anywhere in the command that runs it, including later in the same
   shell line, it kills that shell. Kill by PID from `ps`, or with a pattern
   like `"[r]un_matrix"` that cannot match itself.
+- **Rootless podman** refuses a bind mount whose host directory does not exist
+  (`statfs ... no such file or directory`), may lack the cgroup `cpuset`
+  controller (pin with `taskset` inside the container instead of
+  `--cpuset-cpus`), and on an SELinux host needs `--security-opt
+  label=disable` or `:Z`, or mounted files give `Permission denied`.
 
 ## Deeper reference — invoke as needed
 

@@ -1,0 +1,53 @@
+### CPU
+  model name (registry): Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+  PROCESSOR_ARCHITECTURE: AMD64
+  os.cpu_count(): 8
+  affinity: 8 CPUs usable by this process
+
+### Vector ISA flags (IsProcessorFeaturePresent)
+  sse4_2         yes
+  avx            yes
+  avx2           yes
+  avx512f        no
+  (Win32 has no feature code for AVX-VNNI or AMX; torch's own view is below)
+
+### Memory
+  TotalPhys: 31.9 GiB
+
+### OS
+  Windows 10 10.0.19045 (Professional)
+
+### Python
+  CPython 3.13.15
+
+### Packages in the runtime path (importlib.metadata)
+  moondream                  2.4.1
+  kestrel                    0.8.1
+  kestrel-native             0.1.8
+  kestrel-kernels            0.7.1
+  kestrel-kernels-bundle-a   0.7.1
+  kestrel-kernels-bundle-b   0.7.1
+  kestrel-kernels-bundle-c   0.7.1
+  kestrel-kernels-bundle-d   not installed
+  torch                      2.14.0+cu130
+  numpy                      2.5.3
+  soundfile                  0.14.0
+  tokenizers                 0.23.2
+  safetensors                0.8.0
+  huggingface-hub            1.32.0
+
+### torch
+  torch.__version__: 2.14.0+cu130
+  cuda available: True
+  torch.get_num_threads(): 8
+  torch.get_num_interop_threads(): 8
+  torch.backends.cpu.get_cpu_capability(): AVX2
+  env OMP_NUM_THREADS: unset
+  env MKL_NUM_THREADS: unset
+  env PLAYGROUND_HOST: unset
+
+### Photon on this machine: one real (1 s of silence) transcription per device
+  device cpu: exit code 1
+    stderr: NotImplementedError: ternary weights need an int8 matrix-multiply kernel on the CPU (avx512vnni, avxvnni or avx2 on x86; neon-i8mm, neon-dotprod or neon-mull on aarch64); the path in use here is 'scalar', so there is nothing to run them on here
+  device cuda: exit code 0
+    stdout: OK transcribed, text = ''

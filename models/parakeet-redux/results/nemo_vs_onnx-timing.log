@@ -1,0 +1,26 @@
+runtime          segment set                                segments   hours  seconds x real time
+nemo_cuda        AppTek bench                                  11410   59.48     1493         143
+nemo_cuda        HarperValleyBank bench                         6528   27.48      737         134
+nemo_cuda        HarperValleyBank livepad (short segments)     16780   11.82     1317          32
+nemo_cuda_graphs AppTek bench                                  11410   59.48      703         305
+nemo_cuda_graphs HarperValleyBank bench                         6528   27.48      378         262
+nemo_cuda_graphs HarperValleyBank livepad (short segments)     16780   11.82      817          52
+nemo_rocm        AppTek bench                                   8941   47.08     2482          68
+nemo_rocm        HarperValleyBank bench                         6528   27.48     1358          73
+nemo_rocm        HarperValleyBank livepad (short segments)     16780   11.82     1248          34
+onnx_fp32        AppTek bench                                   3532   17.37     2812          22
+onnx_fp32_cuda   AppTek bench                                  11308   59.03     2111         101
+onnx_fp32_cuda   HarperValleyBank bench                         6528   27.48     1051          94
+onnx_fp32_cuda   HarperValleyBank livepad (short segments)     16780   11.82     2372          18
+onnx_int8        AppTek bench                                   3754   18.73     2188          31
+onnx_int8_cuda   AppTek bench                                  11410   59.48    11667          18
+onnx_int8_cuda   HarperValleyBank bench                         6528   27.48     5358          18
+onnx_int8_cuda   HarperValleyBank livepad (short segments)     16780   11.82     2715          16
+
+nemo_cuda_graphs: NeMo 3.0.0, RTX 3090 Ti, CUDA graphs on, batch 1
+nemo_cuda: NeMo 3.0.0, RTX 3090, CUDA graphs off, batch 1
+nemo_rocm: NeMo 3.0.0, RX 9070 XT (ROCm 7.2), graphs off, 1 CPU core, batch 1
+onnx_fp32_cuda: sherpa-onnx fp32, RTX 3090 Ti, 3 workers
+onnx_int8_cuda: sherpa-onnx int8, RTX 3090 Ti, 3 workers
+onnx_fp32: sherpa-onnx fp32, Ryzen 7 3700X, 6 workers
+onnx_int8: sherpa-onnx int8, Ryzen 7 3700X, 8 workers

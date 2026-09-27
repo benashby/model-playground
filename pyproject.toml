@@ -11,9 +11,57 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.24"]
+# Parakeet/Photon ASR. Deliberately OPTIONAL: it drags in torch plus ~350 MB of
+# proprietary Kestrel kernel bundles, and the core harness -- a WebSocket client
+# -- needs none of it. `uv sync --extra asr` opts in.
+# torch is listed explicitly even though `moondream` pulls it transitively via
+# `kestrel`: [tool.uv.sources] below only binds DIRECT dependencies, so without
+# this line the CPU index is silently ignored and uv resolves torch+cu130 --
+# multiple GB of CUDA wheels on a machine whose only GPU is AMD. Verified by
+# `uv run --extra asr python -c "import torch; print(torch.__version__)"`.
+asr = ["moondream>=2.4.0", "torch>=2.8"]
+# The same stack with CUDA torch, for Photon on an NVIDIA GPU (PHOTON_DEVICE=cuda
+# in the probes). Needed on Windows, where Photon's kernels have no int8 CPU path
+# for the ternary weights and Redux only runs on CUDA. `uv sync --extra asr-cuda`;
+# it cannot be combined with `asr` (see [tool.uv] conflicts below).
+asr-cuda = ["moondream>=2.4.0", "torch>=2.8"]
+# Evaluation corpora, managed by DVC (dvc.yaml at the repo root). The fetch
+# stages download pinned upstream revisions; a private mirror, if any, is
+# configured per machine in .dvc/config.local and never committed. See
+# audio/corpora/MANIFEST.md. `uv sync --extra corpora` opts in.
+corpora = [
+    "dvc[ssh]>=3.67",
+    "huggingface-hub>=1.30",
+]
 
 [project.scripts]
 playground = "playground.__main__:main"
+
+# torch>=2.8 from the default index is the CUDA build: multiple GB this Radeon
+# desktop cannot use, and Photon's Parakeet path here is CPU-only anyway. Pin the
+# CPU wheel index explicitly. MEASURED: resolves torch==2.14.0+cpu and takes the
+# ASR venv to 1.30 GB (models/parakeet-redux/notes/06-results-throughput.md),
+# against ~5 GB for the CUDA build.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+# CUDA 13.0 wheels, for the asr-cuda extra only. They run on a Turing GTX 1650
+# (sm_75) with driver 617.14.
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "asr" },
+    { index = "pytorch-cu130", extra = "asr-cuda" },
+]
+
+[tool.uv]
+conflicts = [[{ extra = "asr" }, { extra = "asr-cuda" }]]
 
 [build-system]
 requires = ["hatchling"]

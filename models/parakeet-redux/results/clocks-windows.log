@@ -1,0 +1,8 @@
+# probes/clocks.py on Windows 10 Pro 19045, Intel i7-9700 (8C/8T). Both interpreters from python.org, installed machine-wide.
+# The machine also runs CI for other projects; the load at each run is recorded on its line.
+## Python 3.12.10 on Windows 10; time.monotonic() = GetTickCount64(), resolution 15.625 ms
+  timer default: lag as time.monotonic() sees it: median   9.00 ms, p99  25.00 | true lag (perf_counter): median   9.17 ms, p99  22.53 | n=100; before: CPU 16 % (GetSystemTimes, 1 s) on 8 CPUs; after: CPU 13 % (GetSystemTimes, 1 s) on 8 CPUs
+  timer 1ms    : lag as time.monotonic() sees it: median  -6.00 ms, p99  10.00 | true lag (perf_counter): median   0.16 ms, p99   0.97 | n=100; before: CPU 16 % (GetSystemTimes, 1 s) on 8 CPUs; after: CPU 0 % (GetSystemTimes, 1 s) on 8 CPUs
+## Python 3.13.15 on Windows 10; time.monotonic() = QueryPerformanceCounter(), resolution 0.000 ms
+  timer default: lag as time.monotonic() sees it: median   8.33 ms, p99  26.34 | true lag (perf_counter): median   8.33 ms, p99  26.35 | n=100; before: CPU 1 % (GetSystemTimes, 1 s) on 8 CPUs; after: CPU 1 % (GetSystemTimes, 1 s) on 8 CPUs
+  timer 1ms    : lag as time.monotonic() sees it: median   0.15 ms, p99   1.16 | true lag (perf_counter): median   0.15 ms, p99   1.16 | n=100; before: CPU 0 % (GetSystemTimes, 1 s) on 8 CPUs; after: CPU 0 % (GetSystemTimes, 1 s) on 8 CPUs

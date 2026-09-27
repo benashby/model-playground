@@ -1,0 +1,22 @@
+{"t": 1.2904, "kind": "asr.opened", "open_s": 1.29}
+{"t": 5.3036, "kind": "asr.snapshot", "since_open": 5.304, "since_audio": 4.013, "words": 1, "text": "Hi"}
+{"t": 7.3096, "kind": "asr.snapshot", "since_open": 7.31, "since_audio": 6.019, "words": 1, "text": "Hi"}
+{"t": 9.3236, "kind": "asr.snapshot", "since_open": 9.324, "since_audio": 8.033, "words": 3, "text": "Hi. Do you"}
+{"t": 11.3861, "kind": "asr.snapshot", "since_open": 11.386, "since_audio": 10.095, "words": 8, "text": "Hi. Do you know any good cookie recipes"}
+{"t": 13.4095, "kind": "asr.snapshot", "since_open": 13.41, "since_audio": 12.119, "words": 8, "text": "Hi. Do you know any good cookie recipes?"}
+{"t": 15.4415, "kind": "asr.snapshot", "since_open": 15.441, "since_audio": 14.151, "words": 8, "text": "Hi. Do you know any good cookie recipes?"}
+{"t": 17.4377, "kind": "asr.snapshot", "since_open": 17.438, "since_audio": 16.147, "words": 8, "text": "Hi. Do you know any good cookie recipes?"}
+{"t": 19.4558, "kind": "asr.snapshot", "since_open": 19.456, "since_audio": 18.165, "words": 13, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter"}
+{"t": 21.4306, "kind": "asr.snapshot", "since_open": 21.431, "since_audio": 20.14, "words": 14, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one."}
+{"t": 23.4283, "kind": "asr.snapshot", "since_open": 23.428, "since_audio": 22.138, "words": 14, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one."}
+{"t": 25.447, "kind": "asr.snapshot", "since_open": 25.447, "since_audio": 24.156, "words": 14, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one."}
+{"t": 27.4411, "kind": "asr.snapshot", "since_open": 27.441, "since_audio": 26.15, "words": 14, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one."}
+{"t": 29.4576, "kind": "asr.snapshot", "since_open": 29.458, "since_audio": 28.167, "words": 16, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please"}
+{"t": 31.4408, "kind": "asr.snapshot", "since_open": 31.441, "since_audio": 30.15, "words": 16, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please"}
+{"t": 33.4407, "kind": "asr.snapshot", "since_open": 33.441, "since_audio": 32.15, "words": 16, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please"}
+{"t": 35.4279, "kind": "asr.snapshot", "since_open": 35.428, "since_audio": 34.137, "words": 16, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please"}
+{"t": 37.4422, "kind": "asr.snapshot", "since_open": 37.442, "since_audio": 36.152, "words": 16, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please"}
+{"t": 39.4441, "kind": "asr.snapshot", "since_open": 39.444, "since_audio": 38.153, "words": 17, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks"}
+{"t": 41.4357, "kind": "asr.snapshot", "since_open": 41.436, "since_audio": 40.145, "words": 20, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help."}
+{"t": 43.3007, "kind": "asr.snapshot", "since_open": 43.301, "since_audio": 42.01, "words": 20, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help."}
+{"t": 43.7158, "kind": "asr.final", "since_audio": 42.011, "text": "Hi. Do you know any good cookie recipes? Ooh, maybe a peanut butter one. Yes, please. Thanks for your help.", "snapshots": 20}

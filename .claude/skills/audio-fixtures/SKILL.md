@@ -1,6 +1,6 @@
 ---
 name: audio-fixtures
-description: Speech-specific — relevant only to models that take audio, which today means the VoiceChat work. Use when sourcing, preparing, or validating test audio — two-party conversation corpora, channel layout, sample-rate conversion, or judging whether a recording can exercise barge-in. Covers the one-speaker-per-channel requirement and why mono mixdowns are useless, the fixtures already available (NVIDIA's shipped demo audio and HCRC Map Task), corpora evaluated and rejected with reasons, the RMS-overlap method for ranking barge-in value, and ffmpeg conversion rules.
+description: Speech-specific — relevant only to models that take audio, which today means the VoiceChat and Parakeet work. Use when sourcing, preparing, or validating test audio — two-party conversation corpora, channel layout, sample-rate conversion, or judging whether a recording can exercise barge-in. Covers the one-speaker-per-channel requirement and why mono mixdowns are useless, the fixtures already available (NVIDIA's shipped demo audio and HCRC Map Task), corpora evaluated and rejected with reasons, the RMS-overlap method for ranking barge-in value, and ffmpeg conversion rules.
 ---
 
 # Audio fixtures
@@ -68,6 +68,27 @@ backchannel and interruption.
 
 Local manifest: `audio/corpora/MANIFEST.md`.
 
+### Telephone WER corpora — AppTek and HarperValleyBank
+
+For word error rate on telephone speech, where a reference transcript is the
+point and barge-in is irrelevant. Both have one speaker per file and are DVC
+stage outputs (`uv run --extra corpora dvc repro` or `dvc pull`), pinned in
+`audio/corpora/fetch.py`:
+
+- **AppTek Call-Center Dialogues** (CC-BY-SA-4.0): role-played call-centre
+  calls over VoIP, 16 kHz, professional verbatim transcripts, 14 accents;
+  three are fetched (en-US_General, en-IN, en-GB_SCT). Its own `score.py` is
+  the scorer, and its paper publishes parakeet v3 WER per accent, which makes
+  it the round-trip check. Telephone conditions are simulated on it
+  (`wer_telephone.py`: G.711, Opus, packet loss).
+- **HarperValleyBank** (CC-BY-4.0): simulated bank calls over a real
+  telephone network, 8 kHz, crowd transcripts that skip fragments and noises.
+  Each segment also carries the corpus's own ASR output, a free difficulty
+  reference.
+
+Share-alike on AppTek means transcripts or model output on its audio stay out
+of `results/`; log aggregates only.
+
 ## Evaluated and rejected
 
 | Corpus | Why not |
@@ -103,8 +124,8 @@ Also identifies **which channel is the caller** — whoever speaks first.
 The wire is **24 000 Hz mono PCM16**. `audio.py` resamples on load with a
 band-limited polyphase filter (it replaced an unfiltered linear interpolator on
 2026-09-23). It is good enough that an image or alias sits 40 to 90 dB down,
-but any resampling still changes an ASR transcript slightly, so pass ASR models
-their native rate. To match the wire rate exactly
+but any resampling still changes an ASR transcript slightly (see the Parakeet
+note), so pass ASR models their native rate. To match the wire rate exactly
 with a reference tool, pre-convert:
 
 ```bash
@@ -119,4 +140,7 @@ to the offline script; the server resamples internally.
 
 Audio files are gitignored (large, re-fetchable). `audio/corpora/MANIFEST.md`
 records source, license/terms, format and overlap per file — keep it current
-when adding a corpus, including anything tried and rejected and why.
+when adding a corpus, including anything tried and rejected and why. A new
+evaluation corpus should get a DVC stage like the telephone ones: a fetch
+pinned to an immutable upstream revision, so `dvc.lock` proves the bytes, and
+the upstream licence and README kept next to the data.

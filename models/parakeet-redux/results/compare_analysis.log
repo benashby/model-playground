@@ -1,0 +1,22 @@
+=== word counts (raw whitespace words / normalised words)
+  input                   parakeet-redux    parakeet-tdt-0.6b-v3          parakeet-ultra
+  tool_call                        69/69                   69/69                   70/70
+  interruptions                    28/28                   28/28                   28/28
+  turn_taking                      20/20                   20/20                   20/20
+  q4ec1_ch0                      309/309                 336/337                 341/342
+  q1ec1_ch1                      342/348                 438/440                 425/428
+  ALL                            768/774                 891/894                 884/888
+
+=== pooled S/D/I per ordered pair (reference -> hypothesis), all inputs
+  parakeet-redux         -> parakeet-tdt-0.6b-v3   S=  68 D=   9 I= 129 over 774 ref words = 26.6%
+  parakeet-redux         -> parakeet-ultra         S=  69 D=  18 I= 132 over 774 ref words = 28.3%
+  parakeet-tdt-0.6b-v3   -> parakeet-redux         S=  68 D= 129 I=   9 over 894 ref words = 23.0%
+  parakeet-tdt-0.6b-v3   -> parakeet-ultra         S=  33 D=  49 I=  43 over 894 ref words = 14.0%
+  parakeet-ultra         -> parakeet-redux         S=  69 D= 132 I=  18 over 888 ref words = 24.7%
+  parakeet-ultra         -> parakeet-tdt-0.6b-v3   S=  33 D=  43 I=  49 over 888 ref words = 14.1%
+
+=== runs of >= 3 words present in base AND ultra, missing from redux
+  q1ec1_ch1: "of the mill"
+  q1ec1_ch1: "and continue up north slightly"
+  q1ec1_ch1: "going to turn immediately"
+  words in such runs: 12

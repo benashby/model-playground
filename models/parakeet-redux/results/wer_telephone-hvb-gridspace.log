@@ -1,0 +1,2 @@
+sherpa-onnx 1.13.8, model sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8, VAD silero_vad_v5.onnx, workers 1, limit None
+hvb/gridspace/none int8                 files 2892  WER   7.95 %  (S 5037, D 1102, I 4128, hits 123075)  HVB's own Gridspace ASR output, not this model

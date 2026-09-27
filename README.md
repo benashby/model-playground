@@ -20,6 +20,7 @@ The write-ups are what matter. The code is just how I got there.
 | Model | What it is | Why it was interesting |
 |---|---|---|
 | [**NemotronLabs VoiceChat 11B**](models/nemotron-voicechat-11b/) | Full-duplex speech-to-speech, 11B, NIM-served | The original subject. Tool calls under conversational pressure: what a model *does* while a tool is slow and you talk over it. |
+| [**Parakeet Redux**](models/parakeet-redux/) | Ternary-quantised ASR, CPU-class | A 2-bit-ish model that is genuinely usable, and a study of how streaming transcripts *revise themselves*. |
 | [**K2-Horizon-32B**](models/k2-horizon-32b/) | 32B dense reasoning LLM, vLLM | Deployment forensics: three separate ways a serving stack returns HTTP 200 while doing nothing you asked. |
 | [**Kokoro-82M**](models/kokoro-82m/) | 82M StyleTTS 2 / iSTFTNet TTS, CPU-class | Fast neural speech synthesis with Apache-2.0 licensing, ~40x to 80x real time on CPU, and embedded C++/Rust ONNX serving. |
 | [**Piper**](models/piper/) | Low-footprint VITS TTS, embedded/telephony | Lightweight local TTS with MIT licensing, native 16 kHz profile matching wideband VoIP, and high concurrency on commodity CPUs. |
@@ -41,6 +42,8 @@ Some of what's in them, so you know whether to open one:
   there are. The single "1.1 s" this README used to quote was the first of them.
 - It ships as F32 and runs as bf16, and neither is why it wants 80 GB: two
   environment variables preallocate 85% of the card regardless of model size.
+- Parakeet Redux runs an hour of audio in about 80 s on a desktop CPU, with
+  permissive weights and a licence-encumbered runtime.
 - K2's reasoning trace looked like it was generated, billed and discarded. It
   is returned in full, under `reasoning`; the probe had read `reasoning_content`.
 
@@ -103,6 +106,25 @@ export PLAYGROUND_HOST=<server>          # or pass --host
 Runs write a timestamped JSONL event log plus the captured agent audio into
 `logs/`. Wear headphones: the mic otherwise feeds the agent its own voice,
 which a full-duplex model hears as barge-in.
+
+## Linux and Windows
+
+Everything here was first measured on Linux. The Parakeet work also runs on
+native Windows, and its results were repeated there
+([running it on Windows](models/parakeet-redux/notes/14-windows.md)). On
+Windows, use Python 3.13 or later (earlier versions time asyncio in 15.625 ms
+steps there), and run Photon on an NVIDIA GPU:
+
+```powershell
+uv sync --extra asr-cuda --extra corpora
+$env:PHOTON_DEVICE = "cuda"
+uv run --extra asr-cuda python models/parakeet-redux/probes/step0.py
+uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --wav audio/tool_call.wav
+```
+
+The harness's microphone client, `playground.live`, uses PipeWire and still
+runs on Linux only. Each model's note says which platforms its results come
+from; so far only Parakeet has been run on Windows.
 
 ## Test audio
 

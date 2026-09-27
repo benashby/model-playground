@@ -1,0 +1,17 @@
+### 1. loud 20 kHz audio (peak 1.0), which used to raise
+  q5nc2.mix.wav ch0: OK, 824 words, input_gain=0.8
+  q3nc2.mix.wav ch1: OK, 602 words, input_gain=0.8
+  q2ec3.mix.wav ch0: OK, 807 words, input_gain=0.8
+
+### 2. quiet 24 kHz fixtures: no gain should be applied
+  tool_call.wav: 69 words, input_gain key present: False
+  interruptions.wav: 28 words, input_gain key present: False
+  turn_taking.wav: 20 words, input_gain key present: False
+
+### 3. streaming clock, caller channel, three runs each
+  interruptions.wav run 1: first_snapshot_s=4.01  client_open_s=1.42  snapshots=15
+  interruptions.wav run 2: first_snapshot_s=4.02  client_open_s=1.48  snapshots=15
+  interruptions.wav run 3: first_snapshot_s=4.02  client_open_s=1.39  snapshots=15
+  turn_taking.wav run 1: first_snapshot_s=4.00  client_open_s=1.52  snapshots=20
+  turn_taking.wav run 2: first_snapshot_s=4.00  client_open_s=1.44  snapshots=20
+  turn_taking.wav run 3: first_snapshot_s=4.01  client_open_s=1.55  snapshots=20

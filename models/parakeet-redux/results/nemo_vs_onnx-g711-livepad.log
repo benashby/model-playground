@@ -1,0 +1,7 @@
+# Offline Parakeet (ONNX fp32, RTX 3090 Ti), livepad segmentation (0.5 s silence, 0.25 s padding), G.711, first 12 channels
+== apptek-en-US_General_g711mu_livepad_first12
+onnx_fp32_cuda WER  10.84 %  (S 151, D 404, I 67, hits 5181)
+== apptek-en-IN_g711mu_livepad_first12
+onnx_fp32_cuda WER  12.67 %  (S 428, D 234, I 231, hits 6387)
+== apptek-en-GB_SCT_g711mu_livepad_first12
+onnx_fp32_cuda WER  16.65 %  (S 700, D 673, I 343, hits 8934)

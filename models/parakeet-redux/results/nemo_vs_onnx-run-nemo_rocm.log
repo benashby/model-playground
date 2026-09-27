@@ -1,0 +1,69 @@
+== apptek-en-GB_SCT_clean_bench 2026-09-25T18:56:49-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 2307 segments, 13.71 h in 682 s
+== apptek-en-GB_SCT_clean_bench_first12 2026-09-25T19:08:29-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 222 segments, 1.36 h in 77 s
+== apptek-en-GB_SCT_g711mu_bench_first12 2026-09-25T19:10:03-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 222 segments, 1.32 h in 71 s
+== apptek-en-GB_SCT_opus12_bench_first12 2026-09-25T19:11:33-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 219 segments, 1.32 h in 70 s
+== apptek-en-GB_SCT_opus12-loss10_bench_first12 2026-09-25T19:13:01-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 219 segments, 1.31 h in 77 s
+== apptek-en-GB_SCT_opus12-loss20_bench_first12 2026-09-25T19:14:37-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 219 segments, 1.31 h in 75 s
+== apptek-en-GB_SCT_opus12-loss5_bench_first12 2026-09-25T19:16:09-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 222 segments, 1.32 h in 75 s
+== apptek-en-IN_clean_bench 2026-09-25T19:17:43-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 2880 segments, 14.64 h in 733 s
+== apptek-en-IN_clean_bench_first12 2026-09-25T19:30:15-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 236 segments, 1.08 h in 59 s
+== apptek-en-IN_g711mu_bench_first12 2026-09-25T19:31:32-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 232 segments, 1.07 h in 60 s
+== apptek-en-IN_opus12_bench_first12 2026-09-25T19:32:49-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 230 segments, 1.06 h in 59 s
+== apptek-en-IN_opus12-loss10_bench_first12 2026-09-25T19:34:05-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 231 segments, 1.05 h in 59 s
+== apptek-en-IN_opus12-loss20_bench_first12 2026-09-25T19:35:21-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 232 segments, 1.04 h in 59 s
+== apptek-en-IN_opus12-loss5_bench_first12 2026-09-25T19:36:37-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 230 segments, 1.05 h in 59 s
+== apptek-en-US_General_bench_first8: done already
+== apptek-en-US_General_clean_bench: done already
+== apptek-en-US_General_clean_bench_first12 2026-09-25T19:37:53-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 175 segments, 0.77 h in 48 s
+== apptek-en-US_General_g711mu_bench_first12 2026-09-25T19:38:58-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 172 segments, 0.75 h in 44 s
+== apptek-en-US_General_opus12_bench_first12 2026-09-25T19:40:00-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 174 segments, 0.73 h in 43 s
+== apptek-en-US_General_opus12-loss10_bench_first12 2026-09-25T19:41:00-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 175 segments, 0.73 h in 47 s
+== apptek-en-US_General_opus12-loss20_bench_first12 2026-09-25T19:42:05-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 171 segments, 0.73 h in 42 s
+== apptek-en-US_General_opus12-loss5_bench_first12 2026-09-25T19:43:04-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 173 segments, 0.73 h in 43 s
+== hvb_clean_bench 2026-09-25T19:44:04-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 6528 segments, 27.48 h in 1358 s
+== hvb_clean_livepad 2026-09-25T20:07:01-06:00
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': False}
+nemo_rocm: 16780 segments, 11.82 h in 1248 s
+ALL DONE rocm 2026-09-25T20:28:06-06:00

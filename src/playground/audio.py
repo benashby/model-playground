@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import math
+import sys
 import time
 from collections.abc import AsyncIterator
 from pathlib import Path
@@ -12,6 +13,23 @@ import numpy as np
 import soundfile as sf
 
 from .protocol import CHUNK_MS, WIRE_RATE
+
+if sys.platform == "win32":
+    # Two clocks decide whether the pacer, and every latency a probe measures, can be
+    # trusted on Windows. The scheduler: Windows' default timer resolution is about
+    # 15.6 ms, so sleeps overshoot by up to that much; ask for 1 ms for this process
+    # (per-process since Windows 10 2004). The reading: before Python 3.13,
+    # time.monotonic() on Windows is GetTickCount64 and only advances every
+    # 15.625 ms, and asyncio's clock is time.monotonic(), so deadlines and measured
+    # latencies are quantised to that step. 3.13 moved it to QueryPerformanceCounter.
+    import ctypes
+
+    ctypes.WinDLL("winmm").timeBeginPeriod(1)
+    if time.get_clock_info("monotonic").resolution > 0.001:
+        print(f"WARNING: time.monotonic() resolution is "
+              f"{time.get_clock_info('monotonic').resolution * 1000:.1f} ms on this Python "
+              f"({sys.version.split()[0]}); pacing and latency figures are quantised to it. "
+              f"Use Python 3.13 or later on Windows.", file=sys.stderr, flush=True)
 
 
 def load_channel(path: Path, channel: int | None = None) -> tuple[np.ndarray, int]:

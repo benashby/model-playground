@@ -1,0 +1,104 @@
+# The Windows side of the repository, on the self-hosted Windows GPU runner:
+# portability checks that need no models, then a short real run of each GPU
+# path against the machine's read-only data cache.
+#
+# The runner's environment (not this file) points at the cache: CI_DATA,
+# SHERPA_MODELS, HF_HUB_CACHE with HF_HUB_OFFLINE=1, CUDA_PATH, and
+# GSTREAMER_1_0_ROOT_MSVC_X86_64. Timing figures from CI are not results: the
+# machine does other work. Fork pull requests wait for approval.
+name: windows-gpu
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-gpu-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  SHERPA_CUDA_WHEEL: https://huggingface.co/csukuangfj2/sherpa-onnx-wheels/resolve/main/cuda/1.13.8/sherpa_onnx-1.13.8+cuda12.cudnn9-cp313-cp313-win_amd64.whl
+
+jobs:
+  windows-gpu:
+    # Capabilities, not a machine name: CUDA 12 for sherpa-onnx's GPU wheel,
+    # and the read-only models/corpora cache.
+    runs-on: [self-hosted, Windows, X64, gpu, cuda-12, ci-data]
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Machine
+        run: |
+          nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
+
+      - name: Environment (Python 3.13, CUDA torch for Photon)
+        run: uv sync -p 3.13 --extra asr-cuda --extra dev
+
+      - name: Machine load
+        # The runner account cannot read performance counters or WMI's load figure;
+        # clocks.py uses GetSystemTimes, which needs no rights.
+        working-directory: models/parakeet-redux/probes
+        run: uv run python -c "import clocks; print(clocks.machine_load())"
+
+      - name: Every file compiles
+        run: uv run python -m compileall -q src models .claude
+
+      - name: textnorm self-test
+        run: uv run python models/parakeet-redux/probes/textnorm.py
+
+      - name: Analysis probes reproduce their committed logs byte for byte
+        run: |
+          $probes = @{ stream_analysis = 'stream_analysis'; channel_speed = 'channel_speed';
+                       compare_analysis = 'compare_analysis'; timing_summary = 'nemo_vs_onnx-timing' }
+          $bad = 0
+          foreach ($p in $probes.Keys) {
+            $out = (uv run python "models/parakeet-redux/probes/$p.py" | Out-String).Replace("`r`n", "`n").Trim()
+            $ref = (Get-Content -Raw "models/parakeet-redux/results/$($probes[$p]).log").Replace("`r`n", "`n").Trim()
+            if ($out -ceq $ref) { "identical: $p" } else { "DIFFERS: $p"; $bad++ }
+          }
+          exit $bad
+
+      - name: hostinfo on Windows
+        working-directory: models/parakeet-redux/probes
+        run: uv run python -c "import hostinfo as h; print(h.cpu_model(), h.usable_cpus(), h.rss_mb()); assert h.usable_cpus() and h.rss_mb()[0] > 0"
+
+      - name: Clocks (report only)
+        run: uv run python models/parakeet-redux/probes/clocks.py
+
+      - name: Link the read-only data cache into the checkout
+        run: |
+          foreach ($f in 'tool_call.wav', 'interruptions.wav', 'turn_taking.wav') { Copy-Item "$env:CI_DATA\audio\$f" audio\ }
+          foreach ($c in 'apptek', 'harper_valley', 'maptask') {
+            New-Item -ItemType Junction -Path "audio\corpora\$c" -Target "$env:CI_DATA\audio\corpora\$c" | Out-Null
+          }
+          Get-ChildItem audio, audio\corpora | Select-Object -ExpandProperty FullName
+
+      - name: sherpa-onnx on the CPU (Silero VAD, byte-identical to the committed log)
+        run: |
+          $out = (uv run --with sherpa-onnx python models/parakeet-redux/probes/speech_density.py | Out-String).Replace("`r`n", "`n").Trim()
+          $ref = (Get-Content -Raw models/parakeet-redux/results/speech_density.log).Replace("`r`n", "`n").Trim()
+          if ($out -ceq $ref) { "identical" } else { $out; exit 1 }
+
+      - name: sherpa-onnx fp32 on the GPU, two AppTek channels
+        env:
+          PARAKEET_PRECISION: fp32
+          PARAKEET_PROVIDER: cuda
+        run: >
+          uv run --with $env:SHERPA_CUDA_WHEEL --with jiwer --with openai-whisper==20250625
+          python models/parakeet-redux/probes/wer_telephone.py apptek:en-US_General/clean/livepad --limit 2 --workers 1
+
+      - name: Photon (Parakeet Redux) on the GPU
+        env:
+          PHOTON_DEVICE: cuda
+        run: uv run --extra asr-cuda python models/parakeet-redux/probes/step0.py

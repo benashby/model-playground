@@ -1,0 +1,97 @@
+== apptek-en-GB_SCT_clean_bench nemo_cuda_graphs 2026-09-25T18:46:18-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 2307 segments, 13.71 h in 124 s
+== apptek-en-GB_SCT_clean_bench_first12 nemo_cuda_graphs 2026-09-25T18:52:38-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 222 segments, 1.36 h in 14 s
+== apptek-en-GB_SCT_g711mu_bench_first12 nemo_cuda_graphs 2026-09-25T18:53:20-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 222 segments, 1.32 h in 14 s
+== apptek-en-GB_SCT_opus12_bench_first12 nemo_cuda_graphs 2026-09-25T18:54:00-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 219 segments, 1.32 h in 13 s
+== apptek-en-GB_SCT_opus12-loss10_bench_first12 nemo_cuda_graphs 2026-09-25T18:54:39-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 219 segments, 1.31 h in 14 s
+== apptek-en-GB_SCT_opus12-loss20_bench_first12 nemo_cuda_graphs 2026-09-25T18:55:18-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 219 segments, 1.31 h in 14 s
+== apptek-en-GB_SCT_opus12-loss5_bench_first12 nemo_cuda_graphs 2026-09-25T18:55:58-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 222 segments, 1.32 h in 14 s
+== apptek-en-IN_clean_bench nemo_cuda_graphs 2026-09-25T18:56:38-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 2880 segments, 14.64 h in 140 s
+== apptek-en-IN_clean_bench_first12 nemo_cuda_graphs 2026-09-25T18:59:23-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 236 segments, 1.08 h in 18 s
+== apptek-en-IN_g711mu_bench_first12 nemo_cuda_graphs 2026-09-25T19:00:19-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 232 segments, 1.07 h in 17 s
+== apptek-en-IN_opus12_bench_first12 nemo_cuda_graphs 2026-09-25T19:01:16-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 230 segments, 1.06 h in 17 s
+== apptek-en-IN_opus12-loss10_bench_first12 nemo_cuda_graphs 2026-09-25T19:02:13-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 231 segments, 1.05 h in 17 s
+== apptek-en-IN_opus12-loss20_bench_first12 nemo_cuda_graphs 2026-09-25T19:03:11-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 232 segments, 1.04 h in 17 s
+== apptek-en-IN_opus12-loss5_bench_first12 nemo_cuda_graphs 2026-09-25T19:04:08-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 230 segments, 1.05 h in 17 s
+== apptek-en-US_General_bench_first8 nemo_cuda_graphs 2026-09-25T19:05:05-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 102 segments, 0.45 h in 8 s
+== apptek-en-US_General_clean_bench nemo_cuda_graphs 2026-09-25T19:05:55-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 2367 segments, 11.95 h in 160 s
+== apptek-en-US_General_clean_bench_first12 nemo_cuda_graphs 2026-09-25T19:09:18-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 175 segments, 0.77 h in 14 s
+== apptek-en-US_General_g711mu_bench_first12 nemo_cuda_graphs 2026-09-25T19:10:19-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 172 segments, 0.75 h in 15 s
+== apptek-en-US_General_opus12_bench_first12 nemo_cuda_graphs 2026-09-25T19:11:17-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 174 segments, 0.73 h in 14 s
+== apptek-en-US_General_opus12-loss10_bench_first12 nemo_cuda_graphs 2026-09-25T19:12:10-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 175 segments, 0.73 h in 14 s
+== apptek-en-US_General_opus12-loss20_bench_first12 nemo_cuda_graphs 2026-09-25T19:13:04-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 171 segments, 0.73 h in 14 s
+== apptek-en-US_General_opus12-loss5_bench_first12 nemo_cuda_graphs 2026-09-25T19:14:02-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 173 segments, 0.73 h in 14 s
+== hvb_clean_bench nemo_cuda_graphs 2026-09-25T19:14:56-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 6528 segments, 27.48 h in 378 s
+== hvb_clean_livepad nemo_cuda_graphs 2026-09-25T19:21:54-06:00
+    lang_tag_pattern: null
+decoding strategy: greedy_batch, greedy: {'max_symbols': 10, 'use_cuda_graph_decoder': True}
+nemo_cuda_graphs: 16780 segments, 11.82 h in 817 s
+ALL DONE nemo_cuda_graphs 2026-09-25T19:36:15-06:00

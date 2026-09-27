@@ -1,0 +1,19 @@
+input: channel 0 of 11 Map Task files concatenated, 5482.3 s = 91.4 min at 20000 Hz
+
+peak |sample| before gain: 1.0000; after gain 0.5: 0.5000
+unscaled long file: ValueError: PCM must contain finite samples in [-1, 1]
+temporary WAV: 219.3 MB
+
+### single call on the whole file (n=1)
+  wall 133.2 s  RTF 41.2x
+  result duration_seconds=5482.29805 source_duration_seconds=5482.29805
+  segments: 902; length min/med/max 0.24/2.80/28.96 s; over 30 s: 0
+  starts monotonic: True; first start 0.00 s; last end 5481.40 s of 5482.3 s
+  largest gap between consecutive segments: 24.4 s
+  words: 10377
+  peak RSS of this process so far: 3151 MB
+
+### per-file transcription of the same eleven channels, concatenated
+  wall 132.2 s  RTF 41.5x  words 10389
+  long-form vs per-file: 858 word diffs / 10406 words = 8.25% (S=481 D=193 I=184)
+  peak RSS of this process: 6356 MB

@@ -1,0 +1,14 @@
+# nemo_vs_onnx.py on Windows 10 Pro 19045: NVIDIA GTX 1650 4 GB (Turing), driver 617.14; Intel i7-9700 (8C/8T, no AVX-512).
+# ONNX: sherpa-onnx 1.13.8+cuda12.cudnn9 (win_amd64 wheel), CUDA 12.9 + cuDNN 9.26 installed machine-wide, fp32 export, 2 workers.
+# NeMo: nemo_toolkit[asr] 3.0.0, torch 2.14.0+cu130 (no cu128 build of 2.14 exists), CUDA-graph decoder, batch 1.
+# Scored with AppTek's score.py (openai-whisper 20250625 normaliser). Segments cut by `cut` on this machine, float32 WAV.
+# The same two tags on an RTX 3090 Ti (Linux), for comparison, are in nemo_vs_onnx-latency-sweep.log (clean livepad)
+# and nemo_vs_onnx-g711-livepad.log. Wall times were taken with other work on the machine and are not throughput figures.
+== apptek-en-US_General_clean_livepad_first12 (411 segments)
+onnx_fp32_cuda: 411 segments, 0.58 h in 204 s with 2 workers
+nemo_cuda_graphs: 411 segments, 0.58 h in 81 s
+nemo_cuda_graphs WER   8.00 %  (S 134, D 251, I 74, hits 5351)
+onnx_fp32_cuda WER   8.00 %  (S 132, D 260, I 67, hits 5344)
+== apptek-en-US_General_g711mu_livepad_first12 (416 segments)
+onnx_fp32_cuda: 416 segments, 0.56 h in 184 s with 2 workers
+onnx_fp32_cuda WER  10.86 %  (S 153, D 403, I 67, hits 5180)

@@ -1,0 +1,36 @@
+
+### A. synthetic pulse, array input: rows = peak, columns = sample rate
+  peak      16000    20000    24000    44100    48000
+  0.50         OK       OK       OK       OK       OK
+  0.70         OK       OK       OK       OK       OK
+  0.80         OK       OK       OK       OK       OK
+  0.90         OK       OK       OK       OK       OK
+  0.95         OK       OK ValueErr ValueErr ValueErr
+  0.99         OK ValueErr ValueErr ValueErr ValueErr
+  1.00         OK ValueErr ValueErr ValueErr ValueErr
+
+### B. real audio: Map Task q5nc2 channel 0
+  497.4 s at 20000 Hz, peak |x| = 1.00000
+  array, gain 1.00: ValueError: PCM must contain finite samples in [-1, 1]
+  array, gain 0.99: ValueError: PCM must contain finite samples in [-1, 1]
+  array, gain 0.95: ValueError: PCM must contain finite samples in [-1, 1]
+  array, gain 0.90: ValueError: PCM must contain finite samples in [-1, 1]
+  array, gain 0.80: OK (824 words)
+  array, gain 0.50: OK (819 words)
+  16-bit WAV path, gain 1.00: ValueError: PCM must contain finite samples in [-1, 1]
+
+### C. peak |sample| per input channel
+  q1ec1.mix.wav        20000 Hz  ch0=0.8032 ch1=0.2198
+  q1ec2.mix.wav        20000 Hz  ch0=0.4608 ch1=0.9733
+  q1nc1.mix.wav        20000 Hz  ch0=0.8302 ch1=0.9338
+  q2ec3.mix.wav        20000 Hz  ch0=1.0000 ch1=0.8544
+  q2nc4.mix.wav        20000 Hz  ch0=0.6118 ch1=0.1890
+  q3ec1.mix.wav        20000 Hz  ch0=0.9510 ch1=0.7321
+  q3nc2.mix.wav        20000 Hz  ch0=1.0000 ch1=1.0000
+  q4ec1.mix.wav        20000 Hz  ch0=0.3810 ch1=0.3140
+  q4nc3.mix.wav        20000 Hz  ch0=1.0000 ch1=1.0000
+  q5ec1.mix.wav        20000 Hz  ch0=0.7249 ch1=0.6344
+  q5nc2.mix.wav        20000 Hz  ch0=1.0000 ch1=1.0000
+  tool_call.wav        24000 Hz  ch0=0.2379 ch1=0.2323
+  interruptions.wav    24000 Hz  ch0=0.5922 ch1=0.1315
+  turn_taking.wav      24000 Hz  ch0=0.3704 ch1=0.1665

@@ -1,0 +1,98 @@
+moondream 2.4.1, kestrel 0.8.1
+
+### A. md.photon_models()
+  33 models registered
+  Qwen/Qwen3-ASR-0.6B
+  Qwen/Qwen3-ASR-1.7B
+  Qwen/Qwen3-ForcedAligner-0.6B-hf
+  Qwen/Qwen3.5-0.8B
+  Qwen/Qwen3.5-0.8B-Base
+  Qwen/Qwen3.5-27B
+  Qwen/Qwen3.5-2B
+  Qwen/Qwen3.5-2B-Base
+  Qwen/Qwen3.5-35B-A3B
+  Qwen/Qwen3.5-35B-A3B-Base
+  Qwen/Qwen3.5-4B
+  Qwen/Qwen3.5-4B-Base
+  Qwen/Qwen3.5-9B
+  Qwen/Qwen3.5-9B-Base
+  Qwen/Qwen3.6-27B
+  Qwen/Qwen3.6-27B-FP8
+  Qwen/Qwen3.6-35B-A3B
+  Qwen/Qwen3.6-35B-A3B-FP8
+  google/gemma-4-26B-A4B
+  google/gemma-4-26B-A4B-it
+  google/gemma-4-31B
+  google/gemma-4-31B-it
+  google/gemma-4-E2B
+  google/gemma-4-E2B-it
+  google/gemma-4-E4B
+  google/gemma-4-E4B-it
+  moondream/parakeet-redux
+  moondream/parakeet-ultra
+  moondream2
+  moondream3-preview
+  moondream3.1-9B-A2B
+  nvidia/parakeet-tdt-0.6b-v3
+  openai/whisper-large-v3-turbo
+  speech models (name contains parakeet/whisper/asr): ['Qwen/Qwen3-ASR-0.6B', 'Qwen/Qwen3-ASR-1.7B', 'moondream/parakeet-redux', 'moondream/parakeet-ultra', 'nvidia/parakeet-tdt-0.6b-v3', 'openai/whisper-large-v3-turbo']
+
+fixture: interruptions.wav, 30.0 s, 24000 Hz, 2 channels
+
+
+### B. top-level result keys (timestamps='segment', caller channel)
+  type(result) = dict
+  text                       str      'What is a hurricane? Never mind, what is a tornado? Is a hurricane a ...
+  language                   NoneType None
+  task                       str      'transcribe'
+  duration_seconds           float    30.04
+  source_duration_seconds    float    30.04
+  clip_start_seconds         float    0.0
+  clip_end_seconds           float    30.04
+  segments                   list (len 5)
+
+### C. entry shapes per timestamps mode
+  none      segments=0
+  segment   segments=5 segment_keys=['end', 'start', 'text']
+            first segment: start=0.64 end=2.24 text='What is a hurricane?'
+  word      segments=5 segment_keys=['end', 'start', 'text', 'words']
+            first segment: start=0.64 end=2.24 text='What is a hurricane?'
+            word_keys=['end', 'start', 'word'] first word={'word': 'What', 'start': 0.64, 'end': 0.96}
+  character segments=2 segment_keys=['characters', 'end', 'start', 'text']
+            first segment: start=0.64 end=19.84 text='What is a hurricane? Never mind, what is a tornad...
+            character_keys=['character', 'end', 'start'] first char={'character': 'W', 'start': 0.64, 'end': 0.8} n_chars_in_seg0=41
+
+### D. parameters the docs say Parakeet rejects
+  language='en'                      ValueError: Parakeet TDT v3 detects language automatically and does not support language forcing
+  initial_prompt='hurricane'         ValueError: Parakeet TDT does not support an initial prompt
+  task='translate'                   ValueError: Parakeet TDT does not support speech translation
+  task='transcribe'                  ACCEPTED (no exception)
+  temperature=0.0                    ValueError: Unsupported transcribe option(s): temperature
+  top_p=0.9                          ValueError: Unsupported transcribe option(s): top_p
+  condition_on_previous_text=False   ValueError: Parakeet TDT does not support cross-window text conditioning
+  settings={'temperature': 0.0}      ACCEPTED (no exception)
+
+### E. stereo path passed directly vs per-channel
+  path (stereo file): What is a hurricane? A hurricane is a powerful tropical storm with strong wind. Never mind, what is a tornado? A tornado is a rapidly rotating column of air that is Is a hurricane a cyclone? Yes, a hurricane is a type of cyclone. Where can I find hurricanes? Hurricanes usually form in the warm Can I find it in the Pacific Ocean? Yes, you can find hurricanes in the Pacific Ocean.
+  channel 0 only    : What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?
+  channel 1 only    : A hurricane is a powerful tropical storm with strong winds and heavy rain. A tornado is a rapidly rotating column of air that is in contact with the yes, a hurricane is a type of cyclone. Hurricanes usually form in the warm tropical ocean. Yes, you can find hurricanes in the Pacific Ocean.
+  our own mean(ch0,ch1) as PCM identical to path result: True
+  words: path=72 ch0=28 ch1=53
+  WER(path vs ch0 as reference) = 157.1%
+  WER(path vs ch1 as reference) = 52.8%
+
+### F. streaming through Photon directly
+  type(atranscribe(..., stream=True)) = PhotonStream
+  updates received: 15
+  type(update) = dict, keys = ['clip_end_seconds', 'clip_start_seconds', 'completed_seconds', 'duration_seconds', 'language', 'provisional', 'segments', 'source_duration_seconds', 'task', 'text', 'total_seconds']
+  type(aresult()) = dict, keys = ['clip_end_seconds', 'clip_start_seconds', 'duration_seconds', 'language', 'segments', 'source_duration_seconds', 'task', 'text']
+  aresult()['text'] == batch ch0 text: True
+
+### H. a path that is a symlink to the fixture
+  symlinked path: ValueError: could not open encoded audio file "<tmp>/link.wav": Too many levels of symbolic links (os error 40)
+
+### G. playground.asr.StreamResult
+  field final: dict[str, Any]
+  field snapshots: list[tuple[float, str]]
+  field audio_seconds: float
+  property first_snapshot_s

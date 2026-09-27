@@ -1,0 +1,24 @@
+
+=== tool_call
+  parakeet  (ref): Hello! Can you generate a random number between 1 and 50? Okay, great, I think that's how much money I'm gonna take with me to Paris. Can you convert that to euros, please? Okay, thank you. Um can you tell me what the weather is like over there? Great, thanks. Uh could you let me know how I should dress? What should I wear? Great, that's helpful. Thank you.
+  voicechat (hyp): o can you generate a random number between one and fifty? great. I think that's how much money I'm gonna take with me to Paris. Can you convert that to Euros please? okay thank you um can you tell me about the weather is like over there great thanks. Could you let me know how I should dress, what should I wear great, that's helpful. Thank you
+  normalised ref : hello can you generate a random number between 1 and 50 okay great i think that's how much money i'm gonna take with me to paris can you convert that to euros please okay thank you um can you tell me what the weather is like over there great thanks uh could you let me know how i should dress what should i wear great that's helpful thank you
+  normalised hyp : o can you generate a random number between 1 and 50 great i think that's how much money i'm gonna take with me to paris can you convert that to euros please okay thank you um can you tell me about the weather is like over there great thanks could you let me know how i should dress what should i wear great that's helpful thank you
+  OLD normaliser : WER 5.8% over 69 ref words
+  NEW, fillers kept   : WER 5.8% = 4 errors (S=2 D=2 I=0) over 69 ref words
+      @0 S 'hello'->'o'
+      @11 D 'okay'
+      @41 S 'what'->'about'
+      @50 D 'uh'
+  NEW, fillers removed: WER 4.5% = 3 errors (S=2 D=1 I=0) over 67 ref words
+      @0 S 'hello'->'o'
+      @11 D 'okay'
+      @40 S 'what'->'about'
+=== interruptions
+  parakeet  (ref): What is a hurricane? Never mind, what is a tornado? Is a hurricane a cyclone? Where can I find hurricanes? Can I find it in the Pacific Ocean?
+  voicechat (hyp): what is a hurricane never mind what is a tornado is a hurricane a cyclone where can I find hurricanes can I find it in the Pacific Ocean
+  normalised ref : what is a hurricane never mind what is a tornado is a hurricane a cyclone where can i find hurricanes can i find it in the pacific ocean
+  normalised hyp : what is a hurricane never mind what is a tornado is a hurricane a cyclone where can i find hurricanes can i find it in the pacific ocean
+  OLD normaliser : WER 0.0% over 28 ref words
+  NEW, fillers kept   : WER 0.0% = 0 errors (S=0 D=0 I=0) over 28 ref words
+  NEW, fillers removed: WER 0.0% = 0 errors (S=0 D=0 I=0) over 28 ref words
