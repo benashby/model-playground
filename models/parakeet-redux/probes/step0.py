@@ -9,6 +9,7 @@ Run from the repo root:
     uv run --extra asr python models/parakeet-redux/probes/step0.py
 """
 import time, numpy as np, soundfile as sf, moondream as md
+from hostinfo import photon_device  # noqa: E402
 
 WAV = "audio/tool_call.wav"  # run from the repo root
 data, rate = sf.read(WAV, dtype="float32", always_2d=True)
@@ -17,7 +18,7 @@ dur = len(ch0) / rate
 print(f"audio: {dur:.1f}s @ {rate} Hz, channel 0 of {data.shape[1]}")
 
 t0 = time.monotonic()
-speech = md.photon("moondream/parakeet-redux", device="cpu")
+speech = md.photon("moondream/parakeet-redux", device=photon_device())
 t_load = time.monotonic() - t0
 print(f"cold start (load+compile): {t_load:.1f}s")
 

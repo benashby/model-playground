@@ -25,10 +25,28 @@ provides GstApp), plus
 parakeet_onnx.py and its MODEL_DIR / VAD_MODEL environment variables.
 """
 
+import os
+import signal
 import sys
 
-import gi
-import numpy as np
+# Windows: GStreamer's MSVC installer ships PyGObject in its own lib/site-packages.
+# Its bin directory is needed twice over: Python does not search PATH for an
+# extension module's DLLs (add_dll_directory), and GObject Introspection loads the
+# libraries a typelib names through the ordinary search, which ignores
+# add_dll_directory and does use PATH.
+_GST_ROOT = os.environ.get("GSTREAMER_1_0_ROOT_MSVC_X86_64")
+if sys.platform == "win32" and _GST_ROOT:
+    _bin = os.path.join(_GST_ROOT, "bin")
+    os.add_dll_directory(_bin)
+    os.environ["PATH"] = _bin + os.pathsep + os.environ.get("PATH", "")
+    sys.path.append(os.path.join(_GST_ROOT, "lib", "site-packages"))
+# Windows cannot send SIGINT to a process in the background; Ctrl+Break is the
+# signal it can send to a process group, so treat it the same way as Ctrl+C.
+if hasattr(signal, "SIGBREAK"):
+    signal.signal(signal.SIGBREAK, signal.default_int_handler)
+
+import gi  # noqa: E402
+import numpy as np  # noqa: E402
 
 gi.require_version("Gst", "1.0")
 gi.require_version("GstApp", "1.0")

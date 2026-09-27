@@ -47,6 +47,7 @@ import moondream as md  # noqa: E402
 from playground.audio import _resample, load_channel, load_pcm16  # noqa: E402
 from playground.protocol import WIRE_RATE  # noqa: E402
 from textnorm import errors_only, wer  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 INPUTS = [
     ("audio/tool_call.wav", 0),
@@ -71,7 +72,7 @@ def show(label, r, limit=12):
 
 
 totals: dict[tuple[str, str], list[int]] = {}
-with md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     sp.transcribe(audio=np.zeros(16000, dtype=np.float32), sample_rate=16000)
     print(f"WIRE_RATE = {WIRE_RATE}")
     for path, ch in INPUTS:

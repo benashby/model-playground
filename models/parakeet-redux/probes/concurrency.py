@@ -45,6 +45,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from playground.asr import _headroom, _photon  # noqa: E402
 from playground.audio import load_channel, paced_windows  # noqa: E402
+from hostinfo import photon_device, usable_cpus  # noqa: E402
 
 # Fixture: argv[1:] = path channel [start_s duration_s] [levels,comma,separated].
 ARGS = sys.argv[1:]
@@ -163,7 +164,7 @@ async def main():
     samples, gain = _headroom(samples, rate)
     samples = np.ascontiguousarray(samples, dtype=np.float32)
     out(f"fixture: {FIXTURE.name} ch{CHANNEL} from {START_S:.1f} s, {len(samples) / rate:.1f} s at {rate} Hz, gain {gain:.3f}")
-    out(f"cpu: os.cpu_count()={os.cpu_count()}, affinity={len(os.sched_getaffinity(0))}")
+    out(f"cpu: os.cpu_count()={os.cpu_count()}, affinity={len(usable_cpus())}")
     try:
         import torch
         out(f"torch threads: {torch.get_num_threads()}, "
@@ -173,7 +174,7 @@ async def main():
     out(f"levels: {LEVELS}, stagger {STAGGER_S} s, heartbeat {HEARTBEAT_S * 1000:.0f} ms")
 
     t = time.monotonic()
-    with _photon("moondream/parakeet-redux", "cpu") as speech:
+    with _photon("moondream/parakeet-redux", photon_device()) as speech:
         out(f"client open: {time.monotonic() - t:.2f} s")
         out("warmup: 1 stream, discarded")
         warm, *_ = await level(speech, samples, rate, 1)

@@ -27,12 +27,13 @@ sys.path.insert(0, "src")
 import moondream as md  # noqa: E402
 
 from playground.audio import load_channel  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 FIXTURES = ["tool_call", "interruptions", "turn_taking"]
 MODES = ["none", "segment", "word", "character"]
 ROUNDS = 6  # round 0 discarded
 
-with md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     import numpy as np
 
     sp.transcribe(audio=np.zeros(16000, dtype=np.float32), sample_rate=16000)

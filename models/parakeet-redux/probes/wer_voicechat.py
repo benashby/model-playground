@@ -39,6 +39,7 @@ import moondream as md  # noqa: E402
 
 from playground.audio import load_channel  # noqa: E402
 from textnorm import errors_only, normalise, wer  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 RESULTS = Path("models/parakeet-redux/results")
 
@@ -65,11 +66,11 @@ def old_wer(ref, hyp):  # verbatim from the previous pk_exp.py
     return d[len(r), len(h)] / len(r), len(r)
 
 
-with md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     for stem in ["tool_call", "interruptions"]:
         x, rate = load_channel(Path(f"audio/{stem}.wav"), 0)
         ref = sp.transcribe(audio=x, sample_rate=rate, timestamps="none")["text"]
-        lines = (RESULTS / f"voicechat-{stem}.jsonl").read_text().splitlines()
+        lines = (RESULTS / f"voicechat-{stem}.jsonl").read_text(encoding="utf-8").splitlines()
         said = [json.loads(ln).get("text", "") for ln in lines if '"caller.said"' in ln]
         hyp = " ".join(s for s in said if s)
 

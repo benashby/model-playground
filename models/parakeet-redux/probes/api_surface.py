@@ -40,6 +40,7 @@ import moondream as md
 
 sys.path.insert(0, str(Path(__file__).parent))
 from textnorm import wer  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 WAV = Path("audio/interruptions.wav")
 MODEL = "moondream/parakeet-redux"
@@ -65,7 +66,7 @@ ch0 = np.ascontiguousarray(data[:, 0])
 ch1 = np.ascontiguousarray(data[:, 1])
 print(f"\nfixture: {WAV.name}, {data.shape[0] / rate:.1f} s, {rate} Hz, {data.shape[1]} channels")
 
-with md.photon(MODEL, device="cpu") as speech:
+with md.photon(MODEL, device=photon_device()) as speech:
     print("\n### B. top-level result keys (timestamps='segment', caller channel)")
     r = speech.transcribe(audio=ch0, sample_rate=rate, timestamps="segment")
     print(f"  type(result) = {type(r).__name__}")
@@ -161,13 +162,19 @@ with md.photon(MODEL, device="cpu") as speech:
 
     with tempfile.TemporaryDirectory() as tmp:
         link = Path(tmp) / "link.wav"
-        os.symlink(WAV.resolve(), link)
         try:
-            speech.transcribe(audio=str(link), timestamps="none")
-            print("  symlinked path: accepted")
-        except Exception as e:  # noqa: BLE001
-            msg = str(e).replace(str(link), "<tmp>/link.wav")
-            print(f"  symlinked path: {type(e).__name__}: {msg}")
+            os.symlink(WAV.resolve(), link)
+        except OSError as e:  # Windows: needs Developer Mode or admin (WinError 1314)
+            print(f"  symlinked path: not tested, could not create a symlink ({e.strerror})")
+        else:
+            try:
+                speech.transcribe(audio=str(link), timestamps="none")
+                print("  symlinked path: accepted")
+            except Exception as e:  # noqa: BLE001
+                # Windows paths can appear escaped (C:\\Users\\...) in the message; redact both forms.
+                msg = str(e).replace(str(link).replace("\\", "\\\\"), "<tmp>/link.wav")
+                msg = msg.replace(str(link), "<tmp>/link.wav")
+                print(f"  symlinked path: {type(e).__name__}: {msg}")
 
     print("\n### G. playground.asr.StreamResult")
     sys.path.insert(0, "src")

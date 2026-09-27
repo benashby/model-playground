@@ -52,7 +52,7 @@ def bare(w: str) -> str:
 
 
 def load(path: Path):
-    ev = [json.loads(ln) for ln in path.read_text().splitlines()]
+    ev = [json.loads(ln) for ln in path.read_text(encoding="utf-8").splitlines()]
     snaps = [(e["since_audio"], e["text"]) for e in ev if e["kind"] == "asr.snapshot"]
     final = [e for e in ev if e["kind"] == "asr.final"][0]["text"]
     return snaps, final

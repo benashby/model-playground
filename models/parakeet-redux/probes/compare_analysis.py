@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from textnorm import align, normalise, wer  # noqa: E402
 
 LOG = Path("models/parakeet-redux/results/compare_models.log")
-text = LOG.read_text()
+text = LOG.read_text(encoding="utf-8")
 section = text.split("=== transcripts", 1)[1].split("=== pairwise", 1)[0]
 texts: dict[str, dict[str, str]] = {}
 cur = None

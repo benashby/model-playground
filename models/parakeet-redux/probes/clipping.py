@@ -34,6 +34,7 @@ sys.path.insert(0, "src")
 import moondream as md  # noqa: E402
 
 from playground.audio import load_channel  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 PEAKS = [0.5, 0.7, 0.8, 0.9, 0.95, 0.99, 1.0]
 RATES = [16000, 20000, 24000, 44100, 48000]
@@ -47,7 +48,7 @@ def attempt(sp, **kw) -> str:
         return f"{type(e).__name__}: {e}"
 
 
-with md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     print("### A. synthetic pulse, array input: rows = peak, columns = sample rate")
     print("  peak  " + "".join(f"{r:>9d}" for r in RATES))
     for peak in PEAKS:

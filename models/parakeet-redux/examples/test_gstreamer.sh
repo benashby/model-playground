@@ -7,6 +7,7 @@
 # at /ex, a 16 kHz mono test WAV at /t/clip90.wav, the models at /models and an
 # output directory at /out. The committed log was made from the first 90 s of
 # AppTek en_US_General_Agriculture_1586590_channel1.wav.
+# test_gstreamer.py runs the same six tests without a container, on Linux or Windows.
 export MODEL_DIR=/models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v3 VAD_MODEL=/models/silero_vad_v5.onnx MODELS_DIR=/models
 cd /ex
 CAPS='caps=application/x-rtp,media=audio,clock-rate=8000,encoding-name=PCMU,payload=0'

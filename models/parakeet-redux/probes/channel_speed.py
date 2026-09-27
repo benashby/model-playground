@@ -22,7 +22,7 @@ from pathlib import Path
 LOG = Path("models/parakeet-redux/results/pk_exp.log")
 row = re.compile(r"^\s+(\w+)\s+ch(\d)\s+([\d.]+)s\s+RTF\s+([\d.]+)/\s*([\d.]+)/\s*([\d.]+)")
 med: dict[tuple[str, int], float] = {}
-for line in LOG.read_text().splitlines():
+for line in LOG.read_text(encoding="utf-8").splitlines():
     m = row.match(line)
     if m:
         med[(m.group(1), int(m.group(2)))] = float(m.group(5))

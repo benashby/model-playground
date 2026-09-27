@@ -48,6 +48,7 @@ import moondream as md  # noqa: E402
 
 from playground.audio import load_channel  # noqa: E402
 from textnorm import errors_only, wer  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 print = functools.partial(print, flush=True)  # noqa: A001
 
@@ -77,7 +78,7 @@ rtf: dict[str, dict[str, list[float]]] = {}
 for model in MODELS:
     print(f"=== {model}")
     try:
-        with md.photon(model, device="cpu") as sp:
+        with md.photon(model, device=photon_device()) as sp:
             sp.transcribe(audio=np.zeros(16000, dtype=np.float32), sample_rate=16000)
             for s in FIXTURES:
                 x, rate = audio[s]

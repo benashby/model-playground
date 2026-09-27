@@ -54,7 +54,7 @@ def main():
         d = snapshot(repo)
         h, _ = header(d / "model.safetensors")
         heads[repo] = h
-        cfg = json.load(open(d / "config.json"))
+        cfg = json.load(open(d / "config.json", encoding="utf-8"))
         dt = collections.Counter(v["dtype"] for v in h.values())
         print(f"=== {repo} (snapshot {d.name[:12]})")
         print(f"  architectures {cfg.get('architectures')}, model_type {cfg.get('model_type')}")
@@ -70,7 +70,7 @@ def main():
     print(f"  redux: {len(packed)} packed (.qweight) tensors, {len(set(nv) - set(red))} nvidia tensor names absent")
 
     d = snapshot("moondream/parakeet-redux")
-    spec = json.load(open(d / "ternary.json"))
+    spec = json.load(open(d / "ternary.json", encoding="utf-8"))
     print("\n=== redux ternary.json")
     for k in ("format", "packing", "weight_rule", "quant"):
         print(f"  {k}: {json.dumps(spec.get(k))}")

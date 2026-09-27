@@ -25,6 +25,7 @@ import numpy as np
 sys.path.insert(0, "src")
 from playground.audio import load_channel
 import moondream as md
+from hostinfo import photon_device  # noqa: E402
 
 FIX = [Path(f"audio/{n}.wav") for n in ["tool_call","interruptions","turn_taking"]]
 
@@ -47,7 +48,7 @@ def wer(ref, hyp):
     return d[len(r),len(h)]/len(r), len(r)
 
 print("### A. THROUGHPUT: 3 runs x 3 fixtures x both channels (warmup discarded)")
-with md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     t=time.monotonic(); sp.transcribe(audio=np.zeros(16000,dtype=np.float32), sample_rate=16000)
     print(f"  warmup discard: {time.monotonic()-t:.2f}s")
     results={}
@@ -72,7 +73,7 @@ with md.photon("moondream/parakeet-redux", device="cpu") as sp:
     for stem in ["tool_call","interruptions"]:
         lp=Path(f"models/parakeet-redux/results/voicechat-{stem}.jsonl")  # committed copy of the Sept VoiceChat session logs
         if not lp.exists(): continue
-        said=[json.loads(l).get("text","") for l in lp.read_text().splitlines()
+        said=[json.loads(l).get("text","") for l in lp.read_text(encoding="utf-8").splitlines()
               if '"caller.said"' in l]
         vc=" ".join(s for s in said if s)
         ref=results[(stem,0)][0]

@@ -33,13 +33,17 @@ import sys
 import tempfile
 from pathlib import Path
 
+from hostinfo import photon_device
+
+photon_device()  # announces a non-CPU PHOTON_DEVICE in the log; the children read the same variable
+
 CHILD = r"""
-import time, numpy as np
+import os, time, numpy as np
 t0 = time.monotonic()
 import moondream as md
 t_import = time.monotonic() - t0
 t1 = time.monotonic()
-sp = md.photon("moondream/parakeet-redux", device="cpu")
+sp = md.photon("moondream/parakeet-redux", device=os.environ.get("PHOTON_DEVICE", "cpu"))
 t_open = time.monotonic() - t1
 t2 = time.monotonic()
 sp.transcribe(audio=np.zeros(16000, dtype=np.float32), sample_rate=16000)
@@ -102,7 +106,7 @@ print(f"  cold minus warm median: {statistics.median([r[1] for r in cold]) - sta
 
 print("\n### C. disk footprint")
 venv = Path(sys.prefix)
-site = next(venv.glob("lib/python*/site-packages"))
+site = next(venv.glob("lib/python*/site-packages"), None) or venv / "Lib" / "site-packages"  # Windows: Lib\site-packages
 print(f"  venv total (regular files, symlinks not followed): {tree_bytes(venv) / 1e9:.2f} GB")
 asr_pkgs = ["torch", "torchgen", "functorch", "moondream", "kestrel", "kestrel_native",
             "kestrel_kernels", "kestrel_kernels_bundle_a", "kestrel_kernels_bundle_b",

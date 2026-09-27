@@ -165,7 +165,12 @@ def items(corpus: str):
 
 def _opus():
     path = os.environ.get("OPUS_LIB") or ctypes.util.find_library("opus")
-    if not path:  # fall back to the libopus the local ffmpeg is linked against
+    gst = os.environ.get("GSTREAMER_1_0_ROOT_MSVC_X86_64")
+    if not path and sys.platform == "win32" and gst:
+        # Windows: the libopus GStreamer's MSVC installer ships (opus-0.dll)
+        dll = Path(gst) / "bin" / "opus-0.dll"
+        path = str(dll) if dll.exists() else None
+    if not path and sys.platform != "win32":  # fall back to the libopus the local ffmpeg is linked against
         ff = subprocess.run(["sh", "-c", "ldd $(readlink -f $(command -v ffmpeg))"],
                             capture_output=True, text=True).stdout
         m = re.search(r"libopus\.so\.\d+ => (\S+)", ff)

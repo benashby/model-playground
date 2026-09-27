@@ -60,6 +60,11 @@ fixture (about 11 minutes):
         audio/corpora/maptask/q2ec3.mix.wav 0 0 60 \
         > models/parakeet-redux/results/onnx_concurrency-dense-2cpu.log 2>&1
 
+`taskset` does not exist on Windows; ONNX_CPUS=0,1 pins the process from
+inside instead (SetProcessAffinityMask there, sched_setaffinity on Linux),
+before any model loads. Which logical CPUs are hyperthread siblings is
+machine-specific, so check the topology before choosing them.
+
 PARAKEET_PROVIDER=cuda decodes on an NVIDIA GPU (the live-latency article's
 GPU runs, results/onnx_concurrency-dense-live-*.log). PARAKEET_PRECISION=fp32
 runs the fp32 export instead (the same run on a second
@@ -81,6 +86,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
 
 from playground.audio import _resample, load_channel, paced_windows  # noqa: E402
+from hostinfo import cpu_model, pin_cpus, rss_mb, usable_cpus  # noqa: E402
 
 MODELS = Path(os.environ.get("SHERPA_MODELS", Path.home() / ".cache" / "sherpa-onnx"))
 # PARAKEET_PRECISION=fp32 selects the fp32 export (see wer_telephone.py); int8 is the default.
@@ -119,12 +125,6 @@ def out(*a):
 def cpu_s() -> float:
     t = os.times()
     return t.user + t.system
-
-
-def rss_mb() -> tuple[float, float]:
-    """(current RSS, peak RSS) of this process in MB, from /proc/self/status."""
-    f = dict(line.split(":", 1) for line in open("/proc/self/status"))
-    return int(f["VmRSS"].split()[0]) / 1024, int(f["VmHWM"].split()[0]) / 1024
 
 
 def q(xs, p):
@@ -292,6 +292,8 @@ def report(mode, n, recs, cores, wall, lags, cpu_samples, reference, audio_s):
 
 
 async def main():
+    if os.environ.get("ONNX_CPUS"):
+        pin_cpus([int(c) for c in os.environ["ONNX_CPUS"].split(",")])
     x, src_rate = load_channel(FIXTURE, CHANNEL)
     x = x[int(START_S * src_rate):][: int(DUR_S * src_rate) if DUR_S else None]
     samples = np.ascontiguousarray(_resample(x, src_rate, RATE), dtype=np.float32)
@@ -299,9 +301,8 @@ async def main():
     out(f"fixture: {FIXTURE.name} ch{CHANNEL}, from {START_S:.1f} s, {audio_s:.1f} s, "
         f"{src_rate} Hz resampled to {RATE} Hz")
     out(f"sherpa-onnx {so.__version__}; model {PARAKEET.name}; VAD {VAD_FILE}; provider {PROVIDER}")
-    cpu = next((l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name")), "?")
-    out(f"cpu model: {cpu}; usable cpus {sorted(os.sched_getaffinity(0))}")
-    out(f"cpu: os.cpu_count()={os.cpu_count()}, affinity={len(os.sched_getaffinity(0))}")
+    out(f"cpu model: {cpu_model()}; usable cpus {usable_cpus()}")
+    out(f"cpu: os.cpu_count()={os.cpu_count()}, affinity={len(usable_cpus())}")
     out(f"num_threads per decode {NUM_THREADS}, decode workers {WORKERS}, "
         f"VAD min silence {VAD_MIN_SILENCE_S} s, max speech {VAD_MAX_SPEECH_S} s")
     out(f"levels {LEVELS}, stagger {STAGGER_S} s, partial every {PARTIAL_S} s")
@@ -309,7 +310,7 @@ async def main():
     t = time.monotonic()
     rec = make_recognizer()
     out(f"recognizer load: {time.monotonic() - t:.2f} s, RSS {rss_mb()[0]:.0f} MB")
-    out(f"cpus usable (affinity): {len(os.sched_getaffinity(0))}")
+    out(f"cpus usable (affinity): {len(usable_cpus())}")
 
     # Batch reference: the whole channel in one decode, 3 timed after 1 discarded.
     decode(rec, samples)

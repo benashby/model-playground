@@ -33,7 +33,6 @@ Run from the repo root:
 
 from __future__ import annotations
 
-import resource
 import statistics
 import sys
 import tempfile
@@ -48,7 +47,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 import moondream as md  # noqa: E402
 
 from playground.audio import load_channel  # noqa: E402
+from hostinfo import peak_rss_mb  # noqa: E402
 from textnorm import wer  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 files = sorted(Path("audio/corpora/maptask").glob("*.wav"))
 parts, rates = [], set()
@@ -65,7 +66,7 @@ parts = [x * GAIN for x in parts]
 dur = len(long) / rate
 print(f"input: channel 0 of {len(files)} Map Task files concatenated, {dur:.1f} s = {dur / 60:.1f} min at {rate} Hz")
 
-with tempfile.TemporaryDirectory() as tmp, md.photon("moondream/parakeet-redux", device="cpu") as sp:
+with tempfile.TemporaryDirectory() as tmp, md.photon("moondream/parakeet-redux", device=photon_device()) as sp:
     raw = Path(tmp) / "long_raw.wav"
     sf.write(str(raw), long_raw, rate, subtype="PCM_16")
     print(f"peak |sample| before gain: {np.abs(long_raw).max():.4f}; after gain {GAIN}: {np.abs(long).max():.4f}")
@@ -97,7 +98,7 @@ with tempfile.TemporaryDirectory() as tmp, md.photon("moondream/parakeet-redux",
     print(f"  largest gap between consecutive segments: {max(gaps):.1f} s")
     words_long = len(r["text"].split())
     print(f"  words: {words_long}")
-    print(f"  peak RSS of this process so far: {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024:.0f} MB")
+    print(f"  peak RSS of this process so far: {peak_rss_mb():.0f} MB")
 
     print("\n### per-file transcription of the same eleven channels, concatenated")
     t0 = time.monotonic()
@@ -108,4 +109,4 @@ with tempfile.TemporaryDirectory() as tmp, md.photon("moondream/parakeet-redux",
     w = wer(joined, r["text"])
     print(f"  long-form vs per-file: {w['errors']} word diffs / {w['ref_words']} words = {w['wer'] * 100:.2f}%"
           f" (S={w['S']} D={w['D']} I={w['I']})")
-    print(f"  peak RSS of this process: {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024:.0f} MB")
+    print(f"  peak RSS of this process: {peak_rss_mb():.0f} MB")

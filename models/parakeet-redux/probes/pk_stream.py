@@ -54,6 +54,7 @@ import moondream as md  # noqa: E402
 from playground.asr import stability  # noqa: E402
 from playground.audio import load_channel, paced_windows  # noqa: E402
 from playground.client import Transcript  # noqa: E402
+from hostinfo import photon_device  # noqa: E402
 
 print = functools.partial(print, flush=True)  # noqa: A001
 
@@ -76,7 +77,7 @@ async def stream_one(stem: str, run: int) -> dict:
 
     snaps: list[tuple[float, str]] = []
     t_open0 = time.monotonic()
-    with md.photon(MODEL, device="cpu") as speech:
+    with md.photon(MODEL, device=photon_device()) as speech:
         t_opened = time.monotonic()
         log.record("asr.opened", open_s=round(t_opened - t_open0, 3))
         updates = await speech.atranscribe(
@@ -140,7 +141,7 @@ async def main() -> None:
     print(f"  stability metrics identical across passes: {stab_same}")
 
     print("\n### G. STREAM-vs-BATCH (streamed aresult()['text'] vs batch transcribe)")
-    with md.photon(MODEL, device="cpu") as sp:
+    with md.photon(MODEL, device=photon_device()) as sp:
         for stem in FIXTURES:
             x, rate = load_channel(Path(f"audio/{stem}.wav"), 0)
             b_seg = sp.transcribe(audio=x, sample_rate=rate, timestamps="segment")["text"]

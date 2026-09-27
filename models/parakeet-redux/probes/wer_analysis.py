@@ -39,7 +39,9 @@ RUNS = [(1, 1), (2, 3), (4, 10), (11, 30), (31, 10**9)]
 
 def normalised(tag: str, runtime: str):
     d = OUT / tag
-    with tempfile.NamedTemporaryFile(suffix=".jsonl") as tmp:
+    # delete_on_close=False: on Windows a file still open here cannot be opened by the child.
+    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete_on_close=False) as tmp:
+        tmp.close()
         subprocess.run([sys.executable, str(APPTEK / "score.py"), "--ref", str(d / "ref.jsonl"),
                         "--pred", str(d / f"{runtime}.pred.jsonl"), "--out", tmp.name],
                        cwd=APPTEK, check=True, capture_output=True)

@@ -25,7 +25,7 @@ from playground.audio import _resample, load_channel  # noqa: E402
 
 FILES = [("audio/tool_call.wav", c) for c in (0, 1)]
 FILES += [("audio/turn_taking.wav", 0), ("audio/interruptions.wav", 0)]
-FILES += [(str(Path(f).relative_to(ROOT)), c)
+FILES += [(Path(f).relative_to(ROOT).as_posix(), c)
           for f in sorted(glob.glob(str(ROOT / "audio/corpora/maptask/*.wav")))[:4] for c in (0, 1)]
 
 print(f"VAD: silero, min silence {VAD_MIN_SILENCE_S} s, max speech {VAD_MAX_SPEECH_S} s, {RATE} Hz")

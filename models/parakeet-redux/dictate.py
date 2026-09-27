@@ -3,6 +3,9 @@
     uv run --with sherpa-onnx python models/parakeet-redux/dictate.py
     uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --wav audio/tool_call.wav
 
+On Windows the microphone comes through ffmpeg's DirectShow input (--mic NAME,
+default the first capture device it lists) instead of pw-record.
+
 Finished sentences print as lines; the sentence in progress is a dim draft
 that rewrites in place. Ctrl+C stops and flushes the last sentence.
 
@@ -15,8 +18,10 @@ mic. Not a probe: nothing here is measured, and nothing is written to results/.
 import argparse
 import asyncio
 import os
+import re
 import shutil
 import signal
+import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -36,8 +41,24 @@ DRAFT_S = 1.0
 PAD_S = 0.25
 HISTORY_S = 60.0   # audio kept for cutting padded segments; bounds memory
 
+WINDOWS = sys.platform == "win32"
 MIC_CMD = ["pw-record", "--rate", str(RATE), "--channels", "1", "--format", "s16",
            "--raw", "--latency", "20ms", "-"]   # --raw, not --container raw; see CLAUDE.md
+
+
+def windows_mic_cmd(name: str | None) -> list[str]:
+    """Capture from a DirectShow microphone through ffmpeg (Windows has no pw-record)."""
+    if name is None:
+        # ffmpeg lists devices on stderr and then fails on the dummy input, by design.
+        listing = subprocess.run(["ffmpeg", "-hide_banner", "-list_devices", "true", "-f", "dshow",
+                                  "-i", "dummy"], capture_output=True, text=True).stderr
+        mics = re.findall(r'"([^"]+)" \(audio\)', listing)
+        if not mics:
+            sys.exit("no DirectShow audio capture device found; pass --mic NAME or use --wav")
+        name = mics[0]
+    print(f"microphone: {name}", file=sys.stderr)
+    return ["ffmpeg", "-loglevel", "error", "-f", "dshow", "-audio_buffer_size", "20",
+            "-i", f"audio={name}", "-ac", "1", "-ar", str(RATE), "-f", "s16le", "-"]
 
 
 def wav_cmd(path: str) -> list[str]:
@@ -114,7 +135,10 @@ class Display:
 async def amain(args: argparse.Namespace) -> int:
     loop = asyncio.get_running_loop()
     stop = asyncio.Event()
-    loop.add_signal_handler(signal.SIGINT, stop.set)
+    if WINDOWS:  # the Proactor loop has no add_signal_handler
+        signal.signal(signal.SIGINT, lambda *_: loop.call_soon_threadsafe(stop.set))
+    else:
+        loop.add_signal_handler(signal.SIGINT, stop.set)
 
     rec, vad, show = make_recognizer(args.threads), make_vad(), Display()
     window = vad.config.silero_vad.window_size
@@ -144,11 +168,13 @@ async def amain(args: argparse.Namespace) -> int:
             finals.append(asyncio.create_task(run_final(hist.cut(seg.start, seg.start + len(seg.samples)))))
             vad.pop()
 
-    cmd = wav_cmd(args.wav) if args.wav else MIC_CMD
+    cmd = wav_cmd(args.wav) if args.wav else windows_mic_cmd(args.mic) if WINDOWS else MIC_CMD
     # stderr inherited, never swallowed: a bad capture flag must be visible.
-    # Own session: a terminal Ctrl+C reaches only us, and we stop the capture ourselves.
-    src = await asyncio.create_subprocess_exec(*cmd, stdout=asyncio.subprocess.PIPE,
-                                               start_new_session=True)
+    # Own session (own process group on Windows): a terminal Ctrl+C reaches only
+    # us, and we stop the capture ourselves.
+    group = ({"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if WINDOWS
+             else {"start_new_session": True})
+    src = await asyncio.create_subprocess_exec(*cmd, stdout=asyncio.subprocess.PIPE, **group)
     assert src.stdout is not None
     print(f"{'playing ' + args.wav if args.wav else 'listening'}; Ctrl+C to stop\n", file=sys.stderr)
 
@@ -203,6 +229,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description="Live microphone transcription with Parakeet on sherpa-onnx.")
     p.add_argument("--wav", help="play this file's channel 0 in real time instead of the microphone")
     p.add_argument("--threads", type=int, default=2, help="decode threads (default 2)")
+    p.add_argument("--mic", help="Windows: DirectShow microphone name (default: the first one ffmpeg lists)")
     return asyncio.run(amain(p.parse_args()))
 
 

@@ -33,6 +33,7 @@ import hashlib
 import importlib.metadata as im
 import json
 import re
+import sys
 import urllib.request
 from pathlib import Path
 
@@ -63,7 +64,11 @@ def pkg_size(root: Path) -> int:
 
 
 for dist_name, pkg in DISTS:
-    dist = im.distribution(dist_name)
+    try:
+        dist = im.distribution(dist_name)
+    except im.PackageNotFoundError:  # bundle-d has Linux wheels only
+        print(f"=== {dist_name}: not installed on this platform ({sys.platform})")
+        continue
     meta = dist.metadata
     print(f"=== {dist_name} {dist.version}")
     print(f"  License field        : {(meta.get('License') or '<absent>').splitlines()[0]}")
@@ -97,7 +102,7 @@ for dist_name, pkg in DISTS:
         wheels = [
             u for u in pj["urls"]
             if u["filename"].endswith(".whl")
-            and ("none-any" in u["filename"] or "x86_64" in u["filename"])
+            and ("none-any" in u["filename"] or ("win_amd64" if sys.platform == "win32" else "x86_64") in u["filename"])
             and ("cp312" in u["filename"] or "py3-none" in u["filename"])
         ]
         for u in wheels:
@@ -108,7 +113,7 @@ for dist_name, pkg in DISTS:
 print("\n=== clauses quoted in the note, located in the installed kestrel-kernels LICENSE")
 kk = im.distribution("kestrel-kernels")
 lic = [f for f in kk.files if str(f).endswith("licenses/LICENSE")][0]
-text = Path(kk.locate_file(lic)).read_text()
+text = Path(kk.locate_file(lic)).read_text(encoding="utf-8")
 flat = re.sub(r"\s+", " ", text)
 QUOTES = [
     "It is licensed, not sold, and is made available only under the terms of a "
