@@ -124,7 +124,8 @@ uv run --with sherpa-onnx python models/parakeet-redux/dictate.py --wav audio/to
 ```
 
 The harness's microphone client, `playground.live`, uses PipeWire and still
-runs on Linux only. VoiceChat and K2 were only run on Linux.
+runs on Linux only. Each model's note says which platforms its results come
+from; so far only Parakeet has been run on Windows.
 
 ## Test audio
 
