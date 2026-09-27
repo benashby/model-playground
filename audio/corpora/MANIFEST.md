@@ -128,10 +128,11 @@ eye-contact condition — consistent with them topping the overlap ranking.
 
 ## 5. Telephone WER corpora, managed by DVC
 
-Added 2026-09-25 for `models/parakeet-redux/probes/wer_telephone.py`. Unlike
-the corpora above, these are not downloaded by hand: `dvc.yaml` at the repo
-root has one stage per corpus, running `audio/corpora/fetch.py` against a
-pinned upstream revision, and `dvc.lock` records the md5 of every file.
+Added 2026-09-25 for `models/parakeet-redux/probes/wer_telephone.py`. DVC
+downloads these, where the corpora above were fetched by hand: `dvc.yaml` at
+the repo root has one stage per corpus, running `audio/corpora/fetch.py`
+against a pinned upstream revision, and `dvc.lock` records the md5 of every
+file.
 
 | Directory | Corpus | Licence | Pinned upstream | Files / bytes |
 |---|---|---|---|---|

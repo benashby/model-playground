@@ -48,7 +48,7 @@ This rule has a documentation corollary and a code corollary:
 ## Writing for people
 
 Every human-facing document (model notes and their articles,
-`models/README.md`, the root `README.md`) goes through the **humanizer** skill
+`models/README.md`, the root `README.md`, `audio/corpora/MANIFEST.md`) goes through the **humanizer** skill
 before it is finished, and then through
 `.claude/skills/writing-notes/check_rewrite.py`, which fails if the rewrite
 touched code, links, tags or numbers. A note that reads like chatbot output

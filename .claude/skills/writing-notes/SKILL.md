@@ -1,13 +1,14 @@
 ---
 name: writing-notes
-description: Use whenever writing or editing any human-facing markdown in model-playground (a model note under models/, its articles under models/<slug>/notes/, models/README.md, or the root README.md). Every such document must pass the humanizer before it is finished. Covers invoking the humanizer skill, the condensed rules to apply when it is not installed, what a rewrite must never change in a measurement note (code, numbers, tags, correction records), how long notes are split into navigable articles for the GitHub web UI, and the bundled check_rewrite.py integrity check.
+description: Use whenever writing or editing any human-facing markdown in model-playground (a model note under models/, its articles under models/<slug>/notes/, models/README.md, the root README.md, or audio/corpora/MANIFEST.md). Every such document must pass the humanizer before it is finished. Covers invoking the humanizer skill, the condensed rules to apply when it is not installed, what a rewrite must never change in a measurement note (code, numbers, tags, correction records), how long notes are split into navigable articles for the GitHub web UI, and the bundled check_rewrite.py integrity check.
 ---
 
 # Writing notes
 
 Every human-facing document in this repository goes through the humanizer
 before it counts as done. That covers model notes, their articles, the rubric
-in `models/README.md`, and the root `README.md`. It does not cover agent-facing
+in `models/README.md`, the root `README.md`, and the corpus manifest
+in `audio/corpora/MANIFEST.md`. It does not cover agent-facing
 files (`CLAUDE.md`, `.claude/skills/*`), code, docstrings, or anything under
 `results/`.
 
