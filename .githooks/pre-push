@@ -1,0 +1,3 @@
+#!/bin/sh
+# stdin carries the refs being pushed; leak-check reads it.
+exec "$(dirname "$0")/leak-check" push

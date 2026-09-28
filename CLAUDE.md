@@ -232,3 +232,25 @@ described in `.claude/skills/model-hosts/SKILL.md` by their nature rather than
 their name. Private notes about the local environment live in
 `CLAUDE.local.md`, which is gitignored; read it if it exists, and never copy
 its contents into a tracked file.
+
+## Repository posture
+
+Public, read-only, one author. Pull requests, issues, the wiki and projects are
+disabled on GitHub; forks are allowed. Finished work is pushed straight to
+`main`, which a ruleset keeps linear and protects from force-push and deletion.
+
+- **Never add a `pull_request` or `pull_request_target` trigger** to a
+  workflow. CI runs on self-hosted GPU machines, and from a public repository
+  those triggers hand the runner to anyone who forks. Push to `main` and
+  `workflow_dispatch` only.
+- **Actions are restricted to GitHub-owned actions, pinned by commit SHA** (the
+  repository setting requires it). Pin as `uses: owner/action@<sha>  # vX.Y.Z`.
+- **The leak check.** `.githooks/leak-check` blocks a commit or push whose added
+  lines, file paths or commit messages match a private pattern. The patterns
+  live in `.git/info/leak-patterns`, never in the tree, because the list is
+  itself private; a clone without that file fails closed. Enable per clone with
+  `git config core.hooksPath .githooks`. Do not bypass it with `--no-verify`
+  to get a commit through: a match means something is about to be published.
+- **Two licences.** The write-ups (Markdown under `models/`, the root
+  `README.md`, `audio/corpora/MANIFEST.md`) are CC BY 4.0 in
+  `LICENSE-CC-BY-4.0`; code and everything else is MIT in `LICENSE`.

@@ -5,12 +5,15 @@
 # The runner's environment (not this file) points at the cache: CI_DATA,
 # SHERPA_MODELS, HF_HUB_CACHE with HF_HUB_OFFLINE=1, CUDA_PATH, and
 # GSTREAMER_1_0_ROOT_MSVC_X86_64. Timing figures from CI are not results: the
-# machine does other work. Fork pull requests wait for approval.
+# machine does other work.
+#
+# This runs on self-hosted machines from a public repository, so nothing but the
+# owner may trigger it: pushes to main and manual dispatch only. Pull requests
+# are disabled on the repository; do not add a pull_request or
+# pull_request_target trigger, which would hand the runner to anyone who forks.
 name: windows-gpu
 
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
   workflow_dispatch:
@@ -36,7 +39,7 @@ jobs:
     runs-on: [self-hosted, Windows, X64, gpu, cuda-12, ci-data]
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
 
       - name: Machine
         run: |

@@ -8,10 +8,11 @@ up. Each write-up is a practical guide to *using* the model plus a deeper
 account of *what it is and why it behaves that way*.
 
 This is not a product or a library, and it is not meant to be cloned and run.
-There is no support, stability promise, roadmap or install path. It's public
-because several of these things were annoying to find out and the write-ups
-might save someone an afternoon. Nothing here is connected to any job or
-company; it's curiosity.
+There is no support, stability promise, roadmap or install path, and it doesn't
+take contributions: pull requests and issues are switched off. Forks are fine.
+It's public because several of these things were annoying to find out and the
+write-ups might save someone an afternoon. Nothing here is connected to any job
+or company; it's curiosity.
 
 The write-ups are what matter. The code is just how I got there.
 
@@ -140,5 +141,10 @@ single-stream stimulus, which is useless if you need two sides.
 
 ## License
 
-MIT. Take anything useful. No weights or vendor code are vendored here; each
-model carries its own terms, recorded in its note.
+Take anything useful. The write-ups (the Markdown under `models/`, this README
+and `audio/corpora/MANIFEST.md`) are [CC BY 4.0](LICENSE-CC-BY-4.0): reuse them
+with credit. Everything else, including the probes, the examples and the
+harness, is [MIT](LICENSE).
+
+No weights or vendor code are vendored here. Each model carries its own terms,
+recorded in its note, and quoted vendor material stays under its owner's.

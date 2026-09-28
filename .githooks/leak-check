@@ -1,0 +1,68 @@
+#!/bin/sh
+# Refuse to commit or push anything matching a private pattern: a hostname, an
+# address, a cloud project, personal tooling, a product this work may inform.
+#
+# The patterns are deliberately NOT in the repository: a list of what must not
+# be published would publish it. They live in the clone's own git directory,
+#
+#     $(git rev-parse --git-common-dir)/info/leak-patterns
+#
+# one extended regex per line, matched case-insensitively; blank lines and lines
+# starting with # are ignored. A missing or empty file fails closed, because a
+# check that silently passes is worse than none.
+#
+# Enable once per clone:   git config core.hooksPath .githooks
+# Bypass, deliberately:    git commit --no-verify / git push --no-verify
+#
+# Usage (from the hook wrappers): leak-check staged | leak-check push
+
+set -eu
+
+mode=${1:?usage: leak-check staged|push}
+patterns="$(git rev-parse --git-common-dir)/info/leak-patterns"
+
+active=$(mktemp)
+text=$(mktemp)
+trap 'rm -f "$active" "$text"' EXIT
+
+grep -Ev '^[[:space:]]*(#|$)' "$patterns" 2>/dev/null > "$active" || true
+if [ ! -s "$active" ]; then
+    echo "leak-check: no patterns in $patterns; refusing (see .githooks/leak-check)." >&2
+    exit 1
+fi
+
+# Keep only what would be published: added lines, file paths, commit messages.
+# Removed lines ("-") are dropped, so deleting a leak is never blocked.
+published() {
+    grep -Ev '^(-|@@|index |similarity |rename from |old mode |deleted file )' || true
+}
+
+case $mode in
+staged)
+    git diff --cached -U0 --no-color --no-ext-diff | published > "$text"
+    ;;
+push)
+    zero=0000000000000000000000000000000000000000
+    while read -r _ local_sha _ remote_sha; do
+        [ "$local_sha" = "$zero" ] && continue          # deleting a remote ref
+        if [ "$remote_sha" = "$zero" ]; then
+            range="$local_sha --not --remotes"           # new branch: unpushed commits
+        else
+            range="$remote_sha..$local_sha"
+        fi
+        # shellcheck disable=SC2086
+        git log -p -U0 --no-color --no-ext-diff --format='%n%B' $range | published
+    done > "$text"
+    ;;
+*)
+    echo "leak-check: unknown mode '$mode'" >&2
+    exit 2
+    ;;
+esac
+
+if grep -Einf "$active" "$text" > /dev/null; then
+    echo "leak-check: $mode content matches a private pattern:" >&2
+    grep -Einf "$active" "$text" | head -20 | sed 's/^/    /' >&2
+    echo "Remove it, or bypass with --no-verify if this is a false positive." >&2
+    exit 1
+fi
