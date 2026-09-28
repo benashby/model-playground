@@ -21,7 +21,7 @@ what it is and why it behaves the way it does.
   measurement is domain-specific, and nothing about it should be written as
   though it were.
 - **Never name a company or product this work may inform**, in files, commit
-  messages, PR text, workflow names or result logs. A technique such a product
+  messages, workflow names or result logs. A technique such a product
   might use is fine, described generically (a media router's tap, a call
   centre's audio); the name is not.
 - **Not general.** See *Current state* below. Do not write code or docs that
@@ -59,7 +59,7 @@ touched code, links, tags or numbers. A note that reads like chatbot output
 makes readers doubt its numbers. Load `.claude/skills/writing-notes/SKILL.md`
 before writing or editing any of these files; it also covers splitting a long
 note into navigable articles. Agent-facing files (this one, the skills) are
-exempt. Commit messages and PR text are human-facing too: humanize them before
+exempt. Commit messages are human-facing too: humanize them before
 pushing.
 
 ## Layout
@@ -76,6 +76,8 @@ pushing.
 | `src/playground/` | shared instrument library (below) |
 | `scenarios/*.py` | agent specs: instructions + tools, each exporting `SPEC` |
 | `logs/*.jsonl` | scratch run logs — gitignored; promote to `results/` to keep |
+| `.github/workflows/` | CI on self-hosted GPU runners: push to `main` and manual dispatch only (see *Repository posture*) |
+| `.githooks/` | the leak check, run on commit and push; patterns are per clone, never in the tree |
 | `logs/wer/` | WER segment sets and per-runtime predictions — gitignored, because they are model output on third-party audio; `results/` gets aggregates only |
 
 **Probe output is committed, so probe output is public.** Never print a

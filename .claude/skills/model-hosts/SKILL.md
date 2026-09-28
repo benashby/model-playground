@@ -21,7 +21,7 @@ Five roles. Which physical machines fill them is deployment detail.
 | **workstation** | RDNA4 Radeon (gfx1201) | 16 GB | local | **ROCm/Vulkan only. No CUDA, ever.** Where development happens. |
 | **lan-gpu** | 2× RTX 3090 | 48 GB | LAN | CUDA. Always-on, no marginal cost. Managed out of band. |
 | **workstation CPU** | — | — | local | Tiny models, tokenizers, smoke tests. More capable than it sounds — see the Parakeet note in `models/`. |
-| **windows-gpu** | GTX 1650 (Turing, sm_75) + 8-core AVX2 CPU, no AVX-512 | 4 GB | LAN | **Native Windows 10**, CUDA 12.9 + 13.4 and cuDNN 9 installed machine-wide. The Windows platform for every note: the Parakeet stack is verified here (see `models/parakeet-redux/notes/14-windows.md`). Also runs another project's CI, so check load before timing anything. |
+| **windows-gpu** | GTX 1650 (Turing, sm_75) + 8-core AVX2 CPU, no AVX-512 | 4 GB | LAN | **Native Windows 10**, CUDA 12.9 + 13.4 and cuDNN 9 installed machine-wide. The Windows platform for every note: the Parakeet stack is verified here (see `models/parakeet-redux/notes/14-windows.md`). Also a CI runner, for this repo's `windows-gpu` workflow and another project's, so check load before timing anything. |
 
 Operator tooling for starting, stopping and selecting models on these hosts is
 private and lives outside this repo. This file documents what the *harness*

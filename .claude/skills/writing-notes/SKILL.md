@@ -34,7 +34,7 @@ are the point of the repo.
 For more than a few files, give each agent a disjoint set of files and the
 hard rules below, and run the check once all of them have finished.
 
-Commit messages and PR titles and bodies are read by people too. Run them
+Commit messages are read by people too. Run them
 through the humanizer (its embedded mode returns only the final text) before
 committing or pushing, and keep them to what changed and why.
 
