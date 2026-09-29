@@ -4,8 +4,10 @@
 #
 # The runner's environment (not this file) points at the cache: CI_DATA,
 # SHERPA_MODELS, HF_HUB_CACHE with HF_HUB_OFFLINE=1, CUDA_PATH, and
-# GSTREAMER_1_0_ROOT_MSVC_X86_64. Timing figures from CI are not results: the
-# machine does other work.
+# GSTREAMER_1_0_ROOT_MSVC_X86_64. It also gives uv its own cache and Python
+# directories and restricts it to uv-managed Pythons, so the interpreter comes
+# from uv's download rather than whatever Python the machine has installed.
+# Timing figures from CI are not results: the machine does other work.
 #
 # This runs on self-hosted machines from a public repository, so nothing but the
 # owner may trigger it: pushes to main and manual dispatch only. Pull requests
@@ -46,7 +48,7 @@ jobs:
           nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
 
       - name: Environment (Python 3.13, CUDA torch for Photon)
-        run: uv sync -p 3.13 --extra asr-cuda --extra dev
+        run: uv sync --locked -p 3.13 --extra asr-cuda --extra dev
 
       - name: Machine load
         # The runner account cannot read performance counters or WMI's load figure;
