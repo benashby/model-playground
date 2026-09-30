@@ -203,6 +203,31 @@ lag without any library being at fault; on one such machine a run at 100 % CPU h
 discarded. Record machine load next to every timing run (`clocks.py` does), and
 rerun on a quiet machine before blaming the stack.
 
+### The previous server answering on the port
+
+A script that starts servers, measures, then stops them can die before the
+stop. The next run's servers then fail to bind the same port and exit, the
+health check is answered by the old ones, and the probe measures the previous
+model with no error anywhere. In the Nimble / Tev1 work this produced
+backend differences of 0.47 to 0.51 that looked like a finding. Stop servers
+in a trap, and before measuring, check the server reports what you just
+started (llama-server's `/props` gives `model_path` and `n_ctx`).
+
+### A server's knobs that change the numbers
+
+Two servers with the same build and weights can still disagree because of a
+setting nobody thought was numerical. llama-server's batch size (`-b`/`-ub`)
+changes how prefill splits the prompt, and moved one model's probabilities by
+6.12e-03; Ollama picks it per machine from free VRAM. When reproducing another
+tool's output, copy its full command line (Ollama's runner shows it in `ps`),
+not only the flags you expect to matter.
+
+### Line endings from Windows
+
+A log written on Windows ends lines with CRLF. A parser that compares the last
+field of a line with a string sees `True\r` and counts every line as a
+mismatch. Strip `\r` when reading, and convert committed logs to LF.
+
 ### Partial outputs scored as complete
 
 Interrupted runs leave prediction files with fewer lines than segments, and a

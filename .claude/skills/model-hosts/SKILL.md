@@ -112,7 +112,16 @@ Windows GPU machine since retired; **windows-3090** is the Windows host now:
   held a piped call open past its timeout.
 - **Bash scripts** (`build_llama_cpp.sh`) run under Git Bash at best; a
   native CUDA build wants a VS developer environment (`vcvars64`) with CMake
-  and Ninja.
+  and Ninja. `models/nimble-tev1/probes/build_llama_cpp.cmd` is the Windows
+  counterpart for llama.cpp and loads `vcvars64` itself.
+- **SSH session children die with the session.** Windows OpenSSH puts a
+  session's processes in a job object and ends them on disconnect, so a
+  server or a long run started over SSH vanishes when the connection drops.
+  Start it with `Invoke-CimMethod -ClassName Win32_Process -MethodName Create
+  -Arguments @{CommandLine = 'cmd.exe /c "... > log 2>&1"'}`, which runs it
+  outside the session, and poll its log. Stop it later by PID.
+- **Logs written on Windows have CRLF endings**, which break parsers that
+  compare a line's last field. Convert to LF before committing or parsing.
 
 ## VRAM budgeting
 
@@ -149,6 +158,13 @@ The per-process query is the useful one — it shows *which stage* holds what,
 and it is how you discover that a container you forgot about is holding 73 GB.
 
 ## Cloud-GPU deployment recipe
+
+The cloud-gpu host has the NVIDIA driver and container toolkit but no CUDA
+toolkit or CMake. Native code (a llama.cpp build) is built and run inside
+`docker.io/nvidia/cuda:<version>-devel-ubuntu24.04` with `--device
+nvidia.com/gpu=<index>`, which also pins a job to one of the cards; the Nimble /
+Tev1 GPU work ran that way (`build_llama_cpp.sh`'s header has the command).
+Start long jobs with `systemd-run --user` so they outlive the SSH session.
 
 Verified on Ubuntu 24.04, driver 595.x, glibc 2.39.
 
