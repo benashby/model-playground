@@ -1,0 +1,9 @@
+# 2026-09-30T22:12:25Z llama.cpp b11232 (6f767fe) built on native Windows 11 with MSVC 19.51: cuda-b11232 with CUDA 13.4.59 (sm_86, build default offload, RTX 3090), cpu-b11232 without GPU; GGUF tev1:0.8b (sha256 fa9732e3...)
+host: AMD Ryzen 7 3700X 8-Core Processor; isa avx2; os.cpu_count 16, affinity 16; 31.9 GiB; Windows 11 10.0.26200 AMD64
+model: tev1-0.8b.gguf
+
+== cuda-b11232: version: 0.5.0-dev (build 1, commit 6f767fe)
+  request 1: 200   request 2: 200   alive after: True
+
+== cpu-b11232: version: 0.5.0-dev (build 1, commit 6f767fe)
+  request 1: 200   request 2: 200   alive after: True

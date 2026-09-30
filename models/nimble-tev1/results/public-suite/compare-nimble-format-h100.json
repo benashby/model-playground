@@ -1,0 +1,1470 @@
+{
+ "vitaminc-dev": {
+  "count": 599,
+  "runs": {
+   "ollama": {
+    "count": 599,
+    "correct": 471,
+    "accuracy": 0.7863105175292153,
+    "accuracy_ci95": [
+     0.7517129379044719,
+     0.8172590772981948
+    ],
+    "valid": 599,
+    "errors": 0,
+    "family_complete": {
+     "families": 171,
+     "complete": 92,
+     "accuracy": 0.5380116959064327,
+     "sizes": {
+      "1": 3,
+      "2": 38,
+      "4": 130
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 599,
+      "correct": 471,
+      "accuracy": 0.7863105175292153,
+      "accuracy_ci95": [
+       0.7517129379044719,
+       0.8172590772981948
+      ]
+     }
+    },
+    "by_domain": {
+     "vitaminc-real": {
+      "count": 259,
+      "correct": 199,
+      "accuracy": 0.7683397683397684,
+      "accuracy_ci95": [
+       0.7132624004653576,
+       0.8155732176407564
+      ]
+     },
+     "vitaminc-synthetic": {
+      "count": 340,
+      "correct": 272,
+      "accuracy": 0.8,
+      "accuracy_ci95": [
+       0.7542353930664061,
+       0.8390610550655244
+      ]
+     }
+    },
+    "ece10": 0.13495202191252229,
+    "mean_negative_log_likelihood": 0.702022002918294,
+    "mean_multiclass_brier": 0.33372078653880577
+   },
+   "native": {
+    "count": 599,
+    "correct": 475,
+    "accuracy": 0.7929883138564274,
+    "accuracy_ci95": [
+     0.7587240336807219,
+     0.8235184658415406
+    ],
+    "valid": 599,
+    "errors": 0,
+    "family_complete": {
+     "families": 171,
+     "complete": 91,
+     "accuracy": 0.5321637426900585,
+     "sizes": {
+      "1": 3,
+      "2": 38,
+      "4": 130
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 599,
+      "correct": 475,
+      "accuracy": 0.7929883138564274,
+      "accuracy_ci95": [
+       0.7587240336807219,
+       0.8235184658415406
+      ]
+     }
+    },
+    "by_domain": {
+     "vitaminc-real": {
+      "count": 259,
+      "correct": 205,
+      "accuracy": 0.7915057915057915,
+      "accuracy_ci95": [
+       0.7379493006103963,
+       0.8365411910012814
+      ]
+     },
+     "vitaminc-synthetic": {
+      "count": 340,
+      "correct": 270,
+      "accuracy": 0.7941176470588235,
+      "accuracy_ci95": [
+       0.7479660110258993,
+       0.8336971734171698
+      ]
+     }
+    },
+    "ece10": 0.12765308745217183,
+    "mean_negative_log_likelihood": 0.6728302603336963,
+    "mean_multiclass_brier": 0.3300328518690891
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 599,
+    "prediction_agreement": 0.9699499165275459,
+    "both_correct": 466,
+    "neither_correct": 119,
+    "left_only_correct": 5,
+    "right_only_correct": 9,
+    "mcnemar_exact_p": 0.4239501953125
+   }
+  }
+ },
+ "massive-en-US": {
+  "count": 350,
+  "runs": {
+   "ollama": {
+    "count": 350,
+    "correct": 295,
+    "accuracy": 0.8428571428571429,
+    "accuracy_ci95": [
+     0.8010318780398054,
+     0.8772377205602462
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 295,
+     "accuracy": 0.8428571428571429,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 295,
+      "accuracy": 0.8428571428571429,
+      "accuracy_ci95": [
+       0.8010318780398054,
+       0.8772377205602462
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-en-US": {
+      "count": 350,
+      "correct": 295,
+      "accuracy": 0.8428571428571429,
+      "accuracy_ci95": [
+       0.8010318780398054,
+       0.8772377205602462
+      ]
+     }
+    },
+    "ece10": 0.07855526745095123,
+    "mean_negative_log_likelihood": 0.5060048526663815,
+    "mean_multiclass_brier": 0.22993821860712055
+   },
+   "native": {
+    "count": 350,
+    "correct": 303,
+    "accuracy": 0.8657142857142858,
+    "accuracy_ci95": [
+     0.8259959857616745,
+     0.8974915860783805
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 303,
+     "accuracy": 0.8657142857142858,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 303,
+      "accuracy": 0.8657142857142858,
+      "accuracy_ci95": [
+       0.8259959857616745,
+       0.8974915860783805
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-en-US": {
+      "count": 350,
+      "correct": 303,
+      "accuracy": 0.8657142857142858,
+      "accuracy_ci95": [
+       0.8259959857616745,
+       0.8974915860783805
+      ]
+     }
+    },
+    "ece10": 0.06623965322551112,
+    "mean_negative_log_likelihood": 0.48673161454631536,
+    "mean_multiclass_brier": 0.20969890208873823
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 350,
+    "prediction_agreement": 0.9514285714285714,
+    "both_correct": 292,
+    "neither_correct": 44,
+    "left_only_correct": 3,
+    "right_only_correct": 11,
+    "mcnemar_exact_p": 0.057373046875
+   }
+  }
+ },
+ "massive-de-DE": {
+  "count": 350,
+  "runs": {
+   "ollama": {
+    "count": 350,
+    "correct": 291,
+    "accuracy": 0.8314285714285714,
+    "accuracy_ci95": [
+     0.7886564833021741,
+     0.8670041286778756
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 291,
+     "accuracy": 0.8314285714285714,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 291,
+      "accuracy": 0.8314285714285714,
+      "accuracy_ci95": [
+       0.7886564833021741,
+       0.8670041286778756
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-de-DE": {
+      "count": 350,
+      "correct": 291,
+      "accuracy": 0.8314285714285714,
+      "accuracy_ci95": [
+       0.7886564833021741,
+       0.8670041286778756
+      ]
+     }
+    },
+    "ece10": 0.08370648686248652,
+    "mean_negative_log_likelihood": 0.5884538171527982,
+    "mean_multiclass_brier": 0.25862153958054096
+   },
+   "native": {
+    "count": 350,
+    "correct": 293,
+    "accuracy": 0.8371428571428572,
+    "accuracy_ci95": [
+     0.7948359336941238,
+     0.872129171595927
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 293,
+     "accuracy": 0.8371428571428572,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 293,
+      "accuracy": 0.8371428571428572,
+      "accuracy_ci95": [
+       0.7948359336941238,
+       0.872129171595927
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-de-DE": {
+      "count": 350,
+      "correct": 293,
+      "accuracy": 0.8371428571428572,
+      "accuracy_ci95": [
+       0.7948359336941238,
+       0.872129171595927
+      ]
+     }
+    },
+    "ece10": 0.08758922317963558,
+    "mean_negative_log_likelihood": 0.5676454497908828,
+    "mean_multiclass_brier": 0.24856959931418618
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 350,
+    "prediction_agreement": 0.9542857142857143,
+    "both_correct": 286,
+    "neither_correct": 52,
+    "left_only_correct": 5,
+    "right_only_correct": 7,
+    "mcnemar_exact_p": 0.7744140625
+   }
+  }
+ },
+ "boolq": {
+  "count": 300,
+  "runs": {
+   "ollama": {
+    "count": 300,
+    "correct": 259,
+    "accuracy": 0.8633333333333333,
+    "accuracy_ci95": [
+     0.8198437047874653,
+     0.8976354027475134
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 274,
+     "complete": 235,
+     "accuracy": 0.8576642335766423,
+     "sizes": {
+      "1": 252,
+      "2": 19,
+      "3": 2,
+      "4": 1
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 259,
+      "accuracy": 0.8633333333333333,
+      "accuracy_ci95": [
+       0.8198437047874653,
+       0.8976354027475134
+      ]
+     }
+    },
+    "by_domain": {
+     "boolq": {
+      "count": 300,
+      "correct": 259,
+      "accuracy": 0.8633333333333333,
+      "accuracy_ci95": [
+       0.8198437047874653,
+       0.8976354027475134
+      ]
+     }
+    },
+    "ece10": 0.08188974807209562,
+    "mean_negative_log_likelihood": 0.3589201304478644,
+    "mean_multiclass_brier": 0.205704376635548
+   },
+   "native": {
+    "count": 300,
+    "correct": 255,
+    "accuracy": 0.85,
+    "accuracy_ci95": [
+     0.8051814866362912,
+     0.8859681123652938
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 274,
+     "complete": 231,
+     "accuracy": 0.843065693430657,
+     "sizes": {
+      "1": 252,
+      "2": 19,
+      "3": 2,
+      "4": 1
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "accuracy_ci95": [
+       0.8051814866362912,
+       0.8859681123652938
+      ]
+     }
+    },
+    "by_domain": {
+     "boolq": {
+      "count": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "accuracy_ci95": [
+       0.8051814866362912,
+       0.8859681123652938
+      ]
+     }
+    },
+    "ece10": 0.08203562379373056,
+    "mean_negative_log_likelihood": 0.3569896867276065,
+    "mean_multiclass_brier": 0.2105899430477119
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 300,
+    "prediction_agreement": 0.98,
+    "both_correct": 254,
+    "neither_correct": 40,
+    "left_only_correct": 5,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 0.21875
+   }
+  }
+ },
+ "squad2": {
+  "count": 299,
+  "runs": {
+   "ollama": {
+    "count": 299,
+    "correct": 222,
+    "accuracy": 0.7424749163879598,
+    "accuracy_ci95": [
+     0.6900539461596076,
+     0.7887442110288367
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 31,
+     "complete": 5,
+     "accuracy": 0.16129032258064516,
+     "sizes": {
+      "6": 1,
+      "7": 1,
+      "8": 5,
+      "9": 7,
+      "10": 14,
+      "13": 1,
+      "15": 2
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 299,
+      "correct": 222,
+      "accuracy": 0.7424749163879598,
+      "accuracy_ci95": [
+       0.6900539461596076,
+       0.7887442110288367
+      ]
+     }
+    },
+    "by_domain": {
+     "squad2": {
+      "count": 299,
+      "correct": 222,
+      "accuracy": 0.7424749163879598,
+      "accuracy_ci95": [
+       0.6900539461596076,
+       0.7887442110288367
+      ]
+     }
+    },
+    "ece10": 0.18005425787208656,
+    "mean_negative_log_likelihood": 0.7642703374229327,
+    "mean_multiclass_brier": 0.41490734056253625
+   },
+   "native": {
+    "count": 299,
+    "correct": 225,
+    "accuracy": 0.7525083612040134,
+    "accuracy_ci95": [
+     0.7005944504043693,
+     0.7980160443229074
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 31,
+     "complete": 6,
+     "accuracy": 0.1935483870967742,
+     "sizes": {
+      "6": 1,
+      "7": 1,
+      "8": 5,
+      "9": 7,
+      "10": 14,
+      "13": 1,
+      "15": 2
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 299,
+      "correct": 225,
+      "accuracy": 0.7525083612040134,
+      "accuracy_ci95": [
+       0.7005944504043693,
+       0.7980160443229074
+      ]
+     }
+    },
+    "by_domain": {
+     "squad2": {
+      "count": 299,
+      "correct": 225,
+      "accuracy": 0.7525083612040134,
+      "accuracy_ci95": [
+       0.7005944504043693,
+       0.7980160443229074
+      ]
+     }
+    },
+    "ece10": 0.16267466535067887,
+    "mean_negative_log_likelihood": 0.7000371668445464,
+    "mean_multiclass_brier": 0.38504843082985685
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 299,
+    "prediction_agreement": 0.9832775919732442,
+    "both_correct": 221,
+    "neither_correct": 73,
+    "left_only_correct": 1,
+    "right_only_correct": 4,
+    "mcnemar_exact_p": 0.375
+   }
+  }
+ },
+ "paws": {
+  "count": 250,
+  "runs": {
+   "ollama": {
+    "count": 250,
+    "correct": 185,
+    "accuracy": 0.74,
+    "accuracy_ci95": [
+     0.6822851203436464,
+     0.7904506329765344
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 185,
+     "accuracy": 0.74,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "accuracy_ci95": [
+       0.6822851203436464,
+       0.7904506329765344
+      ]
+     }
+    },
+    "by_domain": {
+     "paws": {
+      "count": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "accuracy_ci95": [
+       0.6822851203436464,
+       0.7904506329765344
+      ]
+     }
+    },
+    "ece10": 0.1889813989789308,
+    "mean_negative_log_likelihood": 0.9277250021704622,
+    "mean_multiclass_brier": 0.4250656476148963
+   },
+   "native": {
+    "count": 250,
+    "correct": 185,
+    "accuracy": 0.74,
+    "accuracy_ci95": [
+     0.6822851203436464,
+     0.7904506329765344
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 185,
+     "accuracy": 0.74,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "accuracy_ci95": [
+       0.6822851203436464,
+       0.7904506329765344
+      ]
+     }
+    },
+    "by_domain": {
+     "paws": {
+      "count": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "accuracy_ci95": [
+       0.6822851203436464,
+       0.7904506329765344
+      ]
+     }
+    },
+    "ece10": 0.19521726246338333,
+    "mean_negative_log_likelihood": 0.9230061038302347,
+    "mean_multiclass_brier": 0.44283394690633804
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 250,
+    "prediction_agreement": 0.968,
+    "both_correct": 181,
+    "neither_correct": 61,
+    "left_only_correct": 4,
+    "right_only_correct": 4,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "multinli": {
+  "count": 299,
+  "runs": {
+   "ollama": {
+    "count": 299,
+    "correct": 269,
+    "accuracy": 0.8996655518394648,
+    "accuracy_ci95": [
+     0.8603793243083353,
+     0.9288121209884799
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 103,
+     "complete": 76,
+     "accuracy": 0.7378640776699029,
+     "sizes": {
+      "2": 10,
+      "3": 93
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 299,
+      "correct": 269,
+      "accuracy": 0.8996655518394648,
+      "accuracy_ci95": [
+       0.8603793243083353,
+       0.9288121209884799
+      ]
+     }
+    },
+    "by_domain": {
+     "multinli-fiction": {
+      "count": 60,
+      "correct": 54,
+      "accuracy": 0.9,
+      "accuracy_ci95": [
+       0.7985030550748896,
+       0.9533578005427642
+      ]
+     },
+     "multinli-government": {
+      "count": 61,
+      "correct": 54,
+      "accuracy": 0.8852459016393442,
+      "accuracy_ci95": [
+       0.7815546169010973,
+       0.9432886935662569
+      ]
+     },
+     "multinli-slate": {
+      "count": 60,
+      "correct": 51,
+      "accuracy": 0.85,
+      "accuracy_ci95": [
+       0.7388517410884038,
+       0.9190265075770431
+      ]
+     },
+     "multinli-telephone": {
+      "count": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "accuracy_ci95": [
+       0.8629926537490016,
+       0.9828508088208587
+      ]
+     },
+     "multinli-travel": {
+      "count": 58,
+      "correct": 53,
+      "accuracy": 0.9137931034482759,
+      "accuracy_ci95": [
+       0.8135613862273433,
+       0.9626151680662066
+      ]
+     }
+    },
+    "ece10": 0.03874564740321828,
+    "mean_negative_log_likelihood": 0.25907599804986853,
+    "mean_multiclass_brier": 0.14800777425475145
+   },
+   "native": {
+    "count": 299,
+    "correct": 271,
+    "accuracy": 0.9063545150501672,
+    "accuracy_ci95": [
+     0.8679848068305884,
+     0.934414863492115
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 103,
+     "complete": 78,
+     "accuracy": 0.7572815533980582,
+     "sizes": {
+      "2": 10,
+      "3": 93
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 299,
+      "correct": 271,
+      "accuracy": 0.9063545150501672,
+      "accuracy_ci95": [
+       0.8679848068305884,
+       0.934414863492115
+      ]
+     }
+    },
+    "by_domain": {
+     "multinli-fiction": {
+      "count": 60,
+      "correct": 54,
+      "accuracy": 0.9,
+      "accuracy_ci95": [
+       0.7985030550748896,
+       0.9533578005427642
+      ]
+     },
+     "multinli-government": {
+      "count": 61,
+      "correct": 55,
+      "accuracy": 0.9016393442622951,
+      "accuracy_ci95": [
+       0.8015516580247642,
+       0.9541360486326903
+      ]
+     },
+     "multinli-slate": {
+      "count": 60,
+      "correct": 52,
+      "accuracy": 0.8666666666666667,
+      "accuracy_ci95": [
+       0.7583460540992789,
+       0.9308597302169036
+      ]
+     },
+     "multinli-telephone": {
+      "count": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "accuracy_ci95": [
+       0.8629926537490016,
+       0.9828508088208587
+      ]
+     },
+     "multinli-travel": {
+      "count": 58,
+      "correct": 53,
+      "accuracy": 0.9137931034482759,
+      "accuracy_ci95": [
+       0.8135613862273433,
+       0.9626151680662066
+      ]
+     }
+    },
+    "ece10": 0.03125526987391519,
+    "mean_negative_log_likelihood": 0.2511078976144283,
+    "mean_multiclass_brier": 0.1441119937260131
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 299,
+    "prediction_agreement": 0.9899665551839465,
+    "both_correct": 269,
+    "neither_correct": 28,
+    "left_only_correct": 0,
+    "right_only_correct": 2,
+    "mcnemar_exact_p": 0.5
+   }
+  }
+ },
+ "civil_comments": {
+  "count": 300,
+  "runs": {
+   "ollama": {
+    "count": 300,
+    "correct": 234,
+    "accuracy": 0.78,
+    "accuracy_ci95": [
+     0.7297464012422271,
+     0.8231732779590409
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 300,
+     "complete": 234,
+     "accuracy": 0.78,
+     "sizes": {
+      "1": 300
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 234,
+      "accuracy": 0.78,
+      "accuracy_ci95": [
+       0.7297464012422271,
+       0.8231732779590409
+      ]
+     }
+    },
+    "by_domain": {
+     "civil_comments": {
+      "count": 300,
+      "correct": 234,
+      "accuracy": 0.78,
+      "accuracy_ci95": [
+       0.7297464012422271,
+       0.8231732779590409
+      ]
+     }
+    },
+    "ece10": 0.08670302019310508,
+    "mean_negative_log_likelihood": 0.500227756618607,
+    "mean_multiclass_brier": 0.31746446545636847
+   },
+   "native": {
+    "count": 300,
+    "correct": 244,
+    "accuracy": 0.8133333333333334,
+    "accuracy_ci95": [
+     0.7653802718106468,
+     0.8533631787241056
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 300,
+     "complete": 244,
+     "accuracy": 0.8133333333333334,
+     "sizes": {
+      "1": 300
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 244,
+      "accuracy": 0.8133333333333334,
+      "accuracy_ci95": [
+       0.7653802718106468,
+       0.8533631787241056
+      ]
+     }
+    },
+    "by_domain": {
+     "civil_comments": {
+      "count": 300,
+      "correct": 244,
+      "accuracy": 0.8133333333333334,
+      "accuracy_ci95": [
+       0.7653802718106468,
+       0.8533631787241056
+      ]
+     }
+    },
+    "ece10": 0.06671153435402444,
+    "mean_negative_log_likelihood": 0.44825925059768484,
+    "mean_multiclass_brier": 0.28267604930444007
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 300,
+    "prediction_agreement": 0.94,
+    "both_correct": 230,
+    "neither_correct": 52,
+    "left_only_correct": 4,
+    "right_only_correct": 14,
+    "mcnemar_exact_p": 0.0308837890625
+   }
+  }
+ },
+ "aegis2": {
+  "count": 250,
+  "runs": {
+   "ollama": {
+    "count": 250,
+    "correct": 206,
+    "accuracy": 0.824,
+    "accuracy_ci95": [
+     0.7719923442315464,
+     0.8662009227506975
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 206,
+     "accuracy": 0.824,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 206,
+      "accuracy": 0.824,
+      "accuracy_ci95": [
+       0.7719923442315464,
+       0.8662009227506975
+      ]
+     }
+    },
+    "by_domain": {
+     "aegis2": {
+      "count": 250,
+      "correct": 206,
+      "accuracy": 0.824,
+      "accuracy_ci95": [
+       0.7719923442315464,
+       0.8662009227506975
+      ]
+     }
+    },
+    "ece10": 0.12222271428122702,
+    "mean_negative_log_likelihood": 0.5996243952550886,
+    "mean_multiclass_brier": 0.29304717036551087
+   },
+   "native": {
+    "count": 250,
+    "correct": 203,
+    "accuracy": 0.812,
+    "accuracy_ci95": [
+     0.7589815771806265,
+     0.8555749021356085
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 203,
+     "accuracy": 0.812,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 203,
+      "accuracy": 0.812,
+      "accuracy_ci95": [
+       0.7589815771806265,
+       0.8555749021356085
+      ]
+     }
+    },
+    "by_domain": {
+     "aegis2": {
+      "count": 250,
+      "correct": 203,
+      "accuracy": 0.812,
+      "accuracy_ci95": [
+       0.7589815771806265,
+       0.8555749021356085
+      ]
+     }
+    },
+    "ece10": 0.11585189081949432,
+    "mean_negative_log_likelihood": 0.5949927665488375,
+    "mean_multiclass_brier": 0.2990556804422642
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 250,
+    "prediction_agreement": 0.956,
+    "both_correct": 199,
+    "neither_correct": 40,
+    "left_only_correct": 7,
+    "right_only_correct": 4,
+    "mcnemar_exact_p": 0.548828125
+   }
+  }
+ },
+ "helpsteer2": {
+  "count": 249,
+  "runs": {
+   "ollama": {
+    "count": 249,
+    "correct": 85,
+    "accuracy": 0.3413654618473896,
+    "accuracy_ci95": [
+     0.28527881378895464,
+     0.40227260180088503
+    ],
+    "valid": 249,
+    "errors": 0,
+    "family_complete": {
+     "families": 125,
+     "complete": 14,
+     "accuracy": 0.112,
+     "sizes": {
+      "1": 1,
+      "2": 124
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 249,
+      "correct": 85,
+      "accuracy": 0.3413654618473896,
+      "accuracy_ci95": [
+       0.28527881378895464,
+       0.40227260180088503
+      ]
+     }
+    },
+    "by_domain": {
+     "helpsteer2": {
+      "count": 249,
+      "correct": 85,
+      "accuracy": 0.3413654618473896,
+      "accuracy_ci95": [
+       0.28527881378895464,
+       0.40227260180088503
+      ]
+     }
+    },
+    "ece10": 0.34704102237537626,
+    "mean_negative_log_likelihood": 1.796539286673831,
+    "mean_multiclass_brier": 0.8580944393129891
+   },
+   "native": {
+    "count": 249,
+    "correct": 87,
+    "accuracy": 0.3493975903614458,
+    "accuracy_ci95": [
+     0.2928720942960181,
+     0.41049950278294356
+    ],
+    "valid": 249,
+    "errors": 0,
+    "family_complete": {
+     "families": 125,
+     "complete": 17,
+     "accuracy": 0.136,
+     "sizes": {
+      "1": 1,
+      "2": 124
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 249,
+      "correct": 87,
+      "accuracy": 0.3493975903614458,
+      "accuracy_ci95": [
+       0.2928720942960181,
+       0.41049950278294356
+      ]
+     }
+    },
+    "by_domain": {
+     "helpsteer2": {
+      "count": 249,
+      "correct": 87,
+      "accuracy": 0.3493975903614458,
+      "accuracy_ci95": [
+       0.2928720942960181,
+       0.41049950278294356
+      ]
+     }
+    },
+    "ece10": 0.34345940882941073,
+    "mean_negative_log_likelihood": 1.871492791056777,
+    "mean_multiclass_brier": 0.885121467057255
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 249,
+    "prediction_agreement": 0.8835341365461847,
+    "both_correct": 76,
+    "neither_correct": 153,
+    "left_only_correct": 9,
+    "right_only_correct": 11,
+    "mcnemar_exact_p": 0.8238029479980469
+   }
+  }
+ },
+ "summeval-relevance": {
+  "count": 240,
+  "runs": {
+   "ollama": {
+    "count": 240,
+    "correct": 117,
+    "accuracy": 0.4875,
+    "accuracy_ci95": [
+     0.4249577918805579,
+     0.5504360703644403
+    ],
+    "valid": 240,
+    "errors": 0,
+    "family_complete": {
+     "families": 15,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 15
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 240,
+      "correct": 117,
+      "accuracy": 0.4875,
+      "accuracy_ci95": [
+       0.4249577918805579,
+       0.5504360703644403
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-relevance": {
+      "count": 240,
+      "correct": 117,
+      "accuracy": 0.4875,
+      "accuracy_ci95": [
+       0.4249577918805579,
+       0.5504360703644403
+      ]
+     }
+    },
+    "ece10": 0.17489321484467737,
+    "mean_negative_log_likelihood": 1.24061383049858,
+    "mean_multiclass_brier": 0.6854700865086454
+   },
+   "native": {
+    "count": 240,
+    "correct": 115,
+    "accuracy": 0.4791666666666667,
+    "accuracy_ci95": [
+     0.41679008242802706,
+     0.5421996879803035
+    ],
+    "valid": 240,
+    "errors": 0,
+    "family_complete": {
+     "families": 15,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 15
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 240,
+      "correct": 115,
+      "accuracy": 0.4791666666666667,
+      "accuracy_ci95": [
+       0.41679008242802706,
+       0.5421996879803035
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-relevance": {
+      "count": 240,
+      "correct": 115,
+      "accuracy": 0.4791666666666667,
+      "accuracy_ci95": [
+       0.41679008242802706,
+       0.5421996879803035
+      ]
+     }
+    },
+    "ece10": 0.14971898568427416,
+    "mean_negative_log_likelihood": 1.1926214209687185,
+    "mean_multiclass_brier": 0.6616759869854332
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 240,
+    "prediction_agreement": 0.95,
+    "both_correct": 112,
+    "neither_correct": 120,
+    "left_only_correct": 5,
+    "right_only_correct": 3,
+    "mcnemar_exact_p": 0.7265625
+   }
+  }
+ },
+ "summeval-consistency": {
+  "count": 144,
+  "runs": {
+   "ollama": {
+    "count": 144,
+    "correct": 119,
+    "accuracy": 0.8263888888888888,
+    "accuracy_ci95": [
+     0.756264144441322,
+     0.8795514852596552
+    ],
+    "valid": 144,
+    "errors": 0,
+    "family_complete": {
+     "families": 9,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 9
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "accuracy_ci95": [
+       0.756264144441322,
+       0.8795514852596552
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-consistency": {
+      "count": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "accuracy_ci95": [
+       0.756264144441322,
+       0.8795514852596552
+      ]
+     }
+    },
+    "ece10": 0.1309523506749355,
+    "mean_negative_log_likelihood": 0.5905026473013782,
+    "mean_multiclass_brier": 0.24649555482016236
+   },
+   "native": {
+    "count": 144,
+    "correct": 119,
+    "accuracy": 0.8263888888888888,
+    "accuracy_ci95": [
+     0.756264144441322,
+     0.8795514852596552
+    ],
+    "valid": 144,
+    "errors": 0,
+    "family_complete": {
+     "families": 9,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 9
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "accuracy_ci95": [
+       0.756264144441322,
+       0.8795514852596552
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-consistency": {
+      "count": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "accuracy_ci95": [
+       0.756264144441322,
+       0.8795514852596552
+      ]
+     }
+    },
+    "ece10": 0.12579768585480067,
+    "mean_negative_log_likelihood": 0.5753751370895146,
+    "mean_multiclass_brier": 0.2394050514688202
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 144,
+    "prediction_agreement": 0.9930555555555556,
+    "both_correct": 119,
+    "neither_correct": 25,
+    "left_only_correct": 0,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "pubmedqa": {
+  "count": 250,
+  "runs": {
+   "ollama": {
+    "count": 250,
+    "correct": 195,
+    "accuracy": 0.78,
+    "accuracy_ci95": [
+     0.7246261912502433,
+     0.8268988542899677
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 195,
+     "accuracy": 0.78,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 250,
+      "correct": 195,
+      "accuracy": 0.78,
+      "accuracy_ci95": [
+       0.7246261912502433,
+       0.8268988542899677
+      ]
+     }
+    },
+    "by_domain": {
+     "pubmedqa": {
+      "count": 250,
+      "correct": 195,
+      "accuracy": 0.78,
+      "accuracy_ci95": [
+       0.7246261912502433,
+       0.8268988542899677
+      ]
+     }
+    },
+    "ece10": 0.14375574569590724,
+    "mean_negative_log_likelihood": 0.773298516146662,
+    "mean_multiclass_brier": 0.3580338079158935
+   },
+   "native": {
+    "count": 250,
+    "correct": 190,
+    "accuracy": 0.76,
+    "accuracy_ci95": [
+     0.7033784234651377,
+     0.8087519759650581
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 190,
+     "accuracy": 0.76,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 250,
+      "correct": 190,
+      "accuracy": 0.76,
+      "accuracy_ci95": [
+       0.7033784234651377,
+       0.8087519759650581
+      ]
+     }
+    },
+    "by_domain": {
+     "pubmedqa": {
+      "count": 250,
+      "correct": 190,
+      "accuracy": 0.76,
+      "accuracy_ci95": [
+       0.7033784234651377,
+       0.8087519759650581
+      ]
+     }
+    },
+    "ece10": 0.1442999761493912,
+    "mean_negative_log_likelihood": 0.7702833148232964,
+    "mean_multiclass_brier": 0.3629066860062206
+   }
+  },
+  "pairs": {
+   "ollama vs native": {
+    "count": 250,
+    "prediction_agreement": 0.968,
+    "both_correct": 189,
+    "neither_correct": 54,
+    "left_only_correct": 6,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 0.125
+   }
+  }
+ }
+}

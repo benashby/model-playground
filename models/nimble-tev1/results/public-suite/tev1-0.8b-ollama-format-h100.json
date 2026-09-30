@@ -1,0 +1,1359 @@
+{
+ "vitaminc-dev": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:35.379460+00:00",
+   "completed_utc": "2026-09-30T22:47:58.571951+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 599,
+   "valid": 599,
+   "summary": {
+    "all": {
+     "count": 599,
+     "valid": 599,
+     "correct": 411,
+     "accuracy": 0.6861435726210351,
+     "mean_negative_log_likelihood": 0.8591330573746027,
+     "mean_multiclass_brier": 0.46334865050789564
+    },
+    "choice": {
+     "count": 599,
+     "valid": 599,
+     "correct": 411,
+     "accuracy": 0.6861435726210351,
+     "mean_negative_log_likelihood": 0.8591330573746027,
+     "mean_multiclass_brier": 0.46334865050789564
+    }
+   },
+   "calibration": {
+    "ece10": 0.1355198416752028,
+    "bins": 10,
+    "calibration_n": 599,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "vitaminc-real": {
+     "all": {
+      "count": 259,
+      "valid": 259,
+      "correct": 153,
+      "accuracy": 0.5907335907335908,
+      "mean_negative_log_likelihood": 1.097766454144307,
+      "mean_multiclass_brier": 0.6042857203245837
+     },
+     "choice": {
+      "count": 259,
+      "valid": 259,
+      "correct": 153,
+      "accuracy": 0.5907335907335908,
+      "mean_negative_log_likelihood": 1.097766454144307,
+      "mean_multiclass_brier": 0.6042857203245837
+     }
+    },
+    "vitaminc-synthetic": {
+     "all": {
+      "count": 340,
+      "valid": 340,
+      "correct": 258,
+      "accuracy": 0.7588235294117647,
+      "mean_negative_log_likelihood": 0.6773505580706218,
+      "mean_multiclass_brier": 0.3559877649710656
+     },
+     "choice": {
+      "count": 340,
+      "valid": 340,
+      "correct": 258,
+      "accuracy": 0.7588235294117647,
+      "mean_negative_log_likelihood": 0.6773505580706218,
+      "mean_multiclass_brier": 0.3559877649710656
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 23.144797860996277,
+    "median_seconds": 0.03864174799991815,
+    "p95_seconds": 0.040827626999998756,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 155257,
+    "output_tokens": 599
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:35.379460+00:00",
+   "completed_utc": "2026-09-30T22:47:58.571951+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 23.2
+  }
+ },
+ "massive-en-US": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:58.693343+00:00",
+   "completed_utc": "2026-09-30T22:48:23.753848+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 277,
+     "accuracy": 0.7914285714285715,
+     "mean_negative_log_likelihood": 0.9173129012789183,
+     "mean_multiclass_brier": 0.3272076217729484
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 277,
+     "accuracy": 0.7914285714285715,
+     "mean_negative_log_likelihood": 0.9173129012789183,
+     "mean_multiclass_brier": 0.3272076217729484
+    }
+   },
+   "calibration": {
+    "ece10": 0.08738602162483444,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-en-US": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 277,
+      "accuracy": 0.7914285714285715,
+      "mean_negative_log_likelihood": 0.9173129012789183,
+      "mean_multiclass_brier": 0.3272076217729484
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 277,
+      "accuracy": 0.7914285714285715,
+      "mean_negative_log_likelihood": 0.9173129012789183,
+      "mean_multiclass_brier": 0.3272076217729484
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 25.022380293000424,
+    "median_seconds": 0.0715123320001112,
+    "p95_seconds": 0.07337783200000558,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 173986,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:58.693343+00:00",
+   "completed_utc": "2026-09-30T22:48:23.753848+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 25.1
+  }
+ },
+ "massive-de-DE": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:23.871639+00:00",
+   "completed_utc": "2026-09-30T22:48:49.180793+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 247,
+     "accuracy": 0.7057142857142857,
+     "mean_negative_log_likelihood": 1.2105663908570485,
+     "mean_multiclass_brier": 0.4194792142848861
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 247,
+     "accuracy": 0.7057142857142857,
+     "mean_negative_log_likelihood": 1.2105663908570485,
+     "mean_multiclass_brier": 0.4194792142848861
+    }
+   },
+   "calibration": {
+    "ece10": 0.10853728075629376,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-de-DE": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 247,
+      "accuracy": 0.7057142857142857,
+      "mean_negative_log_likelihood": 1.2105663908570485,
+      "mean_multiclass_brier": 0.4194792142848861
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 247,
+      "accuracy": 0.7057142857142857,
+      "mean_negative_log_likelihood": 1.2105663908570485,
+      "mean_multiclass_brier": 0.4194792142848861
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 25.270189012002902,
+    "median_seconds": 0.07210740699997586,
+    "p95_seconds": 0.07432169300000169,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 175054,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:23.871639+00:00",
+   "completed_utc": "2026-09-30T22:48:49.180793+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 25.3
+  }
+ },
+ "boolq": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:49.293340+00:00",
+   "completed_utc": "2026-09-30T22:49:00.857711+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 236,
+     "accuracy": 0.7866666666666666,
+     "mean_negative_log_likelihood": 0.5272419968062236,
+     "mean_multiclass_brier": 0.33329997707175046,
+     "mean_binary_brier": 0.16664998853587523
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 236,
+     "accuracy": 0.7866666666666666,
+     "mean_negative_log_likelihood": 0.5272419968062236,
+     "mean_multiclass_brier": 0.33329997707175046,
+     "mean_binary_brier": 0.16664998853587523
+    }
+   },
+   "calibration": {
+    "ece10": 0.07681260662772585,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "boolq": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 236,
+      "accuracy": 0.7866666666666666,
+      "mean_negative_log_likelihood": 0.5272419968062236,
+      "mean_multiclass_brier": 0.33329997707175046,
+      "mean_binary_brier": 0.16664998853587523
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 236,
+      "accuracy": 0.7866666666666666,
+      "mean_negative_log_likelihood": 0.5272419968062236,
+      "mean_multiclass_brier": 0.33329997707175046,
+      "mean_binary_brier": 0.16664998853587523
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 11.538919470003293,
+    "median_seconds": 0.03811454249989765,
+    "p95_seconds": 0.042588566999711475,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 85264,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:49.293340+00:00",
+   "completed_utc": "2026-09-30T22:49:00.857711+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 11.6
+  }
+ },
+ "squad2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:00.974398+00:00",
+   "completed_utc": "2026-09-30T22:49:14.055052+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 211,
+     "accuracy": 0.705685618729097,
+     "mean_negative_log_likelihood": 0.590394788144133,
+     "mean_multiclass_brier": 0.39628508876021135,
+     "mean_binary_brier": 0.19814254438010567
+    },
+    "noul": {
+     "count": 299,
+     "valid": 299,
+     "correct": 211,
+     "accuracy": 0.705685618729097,
+     "mean_negative_log_likelihood": 0.590394788144133,
+     "mean_multiclass_brier": 0.39628508876021135,
+     "mean_binary_brier": 0.19814254438010567
+    }
+   },
+   "calibration": {
+    "ece10": 0.07395585414321379,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "squad2": {
+     "all": {
+      "count": 299,
+      "valid": 299,
+      "correct": 211,
+      "accuracy": 0.705685618729097,
+      "mean_negative_log_likelihood": 0.590394788144133,
+      "mean_multiclass_brier": 0.39628508876021135,
+      "mean_binary_brier": 0.19814254438010567
+     },
+     "noul": {
+      "count": 299,
+      "valid": 299,
+      "correct": 211,
+      "accuracy": 0.705685618729097,
+      "mean_negative_log_likelihood": 0.590394788144133,
+      "mean_multiclass_brier": 0.39628508876021135,
+      "mean_binary_brier": 0.19814254438010567
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 13.053289365999262,
+    "median_seconds": 0.04069775100015249,
+    "p95_seconds": 0.06876741699988997,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 118379,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:00.974398+00:00",
+   "completed_utc": "2026-09-30T22:49:14.055052+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 13.1
+  }
+ },
+ "paws": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:14.168520+00:00",
+   "completed_utc": "2026-09-30T22:49:23.027462+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 162,
+     "accuracy": 0.648,
+     "mean_negative_log_likelihood": 0.7799017040937242,
+     "mean_multiclass_brier": 0.5171689951224712,
+     "mean_binary_brier": 0.2585844975612356
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 162,
+     "accuracy": 0.648,
+     "mean_negative_log_likelihood": 0.7799017040937242,
+     "mean_multiclass_brier": 0.5171689951224712,
+     "mean_binary_brier": 0.2585844975612356
+    }
+   },
+   "calibration": {
+    "ece10": 0.17190837608764553,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "paws": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 162,
+      "accuracy": 0.648,
+      "mean_negative_log_likelihood": 0.7799017040937242,
+      "mean_multiclass_brier": 0.5171689951224712,
+      "mean_binary_brier": 0.2585844975612356
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 162,
+      "accuracy": 0.648,
+      "mean_negative_log_likelihood": 0.7799017040937242,
+      "mean_multiclass_brier": 0.5171689951224712,
+      "mean_binary_brier": 0.2585844975612356
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 8.839249404002658,
+    "median_seconds": 0.03523514249991422,
+    "p95_seconds": 0.03703677000021344,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 56600,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:14.168520+00:00",
+   "completed_utc": "2026-09-30T22:49:23.027462+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 8.9
+  }
+ },
+ "multinli": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:23.139521+00:00",
+   "completed_utc": "2026-09-30T22:49:33.852917+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 225,
+     "accuracy": 0.7525083612040134,
+     "mean_negative_log_likelihood": 0.5840226150598966,
+     "mean_multiclass_brier": 0.34024406649589034
+    },
+    "choice": {
+     "count": 299,
+     "valid": 299,
+     "correct": 225,
+     "accuracy": 0.7525083612040134,
+     "mean_negative_log_likelihood": 0.5840226150598966,
+     "mean_multiclass_brier": 0.34024406649589034
+    }
+   },
+   "calibration": {
+    "ece10": 0.043153832074230666,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "multinli-fiction": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 42,
+      "accuracy": 0.7,
+      "mean_negative_log_likelihood": 0.6168787524782838,
+      "mean_multiclass_brier": 0.3624155338399886
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 42,
+      "accuracy": 0.7,
+      "mean_negative_log_likelihood": 0.6168787524782838,
+      "mean_multiclass_brier": 0.3624155338399886
+     }
+    },
+    "multinli-government": {
+     "all": {
+      "count": 61,
+      "valid": 61,
+      "correct": 50,
+      "accuracy": 0.819672131147541,
+      "mean_negative_log_likelihood": 0.41175706090361325,
+      "mean_multiclass_brier": 0.24202154884694274
+     },
+     "choice": {
+      "count": 61,
+      "valid": 61,
+      "correct": 50,
+      "accuracy": 0.819672131147541,
+      "mean_negative_log_likelihood": 0.41175706090361325,
+      "mean_multiclass_brier": 0.24202154884694274
+     }
+    },
+    "multinli-slate": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 45,
+      "accuracy": 0.75,
+      "mean_negative_log_likelihood": 0.6664824927901046,
+      "mean_multiclass_brier": 0.3776943331009103
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 45,
+      "accuracy": 0.75,
+      "mean_negative_log_likelihood": 0.6664824927901046,
+      "mean_multiclass_brier": 0.3776943331009103
+     }
+    },
+    "multinli-telephone": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 43,
+      "accuracy": 0.7166666666666667,
+      "mean_negative_log_likelihood": 0.7003335533946873,
+      "mean_multiclass_brier": 0.4129004529346437
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 43,
+      "accuracy": 0.7166666666666667,
+      "mean_negative_log_likelihood": 0.7003335533946873,
+      "mean_multiclass_brier": 0.4129004529346437
+     }
+    },
+    "multinli-travel": {
+     "all": {
+      "count": 58,
+      "valid": 58,
+      "correct": 45,
+      "accuracy": 0.7758620689655172,
+      "mean_negative_log_likelihood": 0.5255843666897262,
+      "mean_multiclass_brier": 0.3067076243116406
+     },
+     "choice": {
+      "count": 58,
+      "valid": 58,
+      "correct": 45,
+      "accuracy": 0.7758620689655172,
+      "mean_negative_log_likelihood": 0.5255843666897262,
+      "mean_multiclass_brier": 0.3067076243116406
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 10.690814980996493,
+    "median_seconds": 0.03554517900010978,
+    "p95_seconds": 0.037821593999979086,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 63577,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:23.139521+00:00",
+   "completed_utc": "2026-09-30T22:49:33.852917+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 10.7
+  }
+ },
+ "civil_comments": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:33.970384+00:00",
+   "completed_utc": "2026-09-30T22:49:44.696400+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 230,
+     "accuracy": 0.7666666666666667,
+     "mean_negative_log_likelihood": 0.5378110793865439,
+     "mean_multiclass_brier": 0.34486552556031724,
+     "mean_binary_brier": 0.17243276278015862
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 230,
+     "accuracy": 0.7666666666666667,
+     "mean_negative_log_likelihood": 0.5378110793865439,
+     "mean_multiclass_brier": 0.34486552556031724,
+     "mean_binary_brier": 0.17243276278015862
+    }
+   },
+   "calibration": {
+    "ece10": 0.07765574004313364,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "civil_comments": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 230,
+      "accuracy": 0.7666666666666667,
+      "mean_negative_log_likelihood": 0.5378110793865439,
+      "mean_multiclass_brier": 0.34486552556031724,
+      "mean_binary_brier": 0.17243276278015862
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 230,
+      "accuracy": 0.7666666666666667,
+      "mean_negative_log_likelihood": 0.5378110793865439,
+      "mean_multiclass_brier": 0.34486552556031724,
+      "mean_binary_brier": 0.17243276278015862
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 10.702362348000406,
+    "median_seconds": 0.035318545999871276,
+    "p95_seconds": 0.040058236999811925,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 67931,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:33.970384+00:00",
+   "completed_utc": "2026-09-30T22:49:44.696400+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 10.7
+  }
+ },
+ "aegis2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:44.806782+00:00",
+   "completed_utc": "2026-09-30T22:49:54.428842+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 141,
+     "accuracy": 0.564,
+     "mean_negative_log_likelihood": 0.7829537457017619,
+     "mean_multiclass_brier": 0.555556765600371,
+     "mean_binary_brier": 0.2777783828001855
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 141,
+     "accuracy": 0.564,
+     "mean_negative_log_likelihood": 0.7829537457017619,
+     "mean_multiclass_brier": 0.555556765600371,
+     "mean_binary_brier": 0.2777783828001855
+    }
+   },
+   "calibration": {
+    "ece10": 0.15835261168048062,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "aegis2": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 141,
+      "accuracy": 0.564,
+      "mean_negative_log_likelihood": 0.7829537457017619,
+      "mean_multiclass_brier": 0.555556765600371,
+      "mean_binary_brier": 0.2777783828001855
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 141,
+      "accuracy": 0.564,
+      "mean_negative_log_likelihood": 0.7829537457017619,
+      "mean_multiclass_brier": 0.555556765600371,
+      "mean_binary_brier": 0.2777783828001855
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 9.601595161005662,
+    "median_seconds": 0.03612669999984064,
+    "p95_seconds": 0.05314882700031376,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 70199,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:44.806782+00:00",
+   "completed_utc": "2026-09-30T22:49:54.428842+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 9.6
+  }
+ },
+ "helpsteer2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:54.542945+00:00",
+   "completed_utc": "2026-09-30T22:50:13.069404+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 249,
+   "valid": 249,
+   "summary": {
+    "all": {
+     "count": 249,
+     "valid": 249,
+     "correct": 83,
+     "accuracy": 0.3333333333333333,
+     "mean_negative_log_likelihood": 2.116154471596413,
+     "mean_multiclass_brier": 0.9199264476250997,
+     "mean_absolute_score_error": 1.178772196258868
+    },
+    "score": {
+     "count": 249,
+     "valid": 249,
+     "correct": 83,
+     "accuracy": 0.3333333333333333,
+     "mean_negative_log_likelihood": 2.116154471596413,
+     "mean_multiclass_brier": 0.9199264476250997,
+     "mean_absolute_score_error": 1.178772196258868
+    }
+   },
+   "calibration": {
+    "ece10": 0.3390082616680485,
+    "bins": 10,
+    "calibration_n": 249,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "helpsteer2": {
+     "all": {
+      "count": 249,
+      "valid": 249,
+      "correct": 83,
+      "accuracy": 0.3333333333333333,
+      "mean_negative_log_likelihood": 2.116154471596413,
+      "mean_multiclass_brier": 0.9199264476250997,
+      "mean_absolute_score_error": 1.178772196258868
+     },
+     "score": {
+      "count": 249,
+      "valid": 249,
+      "correct": 83,
+      "accuracy": 0.3333333333333333,
+      "mean_negative_log_likelihood": 2.116154471596413,
+      "mean_multiclass_brier": 0.9199264476250997,
+      "mean_absolute_score_error": 1.178772196258868
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 18.49737086800087,
+    "median_seconds": 0.07519529599994712,
+    "p95_seconds": 0.10159961899989867,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 186792,
+    "output_tokens": 249
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:54.542945+00:00",
+   "completed_utc": "2026-09-30T22:50:13.069404+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 18.5
+  }
+ },
+ "summeval-relevance": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:13.190158+00:00",
+   "completed_utc": "2026-09-30T22:50:31.733904+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 240,
+   "valid": 240,
+   "summary": {
+    "all": {
+     "count": 240,
+     "valid": 240,
+     "correct": 33,
+     "accuracy": 0.1375,
+     "mean_negative_log_likelihood": 2.375202356260884,
+     "mean_multiclass_brier": 1.2824879064944812,
+     "mean_absolute_score_error": 1.106907052440789
+    },
+    "score": {
+     "count": 240,
+     "valid": 240,
+     "correct": 33,
+     "accuracy": 0.1375,
+     "mean_negative_log_likelihood": 2.375202356260884,
+     "mean_multiclass_brier": 1.2824879064944812,
+     "mean_absolute_score_error": 1.106907052440789
+    }
+   },
+   "calibration": {
+    "ece10": 0.6503413702169878,
+    "bins": 10,
+    "calibration_n": 240,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-relevance": {
+     "all": {
+      "count": 240,
+      "valid": 240,
+      "correct": 33,
+      "accuracy": 0.1375,
+      "mean_negative_log_likelihood": 2.375202356260884,
+      "mean_multiclass_brier": 1.2824879064944812,
+      "mean_absolute_score_error": 1.106907052440789
+     },
+     "score": {
+      "count": 240,
+      "valid": 240,
+      "correct": 33,
+      "accuracy": 0.1375,
+      "mean_negative_log_likelihood": 2.375202356260884,
+      "mean_multiclass_brier": 1.2824879064944812,
+      "mean_absolute_score_error": 1.106907052440789
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 18.515614387002188,
+    "median_seconds": 0.07599532149993138,
+    "p95_seconds": 0.08618661800028349,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 174400,
+    "output_tokens": 240
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:13.190158+00:00",
+   "completed_utc": "2026-09-30T22:50:31.733904+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 18.6
+  }
+ },
+ "summeval-consistency": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:31.853810+00:00",
+   "completed_utc": "2026-09-30T22:50:42.979176+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 144,
+   "valid": 144,
+   "summary": {
+    "all": {
+     "count": 144,
+     "valid": 144,
+     "correct": 121,
+     "accuracy": 0.8402777777777778,
+     "mean_negative_log_likelihood": 0.7086108135743633,
+     "mean_multiclass_brier": 0.29408261676612146,
+     "mean_absolute_score_error": 0.6549449246703241
+    },
+    "score": {
+     "count": 144,
+     "valid": 144,
+     "correct": 121,
+     "accuracy": 0.8402777777777778,
+     "mean_negative_log_likelihood": 0.7086108135743633,
+     "mean_multiclass_brier": 0.29408261676612146,
+     "mean_absolute_score_error": 0.6549449246703241
+    }
+   },
+   "calibration": {
+    "ece10": 0.09982013321393114,
+    "bins": 10,
+    "calibration_n": 144,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-consistency": {
+     "all": {
+      "count": 144,
+      "valid": 144,
+      "correct": 121,
+      "accuracy": 0.8402777777777778,
+      "mean_negative_log_likelihood": 0.7086108135743633,
+      "mean_multiclass_brier": 0.29408261676612146,
+      "mean_absolute_score_error": 0.6549449246703241
+     },
+     "score": {
+      "count": 144,
+      "valid": 144,
+      "correct": 121,
+      "accuracy": 0.8402777777777778,
+      "mean_negative_log_likelihood": 0.7086108135743633,
+      "mean_multiclass_brier": 0.29408261676612146,
+      "mean_absolute_score_error": 0.6549449246703241
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 11.107637158998841,
+    "median_seconds": 0.07567534150007305,
+    "p95_seconds": 0.0867492479997054,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 102013,
+    "output_tokens": 144
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:31.853810+00:00",
+   "completed_utc": "2026-09-30T22:50:42.979176+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 11.1
+  }
+ },
+ "pubmedqa": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:43.101391+00:00",
+   "completed_utc": "2026-09-30T22:50:56.931683+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 150,
+     "accuracy": 0.6,
+     "mean_negative_log_likelihood": 0.921235786876137,
+     "mean_multiclass_brier": 0.5251612375027742
+    },
+    "choice": {
+     "count": 250,
+     "valid": 250,
+     "correct": 150,
+     "accuracy": 0.6,
+     "mean_negative_log_likelihood": 0.921235786876137,
+     "mean_multiclass_brier": 0.5251612375027742
+    }
+   },
+   "calibration": {
+    "ece10": 0.09705774423219767,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "pubmedqa": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 150,
+      "accuracy": 0.6,
+      "mean_negative_log_likelihood": 0.921235786876137,
+      "mean_multiclass_brier": 0.5251612375027742
+     },
+     "choice": {
+      "count": 250,
+      "valid": 250,
+      "correct": 150,
+      "accuracy": 0.6,
+      "mean_negative_log_likelihood": 0.921235786876137,
+      "mean_multiclass_brier": 0.5251612375027742
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 13.806033813000795,
+    "median_seconds": 0.05582064250006624,
+    "p95_seconds": 0.07033367199983331,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 126199,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:43.101391+00:00",
+   "completed_utc": "2026-09-30T22:50:56.931683+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 13.8
+  }
+ }
+}

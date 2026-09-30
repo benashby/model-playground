@@ -1,0 +1,52 @@
+# probes/rows_diff.py: H100 vs RTX 3090 on the full suite per model, then BoolQ scored through
+# Ollama's own /v1/systemone on the H100 VM (no isolation possible) against the isolated port run.
+left nimble-ollama-format-h100, right nimble-ollama-format-3090
+  vitaminc-dev           n   599  same to 1e-6     3  median 4.09e-04  p99 4.76e-02  max 0.1474  prediction differs   4  acc 78.6% vs 78.8%
+  massive-en-US          n   350  same to 1e-6     0  median 1.79e-04  p99 3.78e-02  max 0.0565  prediction differs   3  acc 84.3% vs 84.3%
+  massive-de-DE          n   350  same to 1e-6     0  median 3.44e-04  p99 3.86e-02  max 0.0472  prediction differs   3  acc 83.1% vs 83.1%
+  boolq                  n   300  same to 1e-6     5  median 3.19e-04  p99 3.04e-02  max 0.0477  prediction differs   1  acc 86.3% vs 86.0%
+  squad2                 n   299  same to 1e-6     4  median 4.61e-04  p99 3.57e-02  max 0.0507  prediction differs   0  acc 74.2% vs 74.2%
+  paws                   n   250  same to 1e-6     1  median 3.15e-04  p99 4.24e-02  max 0.1034  prediction differs   0  acc 74.0% vs 74.0%
+  multinli               n   299  same to 1e-6     4  median 3.64e-04  p99 3.01e-02  max 0.0721  prediction differs   0  acc 90.0% vs 90.0%
+  civil_comments         n   300  same to 1e-6     1  median 1.47e-03  p99 2.70e-02  max 0.0550  prediction differs   4  acc 78.0% vs 78.0%
+  aegis2                 n   250  same to 1e-6     2  median 3.77e-04  p99 3.80e-02  max 0.0445  prediction differs   0  acc 82.4% vs 82.4%
+  helpsteer2             n   249  same to 1e-6     0  median 6.09e-03  p99 2.94e-02  max 0.0390  prediction differs   1  acc 34.1% vs 34.5%
+  summeval-relevance     n   240  same to 1e-6     0  median 6.87e-03  p99 4.42e-02  max 0.0547  prediction differs   2  acc 48.8% vs 48.8%
+  summeval-consistency   n   144  same to 1e-6     0  median 5.36e-03  p99 3.72e-02  max 0.0375  prediction differs   2  acc 82.6% vs 83.3%
+  pubmedqa               n   250  same to 1e-6     0  median 7.10e-04  p99 5.30e-02  max 0.0783  prediction differs   2  acc 78.0% vs 77.2%
+  all records            n  3880  same to 1e-6    20  median 8.60e-04  p99 3.82e-02  max 0.1474  prediction differs  22  acc 76.0% vs 76.0%
+
+left tev1-ollama-format-h100, right tev1-ollama-format-3090
+  vitaminc-dev           n   599  same to 1e-6     0  median 1.30e-03  p99 5.31e-02  max 0.0865  prediction differs   3  acc 74.3% vs 74.0%
+  massive-en-US          n   350  same to 1e-6     0  median 7.69e-04  p99 2.75e-02  max 0.0396  prediction differs   1  acc 85.7% vs 85.7%
+  massive-de-DE          n   350  same to 1e-6     0  median 1.76e-03  p99 4.01e-02  max 0.0584  prediction differs   3  acc 83.1% vs 82.9%
+  boolq                  n   300  same to 1e-6     0  median 7.18e-04  p99 5.33e-02  max 0.0805  prediction differs   1  acc 85.0% vs 85.3%
+  squad2                 n   299  same to 1e-6     0  median 1.85e-03  p99 2.93e-02  max 0.0514  prediction differs   1  acc 76.3% vs 76.6%
+  paws                   n   250  same to 1e-6     0  median 1.26e-03  p99 2.30e-02  max 0.0731  prediction differs   1  acc 82.4% vs 82.0%
+  multinli               n   299  same to 1e-6     0  median 1.02e-03  p99 4.17e-02  max 0.0592  prediction differs   2  acc 92.0% vs 92.0%
+  civil_comments         n   300  same to 1e-6     0  median 3.27e-03  p99 2.56e-02  max 0.0285  prediction differs   3  acc 73.3% vs 73.7%
+  aegis2                 n   250  same to 1e-6     0  median 2.10e-03  p99 1.88e-02  max 0.0280  prediction differs   1  acc 77.2% vs 77.6%
+  helpsteer2             n   249  same to 1e-6     0  median 9.56e-03  p99 3.42e-02  max 0.0400  prediction differs   6  acc 35.7% vs 35.3%
+  summeval-relevance     n   240  same to 1e-6     0  median 8.87e-03  p99 3.13e-02  max 0.0325  prediction differs   5  acc 50.4% vs 50.8%
+  summeval-consistency   n   144  same to 1e-6     0  median 7.69e-03  p99 2.83e-02  max 0.0292  prediction differs   2  acc 79.9% vs 79.9%
+  pubmedqa               n   250  same to 1e-6     0  median 2.50e-03  p99 3.81e-02  max 0.0543  prediction differs   4  acc 74.4% vs 74.8%
+  all records            n  3880  same to 1e-6     0  median 2.49e-03  p99 3.51e-02  max 0.0865  prediction differs  33  acc 75.4% vs 75.4%
+
+left tev1-0.8b-ollama-format-h100, right tev1-0.8b-ollama-format-3090
+  vitaminc-dev           n   599  same to 1e-6     0  median 5.21e-03  p99 5.44e-02  max 0.0754  prediction differs   5  acc 68.6% vs 69.1%
+  massive-en-US          n   350  same to 1e-6     2  median 2.37e-03  p99 5.98e-02  max 0.0872  prediction differs   2  acc 79.1% vs 78.6%
+  massive-de-DE          n   350  same to 1e-6     2  median 4.25e-03  p99 8.45e-02  max 0.1014  prediction differs   2  acc 70.6% vs 70.6%
+  boolq                  n   300  same to 1e-6     0  median 4.84e-03  p99 5.00e-02  max 0.0749  prediction differs   4  acc 78.7% vs 78.0%
+  squad2                 n   299  same to 1e-6     0  median 8.27e-03  p99 5.04e-02  max 0.0636  prediction differs   3  acc 70.6% vs 70.9%
+  paws                   n   250  same to 1e-6     0  median 6.32e-03  p99 4.35e-02  max 0.0481  prediction differs   0  acc 64.8% vs 64.8%
+  multinli               n   299  same to 1e-6     0  median 6.68e-03  p99 4.47e-02  max 0.0679  prediction differs   2  acc 75.3% vs 75.3%
+  civil_comments         n   300  same to 1e-6     0  median 6.16e-03  p99 3.53e-02  max 0.0388  prediction differs   3  acc 76.7% vs 77.0%
+  aegis2                 n   250  same to 1e-6     0  median 7.01e-03  p99 3.47e-02  max 0.0513  prediction differs   1  acc 56.4% vs 56.0%
+  helpsteer2             n   249  same to 1e-6     0  median 1.25e-02  p99 5.53e-02  max 0.0649  prediction differs   4  acc 33.3% vs 33.7%
+  summeval-relevance     n   240  same to 1e-6     0  median 9.78e-03  p99 3.88e-02  max 0.0459  prediction differs   0  acc 13.8% vs 13.8%
+  summeval-consistency   n   144  same to 1e-6     0  median 1.08e-02  p99 4.09e-02  max 0.0459  prediction differs   0  acc 84.0% vs 84.0%
+  pubmedqa               n   250  same to 1e-6     0  median 8.58e-03  p99 4.28e-02  max 0.0547  prediction differs   4  acc 60.0% vs 60.8%
+  all records            n  3880  same to 1e-6     4  median 6.67e-03  p99 5.18e-02  max 0.1014  prediction differs  30  acc 65.1% vs 65.2%
+
+left nimble-ollama-format-h100, right nimble-via-ollama-h100
+  boolq                  n   300  same to 1e-6   268  median 1.11e-09  p99 3.33e-02  max 0.0383  prediction differs   0  acc 86.3% vs 86.3%

@@ -1,0 +1,1359 @@
+{
+ "vitaminc-dev": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:40:58.807855+00:00",
+   "completed_utc": "2026-09-30T22:42:04.909956+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 599,
+   "valid": 599,
+   "summary": {
+    "all": {
+     "count": 599,
+     "valid": 599,
+     "correct": 475,
+     "accuracy": 0.7929883138564274,
+     "mean_negative_log_likelihood": 0.6728302603336963,
+     "mean_multiclass_brier": 0.3300328518690891
+    },
+    "choice": {
+     "count": 599,
+     "valid": 599,
+     "correct": 475,
+     "accuracy": 0.7929883138564274,
+     "mean_negative_log_likelihood": 0.6728302603336963,
+     "mean_multiclass_brier": 0.3300328518690891
+    }
+   },
+   "calibration": {
+    "ece10": 0.12765308745217183,
+    "bins": 10,
+    "calibration_n": 599,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "vitaminc-real": {
+     "all": {
+      "count": 259,
+      "valid": 259,
+      "correct": 205,
+      "accuracy": 0.7915057915057915,
+      "mean_negative_log_likelihood": 0.6580605453781133,
+      "mean_multiclass_brier": 0.3233202016553511
+     },
+     "choice": {
+      "count": 259,
+      "valid": 259,
+      "correct": 205,
+      "accuracy": 0.7915057915057915,
+      "mean_negative_log_likelihood": 0.6580605453781133,
+      "mean_multiclass_brier": 0.3233202016553511
+     }
+    },
+    "vitaminc-synthetic": {
+     "all": {
+      "count": 340,
+      "valid": 340,
+      "correct": 270,
+      "accuracy": 0.7941176470588235,
+      "mean_negative_log_likelihood": 0.6840813079028022,
+      "mean_multiclass_brier": 0.3351463118848484
+     },
+     "choice": {
+      "count": 340,
+      "valid": 340,
+      "correct": 270,
+      "accuracy": 0.7941176470588235,
+      "mean_negative_log_likelihood": 0.6840813079028022,
+      "mean_multiclass_brier": 0.3351463118848484
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 66.04343981499915,
+    "median_seconds": 0.10980262300017785,
+    "p95_seconds": 0.11502938200010249,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 193565,
+    "output_tokens": 599
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:40:58.807855+00:00",
+   "completed_utc": "2026-09-30T22:42:04.909956+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 66.1
+  }
+ },
+ "massive-en-US": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:42:05.033735+00:00",
+   "completed_utc": "2026-09-30T22:43:05.998347+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 303,
+     "accuracy": 0.8657142857142858,
+     "mean_negative_log_likelihood": 0.48673161454631536,
+     "mean_multiclass_brier": 0.20969890208873823
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 303,
+     "accuracy": 0.8657142857142858,
+     "mean_negative_log_likelihood": 0.48673161454631536,
+     "mean_multiclass_brier": 0.20969890208873823
+    }
+   },
+   "calibration": {
+    "ece10": 0.06623965322551112,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-en-US": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 303,
+      "accuracy": 0.8657142857142858,
+      "mean_negative_log_likelihood": 0.48673161454631536,
+      "mean_multiclass_brier": 0.20969890208873823
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 303,
+      "accuracy": 0.8657142857142858,
+      "mean_negative_log_likelihood": 0.48673161454631536,
+      "mean_multiclass_brier": 0.20969890208873823
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 60.920022097996934,
+    "median_seconds": 0.17418332550028026,
+    "p95_seconds": 0.1767759199997272,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 227885,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:42:05.033735+00:00",
+   "completed_utc": "2026-09-30T22:43:05.998347+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 61.0
+  }
+ },
+ "massive-de-DE": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:43:06.115879+00:00",
+   "completed_utc": "2026-09-30T22:44:06.900570+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 293,
+     "accuracy": 0.8371428571428572,
+     "mean_negative_log_likelihood": 0.5676454497908828,
+     "mean_multiclass_brier": 0.24856959931418618
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 293,
+     "accuracy": 0.8371428571428572,
+     "mean_negative_log_likelihood": 0.5676454497908828,
+     "mean_multiclass_brier": 0.24856959931418618
+    }
+   },
+   "calibration": {
+    "ece10": 0.08758922317963558,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-de-DE": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 293,
+      "accuracy": 0.8371428571428572,
+      "mean_negative_log_likelihood": 0.5676454497908828,
+      "mean_multiclass_brier": 0.24856959931418618
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 293,
+      "accuracy": 0.8371428571428572,
+      "mean_negative_log_likelihood": 0.5676454497908828,
+      "mean_multiclass_brier": 0.24856959931418618
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 60.74004352800057,
+    "median_seconds": 0.1735784020002029,
+    "p95_seconds": 0.17666761300006328,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 228952,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:43:06.115879+00:00",
+   "completed_utc": "2026-09-30T22:44:06.900570+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 60.8
+  }
+ },
+ "boolq": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:44:07.012636+00:00",
+   "completed_utc": "2026-09-30T22:44:40.275435+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 255,
+     "accuracy": 0.85,
+     "mean_negative_log_likelihood": 0.3569896867276065,
+     "mean_multiclass_brier": 0.2105899430477119,
+     "mean_binary_brier": 0.10529497152385595
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 255,
+     "accuracy": 0.85,
+     "mean_negative_log_likelihood": 0.3569896867276065,
+     "mean_multiclass_brier": 0.2105899430477119,
+     "mean_binary_brier": 0.10529497152385595
+    }
+   },
+   "calibration": {
+    "ece10": 0.08203562379373056,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "boolq": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "mean_negative_log_likelihood": 0.3569896867276065,
+      "mean_multiclass_brier": 0.2105899430477119,
+      "mean_binary_brier": 0.10529497152385595
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "mean_negative_log_likelihood": 0.3569896867276065,
+      "mean_multiclass_brier": 0.2105899430477119,
+      "mean_binary_brier": 0.10529497152385595
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 33.23144650900349,
+    "median_seconds": 0.10942740049995336,
+    "p95_seconds": 0.12208494300011807,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 101720,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:44:07.012636+00:00",
+   "completed_utc": "2026-09-30T22:44:40.275435+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 33.3
+  }
+ },
+ "squad2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:44:40.391807+00:00",
+   "completed_utc": "2026-09-30T22:45:16.959363+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 225,
+     "accuracy": 0.7525083612040134,
+     "mean_negative_log_likelihood": 0.7000371668445464,
+     "mean_multiclass_brier": 0.38504843082985685,
+     "mean_binary_brier": 0.19252421541492842
+    },
+    "noul": {
+     "count": 299,
+     "valid": 299,
+     "correct": 225,
+     "accuracy": 0.7525083612040134,
+     "mean_negative_log_likelihood": 0.7000371668445464,
+     "mean_multiclass_brier": 0.38504843082985685,
+     "mean_binary_brier": 0.19252421541492842
+    }
+   },
+   "calibration": {
+    "ece10": 0.16267466535067887,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "squad2": {
+     "all": {
+      "count": 299,
+      "valid": 299,
+      "correct": 225,
+      "accuracy": 0.7525083612040134,
+      "mean_negative_log_likelihood": 0.7000371668445464,
+      "mean_multiclass_brier": 0.38504843082985685,
+      "mean_binary_brier": 0.19252421541492842
+     },
+     "noul": {
+      "count": 299,
+      "valid": 299,
+      "correct": 225,
+      "accuracy": 0.7525083612040134,
+      "mean_negative_log_likelihood": 0.7000371668445464,
+      "mean_multiclass_brier": 0.38504843082985685,
+      "mean_binary_brier": 0.19252421541492842
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 36.53518896600099,
+    "median_seconds": 0.11584879700012607,
+    "p95_seconds": 0.1587309860001369,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 134745,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:44:40.391807+00:00",
+   "completed_utc": "2026-09-30T22:45:16.959363+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 36.6
+  }
+ },
+ "paws": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:45:17.073079+00:00",
+   "completed_utc": "2026-09-30T22:45:43.606486+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 185,
+     "accuracy": 0.74,
+     "mean_negative_log_likelihood": 0.9230061038302347,
+     "mean_multiclass_brier": 0.44283394690633804,
+     "mean_binary_brier": 0.22141697345316902
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 185,
+     "accuracy": 0.74,
+     "mean_negative_log_likelihood": 0.9230061038302347,
+     "mean_multiclass_brier": 0.44283394690633804,
+     "mean_binary_brier": 0.22141697345316902
+    }
+   },
+   "calibration": {
+    "ece10": 0.19521726246338333,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "paws": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "mean_negative_log_likelihood": 0.9230061038302347,
+      "mean_multiclass_brier": 0.44283394690633804,
+      "mean_binary_brier": 0.22141697345316902
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 185,
+      "accuracy": 0.74,
+      "mean_negative_log_likelihood": 0.9230061038302347,
+      "mean_multiclass_brier": 0.44283394690633804,
+      "mean_binary_brier": 0.22141697345316902
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 26.507396013998004,
+    "median_seconds": 0.10580549599990263,
+    "p95_seconds": 0.11138909100009187,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 70590,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:45:17.073079+00:00",
+   "completed_utc": "2026-09-30T22:45:43.606486+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 26.5
+  }
+ },
+ "multinli": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:45:43.740249+00:00",
+   "completed_utc": "2026-09-30T22:46:15.747491+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 271,
+     "accuracy": 0.9063545150501672,
+     "mean_negative_log_likelihood": 0.2511078976144283,
+     "mean_multiclass_brier": 0.1441119937260131
+    },
+    "choice": {
+     "count": 299,
+     "valid": 299,
+     "correct": 271,
+     "accuracy": 0.9063545150501672,
+     "mean_negative_log_likelihood": 0.2511078976144283,
+     "mean_multiclass_brier": 0.1441119937260131
+    }
+   },
+   "calibration": {
+    "ece10": 0.03125526987391519,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "multinli-fiction": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 54,
+      "accuracy": 0.9,
+      "mean_negative_log_likelihood": 0.25402554746867845,
+      "mean_multiclass_brier": 0.15570900371335658
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 54,
+      "accuracy": 0.9,
+      "mean_negative_log_likelihood": 0.25402554746867845,
+      "mean_multiclass_brier": 0.15570900371335658
+     }
+    },
+    "multinli-government": {
+     "all": {
+      "count": 61,
+      "valid": 61,
+      "correct": 55,
+      "accuracy": 0.9016393442622951,
+      "mean_negative_log_likelihood": 0.29342821460233853,
+      "mean_multiclass_brier": 0.15273334205572184
+     },
+     "choice": {
+      "count": 61,
+      "valid": 61,
+      "correct": 55,
+      "accuracy": 0.9016393442622951,
+      "mean_negative_log_likelihood": 0.29342821460233853,
+      "mean_multiclass_brier": 0.15273334205572184
+     }
+    },
+    "multinli-slate": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 52,
+      "accuracy": 0.8666666666666667,
+      "mean_negative_log_likelihood": 0.3394428496513962,
+      "mean_multiclass_brier": 0.204227636541922
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 52,
+      "accuracy": 0.8666666666666667,
+      "mean_negative_log_likelihood": 0.3394428496513962,
+      "mean_multiclass_brier": 0.204227636541922
+     }
+    },
+    "multinli-telephone": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "mean_negative_log_likelihood": 0.15900004589551536,
+      "mean_multiclass_brier": 0.07725815830811499
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "mean_negative_log_likelihood": 0.15900004589551536,
+      "mean_multiclass_brier": 0.07725815830811499
+     }
+    },
+    "multinli-travel": {
+     "all": {
+      "count": 58,
+      "valid": 58,
+      "correct": 53,
+      "accuracy": 0.9137931034482759,
+      "mean_negative_log_likelihood": 0.2074833399144139,
+      "mean_multiclass_brier": 0.13001835077371163
+     },
+     "choice": {
+      "count": 58,
+      "valid": 58,
+      "correct": 53,
+      "accuracy": 0.9137931034482759,
+      "mean_negative_log_likelihood": 0.2074833399144139,
+      "mean_multiclass_brier": 0.13001835077371163
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 31.975657707997925,
+    "median_seconds": 0.10666440599970883,
+    "p95_seconds": 0.11329143699958877,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 82182,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:45:43.740249+00:00",
+   "completed_utc": "2026-09-30T22:46:15.747491+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 32.0
+  }
+ },
+ "civil_comments": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:46:15.869437+00:00",
+   "completed_utc": "2026-09-30T22:46:47.290193+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 244,
+     "accuracy": 0.8133333333333334,
+     "mean_negative_log_likelihood": 0.44825925059768484,
+     "mean_multiclass_brier": 0.28267604930444007,
+     "mean_binary_brier": 0.14133802465222003
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 244,
+     "accuracy": 0.8133333333333334,
+     "mean_negative_log_likelihood": 0.44825925059768484,
+     "mean_multiclass_brier": 0.28267604930444007,
+     "mean_binary_brier": 0.14133802465222003
+    }
+   },
+   "calibration": {
+    "ece10": 0.06671153435402444,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "civil_comments": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 244,
+      "accuracy": 0.8133333333333334,
+      "mean_negative_log_likelihood": 0.44825925059768484,
+      "mean_multiclass_brier": 0.28267604930444007,
+      "mean_binary_brier": 0.14133802465222003
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 244,
+      "accuracy": 0.8133333333333334,
+      "mean_negative_log_likelihood": 0.44825925059768484,
+      "mean_multiclass_brier": 0.28267604930444007,
+      "mean_binary_brier": 0.14133802465222003
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 31.39050873999804,
+    "median_seconds": 0.10347313200031749,
+    "p95_seconds": 0.11626263200014364,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 84042,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:46:15.869437+00:00",
+   "completed_utc": "2026-09-30T22:46:47.290193+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 31.4
+  }
+ },
+ "aegis2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:46:47.402190+00:00",
+   "completed_utc": "2026-09-30T22:47:15.093477+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 203,
+     "accuracy": 0.812,
+     "mean_negative_log_likelihood": 0.5949927665488375,
+     "mean_multiclass_brier": 0.2990556804422642,
+     "mean_binary_brier": 0.1495278402211321
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 203,
+     "accuracy": 0.812,
+     "mean_negative_log_likelihood": 0.5949927665488375,
+     "mean_multiclass_brier": 0.2990556804422642,
+     "mean_binary_brier": 0.1495278402211321
+    }
+   },
+   "calibration": {
+    "ece10": 0.11585189081949432,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "aegis2": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 203,
+      "accuracy": 0.812,
+      "mean_negative_log_likelihood": 0.5949927665488375,
+      "mean_multiclass_brier": 0.2990556804422642,
+      "mean_binary_brier": 0.1495278402211321
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 203,
+      "accuracy": 0.812,
+      "mean_negative_log_likelihood": 0.5949927665488375,
+      "mean_multiclass_brier": 0.2990556804422642,
+      "mean_binary_brier": 0.1495278402211321
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 27.665223685996352,
+    "median_seconds": 0.10724317900007918,
+    "p95_seconds": 0.13920957900018038,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 83694,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:46:47.402190+00:00",
+   "completed_utc": "2026-09-30T22:47:15.093477+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 27.7
+  }
+ },
+ "helpsteer2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:15.210094+00:00",
+   "completed_utc": "2026-09-30T22:47:58.470420+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 249,
+   "valid": 249,
+   "summary": {
+    "all": {
+     "count": 249,
+     "valid": 249,
+     "correct": 87,
+     "accuracy": 0.3493975903614458,
+     "mean_negative_log_likelihood": 1.871492791056777,
+     "mean_multiclass_brier": 0.885121467057255,
+     "mean_absolute_score_error": 0.9172124654900288
+    },
+    "score": {
+     "count": 249,
+     "valid": 249,
+     "correct": 87,
+     "accuracy": 0.3493975903614458,
+     "mean_negative_log_likelihood": 1.871492791056777,
+     "mean_multiclass_brier": 0.885121467057255,
+     "mean_absolute_score_error": 0.9172124654900288
+    }
+   },
+   "calibration": {
+    "ece10": 0.34345940882941073,
+    "bins": 10,
+    "calibration_n": 249,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "helpsteer2": {
+     "all": {
+      "count": 249,
+      "valid": 249,
+      "correct": 87,
+      "accuracy": 0.3493975903614458,
+      "mean_negative_log_likelihood": 1.871492791056777,
+      "mean_multiclass_brier": 0.885121467057255,
+      "mean_absolute_score_error": 0.9172124654900288
+     },
+     "score": {
+      "count": 249,
+      "valid": 249,
+      "correct": 87,
+      "accuracy": 0.3493975903614458,
+      "mean_negative_log_likelihood": 1.871492791056777,
+      "mean_multiclass_brier": 0.885121467057255,
+      "mean_absolute_score_error": 0.9172124654900288
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 43.22905356300271,
+    "median_seconds": 0.16480898200006777,
+    "p95_seconds": 0.24328836899985617,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 205321,
+    "output_tokens": 249
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:15.210094+00:00",
+   "completed_utc": "2026-09-30T22:47:58.470420+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 43.3
+  }
+ },
+ "summeval-relevance": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:58.593426+00:00",
+   "completed_utc": "2026-09-30T22:48:39.376960+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 240,
+   "valid": 240,
+   "summary": {
+    "all": {
+     "count": 240,
+     "valid": 240,
+     "correct": 115,
+     "accuracy": 0.4791666666666667,
+     "mean_negative_log_likelihood": 1.1926214209687185,
+     "mean_multiclass_brier": 0.6616759869854332,
+     "mean_absolute_score_error": 0.6152787097470067
+    },
+    "score": {
+     "count": 240,
+     "valid": 240,
+     "correct": 115,
+     "accuracy": 0.4791666666666667,
+     "mean_negative_log_likelihood": 1.1926214209687185,
+     "mean_multiclass_brier": 0.6616759869854332,
+     "mean_absolute_score_error": 0.6152787097470067
+    }
+   },
+   "calibration": {
+    "ece10": 0.14971898568427416,
+    "bins": 10,
+    "calibration_n": 240,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-relevance": {
+     "all": {
+      "count": 240,
+      "valid": 240,
+      "correct": 115,
+      "accuracy": 0.4791666666666667,
+      "mean_negative_log_likelihood": 1.1926214209687185,
+      "mean_multiclass_brier": 0.6616759869854332,
+      "mean_absolute_score_error": 0.6152787097470067
+     },
+     "score": {
+      "count": 240,
+      "valid": 240,
+      "correct": 115,
+      "accuracy": 0.4791666666666667,
+      "mean_negative_log_likelihood": 1.1926214209687185,
+      "mean_multiclass_brier": 0.6616759869854332,
+      "mean_absolute_score_error": 0.6152787097470067
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 40.75238828000056,
+    "median_seconds": 0.1628973589999987,
+    "p95_seconds": 0.22336841299966181,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 192288,
+    "output_tokens": 240
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:47:58.593426+00:00",
+   "completed_utc": "2026-09-30T22:48:39.376960+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 40.8
+  }
+ },
+ "summeval-consistency": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:39.499649+00:00",
+   "completed_utc": "2026-09-30T22:49:03.906286+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 144,
+   "valid": 144,
+   "summary": {
+    "all": {
+     "count": 144,
+     "valid": 144,
+     "correct": 119,
+     "accuracy": 0.8263888888888888,
+     "mean_negative_log_likelihood": 0.5753751370895146,
+     "mean_multiclass_brier": 0.2394050514688202,
+     "mean_absolute_score_error": 0.38498250896452274
+    },
+    "score": {
+     "count": 144,
+     "valid": 144,
+     "correct": 119,
+     "accuracy": 0.8263888888888888,
+     "mean_negative_log_likelihood": 0.5753751370895146,
+     "mean_multiclass_brier": 0.2394050514688202,
+     "mean_absolute_score_error": 0.38498250896452274
+    }
+   },
+   "calibration": {
+    "ece10": 0.12579768585480067,
+    "bins": 10,
+    "calibration_n": 144,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-consistency": {
+     "all": {
+      "count": 144,
+      "valid": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "mean_negative_log_likelihood": 0.5753751370895146,
+      "mean_multiclass_brier": 0.2394050514688202,
+      "mean_absolute_score_error": 0.38498250896452274
+     },
+     "score": {
+      "count": 144,
+      "valid": 144,
+      "correct": 119,
+      "accuracy": 0.8263888888888888,
+      "mean_negative_log_likelihood": 0.5753751370895146,
+      "mean_multiclass_brier": 0.2394050514688202,
+      "mean_absolute_score_error": 0.38498250896452274
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 24.387419776001934,
+    "median_seconds": 0.1602624975002982,
+    "p95_seconds": 0.22360488200001782,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 112893,
+    "output_tokens": 144
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:48:39.499649+00:00",
+   "completed_utc": "2026-09-30T22:49:03.906286+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 24.4
+  }
+ },
+ "pubmedqa": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:04.022308+00:00",
+   "completed_utc": "2026-09-30T22:49:38.307595+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 190,
+     "accuracy": 0.76,
+     "mean_negative_log_likelihood": 0.7702833148232964,
+     "mean_multiclass_brier": 0.3629066860062206
+    },
+    "choice": {
+     "count": 250,
+     "valid": 250,
+     "correct": 190,
+     "accuracy": 0.76,
+     "mean_negative_log_likelihood": 0.7702833148232964,
+     "mean_multiclass_brier": 0.3629066860062206
+    }
+   },
+   "calibration": {
+    "ece10": 0.1442999761493912,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "pubmedqa": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 190,
+      "accuracy": 0.76,
+      "mean_negative_log_likelihood": 0.7702833148232964,
+      "mean_multiclass_brier": 0.3629066860062206
+     },
+     "choice": {
+      "count": 250,
+      "valid": 250,
+      "correct": 190,
+      "accuracy": 0.76,
+      "mean_negative_log_likelihood": 0.7702833148232964,
+      "mean_multiclass_brier": 0.3629066860062206
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 34.257481032997475,
+    "median_seconds": 0.13728051649991357,
+    "p95_seconds": 0.15593585299984625,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 141935,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "nimble",
+   "api_url": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:49:04.022308+00:00",
+   "completed_utc": "2026-09-30T22:49:38.307595+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8090 build=b1-6f767fe gguf=nimble-latest.gguf format=nimble system=nimble prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 34.3
+  }
+ }
+}

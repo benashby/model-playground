@@ -1,0 +1,1359 @@
+{
+ "vitaminc-dev": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:57.052340+00:00",
+   "completed_utc": "2026-09-30T22:51:20.248333+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 599,
+   "valid": 599,
+   "summary": {
+    "all": {
+     "count": 599,
+     "valid": 599,
+     "correct": 405,
+     "accuracy": 0.676126878130217,
+     "mean_negative_log_likelihood": 0.863629478195049,
+     "mean_multiclass_brier": 0.4501921715800353
+    },
+    "choice": {
+     "count": 599,
+     "valid": 599,
+     "correct": 405,
+     "accuracy": 0.676126878130217,
+     "mean_negative_log_likelihood": 0.863629478195049,
+     "mean_multiclass_brier": 0.4501921715800353
+    }
+   },
+   "calibration": {
+    "ece10": 0.13223490366592322,
+    "bins": 10,
+    "calibration_n": 599,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "vitaminc-real": {
+     "all": {
+      "count": 259,
+      "valid": 259,
+      "correct": 162,
+      "accuracy": 0.6254826254826255,
+      "mean_negative_log_likelihood": 0.9639417976136113,
+      "mean_multiclass_brier": 0.5200673158823692
+     },
+     "choice": {
+      "count": 259,
+      "valid": 259,
+      "correct": 162,
+      "accuracy": 0.6254826254826255,
+      "mean_negative_log_likelihood": 0.9639417976136113,
+      "mean_multiclass_brier": 0.5200673158823692
+     }
+    },
+    "vitaminc-synthetic": {
+     "all": {
+      "count": 340,
+      "valid": 340,
+      "correct": 243,
+      "accuracy": 0.7147058823529412,
+      "mean_negative_log_likelihood": 0.7872150936967911,
+      "mean_multiclass_brier": 0.396963752832081
+     },
+     "choice": {
+      "count": 340,
+      "valid": 340,
+      "correct": 243,
+      "accuracy": 0.7147058823529412,
+      "mean_negative_log_likelihood": 0.7872150936967911,
+      "mean_multiclass_brier": 0.396963752832081
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 23.148619254000096,
+    "median_seconds": 0.038802045000011276,
+    "p95_seconds": 0.040609715999835316,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 158795,
+    "output_tokens": 599
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/vitaminc-dev/all.jsonl",
+   "dataset_sha256": "6144a345cb8846b6594f07a0037b1221b2d9633b20d8a9bfd14f9111d15965bc",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:50:57.052340+00:00",
+   "completed_utc": "2026-09-30T22:51:20.248333+00:00",
+   "done": 599,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 23.2
+  }
+ },
+ "massive-en-US": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:51:20.368695+00:00",
+   "completed_utc": "2026-09-30T22:51:53.364144+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 273,
+     "accuracy": 0.78,
+     "mean_negative_log_likelihood": 0.9518933443178456,
+     "mean_multiclass_brier": 0.327956459029798
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 273,
+     "accuracy": 0.78,
+     "mean_negative_log_likelihood": 0.9518933443178456,
+     "mean_multiclass_brier": 0.327956459029798
+    }
+   },
+   "calibration": {
+    "ece10": 0.1314134427617823,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-en-US": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 273,
+      "accuracy": 0.78,
+      "mean_negative_log_likelihood": 0.9518933443178456,
+      "mean_multiclass_brier": 0.327956459029798
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 273,
+      "accuracy": 0.78,
+      "mean_negative_log_likelihood": 0.9518933443178456,
+      "mean_multiclass_brier": 0.327956459029798
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 32.952970424004434,
+    "median_seconds": 0.09402691800005414,
+    "p95_seconds": 0.09732658699977037,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 207584,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-en-US/all.jsonl",
+   "dataset_sha256": "f173a34108c1f785f5e5bf1d83534c34393651e7f7b0b2eba19deb0d5d0f2681",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:51:20.368695+00:00",
+   "completed_utc": "2026-09-30T22:51:53.364144+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 33.0
+  }
+ },
+ "massive-de-DE": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:51:53.481383+00:00",
+   "completed_utc": "2026-09-30T22:52:26.289657+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 350,
+   "valid": 350,
+   "summary": {
+    "all": {
+     "count": 350,
+     "valid": 350,
+     "correct": 254,
+     "accuracy": 0.7257142857142858,
+     "mean_negative_log_likelihood": 1.328836009101052,
+     "mean_multiclass_brier": 0.4300091944107121
+    },
+    "choice": {
+     "count": 350,
+     "valid": 350,
+     "correct": 254,
+     "accuracy": 0.7257142857142858,
+     "mean_negative_log_likelihood": 1.328836009101052,
+     "mean_multiclass_brier": 0.4300091944107121
+    }
+   },
+   "calibration": {
+    "ece10": 0.16464077075371136,
+    "bins": 10,
+    "calibration_n": 350,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "massive-de-DE": {
+     "all": {
+      "count": 350,
+      "valid": 350,
+      "correct": 254,
+      "accuracy": 0.7257142857142858,
+      "mean_negative_log_likelihood": 1.328836009101052,
+      "mean_multiclass_brier": 0.4300091944107121
+     },
+     "choice": {
+      "count": 350,
+      "valid": 350,
+      "correct": 254,
+      "accuracy": 0.7257142857142858,
+      "mean_negative_log_likelihood": 1.328836009101052,
+      "mean_multiclass_brier": 0.4300091944107121
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 32.765882261002844,
+    "median_seconds": 0.09357645599993702,
+    "p95_seconds": 0.0955371089999062,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 208650,
+    "output_tokens": 350
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/massive-de-DE/all.jsonl",
+   "dataset_sha256": "6eacfdfd5f55ee664ddf5d385deda17cbed248c18aabc06be0c643518b74ab28",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:51:53.481383+00:00",
+   "completed_utc": "2026-09-30T22:52:26.289657+00:00",
+   "done": 350,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 32.8
+  }
+ },
+ "boolq": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:26.408269+00:00",
+   "completed_utc": "2026-09-30T22:52:38.033318+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 236,
+     "accuracy": 0.7866666666666666,
+     "mean_negative_log_likelihood": 0.5270204121031847,
+     "mean_multiclass_brier": 0.3299328012055754,
+     "mean_binary_brier": 0.1649664006027877
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 236,
+     "accuracy": 0.7866666666666666,
+     "mean_negative_log_likelihood": 0.5270204121031847,
+     "mean_multiclass_brier": 0.3299328012055754,
+     "mean_binary_brier": 0.1649664006027877
+    }
+   },
+   "calibration": {
+    "ece10": 0.09036608560912715,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "boolq": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 236,
+      "accuracy": 0.7866666666666666,
+      "mean_negative_log_likelihood": 0.5270204121031847,
+      "mean_multiclass_brier": 0.3299328012055754,
+      "mean_binary_brier": 0.1649664006027877
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 236,
+      "accuracy": 0.7866666666666666,
+      "mean_negative_log_likelihood": 0.5270204121031847,
+      "mean_multiclass_brier": 0.3299328012055754,
+      "mean_binary_brier": 0.1649664006027877
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 11.599448514001324,
+    "median_seconds": 0.03831582799989519,
+    "p95_seconds": 0.04266711799982659,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 84644,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/boolq/all.jsonl",
+   "dataset_sha256": "2c239fdc3e4d5f2d015a7ab9def82d0c2ff6fb49d39c96dc233d3e5911583b58",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:26.408269+00:00",
+   "completed_utc": "2026-09-30T22:52:38.033318+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 11.6
+  }
+ },
+ "squad2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:38.147838+00:00",
+   "completed_utc": "2026-09-30T22:52:51.234571+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 217,
+     "accuracy": 0.725752508361204,
+     "mean_negative_log_likelihood": 0.5554768222298191,
+     "mean_multiclass_brier": 0.3710902716525029,
+     "mean_binary_brier": 0.18554513582625146
+    },
+    "noul": {
+     "count": 299,
+     "valid": 299,
+     "correct": 217,
+     "accuracy": 0.725752508361204,
+     "mean_negative_log_likelihood": 0.5554768222298191,
+     "mean_multiclass_brier": 0.3710902716525029,
+     "mean_binary_brier": 0.18554513582625146
+    }
+   },
+   "calibration": {
+    "ece10": 0.044235889166685374,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "squad2": {
+     "all": {
+      "count": 299,
+      "valid": 299,
+      "correct": 217,
+      "accuracy": 0.725752508361204,
+      "mean_negative_log_likelihood": 0.5554768222298191,
+      "mean_multiclass_brier": 0.3710902716525029,
+      "mean_binary_brier": 0.18554513582625146
+     },
+     "noul": {
+      "count": 299,
+      "valid": 299,
+      "correct": 217,
+      "accuracy": 0.725752508361204,
+      "mean_negative_log_likelihood": 0.5554768222298191,
+      "mean_multiclass_brier": 0.3710902716525029,
+      "mean_binary_brier": 0.18554513582625146
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 13.059850509999706,
+    "median_seconds": 0.040728823999870656,
+    "p95_seconds": 0.07040251299986267,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 117133,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/squad2/all.jsonl",
+   "dataset_sha256": "95316d9d810d4827d86053e9199e15e865bad3fa4b65cbcb742a54433fcdfdd7",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:38.147838+00:00",
+   "completed_utc": "2026-09-30T22:52:51.234571+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 13.1
+  }
+ },
+ "paws": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:51.346761+00:00",
+   "completed_utc": "2026-09-30T22:53:00.251762+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 179,
+     "accuracy": 0.716,
+     "mean_negative_log_likelihood": 0.5250129090243766,
+     "mean_multiclass_brier": 0.3534711934734261,
+     "mean_binary_brier": 0.17673559673671305
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 179,
+     "accuracy": 0.716,
+     "mean_negative_log_likelihood": 0.5250129090243766,
+     "mean_multiclass_brier": 0.3534711934734261,
+     "mean_binary_brier": 0.17673559673671305
+    }
+   },
+   "calibration": {
+    "ece10": 0.029393856744347177,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "paws": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 179,
+      "accuracy": 0.716,
+      "mean_negative_log_likelihood": 0.5250129090243766,
+      "mean_multiclass_brier": 0.3534711934734261,
+      "mean_binary_brier": 0.17673559673671305
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 179,
+      "accuracy": 0.716,
+      "mean_negative_log_likelihood": 0.5250129090243766,
+      "mean_multiclass_brier": 0.3534711934734261,
+      "mean_binary_brier": 0.17673559673671305
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 8.884907390998706,
+    "median_seconds": 0.035332721499798936,
+    "p95_seconds": 0.03729214399982084,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 56584,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/paws/all.jsonl",
+   "dataset_sha256": "ffc7388bbf027272b1c2175cd8d4d3591b63006696b2f9889bf70fccd457d167",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:52:51.346761+00:00",
+   "completed_utc": "2026-09-30T22:53:00.251762+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 8.9
+  }
+ },
+ "multinli": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:00.368472+00:00",
+   "completed_utc": "2026-09-30T22:53:11.219886+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 299,
+   "valid": 299,
+   "summary": {
+    "all": {
+     "count": 299,
+     "valid": 299,
+     "correct": 238,
+     "accuracy": 0.7959866220735786,
+     "mean_negative_log_likelihood": 0.5224269902714599,
+     "mean_multiclass_brier": 0.2968795469838077
+    },
+    "choice": {
+     "count": 299,
+     "valid": 299,
+     "correct": 238,
+     "accuracy": 0.7959866220735786,
+     "mean_negative_log_likelihood": 0.5224269902714599,
+     "mean_multiclass_brier": 0.2968795469838077
+    }
+   },
+   "calibration": {
+    "ece10": 0.05216450659037758,
+    "bins": 10,
+    "calibration_n": 299,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "multinli-fiction": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 50,
+      "accuracy": 0.8333333333333334,
+      "mean_negative_log_likelihood": 0.5174842372333646,
+      "mean_multiclass_brier": 0.281397398606077
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 50,
+      "accuracy": 0.8333333333333334,
+      "mean_negative_log_likelihood": 0.5174842372333646,
+      "mean_multiclass_brier": 0.281397398606077
+     }
+    },
+    "multinli-government": {
+     "all": {
+      "count": 61,
+      "valid": 61,
+      "correct": 50,
+      "accuracy": 0.819672131147541,
+      "mean_negative_log_likelihood": 0.3979633282600519,
+      "mean_multiclass_brier": 0.2305663569423553
+     },
+     "choice": {
+      "count": 61,
+      "valid": 61,
+      "correct": 50,
+      "accuracy": 0.819672131147541,
+      "mean_negative_log_likelihood": 0.3979633282600519,
+      "mean_multiclass_brier": 0.2305663569423553
+     }
+    },
+    "multinli-slate": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 46,
+      "accuracy": 0.7666666666666667,
+      "mean_negative_log_likelihood": 0.6124117914358599,
+      "mean_multiclass_brier": 0.3636769287628163
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 46,
+      "accuracy": 0.7666666666666667,
+      "mean_negative_log_likelihood": 0.6124117914358599,
+      "mean_multiclass_brier": 0.3636769287628163
+     }
+    },
+    "multinli-telephone": {
+     "all": {
+      "count": 60,
+      "valid": 60,
+      "correct": 42,
+      "accuracy": 0.7,
+      "mean_negative_log_likelihood": 0.6336615181392814,
+      "mean_multiclass_brier": 0.3584547241674294
+     },
+     "choice": {
+      "count": 60,
+      "valid": 60,
+      "correct": 42,
+      "accuracy": 0.7,
+      "mean_negative_log_likelihood": 0.6336615181392814,
+      "mean_multiclass_brier": 0.3584547241674294
+     }
+    },
+    "multinli-travel": {
+     "all": {
+      "count": 58,
+      "valid": 58,
+      "correct": 50,
+      "accuracy": 0.8620689655172413,
+      "mean_negative_log_likelihood": 0.45028369411712027,
+      "mean_multiclass_brier": 0.2498395462499219
+     },
+     "choice": {
+      "count": 58,
+      "valid": 58,
+      "correct": 50,
+      "accuracy": 0.8620689655172413,
+      "mean_negative_log_likelihood": 0.45028369411712027,
+      "mean_multiclass_brier": 0.2498395462499219
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 10.827468587997828,
+    "median_seconds": 0.03602048699985971,
+    "p95_seconds": 0.038226565000059054,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 64848,
+    "output_tokens": 299
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/multinli/all.jsonl",
+   "dataset_sha256": "e0349ce46c796b08ecddbfc3b525dd4528e02595cc64921911babc7e3620b2f1",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:00.368472+00:00",
+   "completed_utc": "2026-09-30T22:53:11.219886+00:00",
+   "done": 299,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 10.9
+  }
+ },
+ "civil_comments": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:11.334932+00:00",
+   "completed_utc": "2026-09-30T22:53:22.247841+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 300,
+   "valid": 300,
+   "summary": {
+    "all": {
+     "count": 300,
+     "valid": 300,
+     "correct": 250,
+     "accuracy": 0.8333333333333334,
+     "mean_negative_log_likelihood": 0.3898436015646382,
+     "mean_multiclass_brier": 0.24244774163852903,
+     "mean_binary_brier": 0.12122387081926451
+    },
+    "noul": {
+     "count": 300,
+     "valid": 300,
+     "correct": 250,
+     "accuracy": 0.8333333333333334,
+     "mean_negative_log_likelihood": 0.3898436015646382,
+     "mean_multiclass_brier": 0.24244774163852903,
+     "mean_binary_brier": 0.12122387081926451
+    }
+   },
+   "calibration": {
+    "ece10": 0.06183114206982502,
+    "bins": 10,
+    "calibration_n": 300,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "civil_comments": {
+     "all": {
+      "count": 300,
+      "valid": 300,
+      "correct": 250,
+      "accuracy": 0.8333333333333334,
+      "mean_negative_log_likelihood": 0.3898436015646382,
+      "mean_multiclass_brier": 0.24244774163852903,
+      "mean_binary_brier": 0.12122387081926451
+     },
+     "noul": {
+      "count": 300,
+      "valid": 300,
+      "correct": 250,
+      "accuracy": 0.8333333333333334,
+      "mean_negative_log_likelihood": 0.3898436015646382,
+      "mean_multiclass_brier": 0.24244774163852903,
+      "mean_binary_brier": 0.12122387081926451
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 10.88884769999504,
+    "median_seconds": 0.03591808100009075,
+    "p95_seconds": 0.04064234299994496,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 67520,
+    "output_tokens": 300
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/civil_comments/all.jsonl",
+   "dataset_sha256": "7f76c916faa51a8e67325dd4a8a1b70ee678ef124f1a551f5a32f26ebd66234e",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:11.334932+00:00",
+   "completed_utc": "2026-09-30T22:53:22.247841+00:00",
+   "done": 300,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 10.9
+  }
+ },
+ "aegis2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:22.359971+00:00",
+   "completed_utc": "2026-09-30T22:53:32.148410+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 171,
+     "accuracy": 0.684,
+     "mean_negative_log_likelihood": 0.6184145149792653,
+     "mean_multiclass_brier": 0.4255793805202249,
+     "mean_binary_brier": 0.21278969026011246
+    },
+    "noul": {
+     "count": 250,
+     "valid": 250,
+     "correct": 171,
+     "accuracy": 0.684,
+     "mean_negative_log_likelihood": 0.6184145149792653,
+     "mean_multiclass_brier": 0.4255793805202249,
+     "mean_binary_brier": 0.21278969026011246
+    }
+   },
+   "calibration": {
+    "ece10": 0.059386819760366485,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "aegis2": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 171,
+      "accuracy": 0.684,
+      "mean_negative_log_likelihood": 0.6184145149792653,
+      "mean_multiclass_brier": 0.4255793805202249,
+      "mean_binary_brier": 0.21278969026011246
+     },
+     "noul": {
+      "count": 250,
+      "valid": 250,
+      "correct": 171,
+      "accuracy": 0.684,
+      "mean_negative_log_likelihood": 0.6184145149792653,
+      "mean_multiclass_brier": 0.4255793805202249,
+      "mean_binary_brier": 0.21278969026011246
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 9.766834408996601,
+    "median_seconds": 0.03675191849993098,
+    "p95_seconds": 0.05313358800003698,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 69500,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/aegis2/all.jsonl",
+   "dataset_sha256": "2d10424f7d2b06e9c38fe443f9cfb10eb958b4eb37cbec2bed4d990d109374b2",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:22.359971+00:00",
+   "completed_utc": "2026-09-30T22:53:32.148410+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 9.8
+  }
+ },
+ "helpsteer2": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:32.263105+00:00",
+   "completed_utc": "2026-09-30T22:53:50.835737+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 249,
+   "valid": 249,
+   "summary": {
+    "all": {
+     "count": 249,
+     "valid": 249,
+     "correct": 89,
+     "accuracy": 0.357429718875502,
+     "mean_negative_log_likelihood": 1.903021563086792,
+     "mean_multiclass_brier": 0.8868434676167714,
+     "mean_absolute_score_error": 1.1526604597222754
+    },
+    "score": {
+     "count": 249,
+     "valid": 249,
+     "correct": 89,
+     "accuracy": 0.357429718875502,
+     "mean_negative_log_likelihood": 1.903021563086792,
+     "mean_multiclass_brier": 0.8868434676167714,
+     "mean_absolute_score_error": 1.1526604597222754
+    }
+   },
+   "calibration": {
+    "ece10": 0.30986449229337576,
+    "bins": 10,
+    "calibration_n": 249,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "helpsteer2": {
+     "all": {
+      "count": 249,
+      "valid": 249,
+      "correct": 89,
+      "accuracy": 0.357429718875502,
+      "mean_negative_log_likelihood": 1.903021563086792,
+      "mean_multiclass_brier": 0.8868434676167714,
+      "mean_absolute_score_error": 1.1526604597222754
+     },
+     "score": {
+      "count": 249,
+      "valid": 249,
+      "correct": 89,
+      "accuracy": 0.357429718875502,
+      "mean_negative_log_likelihood": 1.903021563086792,
+      "mean_multiclass_brier": 0.8868434676167714,
+      "mean_absolute_score_error": 1.1526604597222754
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 18.542730398996355,
+    "median_seconds": 0.0764013520001754,
+    "p95_seconds": 0.1011213609999686,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 181840,
+    "output_tokens": 249
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/helpsteer2/all.jsonl",
+   "dataset_sha256": "c2395b2f794217ee080ec3ef89fbd6d67fd8c8c6f9f1c8d47d127301929a2ca3",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:32.263105+00:00",
+   "completed_utc": "2026-09-30T22:53:50.835737+00:00",
+   "done": 249,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 18.6
+  }
+ },
+ "summeval-relevance": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:50.958670+00:00",
+   "completed_utc": "2026-09-30T22:54:09.777065+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 240,
+   "valid": 240,
+   "summary": {
+    "all": {
+     "count": 240,
+     "valid": 240,
+     "correct": 33,
+     "accuracy": 0.1375,
+     "mean_negative_log_likelihood": 2.8013157530747628,
+     "mean_multiclass_brier": 1.4343269351391295,
+     "mean_absolute_score_error": 1.2036270213196982
+    },
+    "score": {
+     "count": 240,
+     "valid": 240,
+     "correct": 33,
+     "accuracy": 0.1375,
+     "mean_negative_log_likelihood": 2.8013157530747628,
+     "mean_multiclass_brier": 1.4343269351391295,
+     "mean_absolute_score_error": 1.2036270213196982
+    }
+   },
+   "calibration": {
+    "ece10": 0.7279723111435624,
+    "bins": 10,
+    "calibration_n": 240,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-relevance": {
+     "all": {
+      "count": 240,
+      "valid": 240,
+      "correct": 33,
+      "accuracy": 0.1375,
+      "mean_negative_log_likelihood": 2.8013157530747628,
+      "mean_multiclass_brier": 1.4343269351391295,
+      "mean_absolute_score_error": 1.2036270213196982
+     },
+     "score": {
+      "count": 240,
+      "valid": 240,
+      "correct": 33,
+      "accuracy": 0.1375,
+      "mean_negative_log_likelihood": 2.8013157530747628,
+      "mean_multiclass_brier": 1.4343269351391295,
+      "mean_absolute_score_error": 1.2036270213196982
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 18.78875276099734,
+    "median_seconds": 0.07647602949987231,
+    "p95_seconds": 0.08765632799986633,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 177338,
+    "output_tokens": 240
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-relevance/all.jsonl",
+   "dataset_sha256": "e10be11770eeaf34b6b39e529796de89d2a2341e05805071c47e716bc90f2255",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:53:50.958670+00:00",
+   "completed_utc": "2026-09-30T22:54:09.777065+00:00",
+   "done": 240,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 18.8
+  }
+ },
+ "summeval-consistency": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:54:09.890566+00:00",
+   "completed_utc": "2026-09-30T22:54:21.001683+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 144,
+   "valid": 144,
+   "summary": {
+    "all": {
+     "count": 144,
+     "valid": 144,
+     "correct": 121,
+     "accuracy": 0.8402777777777778,
+     "mean_negative_log_likelihood": 0.6962985396344321,
+     "mean_multiclass_brier": 0.29687398594156217,
+     "mean_absolute_score_error": 0.6263992627665501
+    },
+    "score": {
+     "count": 144,
+     "valid": 144,
+     "correct": 121,
+     "accuracy": 0.8402777777777778,
+     "mean_negative_log_likelihood": 0.6962985396344321,
+     "mean_multiclass_brier": 0.29687398594156217,
+     "mean_absolute_score_error": 0.6263992627665501
+    }
+   },
+   "calibration": {
+    "ece10": 0.11359073777789144,
+    "bins": 10,
+    "calibration_n": 144,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "summeval-consistency": {
+     "all": {
+      "count": 144,
+      "valid": 144,
+      "correct": 121,
+      "accuracy": 0.8402777777777778,
+      "mean_negative_log_likelihood": 0.6962985396344321,
+      "mean_multiclass_brier": 0.29687398594156217,
+      "mean_absolute_score_error": 0.6263992627665501
+     },
+     "score": {
+      "count": 144,
+      "valid": 144,
+      "correct": 121,
+      "accuracy": 0.8402777777777778,
+      "mean_negative_log_likelihood": 0.6962985396344321,
+      "mean_multiclass_brier": 0.29687398594156217,
+      "mean_absolute_score_error": 0.6263992627665501
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 11.093575426997177,
+    "median_seconds": 0.0751484794998305,
+    "p95_seconds": 0.0870602590002818,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 103801,
+    "output_tokens": 144
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/summeval-consistency/all.jsonl",
+   "dataset_sha256": "86cc3627a2ddd8ca5ab10c1af43a9ee9e007b8d7d25dbf952f1a7452246e9e00",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:54:09.890566+00:00",
+   "completed_utc": "2026-09-30T22:54:21.001683+00:00",
+   "done": 144,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 11.1
+  }
+ },
+ "pubmedqa": {
+  "summary": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:54:21.110760+00:00",
+   "completed_utc": "2026-09-30T22:54:34.955145+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0,
+   "count": 250,
+   "valid": 250,
+   "summary": {
+    "all": {
+     "count": 250,
+     "valid": 250,
+     "correct": 149,
+     "accuracy": 0.596,
+     "mean_negative_log_likelihood": 0.926638418302997,
+     "mean_multiclass_brier": 0.5327082325513485
+    },
+    "choice": {
+     "count": 250,
+     "valid": 250,
+     "correct": 149,
+     "accuracy": 0.596,
+     "mean_negative_log_likelihood": 0.926638418302997,
+     "mean_multiclass_brier": 0.5327082325513485
+    }
+   },
+   "calibration": {
+    "ece10": 0.0778812682946462,
+    "bins": 10,
+    "calibration_n": 250,
+    "confidence": "top API probability after renormalization; invalid responses excluded"
+   },
+   "by_domain": {
+    "pubmedqa": {
+     "all": {
+      "count": 250,
+      "valid": 250,
+      "correct": 149,
+      "accuracy": 0.596,
+      "mean_negative_log_likelihood": 0.926638418302997,
+      "mean_multiclass_brier": 0.5327082325513485
+     },
+     "choice": {
+      "count": 250,
+      "valid": 250,
+      "correct": 149,
+      "accuracy": 0.596,
+      "mean_negative_log_likelihood": 0.926638418302997,
+      "mean_multiclass_brier": 0.5327082325513485
+     }
+    }
+   },
+   "timing": {
+    "total_request_seconds": 13.819989765003356,
+    "median_seconds": 0.055845600499878856,
+    "p95_seconds": 0.07057077700028458,
+    "boundary": "client wall time per request including retries and HTTPS transport"
+   },
+   "usage": {
+    "input_tokens": 126357,
+    "output_tokens": 250
+   }
+  },
+  "manifest": {
+   "dataset": "$NIMBLE_SRC/data/public/pubmedqa/all.jsonl",
+   "dataset_sha256": "8ee766a759a60280373f45a19a62c9e36462b1176508f193621095e102403a40",
+   "script_sha256": "cdf2d4efb5d880924c12b7ebbda97a83636e09bf995da6ae402947562b369940",
+   "model": "tev1-0.8b",
+   "api_url": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "concurrency": 1,
+   "limit": null,
+   "retry_attempts": 5,
+   "started_utc": "2026-09-30T22:54:21.110760+00:00",
+   "completed_utc": "2026-09-30T22:54:34.955145+00:00",
+   "done": 250,
+   "errors": 0,
+   "resumed": false,
+   "retried_errors": 0
+  },
+  "host": {
+   "host": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64",
+   "backend": "systemone.py server=http://127.0.0.1:8092 build=b1-6f767fe gguf=tev1-0.8b.gguf format=tev1 system=tev1 prime=True temperature=1.0 isolate=True",
+   "wall_seconds_this_invocation": 13.9
+  }
+ }
+}

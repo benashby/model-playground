@@ -25,7 +25,7 @@ The write-ups are what matter. The code is just how I got there.
 | [**K2-Horizon-32B**](models/k2-horizon-32b/) | 32B dense reasoning LLM, vLLM | Deployment forensics: three separate ways a serving stack returns HTTP 200 while doing nothing you asked. |
 | [**Kokoro-82M**](models/kokoro-82m/) | 82M StyleTTS 2 / iSTFTNet TTS, CPU-class | Fast neural speech synthesis with Apache-2.0 licensing, ~40x to 80x real time on CPU, and embedded C++/Rust ONNX serving. |
 | [**Piper**](models/piper/) | Low-footprint VITS TTS, embedded/telephony | Lightweight local TTS with MIT licensing, native 16 kHz profile matching wideband VoIP, and high concurrency on commodity CPUs. |
-| [**Nimble 9B and Tev1**](models/nimble-tev1/) | Typed decision models, 0.8B to 9B, llama.cpp | Ollama's new decision API turns out to be llama.cpp underneath, and the same request's probabilities move with the build, the cache and the other questions asked. CPU half done, GPU half pending. |
+| [**Nimble 9B and Tev1**](models/nimble-tev1/) | Typed decision models, 0.8B to 9B, llama.cpp | Ollama's new decision API turns out to be llama.cpp underneath. On 3,880 labelled decisions the models match Ollama's published accuracy and are overconfident in a way one temperature of about 1.5 to 2.0 corrects, and the same request's probabilities move with the GPU, the batch size, the cache and the other questions asked. |
 
 Each directory holds a short overview (`README.md`) that links to the
 write-up's articles in `notes/`, the probe code that produced every number

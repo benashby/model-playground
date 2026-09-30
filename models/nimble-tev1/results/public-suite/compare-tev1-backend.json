@@ -1,0 +1,1470 @@
+{
+ "vitaminc-dev": {
+  "count": 599,
+  "runs": {
+   "h100": {
+    "count": 599,
+    "correct": 445,
+    "accuracy": 0.7429048414023373,
+    "accuracy_ci95": [
+     0.7064352590188583,
+     0.7762786081064363
+    ],
+    "valid": 599,
+    "errors": 0,
+    "family_complete": {
+     "families": 171,
+     "complete": 78,
+     "accuracy": 0.45614035087719296,
+     "sizes": {
+      "1": 3,
+      "2": 38,
+      "4": 130
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 599,
+      "correct": 445,
+      "accuracy": 0.7429048414023373,
+      "accuracy_ci95": [
+       0.7064352590188583,
+       0.7762786081064363
+      ]
+     }
+    },
+    "by_domain": {
+     "vitaminc-real": {
+      "count": 259,
+      "correct": 190,
+      "accuracy": 0.7335907335907336,
+      "accuracy_ci95": [
+       0.6766222864491676,
+       0.7837310213986008
+      ]
+     },
+     "vitaminc-synthetic": {
+      "count": 340,
+      "correct": 255,
+      "accuracy": 0.75,
+      "accuracy_ci95": [
+       0.701352064905899,
+       0.7930616418707098
+      ]
+     }
+    },
+    "ece10": 0.14418439126100843,
+    "mean_negative_log_likelihood": 0.776414732928626,
+    "mean_multiclass_brier": 0.3866673470534391
+   },
+   "rtx3090": {
+    "count": 599,
+    "correct": 443,
+    "accuracy": 0.7395659432387313,
+    "accuracy_ci95": [
+     0.7029718987343938,
+     0.7731067262311031
+    ],
+    "valid": 599,
+    "errors": 0,
+    "family_complete": {
+     "families": 171,
+     "complete": 77,
+     "accuracy": 0.4502923976608187,
+     "sizes": {
+      "1": 3,
+      "2": 38,
+      "4": 130
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 599,
+      "correct": 443,
+      "accuracy": 0.7395659432387313,
+      "accuracy_ci95": [
+       0.7029718987343938,
+       0.7731067262311031
+      ]
+     }
+    },
+    "by_domain": {
+     "vitaminc-real": {
+      "count": 259,
+      "correct": 189,
+      "accuracy": 0.7297297297297297,
+      "accuracy_ci95": [
+       0.6725777151746293,
+       0.7801664470888785
+      ]
+     },
+     "vitaminc-synthetic": {
+      "count": 340,
+      "correct": 254,
+      "accuracy": 0.7470588235294118,
+      "accuracy_ci95": [
+       0.6982679741039287,
+       0.7903291008282493
+      ]
+     }
+    },
+    "ece10": 0.14789449731397078,
+    "mean_negative_log_likelihood": 0.7822404264465409,
+    "mean_multiclass_brier": 0.38908847063882146
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 599,
+    "prediction_agreement": 0.994991652754591,
+    "both_correct": 443,
+    "neither_correct": 154,
+    "left_only_correct": 2,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 0.5
+   }
+  }
+ },
+ "massive-en-US": {
+  "count": 350,
+  "runs": {
+   "h100": {
+    "count": 350,
+    "correct": 300,
+    "accuracy": 0.8571428571428571,
+    "accuracy_ci95": [
+     0.8165987694647868,
+     0.8899320624102668
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 300,
+     "accuracy": 0.8571428571428571,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 300,
+      "accuracy": 0.8571428571428571,
+      "accuracy_ci95": [
+       0.8165987694647868,
+       0.8899320624102668
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-en-US": {
+      "count": 350,
+      "correct": 300,
+      "accuracy": 0.8571428571428571,
+      "accuracy_ci95": [
+       0.8165987694647868,
+       0.8899320624102668
+      ]
+     }
+    },
+    "ece10": 0.06241400389018214,
+    "mean_negative_log_likelihood": 0.5478609144728517,
+    "mean_multiclass_brier": 0.22410480955297798
+   },
+   "rtx3090": {
+    "count": 350,
+    "correct": 300,
+    "accuracy": 0.8571428571428571,
+    "accuracy_ci95": [
+     0.8165987694647868,
+     0.8899320624102668
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 300,
+     "accuracy": 0.8571428571428571,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 300,
+      "accuracy": 0.8571428571428571,
+      "accuracy_ci95": [
+       0.8165987694647868,
+       0.8899320624102668
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-en-US": {
+      "count": 350,
+      "correct": 300,
+      "accuracy": 0.8571428571428571,
+      "accuracy_ci95": [
+       0.8165987694647868,
+       0.8899320624102668
+      ]
+     }
+    },
+    "ece10": 0.05795541752091525,
+    "mean_negative_log_likelihood": 0.5479865412764501,
+    "mean_multiclass_brier": 0.22443771675755364
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 350,
+    "prediction_agreement": 0.9971428571428571,
+    "both_correct": 300,
+    "neither_correct": 50,
+    "left_only_correct": 0,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "massive-de-DE": {
+  "count": 350,
+  "runs": {
+   "h100": {
+    "count": 350,
+    "correct": 291,
+    "accuracy": 0.8314285714285714,
+    "accuracy_ci95": [
+     0.7886564833021741,
+     0.8670041286778756
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 291,
+     "accuracy": 0.8314285714285714,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 291,
+      "accuracy": 0.8314285714285714,
+      "accuracy_ci95": [
+       0.7886564833021741,
+       0.8670041286778756
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-de-DE": {
+      "count": 350,
+      "correct": 291,
+      "accuracy": 0.8314285714285714,
+      "accuracy_ci95": [
+       0.7886564833021741,
+       0.8670041286778756
+      ]
+     }
+    },
+    "ece10": 0.05009006661550648,
+    "mean_negative_log_likelihood": 0.6221663746484444,
+    "mean_multiclass_brier": 0.2724911329589348
+   },
+   "rtx3090": {
+    "count": 350,
+    "correct": 290,
+    "accuracy": 0.8285714285714286,
+    "accuracy_ci95": [
+     0.7855727357863109,
+     0.8644356295387385
+    ],
+    "valid": 350,
+    "errors": 0,
+    "family_complete": {
+     "families": 350,
+     "complete": 290,
+     "accuracy": 0.8285714285714286,
+     "sizes": {
+      "1": 350
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 350,
+      "correct": 290,
+      "accuracy": 0.8285714285714286,
+      "accuracy_ci95": [
+       0.7855727357863109,
+       0.8644356295387385
+      ]
+     }
+    },
+    "by_domain": {
+     "massive-de-DE": {
+      "count": 350,
+      "correct": 290,
+      "accuracy": 0.8285714285714286,
+      "accuracy_ci95": [
+       0.7855727357863109,
+       0.8644356295387385
+      ]
+     }
+    },
+    "ece10": 0.06138569536623645,
+    "mean_negative_log_likelihood": 0.6250571206500292,
+    "mean_multiclass_brier": 0.27365340860522086
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 350,
+    "prediction_agreement": 0.9914285714285714,
+    "both_correct": 290,
+    "neither_correct": 59,
+    "left_only_correct": 1,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "boolq": {
+  "count": 300,
+  "runs": {
+   "h100": {
+    "count": 300,
+    "correct": 255,
+    "accuracy": 0.85,
+    "accuracy_ci95": [
+     0.8051814866362912,
+     0.8859681123652938
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 274,
+     "complete": 230,
+     "accuracy": 0.8394160583941606,
+     "sizes": {
+      "1": 252,
+      "2": 19,
+      "3": 2,
+      "4": 1
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "accuracy_ci95": [
+       0.8051814866362912,
+       0.8859681123652938
+      ]
+     }
+    },
+    "by_domain": {
+     "boolq": {
+      "count": 300,
+      "correct": 255,
+      "accuracy": 0.85,
+      "accuracy_ci95": [
+       0.8051814866362912,
+       0.8859681123652938
+      ]
+     }
+    },
+    "ece10": 0.06865822482372679,
+    "mean_negative_log_likelihood": 0.3548520824480956,
+    "mean_multiclass_brier": 0.2152124600405692
+   },
+   "rtx3090": {
+    "count": 300,
+    "correct": 256,
+    "accuracy": 0.8533333333333334,
+    "accuracy_ci95": [
+     0.8088365903800316,
+     0.888895385754902
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 274,
+     "complete": 231,
+     "accuracy": 0.843065693430657,
+     "sizes": {
+      "1": 252,
+      "2": 19,
+      "3": 2,
+      "4": 1
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 256,
+      "accuracy": 0.8533333333333334,
+      "accuracy_ci95": [
+       0.8088365903800316,
+       0.888895385754902
+      ]
+     }
+    },
+    "by_domain": {
+     "boolq": {
+      "count": 300,
+      "correct": 256,
+      "accuracy": 0.8533333333333334,
+      "accuracy_ci95": [
+       0.8088365903800316,
+       0.888895385754902
+      ]
+     }
+    },
+    "ece10": 0.07338514660981431,
+    "mean_negative_log_likelihood": 0.35232000515847395,
+    "mean_multiclass_brier": 0.21375630613196622
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 300,
+    "prediction_agreement": 0.9966666666666667,
+    "both_correct": 255,
+    "neither_correct": 44,
+    "left_only_correct": 0,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "squad2": {
+  "count": 299,
+  "runs": {
+   "h100": {
+    "count": 299,
+    "correct": 228,
+    "accuracy": 0.7625418060200669,
+    "accuracy_ci95": [
+     0.7111695619866123,
+     0.8072532702794966
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 31,
+     "complete": 6,
+     "accuracy": 0.1935483870967742,
+     "sizes": {
+      "6": 1,
+      "7": 1,
+      "8": 5,
+      "9": 7,
+      "10": 14,
+      "13": 1,
+      "15": 2
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 299,
+      "correct": 228,
+      "accuracy": 0.7625418060200669,
+      "accuracy_ci95": [
+       0.7111695619866123,
+       0.8072532702794966
+      ]
+     }
+    },
+    "by_domain": {
+     "squad2": {
+      "count": 299,
+      "correct": 228,
+      "accuracy": 0.7625418060200669,
+      "accuracy_ci95": [
+       0.7111695619866123,
+       0.8072532702794966
+      ]
+     }
+    },
+    "ece10": 0.12061817266807992,
+    "mean_negative_log_likelihood": 0.5483761227039048,
+    "mean_multiclass_brier": 0.33797219395850364
+   },
+   "rtx3090": {
+    "count": 299,
+    "correct": 229,
+    "accuracy": 0.7658862876254181,
+    "accuracy_ci95": [
+     0.7147025386043188,
+     0.8103244061747342
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 31,
+     "complete": 6,
+     "accuracy": 0.1935483870967742,
+     "sizes": {
+      "6": 1,
+      "7": 1,
+      "8": 5,
+      "9": 7,
+      "10": 14,
+      "13": 1,
+      "15": 2
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 299,
+      "correct": 229,
+      "accuracy": 0.7658862876254181,
+      "accuracy_ci95": [
+       0.7147025386043188,
+       0.8103244061747342
+      ]
+     }
+    },
+    "by_domain": {
+     "squad2": {
+      "count": 299,
+      "correct": 229,
+      "accuracy": 0.7658862876254181,
+      "accuracy_ci95": [
+       0.7147025386043188,
+       0.8103244061747342
+      ]
+     }
+    },
+    "ece10": 0.11626656747829546,
+    "mean_negative_log_likelihood": 0.5482315920640713,
+    "mean_multiclass_brier": 0.3366270986613904
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 299,
+    "prediction_agreement": 0.9966555183946488,
+    "both_correct": 228,
+    "neither_correct": 70,
+    "left_only_correct": 0,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "paws": {
+  "count": 250,
+  "runs": {
+   "h100": {
+    "count": 250,
+    "correct": 206,
+    "accuracy": 0.824,
+    "accuracy_ci95": [
+     0.7719923442315464,
+     0.8662009227506975
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 206,
+     "accuracy": 0.824,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 206,
+      "accuracy": 0.824,
+      "accuracy_ci95": [
+       0.7719923442315464,
+       0.8662009227506975
+      ]
+     }
+    },
+    "by_domain": {
+     "paws": {
+      "count": 250,
+      "correct": 206,
+      "accuracy": 0.824,
+      "accuracy_ci95": [
+       0.7719923442315464,
+       0.8662009227506975
+      ]
+     }
+    },
+    "ece10": 0.08579478918315844,
+    "mean_negative_log_likelihood": 0.46331046643491036,
+    "mean_multiclass_brier": 0.26817157342689874
+   },
+   "rtx3090": {
+    "count": 250,
+    "correct": 205,
+    "accuracy": 0.82,
+    "accuracy_ci95": [
+     0.7676470766122656,
+     0.8626672611479753
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 205,
+     "accuracy": 0.82,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 205,
+      "accuracy": 0.82,
+      "accuracy_ci95": [
+       0.7676470766122656,
+       0.8626672611479753
+      ]
+     }
+    },
+    "by_domain": {
+     "paws": {
+      "count": 250,
+      "correct": 205,
+      "accuracy": 0.82,
+      "accuracy_ci95": [
+       0.7676470766122656,
+       0.8626672611479753
+      ]
+     }
+    },
+    "ece10": 0.09136551026980796,
+    "mean_negative_log_likelihood": 0.4656309845050898,
+    "mean_multiclass_brier": 0.2702297468074964
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 250,
+    "prediction_agreement": 0.996,
+    "both_correct": 205,
+    "neither_correct": 44,
+    "left_only_correct": 1,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "multinli": {
+  "count": 299,
+  "runs": {
+   "h100": {
+    "count": 299,
+    "correct": 275,
+    "accuracy": 0.919732441471572,
+    "accuracy_ci95": [
+     0.8833463746409205,
+     0.9454697457335592
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 103,
+     "complete": 81,
+     "accuracy": 0.7864077669902912,
+     "sizes": {
+      "2": 10,
+      "3": 93
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 299,
+      "correct": 275,
+      "accuracy": 0.919732441471572,
+      "accuracy_ci95": [
+       0.8833463746409205,
+       0.9454697457335592
+      ]
+     }
+    },
+    "by_domain": {
+     "multinli-fiction": {
+      "count": 60,
+      "correct": 52,
+      "accuracy": 0.8666666666666667,
+      "accuracy_ci95": [
+       0.7583460540992789,
+       0.9308597302169036
+      ]
+     },
+     "multinli-government": {
+      "count": 61,
+      "correct": 57,
+      "accuracy": 0.9344262295081968,
+      "accuracy_ci95": [
+       0.8431697859953278,
+       0.9742067130423271
+      ]
+     },
+     "multinli-slate": {
+      "count": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "accuracy_ci95": [
+       0.8629926537490016,
+       0.9828508088208587
+      ]
+     },
+     "multinli-telephone": {
+      "count": 60,
+      "correct": 56,
+      "accuracy": 0.9333333333333333,
+      "accuracy_ci95": [
+       0.8407442010623228,
+       0.973771725856802
+      ]
+     },
+     "multinli-travel": {
+      "count": 58,
+      "correct": 53,
+      "accuracy": 0.9137931034482759,
+      "accuracy_ci95": [
+       0.8135613862273433,
+       0.9626151680662066
+      ]
+     }
+    },
+    "ece10": 0.022468428783529032,
+    "mean_negative_log_likelihood": 0.24831261064323412,
+    "mean_multiclass_brier": 0.12768526970842026
+   },
+   "rtx3090": {
+    "count": 299,
+    "correct": 275,
+    "accuracy": 0.919732441471572,
+    "accuracy_ci95": [
+     0.8833463746409205,
+     0.9454697457335592
+    ],
+    "valid": 299,
+    "errors": 0,
+    "family_complete": {
+     "families": 103,
+     "complete": 81,
+     "accuracy": 0.7864077669902912,
+     "sizes": {
+      "2": 10,
+      "3": 93
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 299,
+      "correct": 275,
+      "accuracy": 0.919732441471572,
+      "accuracy_ci95": [
+       0.8833463746409205,
+       0.9454697457335592
+      ]
+     }
+    },
+    "by_domain": {
+     "multinli-fiction": {
+      "count": 60,
+      "correct": 53,
+      "accuracy": 0.8833333333333333,
+      "accuracy_ci95": [
+       0.7782097940014187,
+       0.9423235259654995
+      ]
+     },
+     "multinli-government": {
+      "count": 61,
+      "correct": 57,
+      "accuracy": 0.9344262295081968,
+      "accuracy_ci95": [
+       0.8431697859953278,
+       0.9742067130423271
+      ]
+     },
+     "multinli-slate": {
+      "count": 60,
+      "correct": 57,
+      "accuracy": 0.95,
+      "accuracy_ci95": [
+       0.8629926537490016,
+       0.9828508088208587
+      ]
+     },
+     "multinli-telephone": {
+      "count": 60,
+      "correct": 56,
+      "accuracy": 0.9333333333333333,
+      "accuracy_ci95": [
+       0.8407442010623228,
+       0.973771725856802
+      ]
+     },
+     "multinli-travel": {
+      "count": 58,
+      "correct": 52,
+      "accuracy": 0.896551724137931,
+      "accuracy_ci95": [
+       0.7921166146899103,
+       0.9517192498414084
+      ]
+     }
+    },
+    "ece10": 0.024786253214164278,
+    "mean_negative_log_likelihood": 0.24705247591588017,
+    "mean_multiclass_brier": 0.1273410836096025
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 299,
+    "prediction_agreement": 0.9933110367892977,
+    "both_correct": 274,
+    "neither_correct": 23,
+    "left_only_correct": 1,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "civil_comments": {
+  "count": 300,
+  "runs": {
+   "h100": {
+    "count": 300,
+    "correct": 220,
+    "accuracy": 0.7333333333333333,
+    "accuracy_ci95": [
+     0.6805715919237879,
+     0.7801948074106021
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 300,
+     "complete": 220,
+     "accuracy": 0.7333333333333333,
+     "sizes": {
+      "1": 300
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 220,
+      "accuracy": 0.7333333333333333,
+      "accuracy_ci95": [
+       0.6805715919237879,
+       0.7801948074106021
+      ]
+     }
+    },
+    "by_domain": {
+     "civil_comments": {
+      "count": 300,
+      "correct": 220,
+      "accuracy": 0.7333333333333333,
+      "accuracy_ci95": [
+       0.6805715919237879,
+       0.7801948074106021
+      ]
+     }
+    },
+    "ece10": 0.06498036276820207,
+    "mean_negative_log_likelihood": 0.526986993581422,
+    "mean_multiclass_brier": 0.3502586783562752
+   },
+   "rtx3090": {
+    "count": 300,
+    "correct": 221,
+    "accuracy": 0.7366666666666667,
+    "accuracy_ci95": [
+     0.6840594845533765,
+     0.7832892919143619
+    ],
+    "valid": 300,
+    "errors": 0,
+    "family_complete": {
+     "families": 300,
+     "complete": 221,
+     "accuracy": 0.7366666666666667,
+     "sizes": {
+      "1": 300
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 300,
+      "correct": 221,
+      "accuracy": 0.7366666666666667,
+      "accuracy_ci95": [
+       0.6840594845533765,
+       0.7832892919143619
+      ]
+     }
+    },
+    "by_domain": {
+     "civil_comments": {
+      "count": 300,
+      "correct": 221,
+      "accuracy": 0.7366666666666667,
+      "accuracy_ci95": [
+       0.6840594845533765,
+       0.7832892919143619
+      ]
+     }
+    },
+    "ece10": 0.0773696020811515,
+    "mean_negative_log_likelihood": 0.5288101928467278,
+    "mean_multiclass_brier": 0.3520174207904326
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 300,
+    "prediction_agreement": 0.99,
+    "both_correct": 219,
+    "neither_correct": 78,
+    "left_only_correct": 1,
+    "right_only_correct": 2,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "aegis2": {
+  "count": 250,
+  "runs": {
+   "h100": {
+    "count": 250,
+    "correct": 193,
+    "accuracy": 0.772,
+    "accuracy_ci95": [
+     0.7161076912424261,
+     0.8196594958537787
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 193,
+     "accuracy": 0.772,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 193,
+      "accuracy": 0.772,
+      "accuracy_ci95": [
+       0.7161076912424261,
+       0.8196594958537787
+      ]
+     }
+    },
+    "by_domain": {
+     "aegis2": {
+      "count": 250,
+      "correct": 193,
+      "accuracy": 0.772,
+      "accuracy_ci95": [
+       0.7161076912424261,
+       0.8196594958537787
+      ]
+     }
+    },
+    "ece10": 0.07854698348631506,
+    "mean_negative_log_likelihood": 0.5039750811620545,
+    "mean_multiclass_brier": 0.3176954979777058
+   },
+   "rtx3090": {
+    "count": 250,
+    "correct": 194,
+    "accuracy": 0.776,
+    "accuracy_ci95": [
+     0.7203636303789512,
+     0.8232824859392568
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 194,
+     "accuracy": 0.776,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "noul": {
+      "count": 250,
+      "correct": 194,
+      "accuracy": 0.776,
+      "accuracy_ci95": [
+       0.7203636303789512,
+       0.8232824859392568
+      ]
+     }
+    },
+    "by_domain": {
+     "aegis2": {
+      "count": 250,
+      "correct": 194,
+      "accuracy": 0.776,
+      "accuracy_ci95": [
+       0.7203636303789512,
+       0.8232824859392568
+      ]
+     }
+    },
+    "ece10": 0.0894417245355169,
+    "mean_negative_log_likelihood": 0.5019541835159076,
+    "mean_multiclass_brier": 0.31664697491568916
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 250,
+    "prediction_agreement": 0.996,
+    "both_correct": 193,
+    "neither_correct": 56,
+    "left_only_correct": 0,
+    "right_only_correct": 1,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "helpsteer2": {
+  "count": 249,
+  "runs": {
+   "h100": {
+    "count": 249,
+    "correct": 89,
+    "accuracy": 0.357429718875502,
+    "accuracy_ci95": [
+     0.30048340036953297,
+     0.41870837819855083
+    ],
+    "valid": 249,
+    "errors": 0,
+    "family_complete": {
+     "families": 125,
+     "complete": 16,
+     "accuracy": 0.128,
+     "sizes": {
+      "1": 1,
+      "2": 124
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 249,
+      "correct": 89,
+      "accuracy": 0.357429718875502,
+      "accuracy_ci95": [
+       0.30048340036953297,
+       0.41870837819855083
+      ]
+     }
+    },
+    "by_domain": {
+     "helpsteer2": {
+      "count": 249,
+      "correct": 89,
+      "accuracy": 0.357429718875502,
+      "accuracy_ci95": [
+       0.30048340036953297,
+       0.41870837819855083
+      ]
+     }
+    },
+    "ece10": 0.23835312437267345,
+    "mean_negative_log_likelihood": 1.7151483683753375,
+    "mean_multiclass_brier": 0.819312187556687
+   },
+   "rtx3090": {
+    "count": 249,
+    "correct": 88,
+    "accuracy": 0.3534136546184739,
+    "accuracy_ci95": [
+     0.29667551165024975,
+     0.414606176173273
+    ],
+    "valid": 249,
+    "errors": 0,
+    "family_complete": {
+     "families": 125,
+     "complete": 14,
+     "accuracy": 0.112,
+     "sizes": {
+      "1": 1,
+      "2": 124
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 249,
+      "correct": 88,
+      "accuracy": 0.3534136546184739,
+      "accuracy_ci95": [
+       0.29667551165024975,
+       0.414606176173273
+      ]
+     }
+    },
+    "by_domain": {
+     "helpsteer2": {
+      "count": 249,
+      "correct": 88,
+      "accuracy": 0.3534136546184739,
+      "accuracy_ci95": [
+       0.29667551165024975,
+       0.414606176173273
+      ]
+     }
+    },
+    "ece10": 0.2405325904434497,
+    "mean_negative_log_likelihood": 1.717228046417235,
+    "mean_multiclass_brier": 0.8197301107946173
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 249,
+    "prediction_agreement": 0.9759036144578314,
+    "both_correct": 86,
+    "neither_correct": 158,
+    "left_only_correct": 3,
+    "right_only_correct": 2,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "summeval-relevance": {
+  "count": 240,
+  "runs": {
+   "h100": {
+    "count": 240,
+    "correct": 121,
+    "accuracy": 0.5041666666666667,
+    "accuracy_ci95": [
+     0.4413447225293906,
+     0.5668573233889432
+    ],
+    "valid": 240,
+    "errors": 0,
+    "family_complete": {
+     "families": 15,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 15
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 240,
+      "correct": 121,
+      "accuracy": 0.5041666666666667,
+      "accuracy_ci95": [
+       0.4413447225293906,
+       0.5668573233889432
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-relevance": {
+      "count": 240,
+      "correct": 121,
+      "accuracy": 0.5041666666666667,
+      "accuracy_ci95": [
+       0.4413447225293906,
+       0.5668573233889432
+      ]
+     }
+    },
+    "ece10": 0.09503180313123127,
+    "mean_negative_log_likelihood": 1.1385749816186046,
+    "mean_multiclass_brier": 0.6310597902895683
+   },
+   "rtx3090": {
+    "count": 240,
+    "correct": 122,
+    "accuracy": 0.5083333333333333,
+    "accuracy_ci95": [
+     0.44545218038399503,
+     0.5709519114526727
+    ],
+    "valid": 240,
+    "errors": 0,
+    "family_complete": {
+     "families": 15,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 15
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 240,
+      "correct": 122,
+      "accuracy": 0.5083333333333333,
+      "accuracy_ci95": [
+       0.44545218038399503,
+       0.5709519114526727
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-relevance": {
+      "count": 240,
+      "correct": 122,
+      "accuracy": 0.5083333333333333,
+      "accuracy_ci95": [
+       0.44545218038399503,
+       0.5709519114526727
+      ]
+     }
+    },
+    "ece10": 0.09769491600924857,
+    "mean_negative_log_likelihood": 1.1415217775968696,
+    "mean_multiclass_brier": 0.6323454844489147
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 240,
+    "prediction_agreement": 0.9791666666666666,
+    "both_correct": 120,
+    "neither_correct": 117,
+    "left_only_correct": 1,
+    "right_only_correct": 2,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "summeval-consistency": {
+  "count": 144,
+  "runs": {
+   "h100": {
+    "count": 144,
+    "correct": 115,
+    "accuracy": 0.7986111111111112,
+    "accuracy_ci95": [
+     0.7257416096123688,
+     0.855962051603419
+    ],
+    "valid": 144,
+    "errors": 0,
+    "family_complete": {
+     "families": 9,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 9
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 144,
+      "correct": 115,
+      "accuracy": 0.7986111111111112,
+      "accuracy_ci95": [
+       0.7257416096123688,
+       0.855962051603419
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-consistency": {
+      "count": 144,
+      "correct": 115,
+      "accuracy": 0.7986111111111112,
+      "accuracy_ci95": [
+       0.7257416096123688,
+       0.855962051603419
+      ]
+     }
+    },
+    "ece10": 0.16612660292539858,
+    "mean_negative_log_likelihood": 0.7449341902942291,
+    "mean_multiclass_brier": 0.3163848787617243
+   },
+   "rtx3090": {
+    "count": 144,
+    "correct": 115,
+    "accuracy": 0.7986111111111112,
+    "accuracy_ci95": [
+     0.7257416096123688,
+     0.855962051603419
+    ],
+    "valid": 144,
+    "errors": 0,
+    "family_complete": {
+     "families": 9,
+     "complete": 0,
+     "accuracy": 0.0,
+     "sizes": {
+      "16": 9
+     }
+    },
+    "by_type": {
+     "score": {
+      "count": 144,
+      "correct": 115,
+      "accuracy": 0.7986111111111112,
+      "accuracy_ci95": [
+       0.7257416096123688,
+       0.855962051603419
+      ]
+     }
+    },
+    "by_domain": {
+     "summeval-consistency": {
+      "count": 144,
+      "correct": 115,
+      "accuracy": 0.7986111111111112,
+      "accuracy_ci95": [
+       0.7257416096123688,
+       0.855962051603419
+      ]
+     }
+    },
+    "ece10": 0.16067838159121908,
+    "mean_negative_log_likelihood": 0.7487494813462254,
+    "mean_multiclass_brier": 0.3169575428192658
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 144,
+    "prediction_agreement": 0.9861111111111112,
+    "both_correct": 115,
+    "neither_correct": 29,
+    "left_only_correct": 0,
+    "right_only_correct": 0,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ },
+ "pubmedqa": {
+  "count": 250,
+  "runs": {
+   "h100": {
+    "count": 250,
+    "correct": 186,
+    "accuracy": 0.744,
+    "accuracy_ci95": [
+     0.686492019930042,
+     0.7941226626121417
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 186,
+     "accuracy": 0.744,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 250,
+      "correct": 186,
+      "accuracy": 0.744,
+      "accuracy_ci95": [
+       0.686492019930042,
+       0.7941226626121417
+      ]
+     }
+    },
+    "by_domain": {
+     "pubmedqa": {
+      "count": 250,
+      "correct": 186,
+      "accuracy": 0.744,
+      "accuracy_ci95": [
+       0.686492019930042,
+       0.7941226626121417
+      ]
+     }
+    },
+    "ece10": 0.10267641599381516,
+    "mean_negative_log_likelihood": 0.7662856108784877,
+    "mean_multiclass_brier": 0.38104330930513114
+   },
+   "rtx3090": {
+    "count": 250,
+    "correct": 187,
+    "accuracy": 0.748,
+    "accuracy_ci95": [
+     0.6907047090119511,
+     0.7977889027522356
+    ],
+    "valid": 250,
+    "errors": 0,
+    "family_complete": {
+     "families": 250,
+     "complete": 187,
+     "accuracy": 0.748,
+     "sizes": {
+      "1": 250
+     }
+    },
+    "by_type": {
+     "choice": {
+      "count": 250,
+      "correct": 187,
+      "accuracy": 0.748,
+      "accuracy_ci95": [
+       0.6907047090119511,
+       0.7977889027522356
+      ]
+     }
+    },
+    "by_domain": {
+     "pubmedqa": {
+      "count": 250,
+      "correct": 187,
+      "accuracy": 0.748,
+      "accuracy_ci95": [
+       0.6907047090119511,
+       0.7977889027522356
+      ]
+     }
+    },
+    "ece10": 0.09406873262482937,
+    "mean_negative_log_likelihood": 0.7648302251530199,
+    "mean_multiclass_brier": 0.3808699603392472
+   }
+  },
+  "pairs": {
+   "h100 vs rtx3090": {
+    "count": 250,
+    "prediction_agreement": 0.984,
+    "both_correct": 185,
+    "neither_correct": 62,
+    "left_only_correct": 1,
+    "right_only_correct": 2,
+    "mcnemar_exact_p": 1.0
+   }
+  }
+ }
+}

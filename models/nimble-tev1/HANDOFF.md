@@ -1,5 +1,32 @@
 # Handoff: the GPU half of the Nimble / Tev1 investigation
 
+## Status, 2026-09-30 (end of the GPU half)
+
+Done and written up in `notes/03-gpu-results.md`:
+
+- A, B, C, D, E and F, on three GPU hosts: the cloud-gpu role (one H100 per
+  job, CUDA 12.9, Linux), the windows-3090 role (RTX 3090, CUDA 13.4, native
+  Windows), and the workstation (RDNA4 over Vulkan, for B). CPU builds of the
+  same tag on all three machines for B. Ollama 0.35.0 installed on the VM and
+  the Windows desktop for the cross-checks.
+- The full suite ran for all three models in the Ollama format on the H100 and
+  on the RTX 3090, and in each model's own format on the H100: nine runs of
+  3,880 records, zero error rows.
+- Committed: every probe log under `results/`, one JSON per suite run and per
+  comparison under `results/public-suite/` (summary, manifest with paths
+  redacted, host), the generated tables, and new probes `latency_sweep.py`,
+  `temperature.py`, `suite_table.py`, `compare_table.py`, `rows_diff.py`, plus a
+  Windows branch in `hostinfo.py`. No `rows.jsonl`. The per-subset files the
+  plan asked for are merged into one file per run.
+
+Not done: G (quantisation); the own-format runs on the RTX 3090.
+
+Contradicts this plan: the serving recipe below uses `-b 512 -ub 512` for every
+model. Ollama picks the batch from the context and free VRAM, and gives Nimble
+1024, which moves its probabilities by 6.12e-03. Match Ollama's batch (read it
+from the runner's command line) or the port will not reproduce Ollama for
+Nimble. Nothing measured contradicts the CPU half.
+
 Agent-facing. Written 2026-09-30 by the agent that did the CPU half, for an
 agent on a GPU host picking it up. Delete this file, or cut it down to a
 record of what was handed over, once its work is written into the notes.

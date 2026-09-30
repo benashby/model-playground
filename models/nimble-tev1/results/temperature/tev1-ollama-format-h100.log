@@ -1,0 +1,35 @@
+run tev1-ollama-format-h100: 3880 scored records; error rows per subset vitaminc-dev 0, massive-en-US 0, massive-de-DE 0, boolq 0, squad2 0, paws 0, multinli 0, civil_comments 0, aegis2 0, helpsteer2 0, summeval-relevance 0, summeval-consistency 0, pubmedqa 0
+
+== fit on half 0 (2101 records), evaluate on half 1 (1779 records): fitted T = 1.574
+  pooled, T = 1          n  1779  acc 0.7628  nll 0.6402  brier 0.3335  ece10 0.0797
+  pooled, T = 1.574      n  1779  acc 0.7628  nll 0.5877  brier 0.3220  ece10 0.0151
+  vitaminc-dev           n   285  acc 0.7368  ece10 0.1449 -> 0.0743  nll 0.7276 -> 0.6030  brier 0.3801 -> 0.3472
+  massive-en-US          n   179  acc 0.8659  ece10 0.0561 -> 0.0613  nll 0.4960 -> 0.4717  brier 0.1982 -> 0.1991
+  massive-de-DE          n   179  acc 0.8380  ece10 0.0452 -> 0.0837  nll 0.5757 -> 0.5772  brier 0.2549 -> 0.2582
+  boolq                  n   152  acc 0.8421  ece10 0.0634 -> 0.0503  nll 0.3396 -> 0.3208  brier 0.2109 -> 0.1991
+  squad2                 n   139  acc 0.7410  ece10 0.1525 -> 0.0843  nll 0.5918 -> 0.5021  brier 0.3616 -> 0.3302
+  paws                   n   122  acc 0.8279  ece10 0.0852 -> 0.0304  nll 0.4619 -> 0.4135  brier 0.2772 -> 0.2625
+  multinli               n   120  acc 0.9083  ece10 0.0407 -> 0.0819  nll 0.2875 -> 0.3079  brier 0.1401 -> 0.1530
+  civil_comments         n   148  acc 0.7770  ece10 0.0575 -> 0.0611  nll 0.4978 -> 0.4905  brier 0.3227 -> 0.3206
+  aegis2                 n   114  acc 0.8158  ece10 0.0956 -> 0.0434  nll 0.4720 -> 0.4448  brier 0.2822 -> 0.2794
+  helpsteer2             n   135  acc 0.3778  ece10 0.2116 -> 0.1124  nll 1.5466 -> 1.3849  brier 0.7592 -> 0.7117
+  summeval-relevance     n    48  acc 0.4375  ece10 0.0927 -> 0.0819  nll 1.1649 -> 1.2253  brier 0.6577 -> 0.6686
+  summeval-consistency   n    32  acc 0.8438  ece10 0.2063 -> 0.2721  nll 0.6547 -> 0.7195  brier 0.2732 -> 0.3356
+  pubmedqa               n   126  acc 0.7460  ece10 0.1037 -> 0.0692  nll 0.8086 -> 0.6968  brier 0.3832 -> 0.3756
+
+== fit on half 1 (1779 records), evaluate on half 0 (2101 records): fitted T = 1.534
+  pooled, T = 1          n  2101  acc 0.7458  nll 0.7041  brier 0.3635  ece10 0.0793
+  pooled, T = 1.534      n  2101  acc 0.7458  nll 0.6462  brier 0.3528  ece10 0.0206
+  vitaminc-dev           n   314  acc 0.7484  ece10 0.1435 -> 0.0802  nll 0.8207 -> 0.6642  brier 0.3927 -> 0.3644
+  massive-en-US          n   171  acc 0.8480  ece10 0.0696 -> 0.0563  nll 0.6021 -> 0.5465  brier 0.2513 -> 0.2461
+  massive-de-DE          n   171  acc 0.8246  ece10 0.0697 -> 0.0567  nll 0.6708 -> 0.6237  brier 0.2909 -> 0.2845
+  boolq                  n   148  acc 0.8581  ece10 0.0852 -> 0.0295  nll 0.3706 -> 0.3248  brier 0.2197 -> 0.2032
+  squad2                 n   160  acc 0.7812  ece10 0.1153 -> 0.0539  nll 0.5107 -> 0.4565  brier 0.3175 -> 0.2997
+  paws                   n   128  acc 0.8203  ece10 0.0982 -> 0.0397  nll 0.4647 -> 0.4035  brier 0.2596 -> 0.2435
+  multinli               n   179  acc 0.9274  ece10 0.0337 -> 0.0870  nll 0.2220 -> 0.2510  brier 0.1193 -> 0.1331
+  civil_comments         n   152  acc 0.6908  ece10 0.0941 -> 0.0545  nll 0.5554 -> 0.5350  brier 0.3771 -> 0.3628
+  aegis2                 n   136  acc 0.7353  ece10 0.1075 -> 0.0614  nll 0.5308 -> 0.4941  brier 0.3475 -> 0.3289
+  helpsteer2             n   114  acc 0.3333  ece10 0.2700 -> 0.1745  nll 1.9147 -> 1.6299  brier 0.8906 -> 0.8118
+  summeval-relevance     n   192  acc 0.5208  ece10 0.1037 -> 0.1470  nll 1.1320 -> 1.1907  brier 0.6244 -> 0.6457
+  summeval-consistency   n   112  acc 0.7857  ece10 0.1732 -> 0.2644  nll 0.7707 -> 0.7929  brier 0.3287 -> 0.3742
+  pubmedqa               n   124  acc 0.7419  ece10 0.1034 -> 0.0658  nll 0.7233 -> 0.6418  brier 0.3789 -> 0.3617

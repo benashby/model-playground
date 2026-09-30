@@ -1,0 +1,48 @@
+# 2026-09-30T22:36:17Z Reference: Ollama 0.35.0 (Linux tarball) on the cloud VM's H100, model tev1, reached over an SSH tunnel. port-vulkan-rx9070 = llama.cpp b11232 (6f767fe) built with GCC 15.2 for Vulkan, -ngl 99, on the workstation's RDNA4 Radeon (16 GB, RADV); port-cpu-ws = the same tag built for CPU on the workstation. Both: -c 2050 -np 1 -b 512 -ub 512 --cache-ram 0, the batch Ollama chose for this model on the H100. Same GGUF (sha256:35f9281a...)
+host: 12th Gen Intel(R) Core(TM) i9-12900KS; isa avx2+avx_vnni; os.cpu_count 24, affinity 24, cgroup quota None, /proc/cpuinfo cpu cores 16; 62.7 GiB; Linux x86_64
+server port-vulkan-rx9070: build b1-6f767fe, n_ctx 2304
+server port-cpu-ws: build b1-6f767fe, n_ctx 2304
+
+== ticket-3q.json  (Ollama usage.input_tokens 727)
+  port-vulkan-rx9070: usage.input_tokens 727
+  port-cpu-ws: usage.input_tokens 727
+  team: ollama {"billing": 0.990778, "technical": 0.002947, "other": 0.006275}
+    port-vulkan-rx9070: {"billing": 0.991269, "technical": 0.002893, "other": 0.005837} max|d| 4.91e-04 same answer True
+    port-cpu-ws: {"billing": 0.990784, "technical": 0.002929, "other": 0.006286} max|d| 1.78e-05 same answer True
+  refund: ollama {"false": 0.033824, "true": 0.966176}
+    port-vulkan-rx9070: {"false": 0.032673, "true": 0.967327} max|d| 1.15e-03 same answer True
+    port-cpu-ws: {"false": 0.032621, "true": 0.967379} max|d| 1.20e-03 same answer True
+  urgency: ollama {"0": 0.219749, "1": 0.473698, "2": 0.306553}
+    port-vulkan-rx9070: {"0": 0.215505, "1": 0.473971, "2": 0.310525} max|d| 4.24e-03 same answer True
+    port-cpu-ws: {"0": 0.223508, "1": 0.468507, "2": 0.307985} max|d| 5.19e-03 same answer True
+
+== ticket-8q.json  (Ollama usage.input_tokens 3891)
+  port-vulkan-rx9070: usage.input_tokens 3891
+  port-cpu-ws: usage.input_tokens 3891
+  team: ollama {"billing": 0.992917, "technical": 0.003433, "other": 0.003649}
+    port-vulkan-rx9070: {"billing": 0.992938, "technical": 0.003337, "other": 0.003725} max|d| 9.65e-05 same answer True
+    port-cpu-ws: {"billing": 0.993001, "technical": 0.00327, "other": 0.003729} max|d| 1.63e-04 same answer True
+  refund: ollama {"false": 0.049135, "true": 0.950865}
+    port-vulkan-rx9070: {"false": 0.049834, "true": 0.950166} max|d| 6.99e-04 same answer True
+    port-cpu-ws: {"false": 0.048142, "true": 0.951858} max|d| 9.93e-04 same answer True
+  urgency: ollama {"0": 0.210129, "1": 0.525422, "2": 0.264449}
+    port-vulkan-rx9070: {"0": 0.208974, "1": 0.526228, "2": 0.264798} max|d| 1.15e-03 same answer True
+    port-cpu-ws: {"0": 0.209363, "1": 0.516091, "2": 0.274546} max|d| 1.01e-02 same answer True
+  sentiment: ollama {"0": 0.90763, "1": 0.073353, "2": 0.019017}
+    port-vulkan-rx9070: {"0": 0.911054, "1": 0.070327, "2": 0.018619} max|d| 3.42e-03 same answer True
+    port-cpu-ws: {"0": 0.915242, "1": 0.067232, "2": 0.017525} max|d| 7.61e-03 same answer True
+  churn: ollama {"false": 0.979835, "true": 0.020165}
+    port-vulkan-rx9070: {"false": 0.981622, "true": 0.018378} max|d| 1.79e-03 same answer True
+    port-cpu-ws: {"false": 0.981655, "true": 0.018345} max|d| 1.82e-03 same answer True
+  language: ollama {"en": 0.985442, "es": 0.004601, "other": 0.009958}
+    port-vulkan-rx9070: {"en": 0.98557, "es": 0.004625, "other": 0.009805} max|d| 1.53e-04 same answer True
+    port-cpu-ws: {"en": 0.986112, "es": 0.004442, "other": 0.009446} max|d| 6.70e-04 same answer True
+  pii: ollama {"false": 0.985091, "true": 0.014909}
+    port-vulkan-rx9070: {"false": 0.986343, "true": 0.013657} max|d| 1.25e-03 same answer True
+    port-cpu-ws: {"false": 0.98706, "true": 0.01294} max|d| 1.97e-03 same answer True
+  human: ollama {"false": 0.433496, "true": 0.566504}
+    port-vulkan-rx9070: {"false": 0.429665, "true": 0.570335} max|d| 3.83e-03 same answer True
+    port-cpu-ws: {"false": 0.426325, "true": 0.573675} max|d| 7.17e-03 same answer True
+
+largest |probability difference| from Ollama, port-vulkan-rx9070: 4.24e-03
+largest |probability difference| from Ollama, port-cpu-ws: 1.01e-02

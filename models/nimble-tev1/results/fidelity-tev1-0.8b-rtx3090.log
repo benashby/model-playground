@@ -1,0 +1,63 @@
+# 2026-09-30T22:40:43Z Ollama 0.35.0 Windows release zip on native Windows 11, RTX 3090 24 GB (WDDM, driver 617.14), model tev1:0.8b. ollama-runner = the llama-server Ollama spawned (its command line chose -b 512 -ub 512); port-cuda-3090 = llama.cpp b11232 (6f767fe) built with MSVC 19.51 + CUDA 13.4.59 for sm_86, -ngl 99; port-cpu-win = the same tag built for CPU with MSVC. Both port servers: -c 2050 -np 1 -b 512 -ub 512 --cache-ram 0. Same GGUF (sha256:fa9732e3...)
+host: AMD Ryzen 7 3700X 8-Core Processor; isa avx2; os.cpu_count 16, affinity 16; 31.9 GiB; Windows 11 10.0.26200 AMD64
+server ollama-runner: build b1-161755f29, n_ctx 2304
+server port-cuda-3090: build b1-6f767fe, n_ctx 2304
+server port-cpu-win: build b1-6f767fe, n_ctx 2304
+
+== ticket-3q.json  (Ollama usage.input_tokens 727)
+  ollama-runner: usage.input_tokens 727
+  port-cuda-3090: usage.input_tokens 727
+  port-cpu-win: usage.input_tokens 727
+  team: ollama {"billing": 0.980374, "technical": 0.019087, "other": 0.00054}
+    ollama-runner: {"billing": 0.980374, "technical": 0.019087, "other": 0.00054} max|d| 1.78e-09 same answer True
+    port-cuda-3090: {"billing": 0.980374, "technical": 0.019087, "other": 0.00054} max|d| 1.78e-09 same answer True
+    port-cpu-win: {"billing": 0.982312, "technical": 0.017164, "other": 0.000524} max|d| 1.94e-03 same answer True
+  refund: ollama {"false": 0.145734, "true": 0.854266}
+    ollama-runner: {"false": 0.145734, "true": 0.854266} max|d| 2.08e-09 same answer True
+    port-cuda-3090: {"false": 0.145734, "true": 0.854266} max|d| 2.08e-09 same answer True
+    port-cpu-win: {"false": 0.144681, "true": 0.855319} max|d| 1.05e-03 same answer True
+  urgency: ollama {"0": 0.209868, "1": 0.390494, "2": 0.399638}
+    ollama-runner: {"0": 0.209868, "1": 0.390494, "2": 0.399638} max|d| 6.40e-09 same answer True
+    port-cuda-3090: {"0": 0.209868, "1": 0.390494, "2": 0.399638} max|d| 6.40e-09 same answer True
+    port-cpu-win: {"0": 0.198873, "1": 0.3837, "2": 0.417428} max|d| 1.78e-02 same answer True
+
+== ticket-8q.json  (Ollama usage.input_tokens 3891)
+  ollama-runner: usage.input_tokens 3891
+  port-cuda-3090: usage.input_tokens 3891
+  port-cpu-win: usage.input_tokens 3891
+  team: ollama {"billing": 0.992087, "technical": 0.007718, "other": 0.000194}
+    ollama-runner: {"billing": 0.992087, "technical": 0.007718, "other": 0.000194} max|d| 8.02e-10 same answer True
+    port-cuda-3090: {"billing": 0.992087, "technical": 0.007718, "other": 0.000194} max|d| 8.02e-10 same answer True
+    port-cpu-win: {"billing": 0.992361, "technical": 0.007456, "other": 0.000184} max|d| 2.73e-04 same answer True
+  refund: ollama {"false": 0.073665, "true": 0.926335}
+    ollama-runner: {"false": 0.073665, "true": 0.926335} max|d| 4.99e-09 same answer True
+    port-cuda-3090: {"false": 0.073665, "true": 0.926335} max|d| 4.99e-09 same answer True
+    port-cpu-win: {"false": 0.066859, "true": 0.933141} max|d| 6.81e-03 same answer True
+  urgency: ollama {"0": 0.190547, "1": 0.396375, "2": 0.413078}
+    ollama-runner: {"0": 0.190547, "1": 0.396375, "2": 0.413078} max|d| 1.01e-08 same answer True
+    port-cuda-3090: {"0": 0.190547, "1": 0.396375, "2": 0.413078} max|d| 1.01e-08 same answer True
+    port-cpu-win: {"0": 0.17499, "1": 0.412341, "2": 0.412669} max|d| 1.60e-02 same answer True
+  sentiment: ollama {"0": 0.457372, "1": 0.288928, "2": 0.253701}
+    ollama-runner: {"0": 0.457372, "1": 0.288928, "2": 0.253701} max|d| 3.44e-09 same answer True
+    port-cuda-3090: {"0": 0.457372, "1": 0.288928, "2": 0.253701} max|d| 3.44e-09 same answer True
+    port-cpu-win: {"0": 0.43962, "1": 0.307036, "2": 0.253344} max|d| 1.81e-02 same answer True
+  churn: ollama {"false": 0.834701, "true": 0.165299}
+    ollama-runner: {"false": 0.834701, "true": 0.165299} max|d| 4.08e-09 same answer True
+    port-cuda-3090: {"false": 0.834701, "true": 0.165299} max|d| 4.08e-09 same answer True
+    port-cpu-win: {"false": 0.841703, "true": 0.158297} max|d| 7.00e-03 same answer True
+  language: ollama {"en": 0.788651, "es": 0.005116, "other": 0.206233}
+    ollama-runner: {"en": 0.788651, "es": 0.005116, "other": 0.206233} max|d| 9.14e-09 same answer True
+    port-cuda-3090: {"en": 0.788651, "es": 0.005116, "other": 0.206233} max|d| 9.14e-09 same answer True
+    port-cpu-win: {"en": 0.794655, "es": 0.006004, "other": 0.199341} max|d| 6.89e-03 same answer True
+  pii: ollama {"false": 0.960308, "true": 0.039692}
+    ollama-runner: {"false": 0.960308, "true": 0.039692} max|d| 4.02e-09 same answer True
+    port-cuda-3090: {"false": 0.960308, "true": 0.039692} max|d| 4.02e-09 same answer True
+    port-cpu-win: {"false": 0.963516, "true": 0.036484} max|d| 3.21e-03 same answer True
+  human: ollama {"false": 0.740078, "true": 0.259922}
+    ollama-runner: {"false": 0.740078, "true": 0.259922} max|d| 1.20e-08 same answer True
+    port-cuda-3090: {"false": 0.740078, "true": 0.259922} max|d| 1.20e-08 same answer True
+    port-cpu-win: {"false": 0.731934, "true": 0.268066} max|d| 8.14e-03 same answer True
+
+largest |probability difference| from Ollama, ollama-runner: 1.20e-08
+largest |probability difference| from Ollama, port-cuda-3090: 1.20e-08
+largest |probability difference| from Ollama, port-cpu-win: 1.81e-02

@@ -4,9 +4,10 @@ Three small open models that answer typed questions about a piece of text in
 one forward pass each, with no generation. Investigated from 2026-09-30,
 starting the day after Ollama 0.35.0 added a `/v1/systemone` endpoint for them.
 
-> Status: the CPU half. Everything that did not need a GPU has been measured
-> and is written up below. Accuracy, calibration and GPU latency are the next
-> step, and [HANDOFF.md](HANDOFF.md) is the plan for it.
+> Status: measured on CPUs and on three GPUs (an H100, an RTX 3090 on Windows
+> and an RDNA4 Radeon over Vulkan), including accuracy and calibration on all
+> 3,880 public benchmark records. Quantisation is the one planned experiment
+> not run.
 
 - Ollama announcement: <https://ollama.com/blog/ollama-now-supports-jev-style-decision-models>
 - API reference: <https://docs.ollama.com/api/systemone>
@@ -40,9 +41,32 @@ a tool call, decide whether a speaker has finished. A number that says how sure
 the model is only helps if it means the same thing from one run to the next.
 This investigation is mostly about whether it does.
 
-## What was found so far
+## What was found
 
-All on a 2016 Xeon CPU with `tev1:0.8b`; details, hardware and caveats are in
+On GPUs, for all three models; details are in [the GPU results](notes/03-gpu-results.md).
+
+- Accuracy on Bespoke's 13 human-labelled subsets, 3,880 records, in Ollama's
+  prompt format: Nimble 75.0%, Tev1 4B 74.6%, Tev1 0.8B 64.0% (macro mean),
+  each within 1.3 points of Ollama's published figures. No record failed.
+- Tev1 0.8B does 2.6 points better in its own training format (66.6%, exact
+  McNemar p 2.14e-05 over all records). For Nimble and Tev1 4B the format makes
+  no significant difference overall.
+- All three are overconfident as shipped. One temperature of about 1.5 to 2.0,
+  fitted on half the families, cuts ECE from 0.08 to 0.14 down to 0.013 to 0.044
+  on the other half. Ollama applies none.
+- The port reproduces Ollama to about 1e-08 on CUDA, on Linux and on Windows,
+  once the batch size matches. Ollama picks 1024 for Nimble and 512 for Tev1
+  from the context size and free VRAM, and the batch size alone moved Nimble's
+  probabilities by 6.12e-03: a fifth source of drift.
+- The same Ollama, model and request differ by up to 2.51e-02 between an H100
+  and an RTX 3090, and CPU and Vulkan builds differ from CUDA by up to 3.85e-02,
+  enough to flip a near-tied answer. Across the whole suite the two GPUs
+  disagree on 0.57% to 0.85% of answers and give the same accuracy.
+- A single question costs its prefill (Nimble reads 4,467 tokens in 499 ms on
+  the H100, 1,067 ms on the RTX 3090), but every extra question costs about 40 to 90 ms
+  on either GPU, a floor the faster card does not lower.
+
+On a 2016 Xeon CPU with `tev1:0.8b`; details, hardware and caveats are in
 [the CPU results](notes/02-cpu-results.md).
 
 - System One in Ollama is llama.cpp. Ollama drives its bundled llama-server's
@@ -91,7 +115,8 @@ standard-library Python and handles one request at a time.
 |---|---|
 | [01, how it works](notes/01-how-it-works.md) | the scoring mechanism from source, the primer, the three prompt formats, what Ollama ships, licensing |
 | [02, CPU results](notes/02-cpu-results.md) | fidelity across builds, the crash, priming, coupling, cache history, the benchmark data |
-| [HANDOFF.md](HANDOFF.md) | the GPU plan: accuracy on Bespoke's 13 public subsets, prompt formats, quantisation, calibration, latency |
+| [03, GPU results](notes/03-gpu-results.md) | fidelity on CUDA, batch size, backend drift, accuracy and calibration on the public suite, prompt formats, latency |
+| [HANDOFF.md](HANDOFF.md) | the plan the GPU half followed, and its status |
 
 ## Probes
 
@@ -106,9 +131,14 @@ standard-library Python and handles one request at a time.
 | [`priming.py`](probes/priming.py) | cold, primed and warm timing and probabilities, `results/priming.log` |
 | [`schema_coupling.py`](probes/schema_coupling.py) | one question's probabilities as others are added, `results/schema-coupling.log` |
 | [`fetch_public_data.py`](probes/fetch_public_data.py) | Bespoke's 13 benchmark subsets rebuilt and checksummed, `results/public-data.log` |
-| [`public_suite.py`](probes/public_suite.py) | Bespoke's benchmark runner against Ollama or the port, `results/public-suite-smoke.log` |
+| [`public_suite.py`](probes/public_suite.py) | Bespoke's benchmark runner against Ollama or the port, `results/public-suite-smoke.log` and `results/public-suite/` |
+| [`suite_table.py`](probes/suite_table.py) | per-subset accuracy and error counts across runs, `results/public-suite/accuracy-*.md` |
+| [`compare_table.py`](probes/compare_table.py) | paired comparison tables with McNemar tests, `results/public-suite/compare-*-table.md` |
+| [`rows_diff.py`](probes/rows_diff.py) | record-by-record differences between two runs, `results/rows-diff.log` |
+| [`temperature.py`](probes/temperature.py) | one fitted temperature per run, on held-out families, `results/temperature/` |
+| [`latency_sweep.py`](probes/latency_sweep.py) | cost against state length and question count, `results/latency-sweep-*.log` |
 | [`build_llama_cpp.sh`](probes/build_llama_cpp.sh) | llama-server at a pinned tag for CUDA, Vulkan, HIP or CPU |
-| [`hostinfo.py`](probes/hostinfo.py) | the host line every log starts with |
+| [`hostinfo.py`](probes/hostinfo.py) | the host line every log starts with, on Linux and Windows |
 
 The fixtures are in [`probes/fixtures/`](probes/fixtures/). Every probe is
 standard-library Python except `fetch_public_data.py`, which needs `pyarrow`,
@@ -133,11 +163,10 @@ The order that made the findings appear:
 
 ## Open questions
 
-- Accuracy and calibration of all three models, per prompt format, on the 13
-  human-labelled subsets. The plan is in [HANDOFF.md](HANDOFF.md).
-- Whether the build, primer and coupling effects are larger on a GPU, for
-  Nimble, or for Tev1 4B.
-- Whether probabilities from a CUDA or Vulkan build match the CPU's.
+- What quantisation below Q8_0 costs in accuracy and calibration.
+- Whether the per-question floor on a GPU is llama-server restoring the
+  recurrent-state checkpoint, and whether it can be avoided.
+- Whether Tev1 0.8B's own-format gain holds on a GPU other than the H100.
 - Which llama.cpp change between `b9190` and `b11232` fixed the repeated-prompt
   crash, and which changed the probabilities.
 - Which Nimble revision Ollama merged, and what licence Tev1's weights end up

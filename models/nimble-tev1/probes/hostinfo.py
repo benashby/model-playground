@@ -1,6 +1,7 @@
 """The host, described by its nature: silicon, usable CPUs, memory. Never a name or address."""
 import os
 import platform
+import sys
 from pathlib import Path
 
 
@@ -23,7 +24,40 @@ def cpu_quota():
         return None
 
 
+def describe_windows():
+    """The same facts from Win32: there is no /proc, cgroup or `cpu cores` line."""
+    import ctypes
+    import winreg
+    from ctypes import wintypes
+
+    k32 = ctypes.WinDLL("kernel32")
+    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as k:
+        model = winreg.QueryValueEx(k, "ProcessorNameString")[0].strip()
+    # PF_AVX2_INSTRUCTIONS_AVAILABLE = 40, PF_AVX512F_INSTRUCTIONS_AVAILABLE = 41
+    isa = [n for n, f in (("avx512f", 41), ("avx2", 40)) if k32.IsProcessorFeaturePresent(f)]
+
+    class MemStatus(ctypes.Structure):
+        _fields_ = [("dwLength", wintypes.DWORD), ("dwMemoryLoad", wintypes.DWORD),
+                    ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                    ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                    ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                    ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+    m = MemStatus()
+    m.dwLength = ctypes.sizeof(m)
+    k32.GlobalMemoryStatusEx(ctypes.byref(m))
+    proc, sysm = ctypes.c_size_t(), ctypes.c_size_t()
+    k32.GetCurrentProcess.restype = wintypes.HANDLE
+    k32.GetProcessAffinityMask.argtypes = [wintypes.HANDLE, ctypes.POINTER(ctypes.c_size_t),
+                                           ctypes.POINTER(ctypes.c_size_t)]
+    k32.GetProcessAffinityMask(k32.GetCurrentProcess(), ctypes.byref(proc), ctypes.byref(sysm))
+    return (f"{model}; isa {'+'.join(isa) or 'none detected'}; os.cpu_count {os.cpu_count()}, "
+            f"affinity {bin(proc.value).count('1')}; {m.ullTotalPhys / 2**30:.1f} GiB; "
+            f"{platform.system()} {platform.release()} {platform.version()} {platform.machine()}")
+
+
 def describe():
+    if sys.platform == "win32":
+        return describe_windows()
     flags = Path("/proc/cpuinfo").read_text() if Path("/proc/cpuinfo").exists() else ""
     isa = [f for f in ("avx512f", "avx2", "avx_vnni") if f" {f}" in flags]
     try:

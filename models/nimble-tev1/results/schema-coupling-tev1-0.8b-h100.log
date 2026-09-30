@@ -1,0 +1,23 @@
+# 2026-09-30T22:49:54Z llama-server = llama.cpp b11232 (6f767fe) built with GCC 13.3 + CUDA 12.9.86 (sm_90) in a CUDA 12.9 container on a cloud VM, -c 2050 -np 1 -ngl 99 -b 512 -ub 512 --cache-ram 0, on one H100 80GB HBM3 (driver 595.91.07; the other H100 idle or running another model), GGUF tev1-0.8b (sha256:fa9732e3...); probe run on the same VM
+host: Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64
+server build b1-6f767fe
+
+== format ollama, system ollama-tev1; question 'team'
+  with 1 question(s): prompt  142 tok  {"billing": 0.979829, "technical": 0.015628, "other": 0.004543}  max|d| vs alone 0.00e+00
+  with 2 question(s): prompt  186 tok  {"billing": 0.969709, "technical": 0.029493, "other": 0.000798}  max|d| vs alone 1.39e-02
+  with 3 question(s): prompt  242 tok  {"billing": 0.985781, "technical": 0.013776, "other": 0.000443}  max|d| vs alone 5.95e-03
+  with 4 question(s): prompt  296 tok  {"billing": 0.989411, "technical": 0.010238, "other": 0.00035}  max|d| vs alone 9.58e-03
+  with 5 question(s): prompt  339 tok  {"billing": 0.991114, "technical": 0.008723, "other": 0.000162}  max|d| vs alone 1.13e-02
+  with 6 question(s): prompt  393 tok  {"billing": 0.990142, "technical": 0.009451, "other": 0.000407}  max|d| vs alone 1.03e-02
+  with 7 question(s): prompt  440 tok  {"billing": 0.990805, "technical": 0.008834, "other": 0.000361}  max|d| vs alone 1.10e-02
+  with 8 question(s): prompt  486 tok  {"billing": 0.992387, "technical": 0.007434, "other": 0.000179}  max|d| vs alone 1.26e-02
+
+== format tev1, system tev1; question 'team'
+  with 1 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 2 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 3 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 4 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 5 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 6 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 7 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00
+  with 8 question(s): prompt  146 tok  {"billing": 0.961262, "technical": 0.000238, "other": 0.0385}  max|d| vs alone 0.00e+00

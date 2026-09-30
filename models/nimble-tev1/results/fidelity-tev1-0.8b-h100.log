@@ -1,0 +1,63 @@
+# 2026-09-30T22:28:48Z Ollama 0.35.0 Linux release tarball on a cloud VM, 2x H100 80GB HBM3 (driver 595.91.07), model tev1:0.8b, Ollama pinned to H100 1 (CUDA_VISIBLE_DEVICES=1). ollama-runner = the llama-server Ollama spawned; port-cuda-h100 = llama.cpp b11232 (6f767fe) built with GCC 13.3 + CUDA 12.9.86 for sm_90, -ngl 99, on H100 0; port-cpu-vm = the same tag built for CPU in the same container. Every port server: -c 2050 -np 1 -b 512 -ub 512 --cache-ram 0. All load the same GGUF (sha256:fa9732e3...)
+host: Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz; isa avx512f+avx2+avx_vnni; os.cpu_count 52, affinity 52, cgroup quota None, /proc/cpuinfo cpu cores 26; 460.4 GiB; Linux x86_64
+server ollama-runner: build b1-161755f29, n_ctx 2304
+server port-cuda-h100: build b1-6f767fe, n_ctx 2304
+server port-cpu-vm: build b1-6f767fe, n_ctx 2304
+
+== ticket-3q.json  (Ollama usage.input_tokens 727)
+  ollama-runner: usage.input_tokens 727
+  port-cuda-h100: usage.input_tokens 727
+  port-cpu-vm: usage.input_tokens 727
+  team: ollama {"billing": 0.985424, "technical": 0.014042, "other": 0.000534}
+    ollama-runner: {"billing": 0.985424, "technical": 0.014042, "other": 0.000534} max|d| 1.67e-09 same answer True
+    port-cuda-h100: {"billing": 0.985424, "technical": 0.014042, "other": 0.000534} max|d| 1.67e-09 same answer True
+    port-cpu-vm: {"billing": 0.981707, "technical": 0.017761, "other": 0.000533} max|d| 3.72e-03 same answer True
+  refund: ollama {"false": 0.165031, "true": 0.834969}
+    ollama-runner: {"false": 0.165031, "true": 0.834969} max|d| 8.07e-09 same answer True
+    port-cuda-h100: {"false": 0.165031, "true": 0.834969} max|d| 8.07e-09 same answer True
+    port-cpu-vm: {"false": 0.126549, "true": 0.873451} max|d| 3.85e-02 same answer True
+  urgency: ollama {"0": 0.229907, "1": 0.365347, "2": 0.404745}
+    ollama-runner: {"0": 0.229907, "1": 0.365347, "2": 0.404745} max|d| 1.61e-08 same answer True
+    port-cuda-h100: {"0": 0.229907, "1": 0.365347, "2": 0.404745} max|d| 1.61e-08 same answer True
+    port-cpu-vm: {"0": 0.20678, "1": 0.369316, "2": 0.423904} max|d| 2.31e-02 same answer True
+
+== ticket-8q.json  (Ollama usage.input_tokens 3891)
+  ollama-runner: usage.input_tokens 3891
+  port-cuda-h100: usage.input_tokens 3891
+  port-cpu-vm: usage.input_tokens 3891
+  team: ollama {"billing": 0.992606, "technical": 0.007197, "other": 0.000198}
+    ollama-runner: {"billing": 0.992606, "technical": 0.007197, "other": 0.000198} max|d| 8.07e-10 same answer True
+    port-cuda-h100: {"billing": 0.992606, "technical": 0.007197, "other": 0.000198} max|d| 8.07e-10 same answer True
+    port-cpu-vm: {"billing": 0.990188, "technical": 0.009585, "other": 0.000227} max|d| 2.42e-03 same answer True
+  refund: ollama {"false": 0.09125, "true": 0.90875}
+    ollama-runner: {"false": 0.09125, "true": 0.90875} max|d| 5.74e-11 same answer True
+    port-cuda-h100: {"false": 0.09125, "true": 0.90875} max|d| 5.74e-11 same answer True
+    port-cpu-vm: {"false": 0.064392, "true": 0.935608} max|d| 2.69e-02 same answer True
+  urgency: ollama {"0": 0.208415, "1": 0.392589, "2": 0.398996}
+    ollama-runner: {"0": 0.208415, "1": 0.392589, "2": 0.398996} max|d| 9.54e-09 same answer True
+    port-cuda-h100: {"0": 0.208415, "1": 0.392589, "2": 0.398996} max|d| 9.54e-09 same answer True
+    port-cpu-vm: {"0": 0.184218, "1": 0.408812, "2": 0.40697} max|d| 2.42e-02 same answer False
+  sentiment: ollama {"0": 0.455787, "1": 0.284392, "2": 0.259821}
+    ollama-runner: {"0": 0.455787, "1": 0.284392, "2": 0.259821} max|d| 6.93e-09 same answer True
+    port-cuda-h100: {"0": 0.455787, "1": 0.284392, "2": 0.259821} max|d| 6.93e-09 same answer True
+    port-cpu-vm: {"0": 0.476065, "1": 0.275997, "2": 0.247938} max|d| 2.03e-02 same answer True
+  churn: ollama {"false": 0.84994, "true": 0.15006}
+    ollama-runner: {"false": 0.84994, "true": 0.15006} max|d| 4.54e-09 same answer True
+    port-cuda-h100: {"false": 0.84994, "true": 0.15006} max|d| 4.54e-09 same answer True
+    port-cpu-vm: {"false": 0.842294, "true": 0.157706} max|d| 7.65e-03 same answer True
+  language: ollama {"en": 0.80499, "es": 0.005362, "other": 0.189647}
+    ollama-runner: {"en": 0.80499, "es": 0.005362, "other": 0.189647} max|d| 1.06e-08 same answer True
+    port-cuda-h100: {"en": 0.80499, "es": 0.005362, "other": 0.189647} max|d| 1.06e-08 same answer True
+    port-cpu-vm: {"en": 0.796139, "es": 0.004965, "other": 0.198896} max|d| 9.25e-03 same answer True
+  pii: ollama {"false": 0.964728, "true": 0.035272}
+    ollama-runner: {"false": 0.964728, "true": 0.035272} max|d| 5.00e-10 same answer True
+    port-cuda-h100: {"false": 0.964728, "true": 0.035272} max|d| 5.00e-10 same answer True
+    port-cpu-vm: {"false": 0.962497, "true": 0.037503} max|d| 2.23e-03 same answer True
+  human: ollama {"false": 0.756897, "true": 0.243103}
+    ollama-runner: {"false": 0.756897, "true": 0.243103} max|d| 4.00e-09 same answer True
+    port-cuda-h100: {"false": 0.756897, "true": 0.243103} max|d| 4.00e-09 same answer True
+    port-cpu-vm: {"false": 0.732368, "true": 0.267632} max|d| 2.45e-02 same answer True
+
+largest |probability difference| from Ollama, ollama-runner: 1.61e-08
+largest |probability difference| from Ollama, port-cuda-h100: 1.61e-08
+largest |probability difference| from Ollama, port-cpu-vm: 3.85e-02

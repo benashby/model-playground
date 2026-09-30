@@ -1,0 +1,606 @@
+# 2026-09-30T23:12:58Z llama-server = llama.cpp b11232 (6f767fe) built on native Windows 11 with MSVC 19.51 + CUDA 13.4.59 (sm_86), -c 8194 -np 1 -ngl 99 -b 1024 -ub 1024 --cache-ram 0 (the batch Ollama 0.35.0 chose for this model on this card), on an RTX 3090 24 GB (WDDM, driver 617.14), GGUF nimble:latest (sha256 bbf1d6fc...); probe run on the same machine; CI jobs running at start: 0, CPU load 0%
+host: AMD Ryzen 7 3700X 8-Core Processor; isa avx2; os.cpu_count 16, affinity 16; 31.9 GiB; Windows 11 10.0.26200 AMD64
+server build b1-6f767fe, model nimble-latest.gguf, format ollama, system ollama-nimble, repeats 5 (first discarded)
+
+== state 64 tokens, 1 question(s)
+  rep 0 cold plain  wall     91.9 ms  server     84.6 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 0 cold primed wall     87.7 ms  server     80.7 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 0 warm        wall     42.4 ms  server     35.4 ms  evaluated      4 tok  prompt 227 tok/question
+  rep 1 cold plain  wall     88.6 ms  server     81.7 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 1 cold primed wall     90.9 ms  server     83.8 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 1 warm        wall     43.1 ms  server     35.7 ms  evaluated      4 tok  prompt 227 tok/question
+  rep 2 cold plain  wall     90.7 ms  server     83.6 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 2 cold primed wall     88.0 ms  server     81.1 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 2 warm        wall     43.4 ms  server     36.5 ms  evaluated      4 tok  prompt 227 tok/question
+  rep 3 cold plain  wall    108.2 ms  server     80.8 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 3 cold primed wall     88.0 ms  server     81.0 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 3 warm        wall     46.3 ms  server     38.6 ms  evaluated      4 tok  prompt 227 tok/question
+  rep 4 cold plain  wall     87.6 ms  server     80.5 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 4 cold primed wall     87.6 ms  server     80.7 ms  evaluated    227 tok  prompt 227 tok/question
+  rep 4 warm        wall     42.6 ms  server     35.7 ms  evaluated      4 tok  prompt 227 tok/question
+
+== state 64 tokens, 2 question(s)
+  rep 0 cold plain  wall    231.1 ms  server    201.3 ms  evaluated    550 tok  prompt 275 tok/question
+  rep 0 cold primed wall    231.7 ms  server    216.6 ms  evaluated    286 tok  prompt 275 tok/question
+  rep 0 warm        wall    168.3 ms  server    153.5 ms  evaluated     22 tok  prompt 275 tok/question
+  rep 1 cold plain  wall    210.8 ms  server    197.3 ms  evaluated    550 tok  prompt 275 tok/question
+  rep 1 cold primed wall    235.7 ms  server    220.7 ms  evaluated    286 tok  prompt 275 tok/question
+  rep 1 warm        wall    179.0 ms  server    164.1 ms  evaluated     22 tok  prompt 275 tok/question
+  rep 2 cold plain  wall    210.9 ms  server    196.8 ms  evaluated    550 tok  prompt 275 tok/question
+  rep 2 cold primed wall    231.8 ms  server    216.7 ms  evaluated    286 tok  prompt 275 tok/question
+  rep 2 warm        wall    173.3 ms  server    157.7 ms  evaluated     22 tok  prompt 275 tok/question
+  rep 3 cold plain  wall    210.9 ms  server    197.4 ms  evaluated    550 tok  prompt 275 tok/question
+  rep 3 cold primed wall    232.5 ms  server    217.5 ms  evaluated    286 tok  prompt 275 tok/question
+  rep 3 warm        wall    170.4 ms  server    155.0 ms  evaluated     22 tok  prompt 275 tok/question
+  rep 4 cold plain  wall    211.5 ms  server    197.9 ms  evaluated    550 tok  prompt 275 tok/question
+  rep 4 cold primed wall    233.7 ms  server    218.8 ms  evaluated    286 tok  prompt 275 tok/question
+  rep 4 warm        wall    171.0 ms  server    156.0 ms  evaluated     22 tok  prompt 275 tok/question
+
+== state 64 tokens, 4 question(s)
+  rep 0 cold plain  wall    494.3 ms  server    465.5 ms  evaluated   1492 tok  prompt 373 tok/question
+  rep 0 cold primed wall    386.9 ms  server    356.7 ms  evaluated    406 tok  prompt 373 tok/question
+  rep 0 warm        wall    302.8 ms  server    272.3 ms  evaluated     44 tok  prompt 373 tok/question
+  rep 1 cold plain  wall    500.6 ms  server    471.3 ms  evaluated   1492 tok  prompt 373 tok/question
+  rep 1 cold primed wall    389.2 ms  server    358.8 ms  evaluated    406 tok  prompt 373 tok/question
+  rep 1 warm        wall    319.1 ms  server    289.0 ms  evaluated     44 tok  prompt 373 tok/question
+  rep 2 cold plain  wall    498.1 ms  server    469.5 ms  evaluated   1492 tok  prompt 373 tok/question
+  rep 2 cold primed wall    408.3 ms  server    363.0 ms  evaluated    406 tok  prompt 373 tok/question
+  rep 2 warm        wall    325.1 ms  server    275.8 ms  evaluated     44 tok  prompt 373 tok/question
+  rep 3 cold plain  wall    499.2 ms  server    455.4 ms  evaluated   1492 tok  prompt 373 tok/question
+  rep 3 cold primed wall    419.2 ms  server    371.6 ms  evaluated    406 tok  prompt 373 tok/question
+  rep 3 warm        wall    302.7 ms  server    272.7 ms  evaluated     44 tok  prompt 373 tok/question
+  rep 4 cold plain  wall    520.1 ms  server    455.1 ms  evaluated   1492 tok  prompt 373 tok/question
+  rep 4 cold primed wall    386.4 ms  server    356.4 ms  evaluated    406 tok  prompt 373 tok/question
+  rep 4 warm        wall    591.1 ms  server    559.9 ms  evaluated     44 tok  prompt 373 tok/question
+
+== state 64 tokens, 8 question(s)
+  rep 0 cold plain  wall   1893.6 ms  server   1768.2 ms  evaluated   4552 tok  prompt 569 tok/question
+  rep 0 cold primed wall    978.4 ms  server    731.6 ms  evaluated    646 tok  prompt 569 tok/question
+  rep 0 warm        wall    685.2 ms  server    546.5 ms  evaluated     88 tok  prompt 569 tok/question
+  rep 1 cold plain  wall   1350.4 ms  server   1252.4 ms  evaluated   4552 tok  prompt 569 tok/question
+  rep 1 cold primed wall    751.8 ms  server    656.9 ms  evaluated    646 tok  prompt 569 tok/question
+  rep 1 warm        wall    633.3 ms  server    555.8 ms  evaluated     88 tok  prompt 569 tok/question
+  rep 2 cold plain  wall   1339.6 ms  server   1254.6 ms  evaluated   4552 tok  prompt 569 tok/question
+  rep 2 cold primed wall    837.7 ms  server    712.1 ms  evaluated    646 tok  prompt 569 tok/question
+  rep 2 warm        wall    634.7 ms  server    551.7 ms  evaluated     88 tok  prompt 569 tok/question
+  rep 3 cold plain  wall   1366.8 ms  server   1266.1 ms  evaluated   4552 tok  prompt 569 tok/question
+  rep 3 cold primed wall    734.0 ms  server    650.6 ms  evaluated    646 tok  prompt 569 tok/question
+  rep 3 warm        wall    651.8 ms  server    519.1 ms  evaluated     88 tok  prompt 569 tok/question
+  rep 4 cold plain  wall   1408.5 ms  server   1338.1 ms  evaluated   4552 tok  prompt 569 tok/question
+  rep 4 cold primed wall    753.7 ms  server    640.6 ms  evaluated    646 tok  prompt 569 tok/question
+  rep 4 warm        wall    654.5 ms  server    543.6 ms  evaluated     88 tok  prompt 569 tok/question
+
+== state 64 tokens, 16 question(s)
+  rep 0 cold plain  wall   4238.0 ms  server   4041.5 ms  evaluated  15392 tok  prompt 962 tok/question
+  rep 0 cold primed wall   1437.6 ms  server   1255.6 ms  evaluated   1142 tok  prompt 962 tok/question
+  rep 0 warm        wall   1185.2 ms  server   1001.1 ms  evaluated    192 tok  prompt 962 tok/question
+  rep 1 cold plain  wall   4103.9 ms  server   3920.7 ms  evaluated  15392 tok  prompt 962 tok/question
+  rep 1 cold primed wall   1479.0 ms  server   1241.6 ms  evaluated   1142 tok  prompt 962 tok/question
+  rep 1 warm        wall   1276.7 ms  server   1058.3 ms  evaluated    192 tok  prompt 962 tok/question
+  rep 2 cold plain  wall   4154.0 ms  server   3954.0 ms  evaluated  15392 tok  prompt 962 tok/question
+  rep 2 cold primed wall   1420.9 ms  server   1228.6 ms  evaluated   1142 tok  prompt 962 tok/question
+  rep 2 warm        wall   1257.9 ms  server   1060.9 ms  evaluated    192 tok  prompt 962 tok/question
+  rep 3 cold plain  wall   4126.6 ms  server   3927.9 ms  evaluated  15392 tok  prompt 962 tok/question
+  rep 3 cold primed wall   1441.4 ms  server   1240.4 ms  evaluated   1142 tok  prompt 962 tok/question
+  rep 3 warm        wall   1214.3 ms  server   1027.7 ms  evaluated    192 tok  prompt 962 tok/question
+  rep 4 cold plain  wall   4117.3 ms  server   3924.9 ms  evaluated  15392 tok  prompt 962 tok/question
+  rep 4 cold primed wall   1426.2 ms  server   1231.9 ms  evaluated   1142 tok  prompt 962 tok/question
+  rep 4 warm        wall   1305.9 ms  server   1112.4 ms  evaluated    192 tok  prompt 962 tok/question
+
+== state 64 tokens, 32 question(s)
+  rep 0 cold plain  wall   9463.1 ms  server   8979.3 ms  evaluated  33506 tok  prompt 1762 tok/question
+  rep 0 cold primed wall   2920.2 ms  server   2434.5 ms  evaluated   2134 tok  prompt 1762 tok/question
+  rep 0 warm        wall   2512.0 ms  server   1983.6 ms  evaluated    384 tok  prompt 1762 tok/question
+  rep 1 cold plain  wall   9561.5 ms  server   8966.6 ms  evaluated  33506 tok  prompt 1762 tok/question
+  rep 1 cold primed wall   2890.0 ms  server   2408.7 ms  evaluated   2134 tok  prompt 1762 tok/question
+  rep 1 warm        wall   2639.8 ms  server   2082.6 ms  evaluated    384 tok  prompt 1762 tok/question
+  rep 2 cold plain  wall   9529.5 ms  server   8969.2 ms  evaluated  33506 tok  prompt 1762 tok/question
+  rep 2 cold primed wall   3003.3 ms  server   2398.2 ms  evaluated   2134 tok  prompt 1762 tok/question
+  rep 2 warm        wall   2548.7 ms  server   2064.2 ms  evaluated    384 tok  prompt 1762 tok/question
+  rep 3 cold plain  wall   9471.0 ms  server   8982.1 ms  evaluated  33506 tok  prompt 1762 tok/question
+  rep 3 cold primed wall   2968.7 ms  server   2400.8 ms  evaluated   2134 tok  prompt 1762 tok/question
+  rep 3 warm        wall   2568.2 ms  server   2009.3 ms  evaluated    384 tok  prompt 1762 tok/question
+  rep 4 cold plain  wall   9676.9 ms  server   8984.6 ms  evaluated  33506 tok  prompt 1762 tok/question
+  rep 4 cold primed wall   2948.0 ms  server   2393.2 ms  evaluated   2134 tok  prompt 1762 tok/question
+  rep 4 warm        wall   2529.8 ms  server   2019.5 ms  evaluated    384 tok  prompt 1762 tok/question
+
+== state 256 tokens, 1 question(s)
+  rep 0 cold plain  wall    138.1 ms  server    130.3 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 0 cold primed wall    138.1 ms  server    130.1 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 0 warm        wall     47.6 ms  server     39.8 ms  evaluated      4 tok  prompt 435 tok/question
+  rep 1 cold plain  wall    139.6 ms  server    131.6 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 1 cold primed wall    139.4 ms  server    131.2 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 1 warm        wall     47.2 ms  server     39.0 ms  evaluated      4 tok  prompt 435 tok/question
+  rep 2 cold plain  wall    138.7 ms  server    130.4 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 2 cold primed wall    139.4 ms  server    131.4 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 2 warm        wall     50.0 ms  server     41.8 ms  evaluated      4 tok  prompt 435 tok/question
+  rep 3 cold plain  wall    161.6 ms  server    131.2 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 3 cold primed wall    139.5 ms  server    131.7 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 3 warm        wall     49.3 ms  server     41.2 ms  evaluated      4 tok  prompt 435 tok/question
+  rep 4 cold plain  wall    140.9 ms  server    133.0 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 4 cold primed wall    140.3 ms  server    132.0 ms  evaluated    435 tok  prompt 435 tok/question
+  rep 4 warm        wall     60.5 ms  server     38.3 ms  evaluated      4 tok  prompt 435 tok/question
+
+== state 256 tokens, 2 question(s)
+  rep 0 cold plain  wall    322.8 ms  server    286.8 ms  evaluated    966 tok  prompt 483 tok/question
+  rep 0 cold primed wall    276.6 ms  server    258.4 ms  evaluated    494 tok  prompt 483 tok/question
+  rep 0 warm        wall    171.8 ms  server    154.3 ms  evaluated     22 tok  prompt 483 tok/question
+  rep 1 cold plain  wall    302.0 ms  server    286.3 ms  evaluated    966 tok  prompt 483 tok/question
+  rep 1 cold primed wall    274.7 ms  server    257.5 ms  evaluated    494 tok  prompt 483 tok/question
+  rep 1 warm        wall    200.0 ms  server    160.6 ms  evaluated     22 tok  prompt 483 tok/question
+  rep 2 cold plain  wall    301.2 ms  server    284.9 ms  evaluated    966 tok  prompt 483 tok/question
+  rep 2 cold primed wall    277.5 ms  server    259.5 ms  evaluated    494 tok  prompt 483 tok/question
+  rep 2 warm        wall    182.8 ms  server    165.2 ms  evaluated     22 tok  prompt 483 tok/question
+  rep 3 cold plain  wall    316.9 ms  server    285.4 ms  evaluated    966 tok  prompt 483 tok/question
+  rep 3 cold primed wall    317.6 ms  server    262.2 ms  evaluated    494 tok  prompt 483 tok/question
+  rep 3 warm        wall    171.8 ms  server    154.7 ms  evaluated     22 tok  prompt 483 tok/question
+  rep 4 cold plain  wall    323.7 ms  server    284.7 ms  evaluated    966 tok  prompt 483 tok/question
+  rep 4 cold primed wall    275.5 ms  server    258.1 ms  evaluated    494 tok  prompt 483 tok/question
+  rep 4 warm        wall    194.7 ms  server    156.3 ms  evaluated     22 tok  prompt 483 tok/question
+
+== state 256 tokens, 4 question(s)
+  rep 0 cold plain  wall    684.0 ms  server    636.2 ms  evaluated   2324 tok  prompt 581 tok/question
+  rep 0 cold primed wall    436.5 ms  server    401.7 ms  evaluated    614 tok  prompt 581 tok/question
+  rep 0 warm        wall    315.1 ms  server    279.4 ms  evaluated     44 tok  prompt 581 tok/question
+  rep 1 cold plain  wall    668.4 ms  server    635.5 ms  evaluated   2324 tok  prompt 581 tok/question
+  rep 1 cold primed wall    467.9 ms  server    410.6 ms  evaluated    614 tok  prompt 581 tok/question
+  rep 1 warm        wall    316.9 ms  server    282.1 ms  evaluated     44 tok  prompt 581 tok/question
+  rep 2 cold plain  wall    670.2 ms  server    637.6 ms  evaluated   2324 tok  prompt 581 tok/question
+  rep 2 cold primed wall    448.3 ms  server    412.6 ms  evaluated    614 tok  prompt 581 tok/question
+  rep 2 warm        wall    336.1 ms  server    301.8 ms  evaluated     44 tok  prompt 581 tok/question
+  rep 3 cold plain  wall    671.5 ms  server    639.0 ms  evaluated   2324 tok  prompt 581 tok/question
+  rep 3 cold primed wall    478.7 ms  server    418.4 ms  evaluated    614 tok  prompt 581 tok/question
+  rep 3 warm        wall    352.9 ms  server    303.3 ms  evaluated     44 tok  prompt 581 tok/question
+  rep 4 cold plain  wall    690.8 ms  server    643.7 ms  evaluated   2324 tok  prompt 581 tok/question
+  rep 4 cold primed wall    474.5 ms  server    424.8 ms  evaluated    614 tok  prompt 581 tok/question
+  rep 4 warm        wall    346.3 ms  server    297.2 ms  evaluated     44 tok  prompt 581 tok/question
+
+== state 256 tokens, 8 question(s)
+  rep 0 cold plain  wall   1746.6 ms  server   1630.9 ms  evaluated   6216 tok  prompt 777 tok/question
+  rep 0 cold primed wall    778.9 ms  server    691.3 ms  evaluated    854 tok  prompt 777 tok/question
+  rep 0 warm        wall    598.7 ms  server    523.4 ms  evaluated     88 tok  prompt 777 tok/question
+  rep 1 cold plain  wall   1695.9 ms  server   1606.7 ms  evaluated   6216 tok  prompt 777 tok/question
+  rep 1 cold primed wall    766.7 ms  server    692.8 ms  evaluated    854 tok  prompt 777 tok/question
+  rep 1 warm        wall    610.7 ms  server    522.8 ms  evaluated     88 tok  prompt 777 tok/question
+  rep 2 cold plain  wall   1695.9 ms  server   1606.5 ms  evaluated   6216 tok  prompt 777 tok/question
+  rep 2 cold primed wall    808.5 ms  server    694.3 ms  evaluated    854 tok  prompt 777 tok/question
+  rep 2 warm        wall    628.9 ms  server    542.0 ms  evaluated     88 tok  prompt 777 tok/question
+  rep 3 cold plain  wall   1699.6 ms  server   1607.1 ms  evaluated   6216 tok  prompt 777 tok/question
+  rep 3 cold primed wall    766.1 ms  server    688.6 ms  evaluated    854 tok  prompt 777 tok/question
+  rep 3 warm        wall    626.0 ms  server    535.8 ms  evaluated     88 tok  prompt 777 tok/question
+  rep 4 cold plain  wall   1695.1 ms  server   1605.8 ms  evaluated   6216 tok  prompt 777 tok/question
+  rep 4 cold primed wall    792.5 ms  server    684.6 ms  evaluated    854 tok  prompt 777 tok/question
+  rep 4 warm        wall    593.1 ms  server    518.4 ms  evaluated     88 tok  prompt 777 tok/question
+
+== state 256 tokens, 16 question(s)
+  rep 0 cold plain  wall   4652.3 ms  server   4439.6 ms  evaluated  16530 tok  prompt 1170 tok/question
+  rep 0 cold primed wall   1525.9 ms  server   1310.8 ms  evaluated   1350 tok  prompt 1170 tok/question
+  rep 0 warm        wall   1254.9 ms  server   1047.4 ms  evaluated    192 tok  prompt 1170 tok/question
+  rep 1 cold plain  wall   4658.6 ms  server   4419.5 ms  evaluated  16530 tok  prompt 1170 tok/question
+  rep 1 cold primed wall   1506.1 ms  server   1291.4 ms  evaluated   1350 tok  prompt 1170 tok/question
+  rep 1 warm        wall   1246.0 ms  server   1018.1 ms  evaluated    192 tok  prompt 1170 tok/question
+  rep 2 cold plain  wall   4640.2 ms  server   4429.7 ms  evaluated  16530 tok  prompt 1170 tok/question
+  rep 2 cold primed wall   1528.3 ms  server   1287.2 ms  evaluated   1350 tok  prompt 1170 tok/question
+  rep 2 warm        wall   1239.3 ms  server   1004.5 ms  evaluated    192 tok  prompt 1170 tok/question
+  rep 3 cold plain  wall   4650.6 ms  server   4439.9 ms  evaluated  16530 tok  prompt 1170 tok/question
+  rep 3 cold primed wall   1542.8 ms  server   1334.7 ms  evaluated   1350 tok  prompt 1170 tok/question
+  rep 3 warm        wall   1241.7 ms  server   1047.8 ms  evaluated    192 tok  prompt 1170 tok/question
+  rep 4 cold plain  wall   4601.8 ms  server   4424.3 ms  evaluated  16530 tok  prompt 1170 tok/question
+  rep 4 cold primed wall   1568.9 ms  server   1366.8 ms  evaluated   1350 tok  prompt 1170 tok/question
+  rep 4 warm        wall   1240.8 ms  server   1012.3 ms  evaluated    192 tok  prompt 1170 tok/question
+
+== state 256 tokens, 32 question(s)
+  rep 0 cold plain  wall   9635.7 ms  server   9051.4 ms  evaluated  33714 tok  prompt 1970 tok/question
+  rep 0 cold primed wall   3086.5 ms  server   2573.1 ms  evaluated   2342 tok  prompt 1970 tok/question
+  rep 0 warm        wall   2502.8 ms  server   1999.6 ms  evaluated    384 tok  prompt 1970 tok/question
+  rep 1 cold plain  wall   9586.5 ms  server   9016.2 ms  evaluated  33714 tok  prompt 1970 tok/question
+  rep 1 cold primed wall   2991.5 ms  server   2432.0 ms  evaluated   2342 tok  prompt 1970 tok/question
+  rep 1 warm        wall   2732.4 ms  server   2123.6 ms  evaluated    384 tok  prompt 1970 tok/question
+  rep 2 cold plain  wall   9563.2 ms  server   9045.8 ms  evaluated  33714 tok  prompt 1970 tok/question
+  rep 2 cold primed wall   2983.0 ms  server   2434.5 ms  evaluated   2342 tok  prompt 1970 tok/question
+  rep 2 warm        wall   2548.5 ms  server   2005.5 ms  evaluated    384 tok  prompt 1970 tok/question
+  rep 3 cold plain  wall   9692.3 ms  server   9098.0 ms  evaluated  33714 tok  prompt 1970 tok/question
+  rep 3 cold primed wall   3047.7 ms  server   2480.2 ms  evaluated   2342 tok  prompt 1970 tok/question
+  rep 3 warm        wall   2608.0 ms  server   2001.5 ms  evaluated    384 tok  prompt 1970 tok/question
+  rep 4 cold plain  wall   9702.5 ms  server   9153.3 ms  evaluated  33714 tok  prompt 1970 tok/question
+  rep 4 cold primed wall   2964.8 ms  server   2439.1 ms  evaluated   2342 tok  prompt 1970 tok/question
+  rep 4 warm        wall   2700.2 ms  server   2056.2 ms  evaluated    384 tok  prompt 1970 tok/question
+
+== state 1024 tokens, 1 question(s)
+  rep 0 cold plain  wall    331.4 ms  server    319.4 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 0 cold primed wall    332.4 ms  server    320.7 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 0 warm        wall     51.1 ms  server     38.5 ms  evaluated      4 tok  prompt 1235 tok/question
+  rep 1 cold plain  wall    332.8 ms  server    321.2 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 1 cold primed wall    334.0 ms  server    321.9 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 1 warm        wall     52.8 ms  server     41.4 ms  evaluated      4 tok  prompt 1235 tok/question
+  rep 2 cold plain  wall    334.9 ms  server    323.3 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 2 cold primed wall    331.3 ms  server    319.5 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 2 warm        wall     54.0 ms  server     42.3 ms  evaluated      4 tok  prompt 1235 tok/question
+  rep 3 cold plain  wall    331.6 ms  server    320.1 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 3 cold primed wall    332.0 ms  server    319.8 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 3 warm        wall     54.0 ms  server     42.2 ms  evaluated      4 tok  prompt 1235 tok/question
+  rep 4 cold plain  wall    331.7 ms  server    320.2 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 4 cold primed wall    344.5 ms  server    321.4 ms  evaluated   1235 tok  prompt 1235 tok/question
+  rep 4 warm        wall     50.9 ms  server     39.1 ms  evaluated      4 tok  prompt 1235 tok/question
+
+== state 1024 tokens, 2 question(s)
+  rep 0 cold plain  wall    638.6 ms  server    615.8 ms  evaluated   2307 tok  prompt 1283 tok/question
+  rep 0 cold primed wall    474.8 ms  server    449.9 ms  evaluated   1294 tok  prompt 1283 tok/question
+  rep 0 warm        wall    196.5 ms  server    171.3 ms  evaluated     22 tok  prompt 1283 tok/question
+  rep 1 cold plain  wall    653.4 ms  server    613.4 ms  evaluated   2307 tok  prompt 1283 tok/question
+  rep 1 cold primed wall    477.8 ms  server    453.0 ms  evaluated   1294 tok  prompt 1283 tok/question
+  rep 1 warm        wall    193.9 ms  server    168.9 ms  evaluated     22 tok  prompt 1283 tok/question
+  rep 2 cold plain  wall    636.4 ms  server    613.5 ms  evaluated   2307 tok  prompt 1283 tok/question
+  rep 2 cold primed wall    489.6 ms  server    450.0 ms  evaluated   1294 tok  prompt 1283 tok/question
+  rep 2 warm        wall    195.6 ms  server    170.2 ms  evaluated     22 tok  prompt 1283 tok/question
+  rep 3 cold plain  wall    638.7 ms  server    615.5 ms  evaluated   2307 tok  prompt 1283 tok/question
+  rep 3 cold primed wall    493.7 ms  server    447.0 ms  evaluated   1294 tok  prompt 1283 tok/question
+  rep 3 warm        wall    190.4 ms  server    165.2 ms  evaluated     22 tok  prompt 1283 tok/question
+  rep 4 cold plain  wall    637.8 ms  server    614.4 ms  evaluated   2307 tok  prompt 1283 tok/question
+  rep 4 cold primed wall    488.5 ms  server    447.5 ms  evaluated   1294 tok  prompt 1283 tok/question
+  rep 4 warm        wall    189.0 ms  server    164.1 ms  evaluated     22 tok  prompt 1283 tok/question
+
+== state 1024 tokens, 4 question(s)
+  rep 0 cold plain  wall   1253.9 ms  server   1187.0 ms  evaluated   4453 tok  prompt 1381 tok/question
+  rep 0 cold primed wall    648.8 ms  server    598.5 ms  evaluated   1414 tok  prompt 1381 tok/question
+  rep 0 warm        wall    369.4 ms  server    303.7 ms  evaluated     44 tok  prompt 1381 tok/question
+  rep 1 cold plain  wall   1243.6 ms  server   1194.9 ms  evaluated   4453 tok  prompt 1381 tok/question
+  rep 1 cold primed wall    654.8 ms  server    605.0 ms  evaluated   1414 tok  prompt 1381 tok/question
+  rep 1 warm        wall    358.7 ms  server    278.3 ms  evaluated     44 tok  prompt 1381 tok/question
+  rep 2 cold plain  wall   1229.9 ms  server   1182.9 ms  evaluated   4453 tok  prompt 1381 tok/question
+  rep 2 cold primed wall    666.1 ms  server    596.7 ms  evaluated   1414 tok  prompt 1381 tok/question
+  rep 2 warm        wall    329.4 ms  server    278.6 ms  evaluated     44 tok  prompt 1381 tok/question
+  rep 3 cold plain  wall   1232.3 ms  server   1184.3 ms  evaluated   4453 tok  prompt 1381 tok/question
+  rep 3 cold primed wall    676.4 ms  server    602.8 ms  evaluated   1414 tok  prompt 1381 tok/question
+  rep 3 warm        wall    348.5 ms  server    298.3 ms  evaluated     44 tok  prompt 1381 tok/question
+  rep 4 cold plain  wall   1249.7 ms  server   1188.5 ms  evaluated   4453 tok  prompt 1381 tok/question
+  rep 4 cold primed wall    683.6 ms  server    620.6 ms  evaluated   1414 tok  prompt 1381 tok/question
+  rep 4 warm        wall    360.6 ms  server    294.2 ms  evaluated     44 tok  prompt 1381 tok/question
+
+== state 1024 tokens, 8 question(s)
+  rep 0 cold plain  wall   2468.3 ms  server   2323.7 ms  evaluated   8745 tok  prompt 1577 tok/question
+  rep 0 cold primed wall   1028.7 ms  server    875.4 ms  evaluated   1654 tok  prompt 1577 tok/question
+  rep 0 warm        wall    630.0 ms  server    524.8 ms  evaluated     88 tok  prompt 1577 tok/question
+  rep 1 cold plain  wall   2450.8 ms  server   2319.6 ms  evaluated   8745 tok  prompt 1577 tok/question
+  rep 1 cold primed wall    988.1 ms  server    882.7 ms  evaluated   1654 tok  prompt 1577 tok/question
+  rep 1 warm        wall    642.1 ms  server    524.7 ms  evaluated     88 tok  prompt 1577 tok/question
+  rep 2 cold plain  wall   2469.0 ms  server   2327.0 ms  evaluated   8745 tok  prompt 1577 tok/question
+  rep 2 cold primed wall   1075.6 ms  server    886.8 ms  evaluated   1654 tok  prompt 1577 tok/question
+  rep 2 warm        wall    626.8 ms  server    522.3 ms  evaluated     88 tok  prompt 1577 tok/question
+  rep 3 cold plain  wall   2456.9 ms  server   2314.8 ms  evaluated   8745 tok  prompt 1577 tok/question
+  rep 3 cold primed wall   1028.0 ms  server    882.8 ms  evaluated   1654 tok  prompt 1577 tok/question
+  rep 3 warm        wall    638.8 ms  server    519.2 ms  evaluated     88 tok  prompt 1577 tok/question
+  rep 4 cold plain  wall   2440.3 ms  server   2322.9 ms  evaluated   8745 tok  prompt 1577 tok/question
+  rep 4 cold primed wall   1016.7 ms  server    898.6 ms  evaluated   1654 tok  prompt 1577 tok/question
+  rep 4 warm        wall    669.4 ms  server    542.0 ms  evaluated     88 tok  prompt 1577 tok/question
+
+== state 1024 tokens, 16 question(s)
+  rep 0 cold plain  wall   4933.4 ms  server   4642.3 ms  evaluated  17330 tok  prompt 1970 tok/question
+  rep 0 cold primed wall   1739.1 ms  server   1468.0 ms  evaluated   2150 tok  prompt 1970 tok/question
+  rep 0 warm        wall   1396.5 ms  server   1080.4 ms  evaluated    192 tok  prompt 1970 tok/question
+  rep 1 cold plain  wall   4881.9 ms  server   4624.4 ms  evaluated  17330 tok  prompt 1970 tok/question
+  rep 1 cold primed wall   1847.1 ms  server   1548.3 ms  evaluated   2150 tok  prompt 1970 tok/question
+  rep 1 warm        wall   1277.7 ms  server   1021.5 ms  evaluated    192 tok  prompt 1970 tok/question
+  rep 2 cold plain  wall   4910.1 ms  server   4636.0 ms  evaluated  17330 tok  prompt 1970 tok/question
+  rep 2 cold primed wall   1817.0 ms  server   1508.2 ms  evaluated   2150 tok  prompt 1970 tok/question
+  rep 2 warm        wall   1400.4 ms  server   1050.0 ms  evaluated    192 tok  prompt 1970 tok/question
+  rep 3 cold plain  wall   4886.0 ms  server   4624.7 ms  evaluated  17330 tok  prompt 1970 tok/question
+  rep 3 cold primed wall   1755.5 ms  server   1471.0 ms  evaluated   2150 tok  prompt 1970 tok/question
+  rep 3 warm        wall   1331.1 ms  server   1025.4 ms  evaluated    192 tok  prompt 1970 tok/question
+  rep 4 cold plain  wall   4868.5 ms  server   4616.1 ms  evaluated  17330 tok  prompt 1970 tok/question
+  rep 4 cold primed wall   1744.2 ms  server   1462.1 ms  evaluated   2150 tok  prompt 1970 tok/question
+  rep 4 warm        wall   1312.1 ms  server   1015.5 ms  evaluated    192 tok  prompt 1970 tok/question
+
+== state 1024 tokens, 32 question(s)
+  rep 0 cold plain  wall   9982.1 ms  server   9296.5 ms  evaluated  34514 tok  prompt 2770 tok/question
+  rep 0 cold primed wall   3308.6 ms  server   2645.4 ms  evaluated   3142 tok  prompt 2770 tok/question
+  rep 0 warm        wall   2728.1 ms  server   2019.5 ms  evaluated    384 tok  prompt 2770 tok/question
+  rep 1 cold plain  wall   9908.8 ms  server   9268.4 ms  evaluated  34514 tok  prompt 2770 tok/question
+  rep 1 cold primed wall   3367.0 ms  server   2690.6 ms  evaluated   3142 tok  prompt 2770 tok/question
+  rep 1 warm        wall   2719.6 ms  server   2029.2 ms  evaluated    384 tok  prompt 2770 tok/question
+  rep 2 cold plain  wall   9887.3 ms  server   9261.4 ms  evaluated  34514 tok  prompt 2770 tok/question
+  rep 2 cold primed wall   3473.9 ms  server   2714.3 ms  evaluated   3142 tok  prompt 2770 tok/question
+  rep 2 warm        wall   2775.9 ms  server   2119.9 ms  evaluated    384 tok  prompt 2770 tok/question
+  rep 3 cold plain  wall   9940.1 ms  server   9260.1 ms  evaluated  34514 tok  prompt 2770 tok/question
+  rep 3 cold primed wall   3359.0 ms  server   2631.7 ms  evaluated   3142 tok  prompt 2770 tok/question
+  rep 3 warm        wall   2675.5 ms  server   2005.4 ms  evaluated    384 tok  prompt 2770 tok/question
+  rep 4 cold plain  wall   9944.7 ms  server   9293.9 ms  evaluated  34514 tok  prompt 2770 tok/question
+  rep 4 cold primed wall   3300.3 ms  server   2640.3 ms  evaluated   3142 tok  prompt 2770 tok/question
+  rep 4 warm        wall   2660.4 ms  server   2000.5 ms  evaluated    384 tok  prompt 2770 tok/question
+
+== state 2048 tokens, 1 question(s)
+  rep 0 cold plain  wall    582.4 ms  server    566.2 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 0 cold primed wall    579.9 ms  server    563.2 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 0 warm        wall     55.9 ms  server     38.8 ms  evaluated      4 tok  prompt 2333 tok/question
+  rep 1 cold plain  wall    583.2 ms  server    566.2 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 1 cold primed wall    582.4 ms  server    566.1 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 1 warm        wall     70.8 ms  server     40.3 ms  evaluated      4 tok  prompt 2333 tok/question
+  rep 2 cold plain  wall    579.8 ms  server    563.0 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 2 cold primed wall    581.9 ms  server    565.3 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 2 warm        wall     72.6 ms  server     38.9 ms  evaluated      4 tok  prompt 2333 tok/question
+  rep 3 cold plain  wall    582.5 ms  server    565.7 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 3 cold primed wall    586.4 ms  server    569.4 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 3 warm        wall     59.6 ms  server     43.1 ms  evaluated      4 tok  prompt 2333 tok/question
+  rep 4 cold plain  wall    582.9 ms  server    565.6 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 4 cold primed wall    584.8 ms  server    567.9 ms  evaluated   2333 tok  prompt 2333 tok/question
+  rep 4 warm        wall     66.4 ms  server     38.8 ms  evaluated      4 tok  prompt 2333 tok/question
+
+== state 2048 tokens, 2 question(s)
+  rep 0 cold plain  wall    895.8 ms  server    862.1 ms  evaluated   3405 tok  prompt 2381 tok/question
+  rep 0 cold primed wall    743.3 ms  server    691.1 ms  evaluated   2392 tok  prompt 2381 tok/question
+  rep 0 warm        wall    211.1 ms  server    153.6 ms  evaluated     22 tok  prompt 2381 tok/question
+  rep 1 cold plain  wall    889.6 ms  server    856.3 ms  evaluated   3405 tok  prompt 2381 tok/question
+  rep 1 cold primed wall    729.7 ms  server    693.4 ms  evaluated   2392 tok  prompt 2381 tok/question
+  rep 1 warm        wall    191.1 ms  server    155.8 ms  evaluated     22 tok  prompt 2381 tok/question
+  rep 2 cold plain  wall    889.5 ms  server    856.0 ms  evaluated   3405 tok  prompt 2381 tok/question
+  rep 2 cold primed wall    734.0 ms  server    698.8 ms  evaluated   2392 tok  prompt 2381 tok/question
+  rep 2 warm        wall    232.2 ms  server    172.9 ms  evaluated     22 tok  prompt 2381 tok/question
+  rep 3 cold plain  wall    890.0 ms  server    856.0 ms  evaluated   3405 tok  prompt 2381 tok/question
+  rep 3 cold primed wall    735.2 ms  server    699.8 ms  evaluated   2392 tok  prompt 2381 tok/question
+  rep 3 warm        wall    206.6 ms  server    171.5 ms  evaluated     22 tok  prompt 2381 tok/question
+  rep 4 cold plain  wall    893.7 ms  server    860.9 ms  evaluated   3405 tok  prompt 2381 tok/question
+  rep 4 cold primed wall    746.2 ms  server    709.6 ms  evaluated   2392 tok  prompt 2381 tok/question
+  rep 4 warm        wall    209.4 ms  server    172.9 ms  evaluated     22 tok  prompt 2381 tok/question
+
+== state 2048 tokens, 4 question(s)
+  rep 0 cold plain  wall   1501.3 ms  server   1432.1 ms  evaluated   5551 tok  prompt 2479 tok/question
+  rep 0 cold primed wall    938.6 ms  server    849.4 ms  evaluated   2512 tok  prompt 2479 tok/question
+  rep 0 warm        wall    356.0 ms  server    285.1 ms  evaluated     44 tok  prompt 2479 tok/question
+  rep 1 cold plain  wall   1518.6 ms  server   1433.8 ms  evaluated   5551 tok  prompt 2479 tok/question
+  rep 1 cold primed wall    925.5 ms  server    840.1 ms  evaluated   2512 tok  prompt 2479 tok/question
+  rep 1 warm        wall    355.1 ms  server    284.2 ms  evaluated     44 tok  prompt 2479 tok/question
+  rep 2 cold plain  wall   1509.2 ms  server   1440.9 ms  evaluated   5551 tok  prompt 2479 tok/question
+  rep 2 cold primed wall    937.5 ms  server    855.0 ms  evaluated   2512 tok  prompt 2479 tok/question
+  rep 2 warm        wall    399.0 ms  server    289.7 ms  evaluated     44 tok  prompt 2479 tok/question
+  rep 3 cold plain  wall   1517.9 ms  server   1435.9 ms  evaluated   5551 tok  prompt 2479 tok/question
+  rep 3 cold primed wall    931.1 ms  server    848.3 ms  evaluated   2512 tok  prompt 2479 tok/question
+  rep 3 warm        wall    359.8 ms  server    278.2 ms  evaluated     44 tok  prompt 2479 tok/question
+  rep 4 cold plain  wall   1497.1 ms  server   1428.5 ms  evaluated   5551 tok  prompt 2479 tok/question
+  rep 4 cold primed wall    926.8 ms  server    840.5 ms  evaluated   2512 tok  prompt 2479 tok/question
+  rep 4 warm        wall    365.1 ms  server    277.9 ms  evaluated     44 tok  prompt 2479 tok/question
+
+== state 2048 tokens, 8 question(s)
+  rep 0 cold plain  wall   2718.6 ms  server   2575.6 ms  evaluated   9843 tok  prompt 2675 tok/question
+  rep 0 cold primed wall   1320.7 ms  server   1142.4 ms  evaluated   2752 tok  prompt 2675 tok/question
+  rep 0 warm        wall    728.6 ms  server    546.5 ms  evaluated     88 tok  prompt 2675 tok/question
+  rep 1 cold plain  wall   2776.8 ms  server   2596.3 ms  evaluated   9843 tok  prompt 2675 tok/question
+  rep 1 cold primed wall   1355.5 ms  server   1144.8 ms  evaluated   2752 tok  prompt 2675 tok/question
+  rep 1 warm        wall    703.7 ms  server    528.4 ms  evaluated     88 tok  prompt 2675 tok/question
+  rep 2 cold plain  wall   2754.2 ms  server   2581.1 ms  evaluated   9843 tok  prompt 2675 tok/question
+  rep 2 cold primed wall   1305.4 ms  server   1124.6 ms  evaluated   2752 tok  prompt 2675 tok/question
+  rep 2 warm        wall    714.0 ms  server    524.1 ms  evaluated     88 tok  prompt 2675 tok/question
+  rep 3 cold plain  wall   2756.8 ms  server   2576.5 ms  evaluated   9843 tok  prompt 2675 tok/question
+  rep 3 cold primed wall   1309.0 ms  server   1131.3 ms  evaluated   2752 tok  prompt 2675 tok/question
+  rep 3 warm        wall    720.1 ms  server    533.6 ms  evaluated     88 tok  prompt 2675 tok/question
+  rep 4 cold plain  wall   2765.2 ms  server   2603.1 ms  evaluated   9843 tok  prompt 2675 tok/question
+  rep 4 cold primed wall   1282.7 ms  server   1120.4 ms  evaluated   2752 tok  prompt 2675 tok/question
+  rep 4 warm        wall    680.3 ms  server    522.5 ms  evaluated     88 tok  prompt 2675 tok/question
+
+== state 2048 tokens, 16 question(s)
+  rep 0 cold plain  wall   5258.6 ms  server   4903.0 ms  evaluated  18428 tok  prompt 3068 tok/question
+  rep 0 cold primed wall   2139.9 ms  server   1760.7 ms  evaluated   3248 tok  prompt 3068 tok/question
+  rep 0 warm        wall   1379.7 ms  server   1024.5 ms  evaluated    192 tok  prompt 3068 tok/question
+  rep 1 cold plain  wall   5246.0 ms  server   4895.1 ms  evaluated  18428 tok  prompt 3068 tok/question
+  rep 1 cold primed wall   2103.8 ms  server   1720.6 ms  evaluated   3248 tok  prompt 3068 tok/question
+  rep 1 warm        wall   1377.8 ms  server   1030.4 ms  evaluated    192 tok  prompt 3068 tok/question
+  rep 2 cold plain  wall   5305.8 ms  server   4879.5 ms  evaluated  18428 tok  prompt 3068 tok/question
+  rep 2 cold primed wall   2056.5 ms  server   1723.9 ms  evaluated   3248 tok  prompt 3068 tok/question
+  rep 2 warm        wall   1488.8 ms  server   1080.2 ms  evaluated    192 tok  prompt 3068 tok/question
+  rep 3 cold plain  wall   5281.8 ms  server   4910.5 ms  evaluated  18428 tok  prompt 3068 tok/question
+  rep 3 cold primed wall   2021.4 ms  server   1701.6 ms  evaluated   3248 tok  prompt 3068 tok/question
+  rep 3 warm        wall   1386.5 ms  server   1021.6 ms  evaluated    192 tok  prompt 3068 tok/question
+  rep 4 cold plain  wall   5239.5 ms  server   4893.1 ms  evaluated  18428 tok  prompt 3068 tok/question
+  rep 4 cold primed wall   2091.9 ms  server   1705.1 ms  evaluated   3248 tok  prompt 3068 tok/question
+  rep 4 warm        wall   1358.7 ms  server   1022.5 ms  evaluated    192 tok  prompt 3068 tok/question
+
+== state 2048 tokens, 32 question(s)
+  rep 0 cold plain  wall  10429.6 ms  server   9618.8 ms  evaluated  35612 tok  prompt 3868 tok/question
+  rep 0 cold primed wall   3672.4 ms  server   2901.0 ms  evaluated   4240 tok  prompt 3868 tok/question
+  rep 0 warm        wall   2839.3 ms  server   2025.4 ms  evaluated    384 tok  prompt 3868 tok/question
+  rep 1 cold plain  wall  10394.6 ms  server   9615.5 ms  evaluated  35612 tok  prompt 3868 tok/question
+  rep 1 cold primed wall   3927.2 ms  server   3020.6 ms  evaluated   4240 tok  prompt 3868 tok/question
+  rep 1 warm        wall   2890.9 ms  server   2041.3 ms  evaluated    384 tok  prompt 3868 tok/question
+  rep 2 cold plain  wall  10421.3 ms  server   9593.3 ms  evaluated  35612 tok  prompt 3868 tok/question
+  rep 2 cold primed wall   3738.0 ms  server   2916.1 ms  evaluated   4240 tok  prompt 3868 tok/question
+  rep 2 warm        wall   2892.0 ms  server   2091.9 ms  evaluated    384 tok  prompt 3868 tok/question
+  rep 3 cold plain  wall  10425.2 ms  server   9614.1 ms  evaluated  35612 tok  prompt 3868 tok/question
+  rep 3 cold primed wall   3782.8 ms  server   2903.5 ms  evaluated   4240 tok  prompt 3868 tok/question
+  rep 3 warm        wall   2994.8 ms  server   2149.3 ms  evaluated    384 tok  prompt 3868 tok/question
+  rep 4 cold plain  wall  10482.4 ms  server   9645.6 ms  evaluated  35612 tok  prompt 3868 tok/question
+  rep 4 cold primed wall   3697.6 ms  server   2864.6 ms  evaluated   4240 tok  prompt 3868 tok/question
+  rep 4 warm        wall   2837.9 ms  server   2008.1 ms  evaluated    384 tok  prompt 3868 tok/question
+
+== state 4096 tokens, 1 question(s)
+  rep 0 cold plain  wall   1062.5 ms  server   1037.2 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 0 cold primed wall   1084.2 ms  server   1036.6 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 0 warm        wall     65.5 ms  server     39.7 ms  evaluated      4 tok  prompt 4467 tok/question
+  rep 1 cold plain  wall   1082.4 ms  server   1038.7 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 1 cold primed wall   1067.8 ms  server   1042.0 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 1 warm        wall     89.2 ms  server     39.7 ms  evaluated      4 tok  prompt 4467 tok/question
+  rep 2 cold plain  wall   1063.8 ms  server   1038.1 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 2 cold primed wall   1066.5 ms  server   1040.6 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 2 warm        wall     67.2 ms  server     41.8 ms  evaluated      4 tok  prompt 4467 tok/question
+  rep 3 cold plain  wall   1067.0 ms  server   1041.1 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 3 cold primed wall   1064.8 ms  server   1038.6 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 3 warm        wall     66.0 ms  server     40.7 ms  evaluated      4 tok  prompt 4467 tok/question
+  rep 4 cold plain  wall   1067.7 ms  server   1041.4 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 4 cold primed wall   1067.6 ms  server   1042.3 ms  evaluated   4467 tok  prompt 4467 tok/question
+  rep 4 warm        wall     69.8 ms  server     44.6 ms  evaluated      4 tok  prompt 4467 tok/question
+
+== state 4096 tokens, 2 question(s)
+  rep 0 cold plain  wall   1397.6 ms  server   1347.7 ms  evaluated   5539 tok  prompt 4515 tok/question
+  rep 0 cold primed wall   1271.2 ms  server   1182.9 ms  evaluated   4526 tok  prompt 4515 tok/question
+  rep 0 warm        wall    218.6 ms  server    165.4 ms  evaluated     22 tok  prompt 4515 tok/question
+  rep 1 cold plain  wall   1415.9 ms  server   1345.3 ms  evaluated   5539 tok  prompt 4515 tok/question
+  rep 1 cold primed wall   1253.6 ms  server   1175.5 ms  evaluated   4526 tok  prompt 4515 tok/question
+  rep 1 warm        wall    214.6 ms  server    159.9 ms  evaluated     22 tok  prompt 4515 tok/question
+  rep 2 cold plain  wall   1393.1 ms  server   1343.0 ms  evaluated   5539 tok  prompt 4515 tok/question
+  rep 2 cold primed wall   1255.1 ms  server   1180.2 ms  evaluated   4526 tok  prompt 4515 tok/question
+  rep 2 warm        wall    241.7 ms  server    165.4 ms  evaluated     22 tok  prompt 4515 tok/question
+  rep 3 cold plain  wall   1397.4 ms  server   1346.8 ms  evaluated   5539 tok  prompt 4515 tok/question
+  rep 3 cold primed wall   1232.3 ms  server   1178.9 ms  evaluated   4526 tok  prompt 4515 tok/question
+  rep 3 warm        wall    217.9 ms  server    163.0 ms  evaluated     22 tok  prompt 4515 tok/question
+  rep 4 cold plain  wall   1392.5 ms  server   1341.9 ms  evaluated   5539 tok  prompt 4515 tok/question
+  rep 4 cold primed wall   1226.7 ms  server   1172.5 ms  evaluated   4526 tok  prompt 4515 tok/question
+  rep 4 warm        wall    239.2 ms  server    164.6 ms  evaluated     22 tok  prompt 4515 tok/question
+
+== state 4096 tokens, 4 question(s)
+  rep 0 cold plain  wall   2051.3 ms  server   1923.6 ms  evaluated   7685 tok  prompt 4613 tok/question
+  rep 0 cold primed wall   1423.7 ms  server   1316.1 ms  evaluated   4646 tok  prompt 4613 tok/question
+  rep 0 warm        wall    398.9 ms  server    291.7 ms  evaluated     44 tok  prompt 4613 tok/question
+  rep 1 cold plain  wall   2027.0 ms  server   1924.5 ms  evaluated   7685 tok  prompt 4613 tok/question
+  rep 1 cold primed wall   1471.9 ms  server   1344.2 ms  evaluated   4646 tok  prompt 4613 tok/question
+  rep 1 warm        wall    431.3 ms  server    309.4 ms  evaluated     44 tok  prompt 4613 tok/question
+  rep 2 cold plain  wall   2047.0 ms  server   1927.9 ms  evaluated   7685 tok  prompt 4613 tok/question
+  rep 2 cold primed wall   1434.1 ms  server   1327.6 ms  evaluated   4646 tok  prompt 4613 tok/question
+  rep 2 warm        wall    410.6 ms  server    304.1 ms  evaluated     44 tok  prompt 4613 tok/question
+  rep 3 cold plain  wall   2033.8 ms  server   1930.9 ms  evaluated   7685 tok  prompt 4613 tok/question
+  rep 3 cold primed wall   1449.7 ms  server   1325.3 ms  evaluated   4646 tok  prompt 4613 tok/question
+  rep 3 warm        wall    442.0 ms  server    297.8 ms  evaluated     44 tok  prompt 4613 tok/question
+  rep 4 cold plain  wall   2034.5 ms  server   1931.3 ms  evaluated   7685 tok  prompt 4613 tok/question
+  rep 4 cold primed wall   1445.9 ms  server   1319.6 ms  evaluated   4646 tok  prompt 4613 tok/question
+  rep 4 warm        wall    406.4 ms  server    299.4 ms  evaluated     44 tok  prompt 4613 tok/question
+
+== state 4096 tokens, 8 question(s)
+  rep 0 cold plain  wall   3335.4 ms  server   3104.3 ms  evaluated  11977 tok  prompt 4809 tok/question
+  rep 0 cold primed wall   1851.0 ms  server   1608.6 ms  evaluated   4886 tok  prompt 4809 tok/question
+  rep 0 warm        wall    788.8 ms  server    531.3 ms  evaluated     88 tok  prompt 4809 tok/question
+  rep 1 cold plain  wall   3334.7 ms  server   3106.8 ms  evaluated  11977 tok  prompt 4809 tok/question
+  rep 1 cold primed wall   1855.0 ms  server   1621.7 ms  evaluated   4886 tok  prompt 4809 tok/question
+  rep 1 warm        wall    804.1 ms  server    567.5 ms  evaluated     88 tok  prompt 4809 tok/question
+  rep 2 cold plain  wall   3334.5 ms  server   3120.9 ms  evaluated  11977 tok  prompt 4809 tok/question
+  rep 2 cold primed wall   1884.8 ms  server   1617.5 ms  evaluated   4886 tok  prompt 4809 tok/question
+  rep 2 warm        wall    828.5 ms  server    524.7 ms  evaluated     88 tok  prompt 4809 tok/question
+  rep 3 cold plain  wall   3342.1 ms  server   3109.5 ms  evaluated  11977 tok  prompt 4809 tok/question
+  rep 3 cold primed wall   1832.5 ms  server   1604.8 ms  evaluated   4886 tok  prompt 4809 tok/question
+  rep 3 warm        wall    776.3 ms  server    535.3 ms  evaluated     88 tok  prompt 4809 tok/question
+  rep 4 cold plain  wall   3332.0 ms  server   3105.5 ms  evaluated  11977 tok  prompt 4809 tok/question
+  rep 4 cold primed wall   1843.5 ms  server   1612.6 ms  evaluated   4886 tok  prompt 4809 tok/question
+  rep 4 warm        wall    761.4 ms  server    526.8 ms  evaluated     88 tok  prompt 4809 tok/question
+
+== state 4096 tokens, 16 question(s)
+  rep 0 cold plain  wall   5983.4 ms  server   5496.1 ms  evaluated  20562 tok  prompt 5202 tok/question
+  rep 0 cold primed wall   2752.1 ms  server   2256.1 ms  evaluated   5382 tok  prompt 5202 tok/question
+  rep 0 warm        wall   1586.3 ms  server   1067.8 ms  evaluated    192 tok  prompt 5202 tok/question
+  rep 1 cold plain  wall   5969.7 ms  server   5471.7 ms  evaluated  20562 tok  prompt 5202 tok/question
+  rep 1 cold primed wall   2694.0 ms  server   2204.3 ms  evaluated   5382 tok  prompt 5202 tok/question
+  rep 1 warm        wall   1554.7 ms  server   1025.9 ms  evaluated    192 tok  prompt 5202 tok/question
+  rep 2 cold plain  wall   5966.8 ms  server   5483.8 ms  evaluated  20562 tok  prompt 5202 tok/question
+  rep 2 cold primed wall   2756.5 ms  server   2237.0 ms  evaluated   5382 tok  prompt 5202 tok/question
+  rep 2 warm        wall   1527.7 ms  server   1070.7 ms  evaluated    192 tok  prompt 5202 tok/question
+  rep 3 cold plain  wall   5948.9 ms  server   5481.7 ms  evaluated  20562 tok  prompt 5202 tok/question
+  rep 3 cold primed wall   2681.4 ms  server   2189.2 ms  evaluated   5382 tok  prompt 5202 tok/question
+  rep 3 warm        wall   1537.7 ms  server   1019.5 ms  evaluated    192 tok  prompt 5202 tok/question
+  rep 4 cold plain  wall   5984.2 ms  server   5479.0 ms  evaluated  20562 tok  prompt 5202 tok/question
+  rep 4 cold primed wall   2660.0 ms  server   2186.5 ms  evaluated   5382 tok  prompt 5202 tok/question
+  rep 4 warm        wall   1527.3 ms  server   1027.8 ms  evaluated    192 tok  prompt 5202 tok/question
+
+== state 4096 tokens, 32 question(s)
+  rep 0 cold plain  wall  11385.1 ms  server  10265.8 ms  evaluated  37746 tok  prompt 6002 tok/question
+  rep 0 cold primed wall   4477.5 ms  server   3411.7 ms  evaluated   6374 tok  prompt 6002 tok/question
+  rep 0 warm        wall   3235.1 ms  server   2024.9 ms  evaluated    384 tok  prompt 6002 tok/question
+  rep 1 cold plain  wall  11354.9 ms  server  10226.9 ms  evaluated  37746 tok  prompt 6002 tok/question
+  rep 1 cold primed wall   4725.2 ms  server   3470.8 ms  evaluated   6374 tok  prompt 6002 tok/question
+  rep 1 warm        wall   3068.0 ms  server   2043.0 ms  evaluated    384 tok  prompt 6002 tok/question
+  rep 2 cold plain  wall  11083.7 ms  server  10052.9 ms  evaluated  37746 tok  prompt 6002 tok/question
+  rep 2 cold primed wall   4398.9 ms  server   3336.9 ms  evaluated   6374 tok  prompt 6002 tok/question
+  rep 2 warm        wall   3098.3 ms  server   1985.4 ms  evaluated    384 tok  prompt 6002 tok/question
+  rep 3 cold plain  wall  11062.5 ms  server  10037.2 ms  evaluated  37746 tok  prompt 6002 tok/question
+  rep 3 cold primed wall   4375.2 ms  server   3322.9 ms  evaluated   6374 tok  prompt 6002 tok/question
+  rep 3 warm        wall   3114.5 ms  server   2042.7 ms  evaluated    384 tok  prompt 6002 tok/question
+  rep 4 cold plain  wall  11062.1 ms  server  10028.5 ms  evaluated  37746 tok  prompt 6002 tok/question
+  rep 4 cold primed wall   4406.7 ms  server   3348.1 ms  evaluated   6374 tok  prompt 6002 tok/question
+  rep 4 warm        wall   3022.5 ms  server   1969.9 ms  evaluated    384 tok  prompt 6002 tok/question
+
+== summary: median [min-max] over repeats after the first
+state   q mode         tok/q                  wall ms                server ms            wall ms per q
+   64   1 cold plain     227        89.6 [87.6-108.2]         81.2 [80.5-83.6]        89.6 [87.6-108.2]
+   64   1 cold primed    227         88.0 [87.6-90.9]         81.1 [80.7-83.8]         88.0 [87.6-90.9]
+   64   1 warm           227         43.3 [42.6-46.3]         36.1 [35.7-38.6]         43.3 [42.6-46.3]
+   64   2 cold plain     275      210.9 [210.8-211.5]      197.3 [196.8-197.9]      105.4 [105.4-105.8]
+   64   2 cold primed    275      233.1 [231.8-235.7]      218.1 [216.7-220.7]      116.6 [115.9-117.8]
+   64   2 warm           275      172.1 [170.4-179.0]      156.9 [155.0-164.1]         86.1 [85.2-89.5]
+   64   4 cold plain     373      499.9 [498.1-520.1]      462.4 [455.1-471.3]      125.0 [124.5-130.0]
+   64   4 cold primed    373      398.8 [386.4-419.2]      360.9 [356.4-371.6]        99.7 [96.6-104.8]
+   64   4 warm           373      322.1 [302.7-591.1]      282.4 [272.7-559.9]        80.5 [75.7-147.8]
+   64   8 cold plain     569   1358.6 [1339.6-1408.5]   1260.4 [1252.4-1338.1]      169.8 [167.5-176.1]
+   64   8 cold primed    569      752.8 [734.0-837.7]      653.8 [640.6-712.1]        94.1 [91.8-104.7]
+   64   8 warm           569      643.2 [633.3-654.5]      547.6 [519.1-555.8]         80.4 [79.2-81.8]
+   64  16 cold plain     962   4121.9 [4103.9-4154.0]   3926.4 [3920.7-3954.0]      257.6 [256.5-259.6]
+   64  16 cold primed    962   1433.8 [1420.9-1479.0]   1236.1 [1228.6-1241.6]         89.6 [88.8-92.4]
+   64  16 warm           962   1267.3 [1214.3-1305.9]   1059.6 [1027.7-1112.4]         79.2 [75.9-81.6]
+   64  32 cold plain    1762   9545.5 [9471.0-9676.9]   8975.6 [8966.6-8984.6]      298.3 [296.0-302.4]
+   64  32 cold primed   1762   2958.4 [2890.0-3003.3]   2399.5 [2393.2-2408.7]         92.4 [90.3-93.9]
+   64  32 warm          1762   2558.5 [2529.8-2639.8]   2041.8 [2009.3-2082.6]         80.0 [79.1-82.5]
+  256   1 cold plain     435      140.2 [138.7-161.6]      131.4 [130.4-133.0]      140.2 [138.7-161.6]
+  256   1 cold primed    435      139.5 [139.4-140.3]      131.5 [131.2-132.0]      139.5 [139.4-140.3]
+  256   1 warm           435         49.6 [47.2-60.5]         40.1 [38.3-41.8]         49.6 [47.2-60.5]
+  256   2 cold plain     483      309.5 [301.2-323.7]      285.1 [284.7-286.3]      154.7 [150.6-161.9]
+  256   2 cold primed    483      276.5 [274.7-317.6]      258.8 [257.5-262.2]      138.2 [137.3-158.8]
+  256   2 warm           483      188.8 [171.8-200.0]      158.4 [154.7-165.2]        94.4 [85.9-100.0]
+  256   4 cold plain     581      670.9 [668.4-690.8]      638.3 [635.5-643.7]      167.7 [167.1-172.7]
+  256   4 cold primed    581      471.2 [448.3-478.7]      415.5 [410.6-424.8]      117.8 [112.1-119.7]
+  256   4 warm           581      341.2 [316.9-352.9]      299.5 [282.1-303.3]         85.3 [79.2-88.2]
+  256   8 cold plain     777   1695.9 [1695.1-1699.6]   1606.6 [1605.8-1607.1]      212.0 [211.9-212.5]
+  256   8 cold primed    777      779.6 [766.1-808.5]      690.7 [684.6-694.3]        97.5 [95.8-101.1]
+  256   8 warm           777      618.4 [593.1-628.9]      529.3 [518.4-542.0]         77.3 [74.1-78.6]
+  256  16 cold plain    1170   4645.4 [4601.8-4658.6]   4427.0 [4419.5-4439.9]      290.3 [287.6-291.2]
+  256  16 cold primed   1170   1535.6 [1506.1-1568.9]   1313.0 [1287.2-1366.8]         96.0 [94.1-98.1]
+  256  16 warm          1170   1241.2 [1239.3-1246.0]   1015.2 [1004.5-1047.8]         77.6 [77.5-77.9]
+  256  32 cold plain    1970   9639.4 [9563.2-9702.5]   9071.9 [9016.2-9153.3]      301.2 [298.8-303.2]
+  256  32 cold primed   1970   2987.2 [2964.8-3047.7]   2436.8 [2432.0-2480.2]         93.4 [92.6-95.2]
+  256  32 warm          1970   2654.1 [2548.5-2732.4]   2030.9 [2001.5-2123.6]         82.9 [79.6-85.4]
+ 1024   1 cold plain    1235      332.3 [331.6-334.9]      320.7 [320.1-323.3]      332.3 [331.6-334.9]
+ 1024   1 cold primed   1235      333.0 [331.3-344.5]      320.6 [319.5-321.9]      333.0 [331.3-344.5]
+ 1024   1 warm          1235         53.4 [50.9-54.0]         41.8 [39.1-42.3]         53.4 [50.9-54.0]
+ 1024   2 cold plain    1283      638.3 [636.4-653.4]      613.9 [613.4-615.5]      319.1 [318.2-326.7]
+ 1024   2 cold primed   1283      489.1 [477.8-493.7]      448.7 [447.0-453.0]      244.5 [238.9-246.8]
+ 1024   2 warm          1283      192.2 [189.0-195.6]      167.1 [164.1-170.2]         96.1 [94.5-97.8]
+ 1024   4 cold plain    1381   1238.0 [1229.9-1249.7]   1186.4 [1182.9-1194.9]      309.5 [307.5-312.4]
+ 1024   4 cold primed   1381      671.3 [654.8-683.6]      603.9 [596.7-620.6]      167.8 [163.7-170.9]
+ 1024   4 warm          1381      353.6 [329.4-360.6]      286.4 [278.3-298.3]         88.4 [82.3-90.1]
+ 1024   8 cold plain    1577   2453.8 [2440.3-2469.0]   2321.2 [2314.8-2327.0]      306.7 [305.0-308.6]
+ 1024   8 cold primed   1577    1022.4 [988.1-1075.6]      884.8 [882.7-898.6]      127.8 [123.5-134.5]
+ 1024   8 warm          1577      640.5 [626.8-669.4]      523.5 [519.2-542.0]         80.1 [78.3-83.7]
+ 1024  16 cold plain    1970   4883.9 [4868.5-4910.1]   4624.6 [4616.1-4636.0]      305.2 [304.3-306.9]
+ 1024  16 cold primed   1970   1786.2 [1744.2-1847.1]   1489.6 [1462.1-1548.3]      111.6 [109.0-115.4]
+ 1024  16 warm          1970   1321.6 [1277.7-1400.4]   1023.5 [1015.5-1050.0]         82.6 [79.9-87.5]
+ 1024  32 cold plain    2770   9924.5 [9887.3-9944.7]   9264.9 [9260.1-9293.9]      310.1 [309.0-310.8]
+ 1024  32 cold primed   2770   3363.0 [3300.3-3473.9]   2665.4 [2631.7-2714.3]      105.1 [103.1-108.6]
+ 1024  32 warm          2770   2697.5 [2660.4-2775.9]   2017.3 [2000.5-2119.9]         84.3 [83.1-86.7]
+ 2048   1 cold plain    2333      582.7 [579.8-583.2]      565.7 [563.0-566.2]      582.7 [579.8-583.2]
+ 2048   1 cold primed   2333      583.6 [581.9-586.4]      567.0 [565.3-569.4]      583.6 [581.9-586.4]
+ 2048   1 warm          2333         68.6 [59.6-72.6]         39.6 [38.8-43.1]         68.6 [59.6-72.6]
+ 2048   2 cold plain    2381      889.8 [889.5-893.7]      856.2 [856.0-860.9]      444.9 [444.8-446.9]
+ 2048   2 cold primed   2381      734.6 [729.7-746.2]      699.3 [693.4-709.6]      367.3 [364.8-373.1]
+ 2048   2 warm          2381      208.0 [191.1-232.2]      172.2 [155.8-172.9]       104.0 [95.6-116.1]
+ 2048   4 cold plain    2479   1513.5 [1497.1-1518.6]   1434.8 [1428.5-1440.9]      378.4 [374.3-379.7]
+ 2048   4 cold primed   2479      929.0 [925.5-937.5]      844.4 [840.1-855.0]      232.2 [231.4-234.4]
+ 2048   4 warm          2479      362.5 [355.1-399.0]      281.2 [277.9-289.7]         90.6 [88.8-99.7]
+ 2048   8 cold plain    2675   2761.0 [2754.2-2776.8]   2588.7 [2576.5-2603.1]      345.1 [344.3-347.1]
+ 2048   8 cold primed   2675   1307.2 [1282.7-1355.5]   1127.9 [1120.4-1144.8]      163.4 [160.3-169.4]
+ 2048   8 warm          2675      708.8 [680.3-720.1]      526.3 [522.5-533.6]         88.6 [85.0-90.0]
+ 2048  16 cold plain    3068   5263.9 [5239.5-5305.8]   4894.1 [4879.5-4910.5]      329.0 [327.5-331.6]
+ 2048  16 cold primed   3068   2074.2 [2021.4-2103.8]   1712.9 [1701.6-1723.9]      129.6 [126.3-131.5]
+ 2048  16 warm          3068   1382.1 [1358.7-1488.8]   1026.5 [1021.6-1080.2]         86.4 [84.9-93.0]
+ 2048  32 cold plain    3868  10423.2 [10394.6-10482.4]   9614.8 [9593.3-9645.6]      325.7 [324.8-327.6]
+ 2048  32 cold primed   3868   3760.4 [3697.6-3927.2]   2909.8 [2864.6-3020.6]      117.5 [115.6-122.7]
+ 2048  32 warm          3868   2891.5 [2837.9-2994.8]   2066.6 [2008.1-2149.3]         90.4 [88.7-93.6]
+ 4096   1 cold plain    4467   1067.3 [1063.8-1082.4]   1039.9 [1038.1-1041.4]   1067.3 [1063.8-1082.4]
+ 4096   1 cold primed   4467   1067.1 [1064.8-1067.8]   1041.3 [1038.6-1042.3]   1067.1 [1064.8-1067.8]
+ 4096   1 warm          4467         68.5 [66.0-89.2]         41.2 [39.7-44.6]         68.5 [66.0-89.2]
+ 4096   2 cold plain    4515   1395.2 [1392.5-1415.9]   1344.2 [1341.9-1346.8]      697.6 [696.2-707.9]
+ 4096   2 cold primed   4515   1242.9 [1226.7-1255.1]   1177.2 [1172.5-1180.2]      621.5 [613.4-627.6]
+ 4096   2 warm          4515      228.6 [214.6-241.7]      163.8 [159.9-165.4]      114.3 [107.3-120.9]
+ 4096   4 cold plain    4613   2034.2 [2027.0-2047.0]   1929.4 [1924.5-1931.3]      508.5 [506.7-511.8]
+ 4096   4 cold primed   4613   1447.8 [1434.1-1471.9]   1326.4 [1319.6-1344.2]      362.0 [358.5-368.0]
+ 4096   4 warm          4613      420.9 [406.4-442.0]      301.7 [297.8-309.4]      105.2 [101.6-110.5]
+ 4096   8 cold plain    4809   3334.6 [3332.0-3342.1]   3108.1 [3105.5-3120.9]      416.8 [416.5-417.8]
+ 4096   8 cold primed   4809   1849.3 [1832.5-1884.8]   1615.0 [1604.8-1621.7]      231.2 [229.1-235.6]
+ 4096   8 warm          4809      790.2 [761.4-828.5]      531.1 [524.7-567.5]        98.8 [95.2-103.6]
+ 4096  16 cold plain    5202   5968.3 [5948.9-5984.2]   5480.3 [5471.7-5483.8]      373.0 [371.8-374.0]
+ 4096  16 cold primed   5202   2687.7 [2660.0-2756.5]   2196.7 [2186.5-2237.0]      168.0 [166.3-172.3]
+ 4096  16 warm          5202   1532.7 [1527.3-1554.7]   1026.8 [1019.5-1070.7]         95.8 [95.5-97.2]
+ 4096  32 cold plain    6002  11073.1 [11062.1-11354.9]  10045.0 [10028.5-10226.9]      346.0 [345.7-354.8]
+ 4096  32 cold primed   6002   4402.8 [4375.2-4725.2]   3342.5 [3322.9-3470.8]      137.6 [136.7-147.7]
+ 4096  32 warm          6002   3083.1 [3022.5-3114.5]   2014.1 [1969.9-2043.0]         96.3 [94.5-97.3]
