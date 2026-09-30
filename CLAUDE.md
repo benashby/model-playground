@@ -141,8 +141,8 @@ address does not belong in it.
 
 ## Current state — read this before assuming generality
 
-Five models so far: three investigated, and two seeded with a note but no probes
-yet. Only one is driven by the harness:
+Six models so far: three investigated, two seeded with a note but no probes
+yet, and one half-done. Only one is driven by the harness:
 
 - **NemotronLabs VoiceChat 11B** (speech-to-speech), served by NVIDIA's NIM
   container on a rented 2× H100 80GB (NVLink) cloud node, over the OpenAI
@@ -158,6 +158,9 @@ yet. Only one is driven by the harness:
 - **Kokoro-82M** (text-to-speech) — a seeded note: vendor claims and a probe
   plan, nothing measured yet.
 - **Piper** (text-to-speech) — a seeded note, like Kokoro's.
+- **Nimble 9B and Tev1** (typed decision models, text-only) — CPU half measured
+  with the smallest model; GPU half pending, planned in `models/nimble-tev1/HANDOFF.md`.
+  Driven by its own probes over a bare llama-server; no harness involvement.
 
 **Two platforms, Linux and Windows.** The notes were written on Linux; the
 Parakeet stack is also verified on native Windows (a GTX 1650 box), in

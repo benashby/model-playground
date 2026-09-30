@@ -1,0 +1,12 @@
+# 2026-09-30T15:39:01Z
+bespokelabs/Bespoke-Nimble-9B              bd792f44ec  license:apache-2.0  (modified 2026-09-24T06:05:07.000Z)
+bespokelabs/Bespoke-Nimble-9B-v2           4b8c04d1ac  license:apache-2.0  (modified 2026-09-23T06:09:03.000Z)
+bespokelabs/Nimble-V3                      8e927b9b4a  license:cc-by-nc-4.0  (modified 2026-09-30T14:37:07.000Z)
+    card, License section: Bespoke-Nimble-9B-v3 is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), so it may not be used for commercial purposes. The base model, Qwen/Qwen3.5-9B, is licensed separately under Apache 2.0.
+togethercomputer/Tev1-4B-experimental      0b7becf017  no licence tag  (modified 2026-09-23T23:09:21.000Z)
+    card, License section: The base Qwen3.5-4B model is Apache-2.0. The release license for these fine-tuned weights is being finalized before public conversion. Dataset sources retain their respective terms; the training mixture does not have a single blanket datase
+togethercomputer/Tev1-0.8B-experimental    6bb2dff14b  no licence tag  (modified 2026-09-25T17:25:31.000Z)
+    card, License section: The base Qwen3.5-0.8B model is Apache-2.0. The release license for these fine-tuned weights is being finalized. Dataset sources retain their respective terms; the training mixture does not have a single blanket dataset license.
+Qwen/Qwen3.5-9B                            c202236235  license:apache-2.0  (modified 2026-03-02T00:51:43.000Z)
+Qwen/Qwen3.5-4B                            851bf6e806  license:apache-2.0  (modified 2026-03-02T00:52:52.000Z)
+Qwen/Qwen3.5-0.8B                          2fc0636471  license:apache-2.0  (modified 2026-03-02T11:26:58.000Z)

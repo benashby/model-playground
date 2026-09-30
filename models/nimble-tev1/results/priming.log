@@ -1,0 +1,55 @@
+# 2026-09-30T15:15:30Z llama-server = the binary bundled with Ollama 0.35.0, -c 2050 -np 1 -t 12 -b 512 -ub 512 --cache-ram 0, GGUF tev1:0.8b (sha256 fa9732e3...)
+host: Intel(R) Xeon(R) CPU E5-2698 v4 @ 2.20GHz; isa avx2; os.cpu_count 12, affinity 12, cgroup quota None, /proc/cpuinfo cpu cores 20; 16.0 GiB; Linux x86_64
+server build b1-161755f29, model tev1-0.8b-q8_0.gguf
+
+== ticket-3q.json: 3 questions, format ollama
+  rep 0 cold plain  total     4111 ms  per question   1370 ms  primer -  prompt_n [242, 242, 243]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.985265, "technical": 0.014356, "other": 0.000379}
+  rep 0 cold primed total     1753 ms  per question    584 ms  primer 235 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 0 warm plain  total      482 ms  per question    161 ms  primer -  prompt_n [11, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 0 warm primed total      473 ms  per question    158 ms  primer 4 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 1 cold plain  total     4693 ms  per question   1564 ms  primer -  prompt_n [242, 242, 243]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.985265, "technical": 0.014356, "other": 0.000379}
+  rep 1 cold primed total     1665 ms  per question    555 ms  primer 235 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 1 warm plain  total      474 ms  per question    158 ms  primer -  prompt_n [11, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 1 warm primed total      456 ms  per question    152 ms  primer 4 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 2 cold plain  total     3916 ms  per question   1305 ms  primer -  prompt_n [242, 242, 243]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.985265, "technical": 0.014356, "other": 0.000379}
+  rep 2 cold primed total     2298 ms  per question    766 ms  primer 235 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 2 warm plain  total      422 ms  per question    141 ms  primer -  prompt_n [11, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+  rep 2 warm primed total     1102 ms  per question    367 ms  primer 4 tok  prompt_n [7, 11, 12]  max|d| vs cold plain 1.68e-02
+      team: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+
+== ticket-8q.json: 8 questions, format ollama
+  rep 0 cold plain  total    20942 ms  per question   2618 ms  primer -  prompt_n [486, 486, 487, 487, 487, 486, 486, 486]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.993033, "technical": 0.006811, "other": 0.000156}
+  rep 0 cold primed total     4147 ms  per question    518 ms  primer 479 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 0 warm plain  total     1173 ms  per question    147 ms  primer -  prompt_n [11, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 0 warm primed total     1206 ms  per question    151 ms  primer 4 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 1 cold plain  total    20834 ms  per question   2604 ms  primer -  prompt_n [486, 486, 487, 487, 487, 486, 486, 486]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.993033, "technical": 0.006811, "other": 0.000156}
+  rep 1 cold primed total     6898 ms  per question    862 ms  primer 479 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 1 warm plain  total     1244 ms  per question    155 ms  primer -  prompt_n [11, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 1 warm primed total     1211 ms  per question    151 ms  primer 4 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 2 cold plain  total    20889 ms  per question   2611 ms  primer -  prompt_n [486, 486, 487, 487, 487, 486, 486, 486]  max|d| vs cold plain 0.00e+00
+      team: {"billing": 0.993033, "technical": 0.006811, "other": 0.000156}
+  rep 2 cold primed total     3695 ms  per question    462 ms  primer 479 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 2 warm plain  total     1216 ms  per question    152 ms  primer -  prompt_n [11, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+  rep 2 warm primed total     1278 ms  per question    160 ms  primer 4 tok  prompt_n [7, 11, 12, 12, 12, 11, 11, 11]  max|d| vs cold plain 1.85e-02
+      team: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}

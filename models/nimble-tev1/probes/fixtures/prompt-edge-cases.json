@@ -1,0 +1,18 @@
+[
+ {"name": "plain string state",
+  "state": "Our checkout has returned 500 errors since 9am.",
+  "questions": {"label": {"type": "choice", "instructions": "Which label fits this ticket?",
+    "criteria": {"billing": "Payments and refunds", "bug": "Software errors", "account": "Login and account access"}}}},
+ {"name": "object state, all three types, null description, default noul",
+  "state": {"ticket": "I was charged twice. Please refund the extra payment.", "tier": 2},
+  "questions": {
+    "team": {"type": "choice", "instructions": "Which team should handle this ticket?", "criteria": {"billing": "Payments and refunds", "technical": null, "other": "None of the above"}},
+    "refund": {"type": "noul", "instructions": "Does the customer explicitly ask for a refund?"},
+    "urgency": {"type": "score", "instructions": "How urgent is this ticket?", "criteria": ["Routine", "Soon", "Urgent"]}}},
+ {"name": "HTML-significant characters, non-ASCII, line and paragraph separators",
+  "state": "a <b> & c é   next   end \"quoted\"",
+  "questions": {"x&y": {"type": "noul", "instructions": "Is <this> & that true?", "criteria": {"false": "No <b>", "true": "Yes & more"}}}},
+ {"name": "structured instructions",
+  "state": ["line one", "line <two>"],
+  "questions": {"q": {"type": "choice", "instructions": {"task": "pick", "note": "a<b"}, "criteria": {"a": null, "b": null}}}}
+]

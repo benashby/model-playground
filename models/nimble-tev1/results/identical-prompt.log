@@ -1,0 +1,13 @@
+# 2026-09-30T15:45:13Z
+host: Intel(R) Xeon(R) CPU E5-2698 v4 @ 2.20GHz; isa avx2; os.cpu_count 12, affinity 12, cgroup quota None, /proc/cpuinfo cpu cores 20; 16.0 GiB; Linux x86_64
+model: tev1-0.8b-q8_0.gguf
+
+== distro-b9190: version: 9190 (b64739e)
+  request 1: 200   request 2: no response (RemoteDisconnected)   alive after: False
+  log: /build/source/common/common.cpp:1489: failed to remove sequence 0 with p0=5, p1=-1
+
+== upstream-b11232: version: 0.5.0-dev (build 1, commit 6f767fe)
+  request 1: 200   request 2: 200   alive after: True
+
+== ollama-0.35.0-bundled: version: 0.4.1-dev (build 1, commit 161755f29)
+  request 1: 200   request 2: 200   alive after: True

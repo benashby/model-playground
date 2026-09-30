@@ -1,0 +1,63 @@
+# 2026-09-30T15:34:38Z Ollama 0.35.0 release tarball (CPU libraries), model tev1:0.8b. ollama-runner = the llama-server Ollama spawned (llama.cpp b11232 + Ollama's compat patch); upstream-b11232 = the same tag built clean by build_llama_cpp.sh cpu; distro-b9190 = a separately packaged older build. All load the same GGUF (sha256 fa9732e3...)
+host: Intel(R) Xeon(R) CPU E5-2698 v4 @ 2.20GHz; isa avx2; os.cpu_count 12, affinity 12, cgroup quota None, /proc/cpuinfo cpu cores 20; 16.0 GiB; Linux x86_64
+server ollama-runner: build b1-161755f29, n_ctx 2304
+server upstream-b11232: build b1-6f767fe, n_ctx 2304
+server distro-b9190: build b9190-b64739e, n_ctx 2304
+
+== ticket-3q.json  (Ollama usage.input_tokens 727)
+  ollama-runner: usage.input_tokens 727
+  upstream-b11232: usage.input_tokens 727
+  distro-b9190: usage.input_tokens 727
+  team: ollama {"billing": 0.986435, "technical": 0.01319, "other": 0.000375}
+    ollama-runner: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375} max|d| 2.98e-09 same answer True
+    upstream-b11232: {"billing": 0.986435, "technical": 0.01319, "other": 0.000375} max|d| 2.98e-09 same answer True
+    distro-b9190: {"billing": 0.983039, "technical": 0.016521, "other": 0.00044} max|d| 3.40e-03 same answer True
+  refund: ollama {"false": 0.149645, "true": 0.850355}
+    ollama-runner: {"false": 0.149645, "true": 0.850355} max|d| 5.80e-09 same answer True
+    upstream-b11232: {"false": 0.149645, "true": 0.850355} max|d| 5.80e-09 same answer True
+    distro-b9190: {"false": 0.147784, "true": 0.852216} max|d| 1.86e-03 same answer True
+  urgency: ollama {"0": 0.211034, "1": 0.373419, "2": 0.415547}
+    ollama-runner: {"0": 0.211034, "1": 0.373419, "2": 0.415547} max|d| 7.28e-09 same answer True
+    upstream-b11232: {"0": 0.211034, "1": 0.373419, "2": 0.415547} max|d| 7.28e-09 same answer True
+    distro-b9190: {"0": 0.222113, "1": 0.388837, "2": 0.38905} max|d| 2.65e-02 same answer True
+
+== ticket-8q.json  (Ollama usage.input_tokens 3891)
+  ollama-runner: usage.input_tokens 3891
+  upstream-b11232: usage.input_tokens 3891
+  distro-b9190: usage.input_tokens 3891
+  team: ollama {"billing": 0.991654, "technical": 0.008186, "other": 0.00016}
+    ollama-runner: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016} max|d| 9.47e-10 same answer True
+    upstream-b11232: {"billing": 0.991654, "technical": 0.008186, "other": 0.00016} max|d| 9.47e-10 same answer True
+    distro-b9190: {"billing": 0.990625, "technical": 0.009207, "other": 0.000168} max|d| 1.03e-03 same answer True
+  refund: ollama {"false": 0.095213, "true": 0.904787}
+    ollama-runner: {"false": 0.095213, "true": 0.904787} max|d| 7.97e-09 same answer True
+    upstream-b11232: {"false": 0.095213, "true": 0.904787} max|d| 7.97e-09 same answer True
+    distro-b9190: {"false": 0.073202, "true": 0.926798} max|d| 2.20e-02 same answer True
+  urgency: ollama {"0": 0.180097, "1": 0.422821, "2": 0.397082}
+    ollama-runner: {"0": 0.180097, "1": 0.422821, "2": 0.397082} max|d| 5.54e-09 same answer True
+    upstream-b11232: {"0": 0.180097, "1": 0.422821, "2": 0.397082} max|d| 5.54e-09 same answer True
+    distro-b9190: {"0": 0.179304, "1": 0.428419, "2": 0.392277} max|d| 5.60e-03 same answer True
+  sentiment: ollama {"0": 0.453437, "1": 0.287996, "2": 0.258568}
+    ollama-runner: {"0": 0.453437, "1": 0.287996, "2": 0.258568} max|d| 1.30e-08 same answer True
+    upstream-b11232: {"0": 0.453437, "1": 0.287996, "2": 0.258568} max|d| 1.30e-08 same answer True
+    distro-b9190: {"0": 0.457644, "1": 0.295067, "2": 0.247289} max|d| 1.13e-02 same answer True
+  churn: ollama {"false": 0.845499, "true": 0.154501}
+    ollama-runner: {"false": 0.845499, "true": 0.154501} max|d| 2.27e-09 same answer True
+    upstream-b11232: {"false": 0.845499, "true": 0.154501} max|d| 2.27e-09 same answer True
+    distro-b9190: {"false": 0.81406, "true": 0.18594} max|d| 3.14e-02 same answer True
+  language: ollama {"en": 0.781292, "es": 0.005546, "other": 0.213162}
+    ollama-runner: {"en": 0.781292, "es": 0.005546, "other": 0.213162} max|d| 4.64e-09 same answer True
+    upstream-b11232: {"en": 0.781292, "es": 0.005546, "other": 0.213162} max|d| 4.64e-09 same answer True
+    distro-b9190: {"en": 0.792938, "es": 0.005879, "other": 0.201183} max|d| 1.20e-02 same answer True
+  pii: ollama {"false": 0.959809, "true": 0.040191}
+    ollama-runner: {"false": 0.959809, "true": 0.040191} max|d| 2.15e-09 same answer True
+    upstream-b11232: {"false": 0.959809, "true": 0.040191} max|d| 2.15e-09 same answer True
+    distro-b9190: {"false": 0.964132, "true": 0.035868} max|d| 4.32e-03 same answer True
+  human: ollama {"false": 0.743066, "true": 0.256934}
+    ollama-runner: {"false": 0.743066, "true": 0.256934} max|d| 9.23e-10 same answer True
+    upstream-b11232: {"false": 0.743066, "true": 0.256934} max|d| 9.23e-10 same answer True
+    distro-b9190: {"false": 0.704445, "true": 0.295555} max|d| 3.86e-02 same answer True
+
+largest |probability difference| from Ollama, ollama-runner: 1.30e-08
+largest |probability difference| from Ollama, upstream-b11232: 1.30e-08
+largest |probability difference| from Ollama, distro-b9190: 3.86e-02

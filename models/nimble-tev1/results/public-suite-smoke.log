@@ -1,0 +1,46 @@
+# 2026-09-30T15:28:33Z PLUMBING CHECK ONLY: 8 records of one subset on a 0.8B model on a CPU. Not an accuracy result.
+# ollama = Ollama 0.35.0 /v1/systemone (its runner: 20 threads); port = systemone.py over a separate llama-server of the same bundled build, 12 threads
+== ollama --url http://127.0.0.1:11499 --model tev1:0.8b
+backend: ollama http://127.0.0.1:11499/v1/systemone
+  done 8 errors 0 correct 7 of 8
+   boolq-000d96b58fa78f9b pred False ref False p_true=0.276892
+   boolq-00580330d6a70a4f pred False ref False p_true=0.145012
+   boolq-009f03ed4e3d4a27 pred True ref True p_true=0.973167
+   boolq-02738b66ae7328d2 pred True ref True p_true=0.840204
+   boolq-02ac8a5876845b91 pred True ref True p_true=0.973537
+   boolq-02d381dd9b7d5695 pred True ref True p_true=0.889163
+   boolq-03a1c4a8f1331272 pred False ref True p_true=0.157810
+   boolq-03c91e19b668e89b pred True ref True p_true=0.875346
+== port --server http://127.0.0.1:18080 --model tev1:0.8b --format ollama --system ollama-tev1
+backend: systemone.py server=http://127.0.0.1:18080 build=b1-161755f29 gguf=tev1-0.8b-q8_0.gguf format=ollama system=ollama-tev1 prime=True temperature=1.0
+  done 8 errors 0 correct 7 of 8
+   boolq-000d96b58fa78f9b pred False ref False p_true=0.276892
+   boolq-00580330d6a70a4f pred False ref False p_true=0.145012
+   boolq-009f03ed4e3d4a27 pred True ref True p_true=0.973167
+   boolq-02738b66ae7328d2 pred True ref True p_true=0.859640
+   boolq-02ac8a5876845b91 pred True ref True p_true=0.973537
+   boolq-02d381dd9b7d5695 pred True ref True p_true=0.889163
+   boolq-03a1c4a8f1331272 pred False ref True p_true=0.157810
+   boolq-03c91e19b668e89b pred True ref True p_true=0.875346
+== port --server http://127.0.0.1:18080 --model tev1:0.8b --format tev1 --system tev1
+backend: systemone.py server=http://127.0.0.1:18080 build=b1-161755f29 gguf=tev1-0.8b-q8_0.gguf format=tev1 system=tev1 prime=True temperature=1.0
+  done 8 errors 0 correct 7 of 8
+   boolq-000d96b58fa78f9b pred False ref False p_true=0.179979
+   boolq-00580330d6a70a4f pred False ref False p_true=0.091390
+   boolq-009f03ed4e3d4a27 pred True ref True p_true=0.980454
+   boolq-02738b66ae7328d2 pred True ref True p_true=0.735196
+   boolq-02ac8a5876845b91 pred True ref True p_true=0.993281
+   boolq-02d381dd9b7d5695 pred True ref True p_true=0.919889
+   boolq-03a1c4a8f1331272 pred False ref True p_true=0.331465
+   boolq-03c91e19b668e89b pred True ref True p_true=0.926618
+
+# 2026-09-30T15:29:48Z --isolate on a --cache-ram 0 server: the same 8 records twice; before run B the server scores an unrelated fixture
+   boolq-000d96b58fa78f9b A 0.276892 B 0.276892 |A-B| 0.0e+00   (Ollama, not isolated: 0.276892)
+   boolq-00580330d6a70a4f A 0.145012 B 0.145012 |A-B| 0.0e+00   (Ollama, not isolated: 0.145012)
+   boolq-009f03ed4e3d4a27 A 0.973167 B 0.973167 |A-B| 0.0e+00   (Ollama, not isolated: 0.973167)
+   boolq-02738b66ae7328d2 A 0.859640 B 0.859640 |A-B| 0.0e+00   (Ollama, not isolated: 0.840204)
+   boolq-02ac8a5876845b91 A 0.973537 B 0.973537 |A-B| 0.0e+00   (Ollama, not isolated: 0.973537)
+   boolq-02d381dd9b7d5695 A 0.889163 B 0.889163 |A-B| 0.0e+00   (Ollama, not isolated: 0.889163)
+   boolq-03a1c4a8f1331272 A 0.157810 B 0.157810 |A-B| 0.0e+00   (Ollama, not isolated: 0.157810)
+   boolq-03c91e19b668e89b A 0.875346 B 0.875346 |A-B| 0.0e+00   (Ollama, not isolated: 0.875346)
+   largest |A-B|: 0.0e+00

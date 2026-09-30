@@ -1,0 +1,21 @@
+# 2026-09-30T15:06:08Z go version go1.26.6 linux/amd64 python 3.13.15
+ollama/ollama 1abe35e6e6e777e858bbfbba283667ee8d516801
+bespokelabsai/nimble 62076b4f2d365b5879dafcf7f6dd072a1fe76df7
+nimble SYSTEM_PROMPT == systemone['nimble']: True
+
+== plain string state
+  systemone ollama format == Ollama decision.Compile: True
+  systemone nimble format == Nimble prepare_prompts: True
+  Ollama vs Nimble upstream, 'label': 372 vs 397 chars, first at char 11: '{"context":"Our checkout has returne' vs '{"context": "Our checkout has return'
+== object state, all three types, null description, default noul
+  systemone ollama format == Ollama decision.Compile: True
+  Nimble upstream: refused: 'criteria'
+== HTML-significant characters, non-ASCII, line and paragraph separators
+  systemone ollama format == Ollama decision.Compile: True
+  systemone nimble format == Nimble prepare_prompts: True
+  Ollama vs Nimble upstream, 'x&y': 318 vs 302 chars, first at char 11: '{"context":"a \\u003cb\\u003e \\u0026 c' vs '{"context": "a \\u003cb\\u003e & c é \u2028'
+== structured instructions
+  systemone ollama format == Ollama decision.Compile: True
+  Nimble upstream: refused: q: a nonempty description is required.
+
+all systemone formats match their sources

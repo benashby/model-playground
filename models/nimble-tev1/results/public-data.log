@@ -1,0 +1,15 @@
+# 2026-09-30T15:24:12Z bespokelabsai/nimble 62076b4
+vitaminc-dev          count  599  source ok  dataset ok  6144a345cb88
+massive-en-US         count  350  source ok  dataset ok  f173a34108c1
+massive-de-DE         count  350  source ok  dataset ok  6eacfdfd5f55
+boolq                 count  300  source ok  dataset ok  2c239fdc3e4d
+squad2                count  299  source ok  dataset ok  95316d9d810d
+paws                  count  250  source ok  dataset ok  ffc7388bbf02
+multinli              count  299  source ok  dataset ok  e0349ce46c79
+civil_comments        count  300  source ok  dataset ok  7f76c916faa5
+aegis2                count  250  source ok  dataset ok  2d10424f7d2b
+helpsteer2            count  249  source ok  dataset ok  c2395b2f7942
+summeval-relevance    count  240  source ok  dataset ok  e10be11770ee
+summeval-consistency  count  144  source ok  dataset ok  86cc3627a2dd
+pubmedqa              count  250  source ok  dataset ok  8ee766a759a6
+all subsets match Bespoke's manifests
