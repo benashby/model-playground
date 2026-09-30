@@ -1,6 +1,6 @@
 ---
 name: adding-a-model
-description: Use when starting a new model investigation in model-playground — any modality: a text LLM behind vLLM or llama.cpp, an ASR or TTS checkpoint, a speech-to-speech model, a NIM container, an offline transformers checkpoint, or the same model moved between the cloud GPU node, the local workstation and the LAN GPU box, or between CUDA and ROCm. Covers the classification questions to answer BEFORE writing code, what a new model note and its probes must contain, licensing triage across weights/code/container, VRAM and precision budgeting, fixture requirements, the checklist for a first honest run, and — for speech models only — the protocol-adapter contract and the refactor from one adapter to many. Start here rather than in the code.
+description: Use when starting a new model investigation in model-playground — any modality: a text LLM behind vLLM or llama.cpp, an ASR or TTS checkpoint, a speech-to-speech model, a NIM container, an offline transformers checkpoint, or the same model moved between the cloud GPU node, the local workstation and the Windows RTX 3090 desktop, or between CUDA and ROCm. Covers the classification questions to answer BEFORE writing code, what a new model note and its probes must contain, licensing triage across weights/code/container, VRAM and precision budgeting, fixture requirements, the checklist for a first honest run, and — for speech models only — the protocol-adapter contract and the refactor from one adapter to many. Start here rather than in the code.
 ---
 
 # Adding a model
@@ -73,8 +73,8 @@ See the `model-hosts` skill for the full matrix. The short version:
 |---|---|---|---|
 | **cloud-gpu** (rented VM) | 2× H100 80GB, NVLink | **CUDA** | anything large; the only place NIM/TensorRT works. Billed hourly. |
 | **workstation** (this desktop) | RDNA4 Radeon (gfx1201) | **ROCm / Vulkan** | llama.cpp, small models, CPU inference; no CUDA ever |
-| **lan-gpu** | 2× RTX 3090 | **CUDA** | mid-size models, always-on, no marginal cost |
 | **workstation CPU** | — | — | tiny models, tokenizer work, smoke tests, ternary ASR |
+| **windows-3090** | RTX 3090 24 GB | **CUDA**, native Windows | models up to ~20 GB, CUDA without cloud cost; shared with interactive use and CI |
 
 **ROCm is not a drop-in for CUDA.** A CUDA-only container (every NIM image, most
 TensorRT artifacts) simply will not run on the workstation. Check this *first* — it

@@ -45,13 +45,19 @@ That is your job.
 Use the roles in the `model-hosts` skill. Describe hosts by role in anything
 you commit, never by name or address.
 
-- **lan-gpu (2× RTX 3090, CUDA)** is the primary. Nimble at Q8_0 is 9.5 GB
-  and fits one card; run models one at a time on one card, `CUDA_VISIBLE_DEVICES=0`,
-  so the numbers are single-GPU. Check `nvidia-smi --query-compute-apps` first:
-  a resident server may hold both cards, and the skill says how to free them.
-- **workstation (RDNA4, 16 GB)** is the second backend, via Vulkan. It is
-  there for experiment B's cross-backend question, not for the main suite.
-  All three models fit in 16 GB at Q8_0.
+Confirm with the owner before running anything; this is the proposal.
+
+- **windows-3090 (RTX 3090 24 GB, CUDA, native Windows)** for the CUDA
+  numbers. All three models fit at Q8_0. It is shared: the desktop holds
+  part of the card, and it runs CI and interactive use, so check both before
+  any timed run and record load. `build_llama_cpp.sh` is bash; build there
+  with CMake and Ninja in a VS developer shell, same tag and flags.
+- **workstation (RDNA4, 16 GB)** is the second backend, via Vulkan, for
+  experiment B's cross-backend question. All three models fit in 16 GB.
+- **cloud-gpu** only if the owner approves the cost, for example to separate
+  a Windows/WDDM effect from a CUDA one on Linux.
+
+Run models one at a time on one card, so the numbers are single-GPU.
 
 If only one host is available, do everything on it and say which in every log.
 

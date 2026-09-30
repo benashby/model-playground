@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build llama-server from a pinned llama.cpp tag, for one GPU backend.
 #
-#   models/nimble-tev1/probes/build_llama_cpp.sh cuda            # lan-gpu (RTX 3090s)
+#   models/nimble-tev1/probes/build_llama_cpp.sh cuda            # an NVIDIA host (windows-3090 under Git Bash, cloud-gpu)
 #   models/nimble-tev1/probes/build_llama_cpp.sh vulkan          # workstation (RDNA4)
 #   models/nimble-tev1/probes/build_llama_cpp.sh hip             # workstation, ROCm
 #   models/nimble-tev1/probes/build_llama_cpp.sh cpu b9190       # any tag

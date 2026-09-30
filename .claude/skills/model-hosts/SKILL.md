@@ -1,6 +1,6 @@
 ---
 name: model-hosts
-description: Use when choosing where to run a model, provisioning a host, or debugging a host-specific failure in model-playground — the cloud GPU node (2x H100 80GB, CUDA), the local workstation (RDNA4 Radeon, ROCm/Vulkan, no CUDA ever), the LAN GPU box (2x RTX 3090, CUDA), the Windows GPU box (GTX 1650, native Windows, CUDA), or CPU. Covers the host matrix and how to pick, running on native Windows (wheels, clocks, cuDNN, GStreamer), the CUDA-vs-ROCm hard boundary that eliminates hosts before anything else, VRAM budgeting from safetensors dtype, the cloud deployment recipe including Docker/NVIDIA-container-toolkit/NGC auth, VM lifecycle and the ephemeral-IP trap, and the SSH gotchas specific to this workstation.
+description: Use when choosing where to run a model, provisioning a host, or debugging a host-specific failure in model-playground — the cloud GPU node (2x H100 80GB, CUDA), the local workstation (RDNA4 Radeon, ROCm/Vulkan, no CUDA ever), the Windows desktop with an RTX 3090 (native Windows, CUDA 12.9 and 13.4, shared with interactive use and CI), or CPU. Covers the host matrix and how to pick, running on native Windows (wheels, clocks, cuDNN, GStreamer, SSH into PowerShell), the CUDA-vs-ROCm hard boundary that eliminates hosts before anything else, VRAM budgeting from safetensors dtype, the cloud deployment recipe including Docker/NVIDIA-container-toolkit/NGC auth, VM lifecycle and the ephemeral-IP trap, and the SSH gotchas specific to this workstation.
 ---
 
 # Hosts
@@ -13,15 +13,14 @@ configuration; anything here that needs one reads it from the environment
 
 ## The matrix
 
-Five roles. Which physical machines fill them is deployment detail.
+Four roles. Which physical machines fill them is deployment detail.
 
 | Role | Compute | VRAM | Reach | Notes |
 |---|---|---|---|---|
 | **cloud-gpu** | 2× H100 80GB HBM3, NVLink | 160 GB | rented VM, SSH over public IP | Only role that runs CUDA containers at scale. **Billed hourly while up**, and preemptible. |
 | **workstation** | RDNA4 Radeon (gfx1201) | 16 GB | local | **ROCm/Vulkan only. No CUDA, ever.** Where development happens. |
-| **lan-gpu** | 2× RTX 3090 | 48 GB | LAN | CUDA. Always-on, no marginal cost. Managed out of band. |
 | **workstation CPU** | — | — | local | Tiny models, tokenizers, smoke tests. More capable than it sounds — see the Parakeet note in `models/`. |
-| **windows-gpu** | GTX 1650 (Turing, sm_75) + 8-core AVX2 CPU, no AVX-512 | 4 GB | LAN | **Native Windows 10**, CUDA 12.9 + 13.4 and cuDNN 9 installed machine-wide. The Windows platform for every note: the Parakeet stack is verified here (see `models/parakeet-redux/notes/14-windows.md`). Also a CI runner, for this repo's `windows-gpu` workflow and another project's, so check load before timing anything. |
+| **windows-3090** | RTX 3090 24 GB (Ampere, sm_86, PCIe 4.0 x16) + Ryzen 7 3700X (8C/16T, AVX2, no AVX-512), 32 GB RAM | 24 GB | LAN, SSH into PowerShell 7 | **Native Windows 11**, CUDA 12.9 + 13.4 and cuDNN 9 installed machine-wide, MSVC and CMake for native builds. The only CUDA host with no marginal cost, and the Windows platform for every note. **Shared:** it is also the owner's interactive desktop and display GPU (about 2 GB of VRAM held at idle), and the self-hosted runner for this repo's `windows-gpu` workflow and another project's. Check for running jobs and interactive load before timing anything. |
 
 Operator tooling for starting, stopping and selecting models on these hosts is
 private and lives outside this repo. This file documents what the *harness*
@@ -34,9 +33,10 @@ needs to know: which role can run what, and how each one fails.
    Check this before anything else — it is the cheapest question and the one
    most often answered last.
 2. **Does it fit in VRAM?** Measure, do not trust the model card (below).
-3. **Is it worth cloud cost?** **lan-gpu**'s 48 GB has no marginal cost. Use
-   **cloud-gpu** only when the model genuinely needs 80 GB-class cards or
-   NVLink.
+3. **Is it worth cloud cost?** **windows-3090**'s 24 GB has no marginal cost,
+   if the stack builds on native Windows and the numbers can tolerate a shared
+   machine. Use **cloud-gpu** only when the model genuinely needs 80 GB-class
+   cards, NVLink, Linux-only containers, or an unshared machine for timing.
 4. **Local-first for iteration.** A 3 B model on the **workstation** you can
    restart in seconds beats a cloud round trip for protocol and harness work.
    Some work does not need a GPU at all: a ternary ASR model runs at 57× real
@@ -59,11 +59,6 @@ Not a compatibility layer you can shim. Practical consequences:
   slim images, `cuda-bindings` uninstalled (NeMo otherwise probes NVIDIA's
   `libcuda` and crashes at model load), and `torch.backends.cudnn.enabled =
   False` (MIOpen's LSTM fails on gfx1201). The ROCm wheels are ~16 GB of venv.
-- **On the lan-gpu role**, podman reaches the GPUs through CDI
-  (`--device nvidia.com/gpu=all`); its OS enforces SELinux, so containers need
-  `--security-opt label=disable`. A resident model server there holds most of
-  both cards: stop it and confirm with `nvidia-smi --query-compute-apps`
-  before running anything else.
 - **Vulkan** via llama.cpp is often the more reliable local path than ROCm
   proper, at some throughput cost.
 - The project module deliberately declares **no** AI toolkit — setting CUDA env
@@ -73,8 +68,9 @@ Not a compatibility layer you can shim. Practical consequences:
 
 ## Windows — the second platform
 
-Every note should say how its model runs on Linux **and** on Windows. What the
-Parakeet work established about native Windows (no WSL):
+Every note should say how its model runs on Linux **and** on Windows. The
+Parakeet work established this about native Windows (no WSL), on a smaller
+Windows GPU machine since retired; **windows-3090** is the Windows host now:
 
 - **Wheels decide it.** Check each native package's PyPI files for `win_amd64`
   before assuming anything. Photon's Windows kernels exist but have **no int8 CPU
@@ -91,7 +87,7 @@ Parakeet work established about native Windows (no WSL):
   `/proc` on Linux and Win32 on Windows. `taskset` has no Windows equivalent on
   the command line; probes that pin take `ONNX_CPUS`.
 - **cuDNN's CUDA 12 and CUDA 13 builds share the DLL name** `cudnn64_9.dll`, so
-  only one can be on PATH; the machine-wide one is the CUDA 12 build.
+  only one can be on PATH.
 - **A shell started before a PATH change keeps the old PATH**: GPU runs then fail
   with `cublasLt64_12.dll ... missing`. Services (a CI runner) need a restart.
 - **GStreamer's official MSVC installer ships PyGObject** in its own
@@ -100,8 +96,23 @@ Parakeet work established about native Windows (no WSL):
   not SIGINT (`examples/test_gstreamer.py`).
 - **Windows `tar -xjf` fails on the sherpa-onnx `.tar.bz2` models** (it shells out
   to a bzip2 that breaks); extract with Python's `tarfile`.
-- A 4 GB card does not fail when CUDA overcommits: Windows spills into shared
+- A card does not fail when CUDA overcommits: Windows spills into shared
   system memory and the run silently slows. Watch `max_memory_allocated`.
+  On **windows-3090** the desktop already holds part of the card, so budget
+  from `nvidia-smi`'s free memory, not from 24 GB.
+- **WDDM, not TCC.** A GeForce card on Windows runs under the display driver
+  model: kernel launches go through the Windows scheduler and the desktop
+  competes for the GPU. Linux numbers on the same card are not interchangeable
+  with Windows ones; say which OS a GPU timing came from.
+- **SSH lands in PowerShell 7**, not cmd, so `&&`, `%VAR%` and `ver` behave
+  differently. `pwsh -Command -` over stdin drops multi-line blocks unless each
+  is followed by a blank line: copy a `.ps1` over and run
+  `pwsh -NoProfile -File` instead. Scripted SSH should turn off connection
+  sharing (`-o ControlMaster=no -o ControlPath=none`); a persisted master
+  held a piped call open past its timeout.
+- **Bash scripts** (`build_llama_cpp.sh`) run under Git Bash at best; a
+  native CUDA build wants a VS developer environment (`vcvars64`) with CMake
+  and Ninja.
 
 ## VRAM budgeting
 

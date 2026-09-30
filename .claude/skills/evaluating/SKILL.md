@@ -198,8 +198,8 @@ Windows and run `probes/clocks.py` on any new platform before trusting a latency
 
 ### A busy machine read as a slow library
 
-A host that does other work (the Windows box also runs CI) inflates latency and
-lag without any library being at fault; on that box a run at 100 % CPU had to be
+A host that does other work (a CI runner, say) inflates latency and
+lag without any library being at fault; on one such machine a run at 100 % CPU had to be
 discarded. Record machine load next to every timing run (`clocks.py` does), and
 rerun on a quiet machine before blaming the stack.
 

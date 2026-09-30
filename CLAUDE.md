@@ -163,8 +163,9 @@ yet, and one half-done. Only one is driven by the harness:
   Driven by its own probes over a bare llama-server; no harness involvement.
 
 **Two platforms, Linux and Windows.** The notes were written on Linux; the
-Parakeet stack is also verified on native Windows (a GTX 1650 box), in
-`models/parakeet-redux/notes/14-windows.md`. Keep both working and documented:
+Parakeet stack is also verified on native Windows, in
+`models/parakeet-redux/notes/14-windows.md`, on a machine since retired; the
+Windows host is now `windows-3090` (see `model-hosts`). Keep both working and documented:
 Linux code paths and output stay unchanged, Windows branches are gated on
 `sys.platform == "win32"`, opt-in variables (`PHOTON_DEVICE`, `ONNX_CPUS`) default
 to the old behaviour, OS-specific host facts go through
