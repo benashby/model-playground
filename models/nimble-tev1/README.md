@@ -116,7 +116,7 @@ standard-library Python and handles one request at a time.
 | [01, how it works](notes/01-how-it-works.md) | the scoring mechanism from source, the primer, the three prompt formats, what Ollama ships, licensing |
 | [02, CPU results](notes/02-cpu-results.md) | fidelity across builds, the crash, priming, coupling, cache history, the benchmark data |
 | [03, GPU results](notes/03-gpu-results.md) | fidelity on CUDA, batch size, backend drift, accuracy and calibration on the public suite, prompt formats, latency |
-| [HANDOFF.md](HANDOFF.md) | the plan the GPU half followed, and its status |
+| [HANDOFF.md](HANDOFF.md) | what is left (quantisation first), and how the runs were set up |
 
 ## Probes
 
@@ -135,6 +135,7 @@ standard-library Python and handles one request at a time.
 | [`suite_table.py`](probes/suite_table.py) | per-subset accuracy and error counts across runs, `results/public-suite/accuracy-*.md` |
 | [`compare_table.py`](probes/compare_table.py) | paired comparison tables with McNemar tests, `results/public-suite/compare-*-table.md` |
 | [`rows_diff.py`](probes/rows_diff.py) | record-by-record differences between two runs, `results/rows-diff.log` |
+| [`ollama_across_logs.py`](probes/ollama_across_logs.py) | Ollama's own answers compared between two machines' fidelity logs, `results/ollama-across-gpus.log` |
 | [`temperature.py`](probes/temperature.py) | one fitted temperature per run, on held-out families, `results/temperature/` |
 | [`latency_sweep.py`](probes/latency_sweep.py) | cost against state length and question count, `results/latency-sweep-*.log` |
 | [`build_llama_cpp.sh`](probes/build_llama_cpp.sh) | llama-server at a pinned tag for CUDA, Vulkan, HIP or CPU |

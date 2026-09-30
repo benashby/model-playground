@@ -91,7 +91,7 @@ fixture, where Ollama's own distribution is nearly tied (0.398996 for level 2,
 Ollama itself moves between GPUs. The same Ollama 0.35.0, model and request on
 the H100 and on the RTX 3090 differ by up to 2.51e-02 for `tev1:0.8b`, 1.10e-02
 for `tev1` and 9.89e-03 for `nimble`, with no top answer changing on the
-fixtures (compared from the `ollama` lines of the two fidelity logs). A
+fixtures (`results/ollama-across-gpus.log`, from `probes/ollama_across_logs.py`). A
 probability threshold tuned on one GPU does not carry to another GPU, let alone
 to a CPU.
 
@@ -292,6 +292,25 @@ the small Tev1 but cuts a cold 32-question Nimble request from 9.5 s to 3.0 s on
 the RTX 3090. For the streaming case, a new 1,024-token state with 8 questions
 costs Nimble about 1.0 s on the RTX 3090 and 0.85 s on the H100, and Tev1 0.8B
 about 0.47 s and 0.40 s.
+
+## Repeating it
+
+1. Build `b11232` for each backend with `probes/build_llama_cpp.sh` (Linux;
+   `CUDA_ARCH=90` for an H100, and its header shows the CUDA container used on
+   a host with no toolkit) or `probes/build_llama_cpp.cmd` (native Windows).
+2. Fetch the GGUFs with `probes/registry.py --download` and check each digest.
+   The registry serves one connection at about 3 to 6 MB/s here, so a
+   parallel ranged download checked against the manifest's SHA-256 is much
+   faster for the 9.5 GB Nimble file.
+3. Serve each model with `-c 2050` (Tev1) or `-c 8194` (Nimble), `-np 1 -ngl 99
+   --cache-ram 0`, and the batch size Ollama would choose on that card: read it
+   from Ollama's runner command line, or apply the rule above (1024 for Nimble
+   when VRAM allows, 512 for Tev1). Check `/props` reports the model you just
+   started before measuring anything.
+4. Run the probes as each log's first line records, then the suite with
+   `probes/public_suite.py ... --isolate` per subset, and the analysis with
+   `suite_table.py`, `compare_table.py` (over Bespoke's `compare_public`
+   output), `rows_diff.py` and `temperature.py`.
 
 ## Not exercised
 

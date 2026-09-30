@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Build llama-server from a pinned llama.cpp tag, for one GPU backend.
 #
-#   models/nimble-tev1/probes/build_llama_cpp.sh cuda            # an NVIDIA host (windows-3090 under Git Bash, cloud-gpu)
+#   models/nimble-tev1/probes/build_llama_cpp.sh cuda            # an NVIDIA host on Linux; CUDA_ARCH=90 for an H100
+#   (native Windows: build_llama_cpp.cmd beside this script)
 #   models/nimble-tev1/probes/build_llama_cpp.sh vulkan          # workstation (RDNA4)
 #   models/nimble-tev1/probes/build_llama_cpp.sh hip             # workstation, ROCm
 #   models/nimble-tev1/probes/build_llama_cpp.sh cpu b9190       # any tag
@@ -12,7 +13,14 @@
 # when probabilities differ (fidelity.py).
 #
 # Builds outside the repository, in $LLAMA_BUILD_ROOT (default ~/.cache/llama-builds),
-# and prints the binary path and its --version line last.
+# and prints the binary path and its --version line last. CUDA_ARCH, if set, is
+# passed as CMAKE_CUDA_ARCHITECTURES (the GPU half used 90 on an H100).
+#
+# A host with a GPU driver but no CUDA toolkit can build and run inside NVIDIA's
+# devel image, the image and cmake flags the H100 build used:
+#   podman run --rm --device nvidia.com/gpu=all -v $PWD:/w -w /w docker.io/nvidia/cuda:12.9.1-devel-ubuntu24.04 \
+#     bash -c 'apt-get update -qq && apt-get install -y -qq cmake git && CUDA_ARCH=90 LLAMA_BUILD_ROOT=/w/llama-builds \
+#       models/nimble-tev1/probes/build_llama_cpp.sh cuda'
 set -euo pipefail
 backend=${1:?usage: build_llama_cpp.sh cuda|vulkan|hip|cpu [tag]}
 tag=${2:-b11232}
@@ -21,7 +29,7 @@ src=$root/llama.cpp-$tag
 build=$src/build-$backend
 
 case $backend in
-  cuda)   flags=(-DGGML_CUDA=ON) ;;
+  cuda)   flags=(-DGGML_CUDA=ON ${CUDA_ARCH:+-DCMAKE_CUDA_ARCHITECTURES=$CUDA_ARCH}) ;;
   vulkan) flags=(-DGGML_VULKAN=ON) ;;
   # gfx1201 is RDNA4. Override with AMDGPU_TARGETS for another card.
   hip)    flags=(-DGGML_HIP=ON "-DAMDGPU_TARGETS=${AMDGPU_TARGETS:-gfx1201}") ;;
