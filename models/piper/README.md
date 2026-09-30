@@ -2,8 +2,8 @@
 
 A fast, local neural text-to-speech engine based on VITS. Seeded for investigation 2026-09-27.
 
-- Upstream code: <https://github.com/rhasspy/piper> (MIT)
-- Voice models repository: <https://huggingface.co/rhasspy/piper-voices> (MIT / Public Domain depending on voice dataset)
+- Upstream code: <https://github.com/rhasspy/piper> (MIT, archived); development continues in <https://github.com/OHF-Voice/piper1-gpl> (GPL-3.0)
+- Voice models repository: <https://huggingface.co/rhasspy/piper-voices> (tagged MIT, but each voice's licence comes from its training data; see Licensing)
 - Phonemizer: <https://github.com/rhasspy/piper-phonemize>
 - Author: Michael Hansen (Rhasspy / Nabu Casa)
 
@@ -37,10 +37,10 @@ Piper's pre-trained voices come in three quality profiles:
 
 | Artifact | License | Notes |
 |---|---|---|
-| Engine code (`rhasspy/piper`) | MIT | Permissive commercial use. |
-| Voice models (`piper-voices`) | MIT / Public Domain / CC0 | Model licenses inherit from training corpora. Most official English voices (such as `en_US-lessac`, `en_US-libritts_r`) are MIT or public domain. Check per-voice metadata JSON. |
+| Engine code (`rhasspy/piper`) | MIT, archived | Development continues in `OHF-Voice/piper1-gpl`, which is GPL-3.0, and `pip install piper-tts` (1.8.0) now installs that GPL-3.0-or-later package [CLAIM, GitHub and PyPI metadata, 2026-09-30]. Correction: an earlier version called the engine MIT without saying that the maintained code is GPL. |
+| Voice models (`piper-voices`) | Per voice | The repository is tagged MIT, but each voice's `MODEL_CARD` names the licence of its training data. `en_US-lessac` is trained on the Blizzard 2013 Lessac recordings, whose licence excludes commercial use for voice-synthesis products and bars redistribution. `en_US-libritts_r` is fine-tuned from lessac medium, so it carries the same question although its own data is CC BY 4.0 [CLAIM, the two voices' model cards and the Blizzard licence, read 2026-09-30]. Whether a dataset's licence binds a model trained on it is not settled here. Correction: an earlier version said these voices were MIT or public domain, and pointed to the metadata JSON, which does not carry the licence. |
 | Text frontend (`piper-phonemize`) | MIT | C++ phonemization library. |
-| Phoneme backend (`espeak-ng`) | LGPL-3.0 / GPL-3.0 | Dynamically linked in standard builds. Proprietary distributions embedding Piper statically must review LGPL linking rules. |
+| Phoneme backend (`espeak-ng`) | GPL-3.0 | Its `COPYING` is the GNU GPL version 3. Linking it into a distributed binary, statically or dynamically, is a GPL question. Correction: an earlier version said LGPL-3.0 and pointed to LGPL linking rules. |
 | Inference engine (ONNX Runtime) | MIT | Upstream Microsoft runtime. |
 
 ## Architecture
@@ -76,6 +76,7 @@ echo "Testing Piper speech synthesis." | piper \
 ```bash
 pip install piper-tts
 ```
+This installs `piper1-gpl`, GPL-3.0-or-later (see Licensing).
 ```python
 import wave
 from piper.voice import PiperVoice
@@ -104,7 +105,7 @@ A media tap keeps inference on its own streaming thread with a downstream leaky 
 
 ## Fixtures to probe
 
-For telephony and voicebot media workers:
+For telephony and voicebot media workers. The `lessac` and `libritts` voices are fine as probe fixtures, but their licensing (above) needs review before either ships in a product.
 
 1. Low vs Medium latency: Compare TTFA between `en_US-lessac-low` (16 kHz) and `en_US-lessac-medium` (22.05 kHz).
 2. Direct 16 kHz PSTN output: Compare audio intelligibility and artifact levels of the 16 kHz `low` model against downsampled 22.05 kHz `medium` audio.
